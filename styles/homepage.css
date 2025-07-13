@@ -105,7 +105,26 @@ a:hover {
   padding: 0 1rem;
 }
 /* ==== Rooted in Learning Custom Navbar ==== */
+/*LOGO*/
+.navbar-logo {
+  width: 40px;
+  height: 40px;
+  border-radius: 6px;
+  object-fit: cover;
+}
 
+.navbar-brand span {
+  font-family: var(--font-heading);
+  font-weight: bold;
+  font-size: 1.25rem;
+  color: var(--white);
+  transition: color 0.3s ease-in-out;
+}
+
+.navbar-brand:hover span {
+  color: var(--brand-green);
+}
+/*NAVBAR*/
 .navbar {
   background-color: var(--brand-dark);
   padding: 1rem;

@@ -1,6 +1,31 @@
-/* ==== Rooted in Learning Style Reset and Variables ==== */
+/* ==== Rooted in Learning Complete Stylesheet ==== */
 
-/* 1. CSS RESET */
+/* 1. CSS RESET AND VARIABLES */
+:root {
+  /* Brand Colors */
+  --brand-dark: #293400;
+  --brand-green: #6e915d;
+  --brand-rose: #ab3451;
+  --brand-light: #e8e4e4;
+  --white: #ffffff;
+
+  /* Neutrals */
+  --neutral-light: #f9f9f9;
+  --text-primary: #293400;
+  --text-secondary: #6e915d;
+  --accent: #ab3451;
+  --border-light: #dcdcdc;
+
+  /* Typography */
+  --font-heading: "Red Hat Display", sans-serif;
+  --font-body: "Lexend Deca", sans-serif;
+
+  /* Layout */
+  --navbar-height: 80px;
+  --max-width: 1200px;
+  --section-padding: 4rem 1rem;
+}
+
 *,
 *::before,
 *::after {
@@ -12,13 +37,17 @@
 html,
 body {
   height: 100%;
-  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-family: var(--font-body);
   font-size: 16px;
   color: var(--text-primary);
   background-color: var(--neutral-light);
   line-height: 1.6;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
+}
+
+body {
+  padding-top: var(--navbar-height);
 }
 
 img,
@@ -51,32 +80,7 @@ ol {
   list-style: none;
 }
 
-/* 2. ROOT COLORS & TYPOGRAPHY */
-:root {
-  /* Brand Colors */
-  --brand-dark: #293400; /* Deep olive */
-  --brand-green: #6e915d; /* Sage green */
-  --brand-rose: #ab3451; /* Wine rose */
-  --brand-light: #e8e4e4; /* Pale gray */
-  --white: #ffffff;
-
-  /* Neutrals and Utility */
-  --neutral-light: #f9f9f9;
-  --text-primary: #293400;
-  --text-secondary: #6e915d;
-  --accent: #ab3451;
-  --border-light: #dcdcdc;
-
-  /* Fonts */
-  --font-heading: "Red Hat Display", sans-serif;
-  --font-body: "Lexend Deca", sans-serif;
-
-  /* Sizing */
-  --max-width: 1200px;
-  --section-padding: 4rem 1rem;
-}
-
-/* 3. GLOBAL ELEMENTS */
+/* 2. GLOBAL TYPOGRAPHY */
 h1,
 h2,
 h3,
@@ -86,6 +90,7 @@ h6 {
   font-family: var(--font-heading);
   color: var(--brand-dark);
   margin-bottom: 0.5em;
+  line-height: 1.2;
 }
 
 p {
@@ -94,75 +99,137 @@ p {
   color: var(--text-primary);
 }
 
-a:hover {
-  color: var(--accent);
-  transition: color 0.2s ease-in-out;
-}
-
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
 }
-/* ==== Rooted in Learning Custom Navbar ==== */
-/*LOGO*/
-.navbar-logo {
-  width: 40px;
-  height: 40px;
-  border-radius: 6px;
-  object-fit: cover;
-}
-
-.navbar-brand span {
-  font-family: var(--font-heading);
-  font-weight: bold;
-  font-size: 1.25rem;
-  color: var(--white);
-  transition: color 0.3s ease-in-out;
-}
-
-.navbar-brand:hover span {
-  color: var(--brand-green);
-}
-/*NAVBAR*/
+/* Custom Navbar Styling */
 .navbar {
-  background-color: var(--brand-dark);
-  padding: 1rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.08);
+  background-color: #f8f9fa !important; /* Off-white background */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 0.75rem 0;
 }
 
 .navbar-brand {
-  font-family: var(--font-heading);
+  display: flex;
+  align-items: center;
   font-weight: bold;
+  color: #333 !important;
+  text-decoration: none;
+}
+
+.navbar-logo {
+  height: 40px;
+  width: auto;
+  margin-right: 10px;
+}
+
+.logo-fallback {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: #28a745;
+  color: white;
+  border-radius: 50%;
+  font-weight: bold;
+  font-size: 18px;
+  margin-right: 10px;
+}
+
+.navbar-brand-text {
   font-size: 1.25rem;
-  color: var(--white);
-  transition: color 0.3s ease-in-out;
+  color: #333;
 }
 
-.navbar-brand:hover {
-  color: var(--brand-green);
-}
-
+/* Navigation Link Styling */
 .navbar-nav .nav-link {
-  font-family: var(--font-body);
-  font-size: 1rem;
-  color: var(--white);
-  padding: 0.5rem 1rem;
-  transition: color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+  color: #333 !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+  margin: 0 0.25rem;
+  border-radius: 5px;
+  transition: all 0.3s ease;
+  position: relative;
 }
 
-.navbar-nav .nav-link:hover,
-.navbar-nav .nav-link:focus {
-  color: var(--accent);
-  background-color: rgba(255, 255, 255, 0.05);
-  border-radius: 0.25rem;
+/* Hover Effect - Green */
+.navbar-nav .nav-link:hover {
+  color: #28a745 !important;
+  background-color: rgba(40, 167, 69, 0.1);
+  transform: translateY(-2px);
 }
 
+/* Active Page Styling */
+.navbar-nav .nav-link.active {
+  color: #28a745 !important;
+  background-color: rgba(40, 167, 69, 0.15);
+  font-weight: 600;
+}
+
+/* Active page indicator */
+.navbar-nav .nav-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60%;
+  height: 2px;
+  background-color: #28a745;
+  border-radius: 2px;
+}
+
+/* Mobile Navbar Toggler */
 .navbar-toggler {
   border: none;
-  background: transparent;
+  padding: 0.25rem 0.5rem;
+}
+
+.navbar-toggler:focus {
+  box-shadow: none;
 }
 
 .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='white' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%2833, 37, 41, 0.75%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Mobile Responsive */
+@media (max-width: 991.98px) {
+  .navbar-nav {
+    padding-top: 1rem;
+  }
+
+  .navbar-nav .nav-link {
+    padding: 0.75rem 1rem !important;
+    margin: 0.1rem 0;
+  }
+
+  .navbar-nav .nav-link::after {
+    display: none;
+  }
+
+  .navbar-collapse {
+    background-color: #f8f9fa;
+    margin-top: 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+  }
+}
+
+/* Content area to show navbar is working */
+.content-area {
+  margin-top: 80px;
+  padding: 2rem;
+  min-height: 100vh;
+}
+
+.page-content {
+  display: none;
+}
+
+.page-content.active {
+  display: block;
 }

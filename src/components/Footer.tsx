@@ -3,33 +3,33 @@ import Link from "next/link";
 export default function Footer() {
   const footerLinks = {
     explore: [
-      { label: "Portfolio", href: "#portfolio" },
-      { label: "Philosophy", href: "#philosophy" },
+      { label: "Portfolio", href: "/#projects" },
+      { label: "Philosophy", href: "/learn" },
       { label: "Blog", href: "/learn" },
-      { label: "Speaking", href: "#speaking" },
+      { label: "Speaking", href: "/#contact" },
     ],
     shop: [
       { label: "Templates", href: "/resources" },
-      { label: "Courses", href: "#courses" },
-      { label: "Consulting", href: "#consulting" },
-      { label: "Merch", href: "#merch" },
+      { label: "Courses", href: "/resources" },
+      { label: "Consulting", href: "/#contact" },
+      { label: "Merch", href: "/resources" },
     ],
     support: [
-      { label: "FAQ", href: "#faq" },
-      { label: "Contact", href: "#contact" },
-      { label: "Privacy Policy", href: "#privacy" },
-      { label: "Terms", href: "#terms" },
+      { label: "FAQ", href: "/#contact" },
+      { label: "Contact", href: "/#contact" },
+      { label: "Privacy Policy", href: "#" },
+      { label: "Terms", href: "#" },
     ],
   };
 
   return (
     <footer>
       {/* Newsletter Section */}
-      <section className="bg-rooted-earth py-16 px-6">
+      <section className="bg-rooted-earth py-10 md:py-14 lg:py-16" id="contact">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             <div>
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-4 md:mb-6">
                 Join 5,000+ Educators
               </h2>
               <div className="flex flex-col sm:flex-row gap-3 max-w-md">
@@ -43,12 +43,12 @@ export default function Footer() {
                 </button>
               </div>
             </div>
-            <div className="flex justify-end">
-              <div className="bg-rooted-earth-light/30 backdrop-blur-sm rounded-2xl p-6 max-w-xs border border-white/10">
-                <div className="flex items-start gap-3 mb-3">
-                  <div className="w-10 h-10 rounded-lg bg-sacred-ember/20 flex items-center justify-center">
+            <div className="flex justify-start lg:justify-end">
+              <div className="bg-rooted-earth-light/30 backdrop-blur-sm rounded-xl md:rounded-2xl p-4 md:p-6 max-w-xs border border-white/10">
+                <div className="flex items-start gap-2 md:gap-3 mb-2 md:mb-3">
+                  <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-sacred-ember/20 flex items-center justify-center shrink-0">
                     <svg
-                      className="w-5 h-5 text-sacred-ember"
+                      className="w-4 h-4 md:w-5 md:h-5 text-sacred-ember"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -62,12 +62,12 @@ export default function Footer() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-white font-semibold text-lg">
+                    <h4 className="text-white font-semibold text-base md:text-lg">
                       Free EdTech Starter Kit
                     </h4>
                   </div>
                 </div>
-                <p className="text-sacred-ember text-sm font-medium uppercase tracking-wide">
+                <p className="text-sacred-ember text-xs md:text-sm font-medium uppercase tracking-wide">
                   Included with Subscription
                 </p>
               </div>
@@ -77,28 +77,29 @@ export default function Footer() {
       </section>
 
       {/* Main Footer */}
-      <section className="bg-new-light py-12 px-6">
+      <section className="bg-new-light py-10 md:py-12">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-6 md:gap-8 mb-8 md:mb-12">
             {/* Brand Column */}
-            <div className="lg:col-span-2">
-              <Link href="/" className="flex items-center gap-2 mb-4">
-                <span className="text-2xl">🌰</span>
-                <span className="text-xl font-bold text-rooted-earth">
+            <div className="col-span-2 lg:col-span-2">
+              <Link href="/" className="flex items-center gap-2 mb-3 md:mb-4">
+                <span className="text-xl md:text-2xl">🌰</span>
+                <span className="text-lg md:text-xl font-bold text-rooted-earth">
                   Rooted in Learning
                 </span>
               </Link>
-              <p className="text-onyx-muted text-sm mb-6 max-w-xs">
+              <p className="text-onyx-muted text-xs md:text-sm mb-4 md:mb-6 max-w-xs">
                 Helping educators navigate the digital divide with practical
                 tools, thoughtful pedagogy, and a bit of code.
               </p>
-              <div className="flex gap-3">
+              <div className="flex gap-2 md:gap-3">
                 <a
                   href="#"
-                  className="w-8 h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  aria-label="Twitter"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-3.5 h-3.5 md:w-4 md:h-4"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -107,10 +108,11 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  aria-label="LinkedIn"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-3.5 h-3.5 md:w-4 md:h-4"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -119,10 +121,11 @@ export default function Footer() {
                 </a>
                 <a
                   href="#"
-                  className="w-8 h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-gentle-hold flex items-center justify-center text-onyx-muted hover:bg-calm-spirit hover:text-onyx transition-colors"
+                  aria-label="Instagram"
                 >
                   <svg
-                    className="w-4 h-4"
+                    className="w-3.5 h-3.5 md:w-4 md:h-4"
                     fill="currentColor"
                     viewBox="0 0 24 24"
                   >
@@ -134,13 +137,15 @@ export default function Footer() {
 
             {/* Explore Links */}
             <div>
-              <h5 className="font-semibold text-onyx mb-4">Explore</h5>
-              <ul className="space-y-3">
+              <h5 className="font-semibold text-onyx mb-3 md:mb-4 text-sm md:text-base">
+                Explore
+              </h5>
+              <ul className="space-y-2 md:space-y-3">
                 {footerLinks.explore.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
+                      className="text-xs md:text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -151,13 +156,15 @@ export default function Footer() {
 
             {/* Shop Links */}
             <div>
-              <h5 className="font-semibold text-onyx mb-4">Shop</h5>
-              <ul className="space-y-3">
+              <h5 className="font-semibold text-onyx mb-3 md:mb-4 text-sm md:text-base">
+                Shop
+              </h5>
+              <ul className="space-y-2 md:space-y-3">
                 {footerLinks.shop.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
+                      className="text-xs md:text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -167,14 +174,16 @@ export default function Footer() {
             </div>
 
             {/* Support Links */}
-            <div>
-              <h5 className="font-semibold text-onyx mb-4">Support</h5>
-              <ul className="space-y-3">
+            <div className="col-span-2 md:col-span-1">
+              <h5 className="font-semibold text-onyx mb-3 md:mb-4 text-sm md:text-base">
+                Support
+              </h5>
+              <ul className="space-y-2 md:space-y-3">
                 {footerLinks.support.map((link) => (
-                  <li key={link.href}>
+                  <li key={link.href + link.label}>
                     <Link
                       href={link.href}
-                      className="text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
+                      className="text-xs md:text-sm text-onyx-muted hover:text-sacred-ember transition-colors"
                     >
                       {link.label}
                     </Link>
@@ -185,13 +194,12 @@ export default function Footer() {
           </div>
 
           {/* Bottom Bar */}
-          <div className="border-t border-border pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p className="text-sm text-onyx-muted">
-              © 2024 Rooted in Learning. All rights reserved.
+          <div className="border-t border-border pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
+            <p className="text-xs md:text-sm text-onyx-muted text-center md:text-left">
+              © {new Date().getFullYear()} Rooted in Learning. All rights reserved.
             </p>
-            <p className="text-sm text-onyx-muted">
-              Designed with <span className="text-womb-bloom">❤</span> in
-              Austin, TX
+            <p className="text-xs md:text-sm text-onyx-muted">
+              Designed with <span className="text-womb-bloom">❤</span> in Austin, TX
             </p>
           </div>
         </div>

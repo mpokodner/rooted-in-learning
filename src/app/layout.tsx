@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import { Source_Sans_3, Libre_Baskerville } from "next/font/google";
+import { DM_Sans, Libre_Baskerville } from "next/font/google";
 import "./globals.css";
 
-const sourceSans = Source_Sans_3({
+const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -15,8 +15,17 @@ const libreBaskerville = Libre_Baskerville({
 });
 
 export const metadata: Metadata = {
-  title: "The Rooted Learner | Grounded in Growth",
-  description: "Educational resources and professional development for educators. Science of Reading-aligned materials, intervention strategies, and classroom tools.",
+  title: "Rooted in Learning | EdTech Solutions",
+  description:
+    "Bridging pedagogy and technology. Educational resources, tools, and professional development for modern educators. Over 15 years of transforming classrooms.",
+  keywords: [
+    "education technology",
+    "edtech",
+    "teaching resources",
+    "classroom tools",
+    "professional development",
+    "curriculum design",
+  ],
 };
 
 export default function RootLayout({
@@ -27,7 +36,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${sourceSans.variable} ${libreBaskerville.variable} antialiased`}
+        className={`${dmSans.variable} ${libreBaskerville.variable} antialiased`}
       >
         {children}
       </body>

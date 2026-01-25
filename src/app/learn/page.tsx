@@ -181,7 +181,9 @@ export default function LearnPage() {
             <div className="grid grid-cols-1 lg:grid-cols-2">
               {/* Article Image */}
               <div className="bg-gradient-to-br from-womb-bloom/30 to-gentle-hold p-6 md:p-8 flex items-center justify-center min-h-[200px] md:min-h-[300px]">
-                <div className="text-6xl md:text-8xl">{featuredArticle.image}</div>
+                <div className="text-6xl md:text-8xl">
+                  {featuredArticle.image}
+                </div>
               </div>
 
               {/* Article Content */}

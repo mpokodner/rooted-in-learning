@@ -196,10 +196,12 @@ export default function Footer() {
           {/* Bottom Bar */}
           <div className="border-t border-border pt-6 md:pt-8 flex flex-col md:flex-row justify-between items-center gap-3 md:gap-4">
             <p className="text-xs md:text-sm text-onyx-muted text-center md:text-left">
-              © {new Date().getFullYear()} Rooted in Learning. All rights reserved.
+              © {new Date().getFullYear()} Rooted in Learning. All rights
+              reserved.
             </p>
             <p className="text-xs md:text-sm text-onyx-muted">
-              Designed with <span className="text-womb-bloom">❤</span> in Austin, TX
+              Designed with <span className="text-womb-bloom">❤</span> in
+              Austin, TX
             </p>
           </div>
         </div>

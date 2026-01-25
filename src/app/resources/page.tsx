@@ -117,7 +117,7 @@ export default function ResourcesPage() {
             {/* Sidebar Filters - Mobile: Horizontal scroll, Desktop: Sidebar */}
             <aside className="lg:col-span-1 order-2 lg:order-1">
               {/* Mobile Filter Toggle would go here in a real app */}
-              
+
               {/* Search */}
               <div className="mb-6 md:mb-8">
                 <label className="text-[10px] md:text-xs font-semibold text-onyx-muted uppercase tracking-wide mb-2 block">
@@ -130,8 +130,18 @@ export default function ResourcesPage() {
                     className="input pr-10"
                   />
                   <button className="absolute right-3 top-1/2 -translate-y-1/2 text-onyx-muted hover:text-onyx">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                      />
                     </svg>
                   </button>
                 </div>
@@ -146,8 +156,15 @@ export default function ResourcesPage() {
                   </label>
                   <div className="flex flex-col gap-2 md:gap-3">
                     {topics.map((topic, index) => (
-                      <label key={topic} className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-                        <input type="checkbox" className="checkbox" defaultChecked={index === 0} />
+                      <label
+                        key={topic}
+                        className="flex items-center gap-2 md:gap-3 cursor-pointer group"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox"
+                          defaultChecked={index === 0}
+                        />
                         <span className="text-sm text-onyx-light group-hover:text-onyx transition-colors">
                           {topic}
                         </span>
@@ -163,8 +180,15 @@ export default function ResourcesPage() {
                   </label>
                   <div className="flex flex-col gap-2 md:gap-3">
                     {grades.map((grade, index) => (
-                      <label key={grade} className="flex items-center gap-2 md:gap-3 cursor-pointer group">
-                        <input type="checkbox" className="checkbox" defaultChecked={index === 1} />
+                      <label
+                        key={grade}
+                        className="flex items-center gap-2 md:gap-3 cursor-pointer group"
+                      >
+                        <input
+                          type="checkbox"
+                          className="checkbox"
+                          defaultChecked={index === 1}
+                        />
                         <span className="text-sm text-onyx-light group-hover:text-onyx transition-colors">
                           {grade}
                         </span>
@@ -178,11 +202,23 @@ export default function ResourcesPage() {
               <div className="bg-sacred-ember rounded-xl p-5 md:p-6 text-white mt-6 md:mt-8">
                 <div className="flex items-center gap-2 mb-2 md:mb-3">
                   <div className="w-7 h-7 md:w-8 md:h-8 rounded-lg bg-white/20 flex items-center justify-center">
-                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                    <svg
+                      className="w-3.5 h-3.5 md:w-4 md:h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
+                      />
                     </svg>
                   </div>
-                  <span className="font-semibold text-sm md:text-base">Freebie Vault</span>
+                  <span className="font-semibold text-sm md:text-base">
+                    Freebie Vault
+                  </span>
                 </div>
                 <p className="text-sm text-white/80 mb-3 md:mb-4">
                   Unlock access to exclusive free resources updated weekly.
@@ -198,7 +234,10 @@ export default function ResourcesPage() {
               {/* Category Icons */}
               <div className="flex flex-wrap justify-center gap-4 md:gap-6 lg:gap-8 mb-6 md:mb-8">
                 {categories.map((cat) => (
-                  <button key={cat.label} className="flex flex-col items-center gap-1.5 md:gap-2 group">
+                  <button
+                    key={cat.label}
+                    className="flex flex-col items-center gap-1.5 md:gap-2 group"
+                  >
                     <div className="w-11 h-11 md:w-14 md:h-14 rounded-lg md:rounded-xl bg-white border border-border flex items-center justify-center text-xl md:text-2xl group-hover:border-sacred-ember group-hover:shadow-md transition-all">
                       {cat.icon}
                     </div>
@@ -212,10 +251,13 @@ export default function ResourcesPage() {
               {/* Results Header */}
               <div className="flex flex-wrap items-center justify-between gap-3 md:gap-4 mb-4 md:mb-6">
                 <p className="text-sm text-onyx-muted">
-                  <span className="font-semibold text-onyx">124</span> resources found
+                  <span className="font-semibold text-onyx">124</span> resources
+                  found
                 </p>
                 <div className="flex items-center gap-2">
-                  <span className="text-sm text-onyx-muted hidden sm:inline">Sort by:</span>
+                  <span className="text-sm text-onyx-muted hidden sm:inline">
+                    Sort by:
+                  </span>
                   <select className="input py-1.5 md:py-2 px-2 md:px-3 pr-6 md:pr-8 text-sm w-auto">
                     <option>Most Relevant</option>
                     <option>Newest</option>
@@ -230,7 +272,9 @@ export default function ResourcesPage() {
               <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 md:gap-6 mb-6 md:mb-8">
                 {resources.map((resource) => (
                   <div key={resource.id} className="product-card hover-lift">
-                    <div className={`product-card-image bg-gradient-to-br ${resource.bgColor} relative`}>
+                    <div
+                      className={`product-card-image bg-gradient-to-br ${resource.bgColor} relative`}
+                    >
                       {resource.featured && (
                         <span className="absolute top-2 left-2 md:top-3 md:left-3 badge badge-featured">
                           Featured
@@ -285,8 +329,18 @@ export default function ResourcesPage() {
                           ${resource.price.toFixed(2)}
                         </span>
                         <button className="btn btn-sm btn-secondary gap-1 md:gap-1.5">
-                          <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                          <svg
+                            className="w-3.5 h-3.5 md:w-4 md:h-4"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                          >
+                            <path
+                              strokeLinecap="round"
+                              strokeLinejoin="round"
+                              strokeWidth={2}
+                              d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                            />
                           </svg>
                           Add
                         </button>
@@ -299,8 +353,18 @@ export default function ResourcesPage() {
               {/* Pagination */}
               <div className="flex items-center justify-center gap-1.5 md:gap-2">
                 <button className="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border flex items-center justify-center text-onyx-muted hover:border-sacred-ember hover:text-sacred-ember transition-colors">
-                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                  <svg
+                    className="w-3.5 h-3.5 md:w-4 md:h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M15 19l-7-7 7-7"
+                    />
                   </svg>
                 </button>
                 <button className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-rooted-earth text-white font-medium text-sm">
@@ -312,13 +376,25 @@ export default function ResourcesPage() {
                 <button className="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border text-onyx-muted hover:border-sacred-ember hover:text-sacred-ember transition-colors font-medium text-sm">
                   3
                 </button>
-                <span className="px-1 md:px-2 text-onyx-muted text-sm">...</span>
+                <span className="px-1 md:px-2 text-onyx-muted text-sm">
+                  ...
+                </span>
                 <button className="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border text-onyx-muted hover:border-sacred-ember hover:text-sacred-ember transition-colors font-medium text-sm">
                   12
                 </button>
                 <button className="w-8 h-8 md:w-10 md:h-10 rounded-lg border border-border flex items-center justify-center text-onyx-muted hover:border-sacred-ember hover:text-sacred-ember transition-colors">
-                  <svg className="w-3.5 h-3.5 md:w-4 md:h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                  <svg
+                    className="w-3.5 h-3.5 md:w-4 md:h-4"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M9 5l7 7-7 7"
+                    />
                   </svg>
                 </button>
               </div>

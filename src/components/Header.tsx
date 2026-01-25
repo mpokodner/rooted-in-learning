@@ -153,7 +153,11 @@ export default function Header() {
                   </svg>
                   <span>Austin, TX</span>
                 </div>
-                <Link href="/#contact" className="btn btn-accent w-full" onClick={() => setMobileMenuOpen(false)}>
+                <Link
+                  href="/#contact"
+                  className="btn btn-accent w-full"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
                   Contact
                 </Link>
               </div>

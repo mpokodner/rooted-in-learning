@@ -103,16 +103,39 @@ export default function Home() {
                 </div>
                 {/* Dashboard Content */}
                 <div className="p-4 md:p-6 bg-gradient-to-br from-gentle-hold to-white">
-                  <div className="text-[10px] md:text-xs text-onyx-muted mb-2">Analytics</div>
+                  <div className="text-[10px] md:text-xs text-onyx-muted mb-2">
+                    Analytics
+                  </div>
                   <div className="flex items-end gap-2 md:gap-3 h-24 md:h-32">
                     <div className="flex-1 flex items-end gap-1.5 md:gap-2 h-full">
-                      <div className="w-full bg-calm-spirit/50 rounded-t-sm" style={{ height: "40%" }}></div>
-                      <div className="w-full bg-calm-spirit/50 rounded-t-sm" style={{ height: "55%" }}></div>
-                      <div className="w-full bg-calm-spirit/50 rounded-t-sm" style={{ height: "45%" }}></div>
-                      <div className="w-full bg-calm-spirit/50 rounded-t-sm" style={{ height: "70%" }}></div>
-                      <div className="w-full bg-rooted-earth rounded-t-sm" style={{ height: "85%" }}></div>
-                      <div className="w-full bg-rooted-earth rounded-t-sm" style={{ height: "90%" }}></div>
-                      <div className="w-full bg-rooted-earth rounded-t-sm" style={{ height: "95%" }}></div>
+                      <div
+                        className="w-full bg-calm-spirit/50 rounded-t-sm"
+                        style={{ height: "40%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-calm-spirit/50 rounded-t-sm"
+                        style={{ height: "55%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-calm-spirit/50 rounded-t-sm"
+                        style={{ height: "45%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-calm-spirit/50 rounded-t-sm"
+                        style={{ height: "70%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-rooted-earth rounded-t-sm"
+                        style={{ height: "85%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-rooted-earth rounded-t-sm"
+                        style={{ height: "90%" }}
+                      ></div>
+                      <div
+                        className="w-full bg-rooted-earth rounded-t-sm"
+                        style={{ height: "95%" }}
+                      ></div>
                     </div>
                   </div>
                 </div>
@@ -139,7 +162,9 @@ export default function Home() {
                     <div className="text-[10px] md:text-xs text-onyx-muted uppercase tracking-wide">
                       Engagement
                     </div>
-                    <div className="text-base md:text-lg font-bold text-moss">+145%</div>
+                    <div className="text-base md:text-lg font-bold text-moss">
+                      +145%
+                    </div>
                   </div>
                 </div>
               </div>
@@ -217,7 +242,9 @@ export default function Home() {
       <section className="section bg-new-light" id="projects">
         <div className="container">
           <div className="text-center max-w-2xl mx-auto mb-8 md:mb-12">
-            <h2 className="mb-3 md:mb-4 text-onyx">Built for Modern Classrooms</h2>
+            <h2 className="mb-3 md:mb-4 text-onyx">
+              Built for Modern Classrooms
+            </h2>
             <p className="text-onyx-muted">
               Explore tools designed to simplify administration and amplify
               student learning.
@@ -230,17 +257,36 @@ export default function Home() {
               <div className="product-card-image bg-gradient-to-br from-calm-spirit/20 to-gentle-hold p-4 md:p-6 flex items-center justify-center">
                 <div className="bg-white rounded-lg shadow-md p-3 md:p-4 w-full">
                   <div className="flex items-end gap-1.5 md:gap-2 h-20 md:h-24">
-                    <div className="w-6 md:w-8 bg-rooted-earth/30 rounded-t" style={{ height: "45%" }}></div>
-                    <div className="w-6 md:w-8 bg-rooted-earth/30 rounded-t" style={{ height: "65%" }}></div>
-                    <div className="w-6 md:w-8 bg-rooted-earth rounded-t" style={{ height: "55%" }}></div>
-                    <div className="w-6 md:w-8 bg-rooted-earth rounded-t" style={{ height: "85%" }}></div>
-                    <div className="w-6 md:w-8 bg-rooted-earth rounded-t" style={{ height: "75%" }}></div>
+                    <div
+                      className="w-6 md:w-8 bg-rooted-earth/30 rounded-t"
+                      style={{ height: "45%" }}
+                    ></div>
+                    <div
+                      className="w-6 md:w-8 bg-rooted-earth/30 rounded-t"
+                      style={{ height: "65%" }}
+                    ></div>
+                    <div
+                      className="w-6 md:w-8 bg-rooted-earth rounded-t"
+                      style={{ height: "55%" }}
+                    ></div>
+                    <div
+                      className="w-6 md:w-8 bg-rooted-earth rounded-t"
+                      style={{ height: "85%" }}
+                    ></div>
+                    <div
+                      className="w-6 md:w-8 bg-rooted-earth rounded-t"
+                      style={{ height: "75%" }}
+                    ></div>
                   </div>
                 </div>
               </div>
               <div className="product-card-content">
-                <h4 className="font-semibold text-onyx mb-1">Analytics Dashboard</h4>
-                <p className="text-sm text-onyx-muted">Real-time progress tracking</p>
+                <h4 className="font-semibold text-onyx mb-1">
+                  Analytics Dashboard
+                </h4>
+                <p className="text-sm text-onyx-muted">
+                  Real-time progress tracking
+                </p>
               </div>
             </div>
 
@@ -255,8 +301,12 @@ export default function Home() {
                 </div>
               </div>
               <div className="product-card-content">
-                <h4 className="font-semibold text-onyx mb-1">Curriculum Planner</h4>
-                <p className="text-sm text-onyx-muted">Automated lesson scheduling</p>
+                <h4 className="font-semibold text-onyx mb-1">
+                  Curriculum Planner
+                </h4>
+                <p className="text-sm text-onyx-muted">
+                  Automated lesson scheduling
+                </p>
               </div>
             </div>
 
@@ -269,19 +319,27 @@ export default function Home() {
                   </div>
                   <div className="flex flex-col gap-1.5">
                     <div className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded bg-moss/20 flex items-center justify-center text-[10px]">✓</span>
+                      <span className="w-4 h-4 rounded bg-moss/20 flex items-center justify-center text-[10px]">
+                        ✓
+                      </span>
                       <div className="h-2 bg-calm-spirit/30 rounded flex-1"></div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <span className="w-4 h-4 rounded bg-moss/20 flex items-center justify-center text-[10px]">✓</span>
+                      <span className="w-4 h-4 rounded bg-moss/20 flex items-center justify-center text-[10px]">
+                        ✓
+                      </span>
                       <div className="h-2 bg-calm-spirit/30 rounded flex-1"></div>
                     </div>
                   </div>
                 </div>
               </div>
               <div className="product-card-content">
-                <h4 className="font-semibold text-onyx mb-1">Gamified Gradebook</h4>
-                <p className="text-sm text-onyx-muted">Points and badges system</p>
+                <h4 className="font-semibold text-onyx mb-1">
+                  Gamified Gradebook
+                </h4>
+                <p className="text-sm text-onyx-muted">
+                  Points and badges system
+                </p>
               </div>
             </div>
           </div>
@@ -302,7 +360,9 @@ export default function Home() {
             {/* Overwhelmed by Tools */}
             <div className="card bg-white">
               <div className="text-3xl md:text-4xl mb-3 md:mb-4">🤯</div>
-              <h4 className="font-semibold text-onyx mb-2">Overwhelmed by Tools?</h4>
+              <h4 className="font-semibold text-onyx mb-2">
+                Overwhelmed by Tools?
+              </h4>
               <p className="text-sm text-onyx-muted mb-3 md:mb-4">
                 Stop juggling 50 different apps. I identify the essential stack
                 that actually saves you time.
@@ -312,8 +372,18 @@ export default function Home() {
                 className="inline-flex items-center gap-2 text-sm font-medium text-sacred-ember hover:gap-3 transition-all"
               >
                 Explore Tech Stacks
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
@@ -331,8 +401,18 @@ export default function Home() {
                 className="inline-flex items-center gap-2 text-sm font-medium text-sacred-ember hover:gap-3 transition-all"
               >
                 See Gamified Plans
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
@@ -340,9 +420,26 @@ export default function Home() {
             {/* Data Overload */}
             <div className="card bg-white">
               <div className="mb-3 md:mb-4">
-                <svg className="w-8 h-8 md:w-10 md:h-10 text-calm-spirit" viewBox="0 0 48 48" fill="none">
-                  <rect x="4" y="4" width="40" height="40" rx="4" stroke="currentColor" strokeWidth="2" />
-                  <path d="M12 36L20 24L28 32L36 16" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
+                <svg
+                  className="w-8 h-8 md:w-10 md:h-10 text-calm-spirit"
+                  viewBox="0 0 48 48"
+                  fill="none"
+                >
+                  <rect
+                    x="4"
+                    y="4"
+                    width="40"
+                    height="40"
+                    rx="4"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                  />
+                  <path
+                    d="M12 36L20 24L28 32L36 16"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
                 </svg>
               </div>
               <h4 className="font-semibold text-onyx mb-2">Data Overload?</h4>
@@ -355,8 +452,18 @@ export default function Home() {
                 className="inline-flex items-center gap-2 text-sm font-medium text-sacred-ember hover:gap-3 transition-all"
               >
                 Get Data Templates
-                <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </div>
@@ -378,10 +485,12 @@ export default function Home() {
                   <div className="w-40 md:w-48 lg:w-64 aspect-[4/3] bg-gentle-hold rounded-lg flex items-center justify-center">
                     <div className="text-center">
                       <div className="text-3xl md:text-4xl mb-2">📊</div>
-                      <div className="text-[10px] md:text-xs text-onyx-muted">Notion Template</div>
+                      <div className="text-[10px] md:text-xs text-onyx-muted">
+                        Notion Template
+                      </div>
                     </div>
                   </div>
-            </div>
+                </div>
               </div>
 
               {/* Product Details */}
@@ -400,17 +509,30 @@ export default function Home() {
                 <div className="flex flex-wrap items-center gap-2 md:gap-3 mb-3 md:mb-4">
                   <div className="rating">
                     {[...Array(4)].map((_, i) => (
-                      <svg key={i} className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current" viewBox="0 0 24 24">
+                      <svg
+                        key={i}
+                        className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current"
+                        viewBox="0 0 24 24"
+                      >
                         <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
                       </svg>
                     ))}
-                    <svg className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current opacity-30" viewBox="0 0 24 24">
+                    <svg
+                      className="w-3.5 h-3.5 md:w-4 md:h-4 fill-current opacity-30"
+                      viewBox="0 0 24 24"
+                    >
                       <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
                     </svg>
                   </div>
-                  <span className="text-xs md:text-sm text-onyx-muted">(2.4k reviews)</span>
-                  <span className="text-xs md:text-sm text-onyx-muted hidden sm:inline">|</span>
-                  <span className="text-xs md:text-sm text-onyx-muted">15k+ Downloads</span>
+                  <span className="text-xs md:text-sm text-onyx-muted">
+                    (2.4k reviews)
+                  </span>
+                  <span className="text-xs md:text-sm text-onyx-muted hidden sm:inline">
+                    |
+                  </span>
+                  <span className="text-xs md:text-sm text-onyx-muted">
+                    15k+ Downloads
+                  </span>
                 </div>
                 <p className="text-sm md:text-base text-onyx-muted mb-4 md:mb-6">
                   A comprehensive Notion template designed to streamline
@@ -419,8 +541,18 @@ export default function Home() {
                 </p>
                 <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 md:gap-4">
                   <button className="btn btn-accent w-full sm:w-auto">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z"
+                      />
                     </svg>
                     Buy Now $29
                   </button>
@@ -458,15 +590,26 @@ export default function Home() {
                   <p className="text-sm text-onyx-muted mb-3 md:mb-4 line-clamp-2">
                     Technology should amplify great teaching, not replace it.
                     Here&apos;s how to build a pedagogy-first framework that
-                    actually utilizes the expensive devices sitting in your carts.
+                    actually utilizes the expensive devices sitting in your
+                    carts.
                   </p>
                   <Link
                     href="/learn"
                     className="inline-flex items-center gap-2 text-sm font-medium text-sacred-ember hover:gap-3 transition-all"
                   >
                     Read Article
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <svg
+                      className="w-4 h-4"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      />
                     </svg>
                   </Link>
                 </div>
@@ -477,40 +620,101 @@ export default function Home() {
             <div className="grid grid-cols-2 gap-3 md:gap-4">
               <Link href="#" className="card bg-white text-center hover-lift">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gentle-hold mx-auto mb-2 md:mb-3 flex items-center justify-center">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z" />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0z"
+                    />
                   </svg>
-              </div>
-                <div className="text-xs md:text-sm font-semibold text-onyx">Professional</div>
-                <div className="text-[10px] md:text-xs text-sacred-ember">Connect</div>
+                </div>
+                <div className="text-xs md:text-sm font-semibold text-onyx">
+                  Professional
+                </div>
+                <div className="text-[10px] md:text-xs text-sacred-ember">
+                  Connect
+                </div>
               </Link>
               <Link href="#" className="card bg-white text-center hover-lift">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gentle-hold mx-auto mb-2 md:mb-3 flex items-center justify-center">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                    />
                   </svg>
                 </div>
-                <div className="text-xs md:text-sm font-semibold text-onyx">Daily Tips</div>
-                <div className="text-[10px] md:text-xs text-sacred-ember">Follow</div>
+                <div className="text-xs md:text-sm font-semibold text-onyx">
+                  Daily Tips
+                </div>
+                <div className="text-[10px] md:text-xs text-sacred-ember">
+                  Follow
+                </div>
               </Link>
               <Link href="#" className="card bg-white text-center hover-lift">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-moss/20 mx-auto mb-2 md:mb-3 flex items-center justify-center">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-moss" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-moss"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"
+                    />
                   </svg>
                 </div>
-                <div className="text-xs md:text-sm font-semibold text-onyx">Code</div>
-                <div className="text-[10px] md:text-xs text-onyx-muted">Star</div>
+                <div className="text-xs md:text-sm font-semibold text-onyx">
+                  Code
+                </div>
+                <div className="text-[10px] md:text-xs text-onyx-muted">
+                  Star
+                </div>
               </Link>
               <Link href="#" className="card bg-white text-center hover-lift">
                 <div className="w-8 h-8 md:w-10 md:h-10 rounded-lg bg-gentle-hold mx-auto mb-2 md:mb-3 flex items-center justify-center">
-                  <svg className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  <svg
+                    className="w-4 h-4 md:w-5 md:h-5 text-onyx-muted"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z"
+                    />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={1.5}
+                      d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                    />
                   </svg>
-              </div>
-                <div className="text-xs md:text-sm font-semibold text-onyx">Tutorials</div>
-                <div className="text-[10px] md:text-xs text-sacred-ember">Subscribe</div>
+                </div>
+                <div className="text-xs md:text-sm font-semibold text-onyx">
+                  Tutorials
+                </div>
+                <div className="text-[10px] md:text-xs text-sacred-ember">
+                  Subscribe
+                </div>
               </Link>
             </div>
           </div>

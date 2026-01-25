@@ -23,9 +23,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[#5C6B4D]">
+    <footer className="bg-[#5C6B4A]">
       {/* Main Footer */}
-      <div className="section bg-[#5C6B4D]">
+      <div className="section bg-[#5C6B4A]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
             {/* Brand Column */}
@@ -79,7 +79,7 @@ export default function Footer() {
             <div className="lg:col-span-8 grid grid-cols-3 gap-8 md:gap-12">
               {/* Explore Links */}
               <div>
-                <h5 className="font-bold text-[#C17F5E] mb-4 text-[11px] uppercase tracking-[0.12em]">
+                <h5 className="font-bold text-[#C17B5C] mb-4 text-[11px] uppercase tracking-[0.12em]">
                   Explore
                 </h5>
                 <ul className="space-y-3">
@@ -98,7 +98,7 @@ export default function Footer() {
 
               {/* Shop Links */}
               <div>
-                <h5 className="font-bold text-[#C17F5E] mb-4 text-[11px] uppercase tracking-[0.12em]">
+                <h5 className="font-bold text-[#C17B5C] mb-4 text-[11px] uppercase tracking-[0.12em]">
                   Shop
                 </h5>
                 <ul className="space-y-3">
@@ -117,7 +117,7 @@ export default function Footer() {
 
               {/* Support Links */}
               <div>
-                <h5 className="font-bold text-[#C17F5E] mb-4 text-[11px] uppercase tracking-[0.12em]">
+                <h5 className="font-bold text-[#C17B5C] mb-4 text-[11px] uppercase tracking-[0.12em]">
                   Support
                 </h5>
                 <ul className="space-y-3">
@@ -145,7 +145,7 @@ export default function Footer() {
             © {new Date().getFullYear()} Rooted in Learning. All rights reserved.
           </p>
           <p className="text-xs text-[#8B9B7A] uppercase tracking-[0.05em]">
-            Built with <span className="text-[#C17F5E] font-semibold">intention</span> in Austin, TX
+            Built with <span className="text-[#C17B5C] font-semibold">intention</span> in Austin, TX
           </p>
         </div>
       </div>

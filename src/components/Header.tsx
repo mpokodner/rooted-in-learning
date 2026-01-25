@@ -24,17 +24,17 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-new-light/98 backdrop-blur-sm border-b border-border/50">
       <nav className="container">
-        <div className="flex-between py-3 md:py-4">
+        <div className="flex items-center justify-between py-3 md:py-4">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <div className="w-8 h-8 md:w-9 md:h-9 bg-rooted-earth rounded-lg flex items-center justify-center">
+            <div className="w-8 h-8 bg-rooted-earth rounded-lg flex items-center justify-center">
               <svg
-                className="w-4 h-4 md:w-5 md:h-5 text-white"
+                className="w-4 h-4 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -47,35 +47,33 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="text-base md:text-lg font-bold text-rooted-earth">
+            <span className="text-base font-semibold text-rooted-earth">
               Rooted in Learning
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hide-mobile flex items-center gap-6 lg:gap-8">
-            <div className="flex gap-4 lg:gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-xs font-semibold uppercase tracking-wider transition-colors ${
-                    isActive(link.href)
-                      ? "text-sacred-ember"
-                      : "text-onyx-light hover:text-sacred-ember"
-                  }`}
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`text-[11px] font-semibold uppercase tracking-widest transition-colors ${
+                  isActive(link.href)
+                    ? "text-sacred-ember"
+                    : "text-onyx-light hover:text-sacred-ember"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
           </div>
 
           {/* Right Side Actions */}
-          <div className="hide-mobile flex items-center gap-3 lg:gap-4">
+          <div className="hidden md:block">
             <Link
               href="/#contact"
-              className="bg-rooted-earth text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-rooted-earth-dark transition-colors"
+              className="bg-rooted-earth text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-rooted-earth-dark transition-colors"
             >
               Contact
             </Link>
@@ -83,13 +81,13 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="hide-desktop p-2 text-onyx hover:bg-gentle-hold rounded-lg transition-colors"
+            className="md:hidden p-2 text-onyx hover:bg-gentle-hold rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -103,7 +101,7 @@ export default function Header() {
               </svg>
             ) : (
               <svg
-                className="w-6 h-6"
+                className="w-5 h-5"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -121,13 +119,13 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="hide-desktop pb-6 border-t border-border pt-4">
+          <div className="md:hidden pb-4 border-t border-border pt-3">
             <div className="flex flex-col gap-1">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-base font-medium py-3 px-4 rounded-lg transition-colors ${
+                  className={`text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
                     isActive(link.href)
                       ? "text-sacred-ember bg-gentle-hold/50"
                       : "text-onyx-light hover:text-sacred-ember hover:bg-gentle-hold/50"
@@ -137,10 +135,10 @@ export default function Header() {
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-4 mt-2 border-t border-border px-4">
+              <div className="pt-3 mt-2 border-t border-border px-3">
                 <Link
                   href="/#contact"
-                  className="btn btn-primary w-full justify-center"
+                  className="block w-full bg-rooted-earth text-white text-center py-2.5 rounded-lg font-medium text-sm"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact

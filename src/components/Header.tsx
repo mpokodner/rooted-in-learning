@@ -2,36 +2,54 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/resources", label: "Resources" },
-    { href: "/#projects", label: "Projects" },
-    { href: "/learn", label: "Learn" },
-    { href: "/#favorites", label: "Favorites" },
+    { href: "/microlearning", label: "Microlearning" },
+    { href: "/projects", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+    { href: "/favorites", label: "Favorites" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-new-light/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-sm border-b border-border">
       <nav className="container">
         <div className="flex-between py-3 md:py-4">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 hover:opacity-80 transition-opacity"
           >
-            <span className="text-xl md:text-2xl">🌰</span>
-            <div className="flex flex-col">
-              <span className="text-base md:text-lg font-bold text-rooted-earth leading-tight">
-                Rooted in Learning
-              </span>
-              <span className="text-[9px] md:text-[10px] uppercase tracking-widest text-onyx-muted">
-                EdTech Solutions
-              </span>
+            <div className="w-8 h-8 md:w-9 md:h-9 bg-rooted-earth rounded-lg flex items-center justify-center">
+              <svg
+                className="w-4 h-4 md:w-5 md:h-5 text-white"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                />
+              </svg>
             </div>
+            <span className="text-base md:text-lg font-bold text-rooted-earth">
+              Rooted in Learning
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
@@ -41,7 +59,11 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-sm font-medium text-onyx-light hover:text-sacred-ember transition-colors"
+                  className={`text-xs font-semibold uppercase tracking-wider transition-colors ${
+                    isActive(link.href)
+                      ? "text-sacred-ember"
+                      : "text-onyx-light hover:text-sacred-ember"
+                  }`}
                 >
                   {link.label}
                 </Link>
@@ -51,29 +73,10 @@ export default function Header() {
 
           {/* Right Side Actions */}
           <div className="hide-mobile flex items-center gap-3 lg:gap-4">
-            <div className="hidden lg:flex items-center gap-1.5 text-sm text-onyx-muted">
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                />
-              </svg>
-              <span>Austin, TX</span>
-            </div>
-            <Link href="/#contact" className="btn btn-accent btn-sm">
+            <Link
+              href="/#contact"
+              className="bg-rooted-earth text-white px-5 py-2.5 rounded-full text-sm font-medium hover:bg-rooted-earth-dark transition-colors"
+            >
               Contact
             </Link>
           </div>
@@ -124,38 +127,20 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-base font-medium text-onyx-light hover:text-sacred-ember hover:bg-gentle-hold/50 py-3 px-4 rounded-lg transition-colors"
+                  className={`text-base font-medium py-3 px-4 rounded-lg transition-colors ${
+                    isActive(link.href)
+                      ? "text-sacred-ember bg-gentle-hold/50"
+                      : "text-onyx-light hover:text-sacred-ember hover:bg-gentle-hold/50"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
               <div className="pt-4 mt-2 border-t border-border px-4">
-                <div className="flex items-center gap-1.5 text-sm text-onyx-muted mb-4">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                    />
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={1.5}
-                      d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                  </svg>
-                  <span>Austin, TX</span>
-                </div>
                 <Link
                   href="/#contact"
-                  className="btn btn-accent w-full"
+                  className="btn btn-primary w-full justify-center"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact

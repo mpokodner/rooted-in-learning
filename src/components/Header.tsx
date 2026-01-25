@@ -2,83 +2,86 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const navLinks = [
     { href: "/", label: "Home" },
-    { href: "/resources", label: "Resources" },
-    { href: "#projects", label: "Projects" },
-    { href: "/learn", label: "Learn" },
-    { href: "#favorites", label: "Favorites" },
+    { href: "/microlearning", label: "Microlearning" },
+    { href: "/projects", label: "Projects" },
+    { href: "/blog", label: "Blog" },
+    { href: "/favorites", label: "Favorites" },
   ];
 
+  const isActive = (href: string) => {
+    if (href === "/") {
+      return pathname === "/";
+    }
+    return pathname.startsWith(href);
+  };
+
   return (
-    <header className="sticky top-0 z-50 bg-new-light/95 backdrop-blur-sm border-b border-border">
+    <header className="sticky top-0 z-50 bg-new-light/95 backdrop-blur-md border-b border-border/40">
       <nav className="container">
-        <div className="flex-between py-4">
+        <div className="flex items-center justify-between py-4 md:py-5">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 hover:opacity-90 transition-opacity"
           >
-            <span className="text-2xl">🌰</span>
-            <div className="flex flex-col">
-              <span className="text-lg font-bold text-rooted-earth leading-tight">
-                Rooted in Learning
-              </span>
-              <span className="text-[10px] uppercase tracking-widest text-onyx-muted">
-                EdTech Solutions
-              </span>
-            </div>
-          </Link>
-
-          {/* Desktop Navigation */}
-          <div className="hide-mobile flex items-center gap-8">
-            <div className="flex gap-6">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="text-sm font-medium text-onyx-light hover:text-sacred-ember transition-colors"
-                >
-                  {link.label}
-                </Link>
-              ))}
-            </div>
-          </div>
-
-          {/* Right Side Actions */}
-          <div className="hide-mobile flex items-center gap-4">
-            <div className="flex items-center gap-1.5 text-sm text-onyx-muted">
+            <div className="w-9 h-9 bg-rooted-earth rounded-lg flex items-center justify-center shadow-sm">
               <svg
-                className="w-4 h-4"
+                className="w-5 h-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
-                />
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
+                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                 />
               </svg>
-              <span>Austin, TX</span>
             </div>
-            <button className="btn btn-accent btn-sm">Contact</button>
+            <span className="text-base md:text-lg font-semibold text-rooted-earth hidden sm:inline">
+              Rooted in Learning
+            </span>
+          </Link>
+
+          {/* Desktop Navigation */}
+          <div className="hidden lg:flex items-center gap-2">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all ${
+                  isActive(link.href)
+                    ? "text-rooted-earth bg-gentle-hold/80"
+                    : "text-onyx-muted hover:text-rooted-earth hover:bg-gentle-hold/50"
+                }`}
+              >
+                {link.label}
+              </Link>
+            ))}
+          </div>
+
+          {/* Right Side Actions */}
+          <div className="hidden lg:block">
+            <Link
+              href="/#contact"
+              className="bg-rooted-earth text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-rooted-earth-dark transition-all shadow-sm hover:shadow-md"
+            >
+              Contact
+            </Link>
           </div>
 
           {/* Mobile Menu Button */}
           <button
-            className="hide-desktop p-2 text-onyx hover:bg-gentle-hold rounded-lg transition-colors"
+            className="lg:hidden p-2.5 text-onyx hover:bg-gentle-hold/60 rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
@@ -88,11 +91,11 @@ export default function Header() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
@@ -102,11 +105,11 @@ export default function Header() {
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -116,20 +119,30 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="hide-desktop pb-4 border-t border-border pt-4 animate-in slide-in-from-top-2">
-            <div className="flex flex-col gap-3">
+          <div className="lg:hidden pb-5 border-t border-border/40 pt-4 animate-in slide-in-from-top duration-200">
+            <div className="flex flex-col gap-1.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="text-base font-medium text-onyx-light hover:text-sacred-ember py-2 transition-colors"
+                  className={`text-sm font-medium py-3 px-4 rounded-xl transition-colors ${
+                    isActive(link.href)
+                      ? "text-rooted-earth bg-gentle-hold/70 font-semibold"
+                      : "text-onyx hover:text-rooted-earth hover:bg-gentle-hold/50"
+                  }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-3 border-t border-border mt-2">
-                <button className="btn btn-accent w-full">Contact</button>
+              <div className="pt-4 mt-3 border-t border-border/40">
+                <Link
+                  href="/#contact"
+                  className="block w-full bg-rooted-earth text-white text-center py-3 rounded-xl font-semibold text-sm shadow-sm hover:bg-rooted-earth-dark transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Contact
+                </Link>
               </div>
             </div>
           </div>

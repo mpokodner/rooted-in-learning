@@ -24,17 +24,17 @@ export default function Header() {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-new-light/98 backdrop-blur-sm border-b border-border/50">
+    <header className="sticky top-0 z-50 bg-new-light/95 backdrop-blur-md border-b border-border/40">
       <nav className="container">
-        <div className="flex items-center justify-between py-3 md:py-4">
+        <div className="flex items-center justify-between py-4 md:py-5">
           {/* Logo */}
           <Link
             href="/"
-            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
+            className="flex items-center gap-2.5 hover:opacity-90 transition-opacity"
           >
-            <div className="w-8 h-8 bg-rooted-earth rounded-lg flex items-center justify-center">
+            <div className="w-9 h-9 bg-rooted-earth rounded-lg flex items-center justify-center shadow-sm">
               <svg
-                className="w-4 h-4 text-white"
+                className="w-5 h-5 text-white"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -47,21 +47,21 @@ export default function Header() {
                 />
               </svg>
             </div>
-            <span className="text-base font-semibold text-rooted-earth">
+            <span className="text-base md:text-lg font-semibold text-rooted-earth hidden sm:inline">
               Rooted in Learning
             </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden lg:flex items-center gap-1">
             {navLinks.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className={`text-[11px] font-semibold uppercase tracking-widest transition-colors ${
+                className={`px-4 py-2 text-sm font-medium rounded-lg transition-colors ${
                   isActive(link.href)
-                    ? "text-sacred-ember"
-                    : "text-onyx-light hover:text-sacred-ember"
+                    ? "text-rooted-earth bg-gentle-hold/60"
+                    : "text-onyx hover:text-rooted-earth hover:bg-gentle-hold/40"
                 }`}
               >
                 {link.label}
@@ -70,10 +70,10 @@ export default function Header() {
           </div>
 
           {/* Right Side Actions */}
-          <div className="hidden md:block">
+          <div className="hidden lg:block">
             <Link
               href="/#contact"
-              className="bg-rooted-earth text-white px-5 py-2 rounded-full text-sm font-medium hover:bg-rooted-earth-dark transition-colors"
+              className="bg-rooted-earth text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-rooted-earth-dark transition-all shadow-sm hover:shadow-md"
             >
               Contact
             </Link>
@@ -81,35 +81,35 @@ export default function Header() {
 
           {/* Mobile Menu Button */}
           <button
-            className="md:hidden p-2 text-onyx hover:bg-gentle-hold rounded-lg transition-colors"
+            className="lg:hidden p-2.5 text-onyx hover:bg-gentle-hold/60 rounded-lg transition-colors"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? (
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M6 18L18 6M6 6l12 12"
                 />
               </svg>
             ) : (
               <svg
-                className="w-5 h-5"
+                className="w-6 h-6"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
+                strokeWidth={2}
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  strokeWidth={2}
                   d="M4 6h16M4 12h16M4 18h16"
                 />
               </svg>
@@ -119,26 +119,26 @@ export default function Header() {
 
         {/* Mobile Menu */}
         {mobileMenuOpen && (
-          <div className="md:hidden pb-4 border-t border-border pt-3">
-            <div className="flex flex-col gap-1">
+          <div className="lg:hidden pb-5 border-t border-border/40 pt-4 animate-in slide-in-from-top duration-200">
+            <div className="flex flex-col gap-1.5">
               {navLinks.map((link) => (
                 <Link
                   key={link.href}
                   href={link.href}
-                  className={`text-sm font-medium py-2.5 px-3 rounded-lg transition-colors ${
+                  className={`text-sm font-medium py-3 px-4 rounded-xl transition-colors ${
                     isActive(link.href)
-                      ? "text-sacred-ember bg-gentle-hold/50"
-                      : "text-onyx-light hover:text-sacred-ember hover:bg-gentle-hold/50"
+                      ? "text-rooted-earth bg-gentle-hold/70 font-semibold"
+                      : "text-onyx hover:text-rooted-earth hover:bg-gentle-hold/50"
                   }`}
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              <div className="pt-3 mt-2 border-t border-border px-3">
+              <div className="pt-4 mt-3 border-t border-border/40">
                 <Link
                   href="/#contact"
-                  className="block w-full bg-rooted-earth text-white text-center py-2.5 rounded-lg font-medium text-sm"
+                  className="block w-full bg-rooted-earth text-white text-center py-3 rounded-xl font-semibold text-sm shadow-sm hover:bg-rooted-earth-dark transition-colors"
                   onClick={() => setMobileMenuOpen(false)}
                 >
                   Contact

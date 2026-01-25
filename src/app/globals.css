@@ -449,9 +449,10 @@ a:hover {
    LAYOUT UTILITIES
    ═══════════════════════════════════════════════════════════════ */
 
+/* Container System - Max width 1200px with responsive padding */
 .container {
   width: 100%;
-  max-width: 1280px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 1rem;
 }
@@ -462,9 +463,21 @@ a:hover {
   }
 }
 
-@media (min-width: 1024px) {
+@media (min-width: 768px) {
   .container {
     padding: 0 2rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding: 0 2.5rem;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 3rem;
   }
 }
 
@@ -472,45 +485,77 @@ a:hover {
   max-width: 900px;
 }
 
+.container-wide {
+  max-width: 1400px;
+}
+
+/* Section Padding System */
+.section-sm {
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
 .section {
-  padding: 3rem 0;
-}
-
-@media (min-width: 768px) {
-  .section {
-    padding: 4rem 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section {
-    padding: 5rem 0;
-  }
+  padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 
 .section-lg {
-  padding: 4rem 0;
-}
-
-@media (min-width: 768px) {
-  .section-lg {
-    padding: 5rem 0;
-  }
-}
-
-@media (min-width: 1024px) {
-  .section-lg {
-    padding: 7rem 0;
-  }
-}
-
-.section-sm {
-  padding: 2rem 0;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
 }
 
 @media (min-width: 768px) {
   .section-sm {
-    padding: 3rem 0;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+  
+  .section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .section-lg {
+    padding-top: 6rem;
+    padding-bottom: 6rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .section-sm {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+  }
+  
+  .section {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+  
+  .section-lg {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Hero Section Specific */
+.hero-section {
+  padding-top: 3rem;
+  padding-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .hero-section {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hero-section {
+    padding-top: 5rem;
+    padding-bottom: 3rem;
   }
 }
 

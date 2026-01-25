@@ -20,10 +20,10 @@ export default function ComingSoon({
     <div className="min-h-screen bg-[#FAF8F5] flex flex-col">
       {/* Header */}
       <header className="py-5 md:py-6 border-b border-[#E8E4DD]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container">
           <div className="flex items-center justify-between">
             <Link href="/" className="flex items-center gap-2.5 hover:opacity-80 transition-opacity">
-              <div className="w-9 h-9 bg-[#5C6B4D] rounded-lg flex items-center justify-center">
+              <div className="w-9 h-9 bg-[#5C6B4D] rounded-[0.5rem] flex items-center justify-center">
                 <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                 </svg>
@@ -43,8 +43,8 @@ export default function ComingSoon({
       </header>
 
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center py-12 md:py-16">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <main className="flex-1 flex items-center justify-center section">
+        <div className="container">
           <div className="max-w-2xl mx-auto text-center">
             {/* Tree Illustration */}
             <div className="w-44 h-44 md:w-52 md:h-52 mx-auto mb-8 relative">
@@ -100,9 +100,9 @@ export default function ComingSoon({
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="py-3.5 px-5 border border-[#E8E4DD] rounded-full flex-1 bg-white text-[#2D2D2D] focus:outline-none focus:border-[#5C6B4D]"
+                  className="py-3.5 px-5 border-2 border-[#E8E4DD] rounded-[0.75rem] flex-1 bg-white text-[#2D2D2D] focus:outline-none focus:border-[#5C6B4D]"
                 />
-                <button className="bg-[#5C6B4D] text-white px-6 py-3.5 rounded-full text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-[#4A5740] transition-all shadow-md">
+                <button className="bg-[#5C6B4D] text-white px-6 py-3.5 rounded-[0.75rem] text-sm font-semibold inline-flex items-center justify-center gap-2 hover:bg-[#4A5740] transition-all shadow-md">
                   Notify me
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
@@ -129,7 +129,7 @@ export default function ComingSoon({
 
       {/* Footer */}
       <footer className="py-6 border-t border-[#E8E4DD]">
-        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-xs text-[#999999]">
               © {new Date().getFullYear()} Rooted in Learning. All rights reserved.

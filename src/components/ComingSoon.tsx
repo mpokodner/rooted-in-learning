@@ -83,10 +83,10 @@ export default function ComingSoon({
             </div>
 
             {/* Heading */}
-            <h1 className="text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-bold text-[#2D2D2D] mb-2 font-serif leading-tight">
+            <h1 className="hero-heading text-[#2D2D2D] mb-2">
               Something impactful is
             </h1>
-            <h2 className="text-[2rem] md:text-[2.75rem] lg:text-[3.25rem] font-serif italic text-[#6B7B5E] mb-8">
+            <h2 className="text-h1 md:text-display-md text-[#6B7B5E] mb-8">
               growing
             </h2>
 

@@ -24,10 +24,10 @@ export default function Home() {
               </div>
 
               {/* Headline - Display XL */}
-              <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-[#2D2D2D] leading-[1.1] tracking-[-0.02em] mb-6">
+              <h1 className="hero-heading text-[#2D2D2D] mb-6">
                 Empowering
                 <br />
-                <span className="font-serif italic text-[#C17B5C] font-normal">Learning</span> at
+                <span className="text-[#C17B5C]">Learning</span> at
                 <br />
                 Home
               </h1>
@@ -131,7 +131,7 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16">
             <div className="max-w-lg">
-              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-serif italic text-white leading-[1.15] tracking-[-0.01em] mb-4">
+              <h2 className="text-h2 text-white mb-4">
                 Sponsor a Family
               </h2>
               <p className="text-[#C5D1B8] text-base md:text-lg leading-[1.7]">
@@ -176,7 +176,7 @@ export default function Home() {
             <p className="text-[11px] font-bold text-[#C17B5C] uppercase tracking-[0.15em] mb-4">
               Our Ecosystem
             </p>
-            <h2 className="text-[1.75rem] md:text-[2.25rem] lg:text-[2.5rem] font-serif text-[#6B7B5E] leading-[1.2] tracking-[-0.01em] mb-4">
+            <h2 className="text-h2 text-[#6B7B5E] mb-4">
               Built for Modern Minds
             </h2>
             <p className="text-[#666666] text-base leading-[1.7]">
@@ -253,7 +253,7 @@ export default function Home() {
               <p className="text-[11px] font-bold text-[#666666] uppercase tracking-[0.15em] mb-2">
                 Journal
               </p>
-              <h2 className="text-[1.5rem] md:text-[2rem] font-serif text-[#2D2D2D] leading-[1.2]">
+              <h2 className="text-h3 md:text-h2 text-[#2D2D2D]">
                 The Pedagogy Blog
               </h2>
               <p className="text-sm text-[#666666] mt-2">

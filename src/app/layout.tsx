@@ -1,18 +1,11 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans, Libre_Baskerville } from "next/font/google";
+import { DM_Sans } from "next/font/google";
 import "./globals.css";
 
 const dmSans = DM_Sans({
   variable: "--font-sans",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
-  display: "swap",
-});
-
-const libreBaskerville = Libre_Baskerville({
-  variable: "--font-serif",
-  subsets: ["latin"],
-  weight: ["400", "700"],
   display: "swap",
 });
 
@@ -103,9 +96,14 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
+        {/* Cal Sans - Heading Font by Cal.com */}
+        <link
+          rel="stylesheet"
+          href="https://cdn.jsdelivr.net/npm/@calcom/font@1.1.0/index.css"
+        />
       </head>
       <body
-        className={`${dmSans.variable} ${libreBaskerville.variable} antialiased`}
+        className={`${dmSans.variable} antialiased`}
       >
         {children}
       </body>

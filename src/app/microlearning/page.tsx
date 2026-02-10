@@ -56,10 +56,10 @@ export default function MicrolearningPage() {
           </div>
 
           {/* Headlines - Display sizes */}
-          <h1 className="text-[2.5rem] md:text-[3.5rem] lg:text-[4rem] font-bold text-[#2F2F2F] leading-[1.1] tracking-[-0.02em] mb-2">
+          <h1 className="hero-heading text-[#2F2F2F] mb-2">
             Rooted in Learning
           </h1>
-          <h2 className="text-[1.75rem] md:text-[2.5rem] lg:text-[3rem] font-serif italic text-[#C17F5E] mb-8">
+          <h2 className="text-h2 md:text-h1 text-[#C17F5E] mb-8">
             Microlearning Shop
           </h2>
 
@@ -334,7 +334,7 @@ export default function MicrolearningPage() {
         <div className="container">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16">
             <div className="max-w-lg">
-              <h2 className="text-[2rem] md:text-[2.5rem] lg:text-[3rem] font-serif italic text-white leading-[1.15] mb-4">
+              <h2 className="text-h2 text-white mb-4">
                 Sponsor a Family
               </h2>
               <p className="text-[#C5D1B8] text-base md:text-lg leading-[1.7]">

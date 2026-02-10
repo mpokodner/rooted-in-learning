@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Home() {
   return (
@@ -11,17 +12,17 @@ export default function Home() {
           HERO SECTION — Triple-Threat Layout
           Problem/Solution • Dual CTA • Social Proof
       ═══════════════════════════════════════════ */}
-      <section className="hero-section">
+      <section className="bg-rooted-earth px-6 py-16 md:px-10 md:py-24 lg:py-28">
         <div className="container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
             {/* Left Content */}
             <div className="max-w-xl">
               {/* Badge — Awareness Trigger */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-rooted-earth rounded-full mb-8">
-                <svg className="w-4 h-4 text-[#6B7B5E]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-white rounded-full mb-8">
+                <svg className="w-4 h-4 text-rooted-earth" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                 </svg>
-                <span className="text-[11px] font-semibold text-[#5C5C5C] uppercase tracking-[0.12em]">
+                <span className="text-[11px] font-semibold text-onyx uppercase tracking-[0.12em]">
                   For Educators Who Refuse to Settle
                 </span>
               </div>
@@ -30,9 +31,9 @@ export default function Home() {
               <h1 className="hero-heading text-[#2D2D2D] mb-6">
                 Master Your
                 <br />
-                <span className="text-[#C17B5C]">Classroom Tech</span>
+                <span className="text-white">Classroom Tech</span>
                 <br />
-                & Reclaim Your
+                &amp; Reclaim Your
                 <br />
                 <span className="text-[#5C6B4D]">Prep Time</span>
               </h1>

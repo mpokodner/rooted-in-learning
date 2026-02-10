@@ -156,43 +156,58 @@ body {
    TYPOGRAPHY SYSTEM
    ═══════════════════════════════════════════════════════════════ */
 
+/* Cal Sans Heading Font */
+:root {
+  --font-heading: "Cal Sans", "Inter", system-ui, -apple-system, sans-serif;
+}
+
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-weight: 700;
-  line-height: 1.25;
+  font-weight: 600;
+  line-height: 1.2;
   color: var(--text-primary);
-  font-family: var(--font-serif), Georgia, serif;
+  font-family: var(--font-heading);
 }
 
+/* Hero heading - larger and more impactful */
 h1 {
-  font-size: clamp(2rem, 5vw, 3.25rem);
-  letter-spacing: -0.02em;
-  line-height: 1.15;
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  letter-spacing: -0.03em;
+  line-height: 1.1;
 }
 
+/* Section headings - slightly smaller than before */
 h2 {
-  font-size: clamp(1.5rem, 4vw, 2.25rem);
-  letter-spacing: -0.01em;
+  font-size: clamp(1.375rem, 3.5vw, 2rem);
+  letter-spacing: -0.02em;
 }
 
 h3 {
-  font-size: clamp(1.125rem, 3vw, 1.5rem);
+  font-size: clamp(1.0625rem, 2.5vw, 1.375rem);
+  letter-spacing: -0.01em;
 }
 
 h4 {
-  font-size: clamp(1rem, 2vw, 1.25rem);
+  font-size: clamp(0.9375rem, 2vw, 1.125rem);
 }
 
 h5 {
-  font-size: 1.0625rem;
+  font-size: 1rem;
 }
 
 h6 {
-  font-size: 1rem;
+  font-size: 0.9375rem;
+}
+
+/* Hero-specific heading class for extra emphasis */
+.hero-heading {
+  font-size: clamp(2.75rem, 7vw, 4.5rem);
+  letter-spacing: -0.04em;
+  line-height: 1.05;
 }
 
 p {
@@ -662,8 +677,8 @@ a:hover {
 
 .stats-bar .stat-number {
   font-size: clamp(1.375rem, 3vw, 2rem);
-  font-weight: 700;
-  font-family: var(--font-serif);
+  font-weight: 600;
+  font-family: var(--font-heading);
   color: var(--text-on-dark);
 }
 

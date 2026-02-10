@@ -121,10 +121,10 @@ export default function MicrolearningPage() {
               </span>
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-onyx mb-3 leading-tight">
+            <h1 className="hero-heading font-semibold text-onyx mb-3">
               Rooted in Learning
             </h1>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif italic text-sacred-ember mb-8">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-sacred-ember mb-8">
               Microlearning Shop
             </h2>
 
@@ -504,7 +504,7 @@ export default function MicrolearningPage() {
         <div className="container max-w-5xl mx-auto">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16">
             <div className="max-w-xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif italic text-white mb-4 leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-4 leading-tight">
                 Sponsor a Family
               </h2>
               <p className="text-calm-spirit/90 text-base md:text-lg leading-relaxed">

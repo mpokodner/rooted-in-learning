@@ -31,7 +31,7 @@ export default function Footer() {
             <h3 className="text-[11px] font-bold text-white/70 uppercase tracking-widest mb-4">
               Weekly Newsletter
             </h3>
-            <h2 className="text-2xl md:text-3xl font-serif text-white mb-4 leading-tight">
+            <h2 className="text-xl md:text-2xl font-semibold text-white mb-4 leading-tight">
               Join 5,000+ Educators
             </h2>
             <p className="text-calm-spirit/90 text-sm mb-6 leading-relaxed">

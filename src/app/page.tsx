@@ -36,10 +36,10 @@ export default function Home() {
                 </span>
               </div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-[3.5rem] xl:text-6xl font-bold text-onyx leading-[1.1] mb-6">
+              <h1 className="hero-heading font-semibold text-onyx mb-6">
                 Empowering
                 <br />
-                <span className="font-serif italic text-sacred-ember">
+                <span className="text-sacred-ember">
                   Learning
                 </span>{" "}
                 at
@@ -176,7 +176,7 @@ export default function Home() {
         <div className="container">
           <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16">
             <div className="max-w-xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif italic text-white mb-4 leading-tight">
+              <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-white mb-4 leading-tight">
                 Sponsor a Family
               </h2>
               <p className="text-calm-spirit/90 text-base md:text-lg leading-relaxed">
@@ -227,7 +227,7 @@ export default function Home() {
             <p className="text-[11px] font-bold text-sacred-ember uppercase tracking-widest mb-4">
               Our Ecosystem
             </p>
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-serif text-onyx mb-4">
+            <h2 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-onyx mb-4">
               Built for Modern Minds
             </h2>
             <p className="text-onyx-muted text-base leading-relaxed">
@@ -383,7 +383,7 @@ export default function Home() {
               <p className="text-[11px] font-bold text-onyx-muted uppercase tracking-widest mb-2">
                 Journal
               </p>
-              <h2 className="text-3xl md:text-4xl font-serif text-onyx mb-2">
+              <h2 className="text-2xl md:text-3xl font-semibold text-onyx mb-2">
                 The Pedagogy Blog
               </h2>
               <p className="text-sm text-onyx-muted">

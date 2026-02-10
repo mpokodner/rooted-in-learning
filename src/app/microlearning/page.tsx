@@ -39,7 +39,7 @@ const morningStarters = [
 
 export default function MicrolearningPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-white">
       <Header />
 
       {/* Hero Section */}

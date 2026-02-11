@@ -23,17 +23,16 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-[var(--earth)]">
+    <footer className="site-footer">
       {/* Main Footer */}
-      <div className="section bg-[var(--earth)]">
+      <div className="footer-main">
         <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-16">
+          <div className="footer-grid">
             {/* Brand Column */}
-            <div className="lg:col-span-4">
-              <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-                <div className="w-9 h-9 bg-white/15 rounded-[var(--radius-md)] flex items-center justify-center">
+            <div>
+              <Link href="/" className="footer-logo">
+                <div className="footer-logo-icon">
                   <svg
-                    className="w-5 h-5 text-white"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -46,15 +45,13 @@ export default function Footer() {
                     />
                   </svg>
                 </div>
-                <span className="text-[var(--text-lg)] font-semibold text-white font-[var(--font-heading)]">
-                  Rooted in Learning
-                </span>
+                <span className="footer-logo-text">Rooted in Learning</span>
               </Link>
-              <p className="text-[var(--text-sm)] text-[var(--earth-light)] mb-6 max-w-sm leading-[var(--leading-relaxed)]">
+              <p className="footer-desc">
                 Helping educators navigate the digital divide with practical
                 tools, thoughtful pedagogy, and a bit of code.
               </p>
-              <div className="flex gap-3">
+              <div className="footer-social-row">
                 {[
                   {
                     label: "Website",
@@ -72,11 +69,10 @@ export default function Footer() {
                   <a
                     key={label}
                     href="#"
-                    className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-[var(--earth-mist)] hover:bg-white/20 hover:text-white transition-colors duration-[var(--duration-fast)]"
+                    className="footer-social-icon"
                     aria-label={label}
                   >
                     <svg
-                      className="w-4 h-4"
                       fill="none"
                       viewBox="0 0 24 24"
                       stroke="currentColor"
@@ -94,19 +90,16 @@ export default function Footer() {
             </div>
 
             {/* Links Grid */}
-            <div className="lg:col-span-8 grid grid-cols-3 gap-8 md:gap-12">
+            <div className="footer-links-grid">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
-                  <h5 className="font-bold text-[var(--white)] mb-4 text-[var(--text-xs)] uppercase tracking-[var(--tracking-widest)]">
+                  <h5 className="footer-heading">
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </h5>
-                  <ul className="space-y-3">
+                  <ul className="footer-link-list">
                     {links.map((link) => (
                       <li key={link.href + link.label}>
-                        <Link
-                          href={link.href}
-                          className="text-[var(--text-sm)] text-[var(--earth-light)] hover:text-white transition-colors duration-[var(--duration-fast)] block"
-                        >
+                        <Link href={link.href} className="footer-link">
                           {link.label}
                         </Link>
                       </li>
@@ -120,17 +113,15 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-beige/10">
-        <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-[var(--text-xs)] text-[var(--earth-light)] text-center md:text-left uppercase tracking-[var(--tracking-wide)]">
+      <div className="footer-bottom">
+        <div className="container">
+          <p className="footer-bottom-text">
             © {new Date().getFullYear()} Rooted in Learning. All rights
             reserved.
           </p>
-          <p className="text-[var(--text-xs)] text-[var(--earth-light)] uppercase tracking-[var(--tracking-wide)]">
+          <p className="footer-bottom-text">
             Built with{" "}
-            <span className="text-[var(--terracotta)] font-semibold">
-              intention
-            </span>{" "}
+            <span className="accent">intention</span>{" "}
             in Austin, TX
           </p>
         </div>

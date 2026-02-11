@@ -50,7 +50,7 @@ export default function Footer() {
                   Rooted in Learning
                 </span>
               </Link>
-              <p className="text-[var(--text-sm)] text-[var(--earth-mist)] mb-6 max-w-sm leading-[var(--leading-relaxed)]">
+              <p className="text-[var(--text-sm)] text-[var(--earth-light)] mb-6 max-w-sm leading-[var(--leading-relaxed)]">
                 Helping educators navigate the digital divide with practical
                 tools, thoughtful pedagogy, and a bit of code.
               </p>
@@ -105,7 +105,7 @@ export default function Footer() {
                       <li key={link.href + link.label}>
                         <Link
                           href={link.href}
-                          className="text-[var(--text-sm)] text-[var(--earth-mist)] hover:text-white transition-colors duration-[var(--duration-fast)] block"
+                          className="text-[var(--text-sm)] text-[var(--earth-light)] hover:text-white transition-colors duration-[var(--duration-fast)] block"
                         >
                           {link.label}
                         </Link>

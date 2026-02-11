@@ -20,7 +20,9 @@ export async function POST(request: NextRequest) {
 
     // Get the current user (if authenticated)
     const supabase = await createClient();
-    const { data: { user } } = await supabase.auth.getUser();
+    const user = supabase
+      ? (await supabase.auth.getUser()).data.user
+      : null;
 
     // TODO: Validate items against database products and get stripe_price_ids
     // For now, use the first item's priceId as a placeholder

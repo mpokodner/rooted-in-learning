@@ -41,6 +41,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Fetch the user's profile from the `profiles` table
   async function fetchProfile(userId: string) {
+    if (!supabase) return;
     const { data } = await supabase
       .from("profiles")
       .select("*")
@@ -53,6 +54,13 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }
 
   useEffect(() => {
+    // If Supabase client couldn't be created (missing env vars at build time),
+    // skip auth initialization and just mark loading as done.
+    if (!supabase) {
+      setLoading(false);
+      return;
+    }
+
     // 1. Get the initial session on mount
     supabase.auth.getSession().then(({ data: { session: s } }) => {
       setSession(s);
@@ -84,6 +92,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   }, [supabase]);
 
   async function signOut() {
+    if (!supabase) return;
     await supabase.auth.signOut();
     setUser(null);
     setProfile(null);

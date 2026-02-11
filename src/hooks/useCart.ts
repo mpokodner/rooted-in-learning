@@ -20,7 +20,7 @@ export function useCart() {
   const fetchCart = useCallback(async () => {
     setLoading(true);
 
-    if (isAuthenticated && user) {
+    if (isAuthenticated && user && supabase) {
       // Fetch from Supabase
       const { data } = await supabase
         .from("cart_items")
@@ -35,7 +35,7 @@ export function useCart() {
     }
 
     setLoading(false);
-  }, [isAuthenticated, user]);
+  }, [isAuthenticated, user, supabase]);
 
   useEffect(() => {
     fetchCart();
@@ -43,7 +43,7 @@ export function useCart() {
 
   // ─── Add to cart ───
   async function addItem(product: Product, quantity: number = 1) {
-    if (isAuthenticated && user) {
+    if (isAuthenticated && user && supabase) {
       // Check if already in cart
       const existing = items.find((i) => i.product_id === product.id);
       if (existing) {
@@ -93,7 +93,7 @@ export function useCart() {
       return removeItem(itemId);
     }
 
-    if (isAuthenticated) {
+    if (isAuthenticated && supabase) {
       await supabase
         .from("cart_items")
         .update({ quantity })
@@ -112,7 +112,7 @@ export function useCart() {
 
   // ─── Remove from cart ───
   async function removeItem(itemId: string) {
-    if (isAuthenticated) {
+    if (isAuthenticated && supabase) {
       await supabase.from("cart_items").delete().eq("id", itemId);
     } else {
       const updated = items.filter((i) => i.id !== itemId);
@@ -126,7 +126,7 @@ export function useCart() {
 
   // ─── Clear cart ───
   async function clearCart() {
-    if (isAuthenticated && user) {
+    if (isAuthenticated && user && supabase) {
       await supabase.from("cart_items").delete().eq("user_id", user.id);
     } else {
       localStorage.removeItem("ril_cart");

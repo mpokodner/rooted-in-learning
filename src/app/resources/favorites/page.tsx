@@ -33,26 +33,26 @@ const favorites = [
 
 export default function FavoritesPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-[var(--neutral-bg)]">
       <Header />
 
       {/* Hero Section */}
-      <section className="section-lg bg-gradient-to-b from-[#F5EFE7] to-[#FAF7F2]">
+      <section className="section-lg bg-gradient-to-b from-[var(--beige-bg)] to-[var(--neutral-bg)]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-[#666666] hover:text-[#5C6B4D] mb-6 transition-colors">
+            <Link href="/resources" className="inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--earth)] mb-6 transition-colors duration-[var(--duration-fast)]">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Back to Resources
             </Link>
-            <p className="text-[11px] font-bold text-[#C17B5C] uppercase tracking-[0.15em] mb-4">
+            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
               Curated Must-Haves
             </p>
-            <h1 className="hero-heading text-[#2D2D2D] mb-6">
+            <h1 className="hero-heading text-[var(--text-dark)] mb-6">
               Favorites
             </h1>
-            <p className="text-[#666666] text-base md:text-lg leading-[1.7]">
+            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)]">
               My personally curated collection of tools, books, and gear that I actually use and recommend to every educator.
             </p>
           </div>
@@ -60,16 +60,16 @@ export default function FavoritesPage() {
       </section>
 
       {/* Filter */}
-      <section className="py-4 bg-white border-y border-[#E8DED0] sticky top-[72px] z-40">
+      <section className="py-4 bg-[var(--white)] border-y border-[var(--border-beige)] sticky top-[72px] z-40">
         <div className="container">
           <div className="flex flex-wrap items-center gap-3">
             {categories.map((cat, index) => (
               <button
                 key={cat.id}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                className={`px-4 py-2 rounded-full text-[var(--text-sm)] font-medium transition-all duration-[var(--duration-fast)] ${
                   index === 0
-                    ? "bg-[#5C6B4D] text-white"
-                    : "bg-[#F5EFE7] text-[#666666] hover:bg-[#E8DED0]"
+                    ? "bg-[var(--earth)] text-[var(--white)]"
+                    : "bg-[var(--beige-bg)] text-[var(--text-muted)] hover:bg-[var(--border-beige)]"
                 }`}
               >
                 {cat.label}
@@ -80,31 +80,31 @@ export default function FavoritesPage() {
       </section>
 
       {/* Favorites Grid */}
-      <section className="section-lg bg-[#FAF7F2]">
+      <section className="section-lg bg-[var(--neutral-bg)]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {favorites.map((item) => (
               <div
                 key={item.id}
-                className="bg-white rounded-[1.25rem] p-6 border border-[#E8DED0] hover:shadow-lg hover:-translate-y-1 transition-all group"
+                className="bg-[var(--white)] rounded-[var(--radius-xl)] p-6 border border-[var(--border-beige)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-[var(--duration-base)] group"
               >
                 {/* Icon placeholder */}
-                <div className="w-14 h-14 rounded-[1rem] bg-[#F5EFE7] flex items-center justify-center mb-5">
-                  <svg className="w-7 h-7 text-[#C17B5C]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <div className="w-14 h-14 rounded-[var(--radius-lg)] bg-[var(--beige-bg)] flex items-center justify-center mb-5">
+                  <svg className="w-7 h-7 text-[var(--terracotta)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z" />
                   </svg>
                 </div>
 
-                <span className="inline-block px-2.5 py-1 bg-[#E8DED0] rounded-full text-[10px] font-bold text-[#5C6B4D] uppercase mb-3">
+                <span className="inline-block px-2.5 py-1 bg-[var(--border-beige)] rounded-full text-[10px] font-bold text-[var(--earth)] uppercase mb-3">
                   {item.category}
                 </span>
 
-                <h3 className="text-lg font-bold text-[#2D2D2D] mb-2 group-hover:text-[#5C6B4D] transition-colors">{item.title}</h3>
-                <p className="text-sm text-[#666666] mb-5 leading-relaxed">{item.description}</p>
+                <h3 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-2 group-hover:text-[var(--earth)] transition-colors duration-[var(--duration-fast)]">{item.title}</h3>
+                <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">{item.description}</p>
 
                 <a
                   href={item.link}
-                  className="inline-flex items-center gap-2 text-sm font-semibold text-[#C17B5C] group-hover:gap-3 transition-all"
+                  className="inline-flex items-center gap-2 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-3 transition-all duration-[var(--duration-fast)]"
                 >
                   Check it out
                   <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

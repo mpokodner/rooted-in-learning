@@ -26,26 +26,26 @@ const techTips = [
 
 export default function TechTipsPage() {
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-[var(--neutral-bg)]">
       <Header />
 
       {/* Hero Section */}
-      <section className="section-lg bg-gradient-to-b from-[#F5EFE7] to-[#FAF7F2]">
+      <section className="section-lg bg-gradient-to-b from-[var(--beige-bg)] to-[var(--neutral-bg)]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <Link href="/resources" className="inline-flex items-center gap-2 text-sm text-[#666666] hover:text-[#5C6B4D] mb-6 transition-colors">
+            <Link href="/resources" className="inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--earth)] mb-6 transition-colors duration-[var(--duration-fast)]">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
               </svg>
               Back to Resources
             </Link>
-            <p className="text-[11px] font-bold text-[#C17B5C] uppercase tracking-[0.15em] mb-4">
+            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
               Technology Tutorials
             </p>
-            <h1 className="hero-heading text-[#2D2D2D] mb-6">
+            <h1 className="hero-heading text-[var(--text-dark)] mb-6">
               Tech Tips
             </h1>
-            <p className="text-[#666666] text-base md:text-lg leading-[1.7]">
+            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)]">
               Step-by-step tutorials to help you integrate technology with confidence. No IT degree required.
             </p>
           </div>
@@ -53,37 +53,37 @@ export default function TechTipsPage() {
       </section>
 
       {/* Tips Grid */}
-      <section className="section-lg bg-white">
+      <section className="section-lg bg-[var(--white)]">
         <div className="container">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {techTips.map((tip) => (
               <div
                 key={tip.id}
-                className="bg-[#FAF7F2] rounded-[1.25rem] p-6 border border-[#E8DED0] hover:shadow-lg hover:-translate-y-1 transition-all group cursor-pointer"
+                className="bg-[var(--neutral-bg)] rounded-[var(--radius-xl)] p-6 border border-[var(--border-beige)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-[var(--duration-base)] group cursor-pointer"
               >
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-[1rem] bg-[#5C6B4D] flex items-center justify-center mb-5">
-                  <svg className="w-7 h-7 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <div className="w-14 h-14 rounded-[var(--radius-lg)] bg-[var(--earth)] flex items-center justify-center mb-5">
+                  <svg className="w-7 h-7 text-[var(--white)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
 
                 {/* Meta */}
                 <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2.5 py-1 bg-[#E8DED0] rounded-full text-[10px] font-bold text-[#5C6B4D] uppercase">{tip.category}</span>
-                  <span className="px-2.5 py-1 bg-[#C17B5C]/10 rounded-full text-[10px] font-bold text-[#C17B5C] uppercase">{tip.level}</span>
+                  <span className="px-2.5 py-1 bg-[var(--border-beige)] rounded-full text-[10px] font-bold text-[var(--earth)] uppercase">{tip.category}</span>
+                  <span className="px-2.5 py-1 bg-[var(--terracotta)]/10 rounded-full text-[10px] font-bold text-[var(--terracotta)] uppercase">{tip.level}</span>
                 </div>
 
-                <h3 className="text-lg font-bold text-[#2D2D2D] mb-3 group-hover:text-[#5C6B4D] transition-colors">{tip.title}</h3>
+                <h3 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-3 group-hover:text-[var(--earth)] transition-colors duration-[var(--duration-fast)]">{tip.title}</h3>
 
                 <div className="flex items-center justify-between">
-                  <span className="text-sm text-[#666666] flex items-center gap-1.5">
+                  <span className="text-[var(--text-sm)] text-[var(--text-muted)] flex items-center gap-1.5">
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {tip.duration}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-semibold text-[#C17B5C] group-hover:gap-2 transition-all">
+                  <span className="inline-flex items-center gap-1.5 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-2 transition-all duration-[var(--duration-fast)]">
                     Watch
                     <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />

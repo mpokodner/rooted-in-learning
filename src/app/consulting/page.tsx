@@ -48,32 +48,32 @@ export default function ConsultingPage() {
   const progress = 80;
 
   return (
-    <div className="min-h-screen bg-[#FAF7F2]">
+    <div className="min-h-screen bg-[var(--neutral-bg)]">
       <Header />
 
       {/* Hero Section */}
-      <section className="section-lg bg-gradient-to-b from-[#F5EFE7] to-[#FAF7F2]">
+      <section className="section-lg bg-gradient-to-b from-[var(--beige-bg)] to-[var(--neutral-bg)]">
         <div className="container">
           <div className="max-w-3xl mx-auto text-center">
-            <span className="inline-block px-4 py-2 bg-[#C17B5C] text-white text-[10px] font-bold uppercase tracking-wide rounded-full mb-6">
+            <span className="inline-block px-4 py-2 bg-[var(--terracotta)] text-[var(--white)] text-[10px] font-bold uppercase tracking-[var(--tracking-wide)] rounded-full mb-6">
               Coming Soon
             </span>
-            <h1 className="hero-heading text-[#2D2D2D] mb-6">
+            <h1 className="hero-heading text-[var(--text-dark)] mb-6">
               Consulting &amp; Coaching
             </h1>
-            <p className="text-[#666666] text-base md:text-lg leading-[1.7] mb-8">
+            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)] mb-8">
               Personalized support for schools, homeschool families, and teacher-entrepreneurs. Let&apos;s build something great together.
             </p>
 
             {/* Progress Bar */}
             <div className="max-w-xs mx-auto mb-10">
-              <div className="flex items-center justify-between text-xs text-[#666666] mb-2">
-                <span className="uppercase tracking-[0.15em] font-semibold">Launching Soon</span>
-                <span className="font-bold text-[#2D2D2D]">{progress}%</span>
+              <div className="flex items-center justify-between text-[var(--text-xs)] text-[var(--text-muted)] mb-2">
+                <span className="uppercase tracking-[var(--tracking-widest)] font-semibold">Launching Soon</span>
+                <span className="font-bold text-[var(--text-dark)]">{progress}%</span>
               </div>
-              <div className="h-2 bg-[#E8DED0] rounded-full overflow-hidden">
+              <div className="h-2 bg-[var(--border-beige)] rounded-full overflow-hidden">
                 <div
-                  className="h-full bg-gradient-to-r from-[#C17B5C] to-[#D4A57B] rounded-full"
+                  className="h-full bg-gradient-to-r from-[var(--terracotta)] to-[var(--terracotta-light)] rounded-full transition-all duration-[var(--duration-slow)]"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
@@ -83,13 +83,13 @@ export default function ConsultingPage() {
       </section>
 
       {/* Services Preview */}
-      <section className="section-lg bg-white">
+      <section className="section-lg bg-[var(--white)]">
         <div className="container">
           <div className="text-center mb-12">
-            <p className="text-[11px] font-bold text-[#C17B5C] uppercase tracking-[0.15em] mb-4">
+            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
               What&apos;s Coming
             </p>
-            <h2 className="text-h2 text-[#2D2D2D]">
+            <h2 className="text-h2 text-[var(--text-dark)]">
               Services Preview
             </h2>
           </div>
@@ -98,13 +98,13 @@ export default function ConsultingPage() {
             {services.map((service, index) => (
               <div
                 key={index}
-                className="bg-[#FAF7F2] rounded-[1.25rem] p-6 md:p-8 border border-[#E8DED0]"
+                className="bg-[var(--neutral-bg)] rounded-[var(--radius-xl)] p-6 md:p-8 border border-[var(--border-beige)]"
               >
-                <div className="w-12 h-12 rounded-[0.75rem] bg-[#5C6B4D] text-white flex items-center justify-center mb-5">
+                <div className="w-12 h-12 rounded-[var(--radius-md)] bg-[var(--earth)] text-[var(--white)] flex items-center justify-center mb-5">
                   {service.icon}
                 </div>
-                <h3 className="text-lg font-bold text-[#2D2D2D] mb-3">{service.title}</h3>
-                <p className="text-sm text-[#666666] leading-relaxed">{service.description}</p>
+                <h3 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-3">{service.title}</h3>
+                <p className="text-[var(--text-sm)] text-[var(--text-muted)] leading-[var(--leading-relaxed)]">{service.description}</p>
               </div>
             ))}
           </div>
@@ -112,22 +112,22 @@ export default function ConsultingPage() {
       </section>
 
       {/* Waitlist Section */}
-      <section className="section-lg bg-[#5C6B4D]">
+      <section className="section-lg bg-[var(--earth)]">
         <div className="container">
           <div className="max-w-2xl mx-auto text-center">
-            <h2 className="text-h2 text-white mb-4">
+            <h2 className="text-h2 text-[var(--white)] mb-4">
               Be the First to Know
             </h2>
-            <p className="text-[#C5D1B8] mb-8">
+            <p className="text-[var(--earth-light)] mb-8">
               Join the waitlist and get early access to consulting services, plus a special launch discount.
             </p>
             <div className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
               <input
                 type="email"
                 placeholder="your@email.com"
-                className="flex-1 px-4 py-3.5 rounded-[0.75rem] border-2 border-white/20 bg-white/10 text-white placeholder:text-white/50 focus:outline-none focus:border-white/40"
+                className="flex-1 px-4 py-3.5 rounded-[var(--radius-md)] border-2 border-[var(--white)]/20 bg-[var(--white)]/10 text-[var(--white)] placeholder:text-[var(--white)]/50 focus:outline-none focus:border-[var(--white)]/40"
               />
-              <button className="bg-white text-[#5C6B4D] px-6 py-3.5 rounded-[0.75rem] font-semibold text-sm hover:bg-[#F5F3F0] transition-all">
+              <button className="bg-[var(--white)] text-[var(--earth)] px-6 py-3.5 rounded-[var(--radius-md)] font-semibold text-[var(--text-sm)] hover:bg-[var(--neutral-bg)] transition-all duration-[var(--duration-base)]">
                 Join Waitlist
               </button>
             </div>

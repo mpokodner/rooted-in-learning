@@ -135,22 +135,25 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Projects Link Section */}
-      <section className="section bg-[var(--beige-bg)]">
-        <div className="container text-center">
-          <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
-            Skills &amp; Portfolio
-          </p>
-          <h2 className="text-h2 text-[var(--text-dark)] mb-4">See My Work</h2>
-          <p className="text-[var(--text-muted)] max-w-lg mx-auto mb-8">
-            From curriculum design to full-stack development &mdash; explore the projects that showcase my skills.
-          </p>
-          <Link
-            href="/about/projects"
-            className="btn btn-lg btn-primary rounded-[var(--radius-lg)]"
-          >
-            View Projects
-          </Link>
+      {/* Portfolio Preview Section */}
+      <section className="portfolio-section">
+        <div className="about-container">
+          <div className="portfolio-inner">
+            <p className="portfolio-label">Skills &amp; Portfolio</p>
+            <h2 className="portfolio-title">See My Work</h2>
+            <p className="portfolio-desc">
+              From curriculum design to full-stack development &mdash; explore the projects that showcase my skills.
+            </p>
+            <Link href="/about/projects" className="portfolio-btn">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
+              </svg>
+              View Projects
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -187,19 +190,14 @@ export default function AboutPage() {
               </div>
 
               {/* Portfolio CTA */}
-              <div className="mt-8 pt-6 border-t border-[var(--border-beige)]">
-                <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-3">
-                  Want to see my work first?
-                </p>
-                <Link
-                  href="/about/projects"
-                  className="inline-flex items-center gap-2 px-6 py-3 bg-[var(--earth)] text-white rounded-[var(--radius-lg)] text-[var(--text-sm)] font-semibold hover:bg-[var(--earth-dark)] transition-all duration-[var(--duration-base)] shadow-[var(--shadow-md)]"
-                >
-                  <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+              <div className="contact-portfolio-cta">
+                <p className="contact-portfolio-label">Want to see my work first?</p>
+                <Link href="/about/projects" className="contact-portfolio-btn">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10" />
                   </svg>
                   View My Portfolio
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>

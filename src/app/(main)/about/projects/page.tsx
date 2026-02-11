@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "./portfolio.css";
 
 export const metadata: Metadata = {
   title: "Projects | Rooted in Learning",
@@ -33,55 +34,64 @@ export default function ProjectsPage() {
   return (
     <div className="min-h-screen bg-[var(--neutral-bg)]">
       {/* Hero */}
-      <section className="section bg-[var(--earth)]">
-        <div className="container text-center">
-          <p className="text-[var(--text-xs)] font-bold text-[var(--earth-light)] uppercase tracking-[var(--tracking-widest)] mb-4">
-            Skills &amp; Portfolio
-          </p>
-          <h1 className="text-h1 text-white mb-4">Projects</h1>
-          <p className="text-[var(--earth-light)] max-w-lg mx-auto">
-            A showcase of work spanning curriculum design, educational technology, and full-stack web development.
-          </p>
+      <section className="portfolio-hero">
+        <div className="portfolio-container">
+          <div className="portfolio-hero-inner">
+            <p className="portfolio-hero-label">Skills &amp; Portfolio</p>
+            <h1 className="portfolio-hero-title">Projects</h1>
+            <p className="portfolio-hero-desc">
+              A showcase of work spanning curriculum design, educational technology, and full-stack web development.
+            </p>
+          </div>
         </div>
       </section>
 
       {/* Projects Grid */}
-      <section className="section">
-        <div className="container">
-          <div className="max-w-4xl mx-auto space-y-6">
+      <section className="projects-section">
+        <div className="portfolio-container">
+          <div className="projects-list">
             {projects.map((project, index) => (
-              <div
-                key={index}
-                className="bg-white rounded-[var(--radius-xl)] border border-[var(--border-beige)] p-8 transition-all hover:shadow-lg hover:border-[var(--earth-light)]"
-              >
-                <div className="flex flex-col md:flex-row md:items-start md:justify-between gap-4 mb-4">
-                  <h2 className="text-h3 text-[var(--text-dark)]">{project.title}</h2>
-                  <span className={`inline-flex px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider ${
+              <div key={index} className="project-card">
+                <div className="project-card-header">
+                  <h2 className="project-card-title">{project.title}</h2>
+                  <span className={`project-status ${
                     project.status === "In Progress"
-                      ? "bg-[var(--beige-bg)] text-[var(--terracotta)]"
-                      : "bg-[var(--earth)]/10 text-[var(--earth)]"
+                      ? "project-status--in-progress"
+                      : "project-status--published"
                   }`}>
                     {project.status}
                   </span>
                 </div>
-                <p className="text-[var(--text-muted)] mb-4 leading-relaxed">{project.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <p className="project-card-desc">{project.description}</p>
+                <div className="project-tags">
                   {project.tags.map((tag) => (
-                    <span key={tag} className="px-3 py-1 bg-[var(--beige-bg)] rounded-full text-xs font-medium text-[var(--text-dark)]">
-                      {tag}
-                    </span>
+                    <span key={tag} className="project-tag">{tag}</span>
                   ))}
                 </div>
                 {project.link && (
-                  <Link href={project.link} className="inline-flex items-center gap-2 mt-4 text-sm font-semibold text-[var(--terracotta)] hover:gap-3 transition-all">
+                  <Link href={project.link} className="project-link">
                     View Project
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                     </svg>
                   </Link>
                 )}
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Back to About */}
+      <section className="portfolio-back-section">
+        <div className="portfolio-container">
+          <div className="portfolio-back-inner">
+            <Link href="/about" className="portfolio-back-link">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+              </svg>
+              Back to About
+            </Link>
           </div>
         </div>
       </section>

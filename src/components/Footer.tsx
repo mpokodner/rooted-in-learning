@@ -97,7 +97,7 @@ export default function Footer() {
             <div className="lg:col-span-8 grid grid-cols-3 gap-8 md:gap-12">
               {Object.entries(footerLinks).map(([category, links]) => (
                 <div key={category}>
-                  <h5 className="font-bold text-[var(--terracotta)] mb-4 text-[var(--text-xs)] uppercase tracking-[var(--tracking-widest)]">
+                  <h5 className="font-bold text-[var(--white)] mb-4 text-[var(--text-xs)] uppercase tracking-[var(--tracking-widest)]">
                     {category.charAt(0).toUpperCase() + category.slice(1)}
                   </h5>
                   <ul className="space-y-3">
@@ -120,7 +120,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-white/10">
+      <div className="border-t border-beige/10">
         <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-3">
           <p className="text-[var(--text-xs)] text-[var(--earth-light)] text-center md:text-left uppercase tracking-[var(--tracking-wide)]">
             © {new Date().getFullYear()} Rooted in Learning. All rights

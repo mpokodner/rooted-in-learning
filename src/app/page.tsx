@@ -12,15 +12,15 @@ export default function Home() {
           HERO SECTION — Triple-Threat Layout
           Problem/Solution • Dual CTA • Social Proof
       ═══════════════════════════════════════════ */}
-      <section className="bg-[var(--earth)] px-6 py-16 md:px-10 md:py-24 lg:py-28">
+      <section className="hero-section">
         <div className="container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center">
+          <div className="hero-grid">
             {/* Left Content */}
-            <div className="max-w-xl">
+            <div className="hero-content">
               {/* Badge — Awareness Trigger */}
-              <div className="inline-flex items-center gap-2.5 px-4 py-2 bg-[var(--white)] rounded-full mb-8">
+              <div className="hero-badge">
                 <svg
-                  className="w-4 h-4 text-[var(--earth)]"
+                  className="hero-badge-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -32,7 +32,7 @@ export default function Home() {
                     d="M13 10V3L4 14h7v7l9-11h-7z"
                   />
                 </svg>
-                <span className="text-[var(--text-xs)] font-semibold text-[var(--text-black)] uppercase tracking-[var(--tracking-widest)]">
+                <span className="hero-badge-text">
                   For Educators Who Refuse to Settle
                 </span>
               </div>
@@ -49,14 +49,14 @@ export default function Home() {
               </h1>
 
               {/* SUB-HEADLINE */}
-              <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)] mb-8">
+              <p className="hero-subheadline">
                 Ready-to-use curriculum, tech-driven training, and curated gear
                 to help you teach smarter, not harder &mdash; whether you&apos;re
                 in a classroom or at the kitchen table.
               </p>
 
               {/* DUAL CTA */}
-              <div className="flex flex-wrap gap-3 mb-8">
+              <div className="hero-cta-group">
                 <Link
                   href="/resources/lessons"
                   className="btn btn-lg btn-primary rounded-full"
@@ -86,26 +86,22 @@ export default function Home() {
               </div>
 
               {/* Social Proof */}
-              <div className="flex items-center gap-3">
-                <div className="flex -space-x-2">
-                  <div className="w-8 h-8 rounded-full bg-[var(--earth-light)] border-2 border-[var(--neutral-bg)]" />
-                  <div className="w-8 h-8 rounded-full bg-[var(--terracotta)] border-2 border-[var(--neutral-bg)]" />
-                  <div className="w-8 h-8 rounded-full bg-[var(--earth)] border-2 border-[var(--neutral-bg)]" />
+              <div className="hero-social-proof">
+                <div className="hero-avatars">
+                  <div className="hero-avatar bg-[var(--earth-light)]" />
+                  <div className="hero-avatar bg-[var(--terracotta)]" />
+                  <div className="hero-avatar bg-[var(--earth)]" />
                 </div>
-                <p className="text-[var(--text-sm)] text-[var(--text-muted)]">
-                  Trusted by{" "}
-                  <span className="font-semibold text-[var(--text-dark)]">
-                    5,000+
-                  </span>{" "}
-                  educators &amp; families
+                <p className="hero-social-text">
+                  Trusted by <strong>5,000+</strong> educators &amp; families
                 </p>
               </div>
             </div>
 
             {/* Right — Hero Visual */}
-            <div className="relative">
+            <div className="hero-visual">
               {/* Main visual block */}
-              <div className="bg-gradient-to-br from-[var(--earth)] via-[var(--earth-light)] to-[var(--earth-light)] rounded-[var(--radius-xl)] aspect-[4/3] relative overflow-hidden shadow-[var(--shadow-xl)]">
+              <div className="hero-visual-main">
                 {/* Decorative pattern overlay */}
                 <div className="absolute inset-0 opacity-10">
                   <div className="absolute top-6 left-6 w-16 h-16 border-2 border-[var(--white)] rounded-full" />
@@ -162,9 +158,9 @@ export default function Home() {
               </div>
 
               {/* Floating Engagement Card */}
-              <div className="absolute bottom-6 -left-4 md:bottom-10 md:-left-8 bg-[var(--white)] rounded-[var(--radius-lg)] shadow-[var(--shadow-xl)] p-4 md:p-5 border border-[var(--border-beige)] max-w-[220px]">
-                <div className="flex items-start gap-3">
-                  <div className="w-10 h-10 rounded-[var(--radius-md)] bg-[var(--beige-bg)] flex items-center justify-center shrink-0">
+              <div className="hero-floating-card">
+                <div className="hero-floating-card-inner">
+                  <div className="hero-floating-icon">
                     <svg
                       className="w-5 h-5 text-[var(--earth-light)]"
                       fill="none"
@@ -180,10 +176,8 @@ export default function Home() {
                     </svg>
                   </div>
                   <div>
-                    <h4 className="text-[var(--text-sm)] font-semibold text-[var(--text-dark)] mb-0.5">
-                      Save 5+ Hours
-                    </h4>
-                    <p className="text-[var(--text-xs)] text-[var(--text-muted)] leading-[var(--leading-relaxed)]">
+                    <h4 className="hero-floating-title">Save 5+ Hours</h4>
+                    <p className="hero-floating-desc">
                       Per week on lesson prep with our{" "}
                       <span className="text-[var(--earth-light)] font-semibold">
                         ready-to-go
@@ -207,17 +201,13 @@ export default function Home() {
           </div>
 
           {/* Newsletter Banner */}
-          <div className="mt-10 md:mt-14">
-            <div className="bg-[var(--white)] rounded-[var(--radius-lg)] shadow-[var(--shadow-lg)] border border-[var(--border-beige)] p-5 md:p-6 flex flex-col sm:flex-row items-center justify-between gap-4 max-w-xl">
-              <div className="flex items-center gap-4">
-                <span className="text-[10px] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)]">
-                  Weekly Newsletter
-                </span>
-                <span className="text-[var(--text-sm)] font-medium text-[var(--text-dark)]">
-                  Join 5,000+ Educators
-                </span>
+          <div className="hero-newsletter">
+            <div className="hero-newsletter-inner">
+              <div className="hero-newsletter-info">
+                <span className="hero-newsletter-label">Weekly Newsletter</span>
+                <span className="hero-newsletter-text">Join 5,000+ Educators</span>
               </div>
-              <div className="flex gap-2 w-full sm:w-auto">
+              <div className="hero-newsletter-form">
                 <input
                   type="email"
                   placeholder="your@email.com"
@@ -236,27 +226,25 @@ export default function Home() {
           RESOURCES SECTION
           Lessons • Tech Tips • The Favorites
       ═══════════════════════════════════════════ */}
-      <section className="section-lg bg-[var(--neutral-bg)]">
+      <section className="resources-section">
         <div className="container">
-          <div className="text-center max-w-2xl mx-auto mb-12 md:mb-16">
-            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
-              Your Teaching Toolkit
-            </p>
-            <h2 className="text-h2 text-[var(--earth-light)] mb-4">
+          <div className="resources-header">
+            <p className="resources-header-label">Your Teaching Toolkit</p>
+            <h2 className="text-h2 text-[var(--earth-light)] resources-header-title">
               Everything You Need, Nothing You Don&apos;t
             </h2>
-            <p className="text-[var(--text-muted)] text-[var(--text-base)] leading-[var(--leading-relaxed)]">
+            <p className="resources-header-desc">
               Curriculum, tech training, and curated gear &mdash; all in one
               place. Built by a 15-year veteran educator who gets it.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 md:gap-6 lg:gap-8">
+          <div className="resources-grid">
             {/* Lessons */}
-            <div className="bg-[var(--white)] rounded-[var(--radius-xl)] p-6 md:p-8 border border-[var(--border-beige)] card-lift group">
-              <div className="w-14 h-14 rounded-[var(--radius-md)] bg-[var(--beige-bg)] flex items-center justify-center mb-5">
+            <div className="resource-card group">
+              <div className="resource-icon-wrapper">
                 <svg
-                  className="w-7 h-7 text-[var(--earth)]"
+                  className="resource-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -269,20 +257,15 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-[var(--text-lg)] md:text-[var(--text-xl)] font-bold text-[var(--text-dark)] mb-3">
-                Lessons
-              </h3>
-              <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">
+              <h3 className="resource-title">Lessons</h3>
+              <p className="resource-desc">
                 Standards-aligned, ready-to-use curriculum and activities for K-8
                 classrooms and homeschool families. Just download and teach.
               </p>
-              <Link
-                href="/resources/lessons"
-                className="inline-flex items-center gap-2 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-3 transition-all duration-[var(--duration-fast)]"
-              >
+              <Link href="/resources/lessons" className="resource-link">
                 Browse Lessons
                 <svg
-                  className="w-4 h-4"
+                  className="resource-link-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -298,10 +281,10 @@ export default function Home() {
             </div>
 
             {/* Tech Tips */}
-            <div className="bg-[var(--white)] rounded-[var(--radius-xl)] p-6 md:p-8 border border-[var(--border-beige)] card-lift group">
-              <div className="w-14 h-14 rounded-[var(--radius-md)] bg-[var(--beige-bg)] flex items-center justify-center mb-5">
+            <div className="resource-card group">
+              <div className="resource-icon-wrapper">
                 <svg
-                  className="w-7 h-7 text-[var(--earth)]"
+                  className="resource-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -314,20 +297,15 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-[var(--text-lg)] md:text-[var(--text-xl)] font-bold text-[var(--text-dark)] mb-3">
-                Tech Tips
-              </h3>
-              <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">
+              <h3 className="resource-title">Tech Tips</h3>
+              <p className="resource-desc">
                 Step-by-step tech training and tutorials so you can integrate
                 tools with confidence &mdash; no IT degree required.
               </p>
-              <Link
-                href="/resources/tech-tips"
-                className="inline-flex items-center gap-2 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-3 transition-all duration-[var(--duration-fast)]"
-              >
+              <Link href="/resources/tech-tips" className="resource-link">
                 Explore Tips
                 <svg
-                  className="w-4 h-4"
+                  className="resource-link-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -343,10 +321,10 @@ export default function Home() {
             </div>
 
             {/* The Favorites */}
-            <div className="bg-[var(--white)] rounded-[var(--radius-xl)] p-6 md:p-8 border border-[var(--border-beige)] card-lift group">
-              <div className="w-14 h-14 rounded-[var(--radius-md)] bg-[var(--beige-bg)] flex items-center justify-center mb-5">
+            <div className="resource-card group">
+              <div className="resource-icon-wrapper">
                 <svg
-                  className="w-7 h-7 text-[var(--earth-light)]"
+                  className="resource-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -359,20 +337,15 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="text-[var(--text-lg)] md:text-[var(--text-xl)] font-bold text-[var(--text-dark)] mb-3">
-                The Favorites
-              </h3>
-              <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">
+              <h3 className="resource-title">The Favorites</h3>
+              <p className="resource-desc">
                 My personally curated must-haves &mdash; the tools, books, and
                 gear I actually use and recommend to every educator.
               </p>
-              <Link
-                href="/resources/favorites"
-                className="inline-flex items-center gap-2 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-3 transition-all duration-[var(--duration-fast)]"
-              >
+              <Link href="/resources/favorites" className="resource-link">
                 See My Picks
                 <svg
-                  className="w-4 h-4"
+                  className="resource-link-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -393,17 +366,15 @@ export default function Home() {
       {/* ═══════════════════════════════════════════
           CONSULTING SECTION
       ═══════════════════════════════════════════ */}
-      <section className="section-lg bg-[var(--earth)]">
+      <section className="consulting-section">
         <div className="container">
-          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-10 lg:gap-16">
-            <div className="max-w-lg">
-              <p className="text-[var(--text-xs)] font-bold text-[var(--earth-light)] uppercase tracking-[var(--tracking-widest)] mb-4">
-                1-on-1 Support
-              </p>
-              <h2 className="text-h2 text-[var(--white)] mb-4">
+          <div className="consulting-grid">
+            <div className="consulting-content">
+              <p className="consulting-label">1-on-1 Support</p>
+              <h2 className="text-h2 consulting-title">
                 Consulting &amp; Coaching
               </h2>
-              <p className="text-[var(--earth-light)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)]">
+              <p className="consulting-desc">
                 Need personalized support? Whether you&apos;re a school rolling
                 out new tech, a homeschool family building curriculum, or a
                 teacher starting your side hustle &mdash; let&apos;s build a plan
@@ -411,40 +382,33 @@ export default function Home() {
               </p>
             </div>
 
-            <div className="flex flex-col items-start lg:items-end gap-5">
-              <div className="glass-white-10 rounded-[var(--radius-lg)] p-6 border border-white-20 max-w-xs">
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="flex gap-0.5">
+            <div className="consulting-cta-area">
+              <div className="testimonial-card">
+                <div className="testimonial-stars">
+                  <div className="testimonial-stars-icons">
                     {[...Array(5)].map((_, i) => (
                       <svg
                         key={i}
-                        className="w-4 h-4 fill-[var(--terracotta)] text-[var(--terracotta)]"
+                        className="testimonial-star"
                         viewBox="0 0 24 24"
                       >
                         <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
                       </svg>
                     ))}
                   </div>
-                  <span className="text-[var(--text-xs)] text-[var(--earth-light)]">
-                    5.0 average
-                  </span>
+                  <span className="testimonial-rating">5.0 average</span>
                 </div>
-                <p className="text-white-90 text-[var(--text-sm)] leading-[var(--leading-relaxed)] italic">
+                <p className="testimonial-quote">
                   &ldquo;Michelle helped us implement a reading intervention
                   program that moved 80% of our students up a level in one
                   semester.&rdquo;
                 </p>
-                <p className="text-[var(--earth-light)] text-[var(--text-xs)] mt-3 font-semibold">
-                  — K-5 Literacy Coach, MD
-                </p>
+                <p className="testimonial-author">— K-5 Literacy Coach, MD</p>
               </div>
 
-              <Link
-                href="/consulting"
-                className="bg-[var(--white)] text-[var(--earth)] px-6 py-3.5 rounded-[var(--radius-md)] font-semibold text-[var(--text-sm)] inline-flex items-center gap-2.5 hover:bg-[var(--neutral-bg)] transition-all duration-[var(--duration-base)] shadow-[var(--shadow-lg)]"
-              >
+              <Link href="/consulting" className="consulting-cta-btn">
                 <svg
-                  className="w-5 h-5 text-[var(--terracotta)]"
+                  className="consulting-cta-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -466,25 +430,20 @@ export default function Home() {
       {/* ═══════════════════════════════════════════
           BLOG SECTION
       ═══════════════════════════════════════════ */}
-      <section className="section bg-[var(--beige-bg)]">
+      <section className="blog-section">
         <div className="container">
-          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 md:mb-12">
-            <div>
-              <p className="text-[var(--text-xs)] font-bold text-[var(--text-muted)] uppercase tracking-[var(--tracking-widest)] mb-2">
-                From the Blog
-              </p>
+          <div className="blog-header">
+            <div className="blog-header-content">
+              <p className="blog-header-label">From the Blog</p>
               <h2 className="text-h3 md:text-h2 text-[var(--text-dark)]">
                 Teach Smarter, Not Harder
               </h2>
-              <p className="text-[var(--text-sm)] text-[var(--text-muted)] mt-2">
+              <p className="blog-header-desc">
                 Practical tips, tech walkthroughs, and pedagogy insights for
                 modern educators.
               </p>
             </div>
-            <Link
-              href="/blog"
-              className="inline-flex items-center gap-2 text-[var(--text-sm)] font-medium text-[var(--text-dark)] border border-[var(--border-greige)] bg-[var(--white)] px-4 py-2.5 rounded-[var(--radius-md)] hover:border-[var(--earth)] transition-all duration-[var(--duration-fast)]"
-            >
+            <Link href="/blog" className="blog-view-all">
               View all articles
               <svg
                 className="w-4 h-4"
@@ -502,11 +461,11 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-5 md:gap-6">
+          <div className="blog-grid">
             {/* Featured Article */}
-            <div className="lg:col-span-3 bg-[var(--white)] rounded-[var(--radius-xl)] overflow-hidden border border-[var(--border-beige)] shadow-[var(--shadow-sm)]">
-              <div className="bg-[var(--earth)] p-10 md:p-12 flex items-center justify-center min-h-[180px] md:min-h-[200px]">
-                <div className="bg-[var(--white)] rounded-[var(--radius-md)] p-5 shadow-[var(--shadow-lg)]">
+            <div className="featured-article">
+              <div className="featured-article-visual">
+                <div className="featured-article-mockup">
                   <div className="flex items-center gap-2 mb-3">
                     <div className="w-6 h-1 bg-[var(--earth)] rounded-full" />
                     <div className="w-4 h-1 bg-[var(--earth-light)] rounded-full" />
@@ -519,26 +478,21 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="p-6 md:p-8">
-                <div className="flex items-center gap-2 text-[var(--text-xs)] text-[var(--text-muted)] mb-3">
-                  <span className="font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-wide)]">
-                    Tech Tips
-                  </span>
+              <div className="featured-article-content">
+                <div className="featured-article-meta">
+                  <span className="featured-article-category">Tech Tips</span>
                   <span>&bull;</span>
                   <span>Latest</span>
                 </div>
-                <h3 className="text-[var(--text-xl)] md:text-[var(--text-2xl)] font-bold text-[var(--text-dark)] mb-3 leading-[var(--leading-tight)]">
+                <h3 className="featured-article-title">
                   5 Free Tools That Will Transform Your Lesson Planning
                 </h3>
-                <p className="text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">
+                <p className="featured-article-excerpt">
                   Stop spending your weekends on prep. These five tools automate
                   the busywork so you can focus on what matters &mdash; your
                   students.
                 </p>
-                <Link
-                  href="/blog"
-                  className="inline-flex items-center gap-2 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] hover:gap-3 transition-all duration-[var(--duration-fast)]"
-                >
+                <Link href="/blog" className="featured-article-link">
                   Read Article
                   <svg
                     className="w-4 h-4"
@@ -558,10 +512,10 @@ export default function Home() {
             </div>
 
             {/* Freebie / Lead Magnet Card */}
-            <div className="lg:col-span-2 bg-[var(--beige-bg)] rounded-[var(--radius-xl)] p-6 md:p-8 flex flex-col justify-center items-center text-center border border-[var(--border-beige)]">
-              <div className="bg-[var(--white)] rounded-[var(--radius-md)] p-4 mb-5 shadow-[var(--shadow-sm)]">
+            <div className="freebie-card">
+              <div className="freebie-icon-wrapper">
                 <svg
-                  className="w-8 h-8 text-[var(--terracotta)]"
+                  className="freebie-icon"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
@@ -574,17 +528,13 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <span className="px-3 py-1 bg-[var(--terracotta)] text-[var(--white)] text-[10px] font-bold uppercase rounded-full tracking-[var(--tracking-wide)] mb-3">
-                Free Download
-              </span>
-              <h4 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-2">
-                The Weekly Planner Template
-              </h4>
-              <p className="text-[var(--text-sm)] text-[var(--text-muted)] mb-5 leading-[var(--leading-relaxed)]">
+              <span className="freebie-badge">Free Download</span>
+              <h4 className="freebie-title">The Weekly Planner Template</h4>
+              <p className="freebie-desc">
                 The exact planning template I used to cut my prep time in half.
                 Yours free &mdash; just enter your email.
               </p>
-              <div className="flex flex-col gap-2 w-full max-w-[220px]">
+              <div className="freebie-form">
                 <input
                   type="email"
                   placeholder="your@email.com"

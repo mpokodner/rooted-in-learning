@@ -30,6 +30,7 @@ export default function Header() {
       dropdown: [
         { href: "/about#my-story", label: "My Story" },
         { href: "/about#contact", label: "Contact" },
+        { href: "/about/projects", label: "Portfolio" },
       ],
     },
     {
@@ -41,7 +42,14 @@ export default function Header() {
         { href: "/resources/favorites", label: "Favorites" },
       ],
     },
-    { href: "/consulting", label: "Consulting" },
+    {
+      href: "/consulting",
+      label: "Consulting",
+      dropdown: [
+        { href: "/consulting", label: "Overview" },
+        { href: "/consulting/assessalign", label: "AssessAlign" },
+      ],
+    },
     { href: "/blog", label: "Blog" },
   ];
 

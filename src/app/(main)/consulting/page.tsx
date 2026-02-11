@@ -93,22 +93,77 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* AssessAlign Link Section */}
+      {/* AssessAlign Preview Section */}
       <section className="section bg-[var(--beige-bg)]">
-        <div className="container text-center">
-          <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
-            Current Project
-          </p>
-          <h2 className="text-h2 text-[var(--text-dark)] mb-4">AssessAlign</h2>
-          <p className="text-[var(--text-muted)] max-w-lg mx-auto mb-8">
-            See my current project — an assessment alignment tool built to help educators and administrators.
-          </p>
-          <Link
-            href="/consulting/assessalign"
-            className="btn btn-lg btn-primary rounded-[var(--radius-lg)]"
-          >
-            View AssessAlign
-          </Link>
+        <div className="container">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-10">
+              <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
+                Currently In Development
+              </p>
+              <h2 className="text-h2 text-[var(--text-dark)] mb-4">Sneak Peek: AssessAlign</h2>
+              <p className="text-[var(--text-muted)] max-w-lg mx-auto">
+                Get an early look at the tool I&apos;m building to transform how educators align assessments to standards.
+              </p>
+            </div>
+
+            {/* AssessAlign Preview Card */}
+            <div className="bg-white rounded-[var(--radius-xl)] border border-[var(--border-beige)] overflow-hidden shadow-[var(--shadow-lg)] hover:shadow-[var(--shadow-xl)] transition-all">
+              <div className="bg-[var(--earth)] p-6 md:p-8">
+                <div className="flex items-center gap-3 mb-3">
+                  <div className="w-10 h-10 bg-white/15 rounded-[var(--radius-md)] flex items-center justify-center">
+                    <svg className="w-5 h-5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
+                    </svg>
+                  </div>
+                  <span className="text-[var(--text-xs)] font-bold text-white/80 uppercase tracking-[var(--tracking-widest)]">
+                    Project Preview
+                  </span>
+                </div>
+                <h3 className="text-h2 text-white mb-2">AssessAlign</h3>
+                <p className="text-[var(--earth-light)] max-w-xl">
+                  A powerful assessment alignment tool that helps educators and administrators map assessments to standards for truly data-driven instruction.
+                </p>
+              </div>
+              <div className="p-6 md:p-8">
+                <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-6">
+                  {[
+                    { label: "Standards Mapping", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
+                    { label: "Gap Analysis", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
+                    { label: "Report Generation", icon: "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
+                    { label: "Collaboration", icon: "M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" },
+                  ].map((feature, i) => (
+                    <div key={i} className="text-center">
+                      <div className="w-10 h-10 bg-[var(--beige-bg)] rounded-[var(--radius-md)] flex items-center justify-center mx-auto mb-2">
+                        <svg className="w-5 h-5 text-[var(--earth)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
+                        </svg>
+                      </div>
+                      <p className="text-[var(--text-xs)] font-medium text-[var(--text-dark)]">{feature.label}</p>
+                    </div>
+                  ))}
+                </div>
+                <div className="flex flex-col sm:flex-row gap-3 justify-center">
+                  <Link
+                    href="/consulting/assessalign"
+                    className="btn btn-lg btn-primary rounded-[var(--radius-lg)] inline-flex items-center justify-center gap-2"
+                  >
+                    <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                    </svg>
+                    Preview AssessAlign
+                  </Link>
+                  <Link
+                    href="/about#contact"
+                    className="btn btn-lg btn-secondary rounded-[var(--radius-lg)] inline-flex items-center justify-center gap-2"
+                  >
+                    Request Early Access
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

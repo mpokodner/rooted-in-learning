@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { stripe, constructWebhookEvent } from "@/lib/stripe";
-import { createServerSupabaseClient } from "@/lib/supabase";
+import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { nanoid } from "nanoid";
 
 /**

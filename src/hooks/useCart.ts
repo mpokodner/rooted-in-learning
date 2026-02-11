@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
-import { supabase } from "@/lib/supabase";
+import { useState, useEffect, useCallback, useMemo } from "react";
+import { createClient } from "@/lib/supabase";
 import { useAuth } from "./useAuth";
 import type { CartItem, Product } from "@/types";
 
@@ -11,6 +11,7 @@ import type { CartItem, Product } from "@/types";
  * - Guests: cart stored in localStorage
  */
 export function useCart() {
+  const supabase = useMemo(() => createClient(), []);
   const { user, isAuthenticated } = useAuth();
   const [items, setItems] = useState<CartItem[]>([]);
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import Script from "next/script";
+import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -135,7 +136,7 @@ export default function RootLayout({
           </noscript>
         )}
 
-        {children}
+        <AuthProvider>{children}</AuthProvider>
       </body>
     </html>
   );

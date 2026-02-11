@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import type { Metadata } from "next";
+import "./tech-tips.css";
 
 export const metadata: Metadata = {
   title: "Tech Tips | Rooted in Learning",
@@ -30,22 +30,12 @@ export default function TechTipsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="section-lg bg-gradient-to-b from-[var(--beige-bg)] to-[var(--neutral-bg)]">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <Link href="/resources" className="inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--earth)] mb-6 transition-colors duration-[var(--duration-fast)]">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to Resources
-            </Link>
-            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
-              Technology Tutorials
-            </p>
-            <h1 className="hero-heading text-[var(--text-dark)] mb-6">
-              Tech Tips
-            </h1>
-            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)]">
+      <section className="tips-hero">
+        <div className="tips-container">
+          <div className="tips-hero-inner">
+            <p className="tips-hero-label">Technology Tutorials</p>
+            <h1 className="tips-hero-title">Tech Tips</h1>
+            <p className="tips-hero-desc">
               Step-by-step tutorials to help you integrate technology with confidence. No IT degree required.
             </p>
           </div>
@@ -53,39 +43,36 @@ export default function TechTipsPage() {
       </section>
 
       {/* Tips Grid */}
-      <section className="section-lg bg-[var(--white)]">
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="tips-grid-section">
+        <div className="tips-container">
+          <div className="tips-grid">
             {techTips.map((tip) => (
-              <div
-                key={tip.id}
-                className="bg-[var(--neutral-bg)] rounded-[var(--radius-xl)] p-6 border border-[var(--border-beige)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-[var(--duration-base)] group cursor-pointer"
-              >
+              <div key={tip.id} className="tip-card">
                 {/* Icon */}
-                <div className="w-14 h-14 rounded-[var(--radius-lg)] bg-[var(--earth)] flex items-center justify-center mb-5">
-                  <svg className="w-7 h-7 text-[var(--white)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+                <div className="tip-card-icon">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                   </svg>
                 </div>
 
-                {/* Meta */}
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="px-2.5 py-1 bg-[var(--border-beige)] rounded-full text-[10px] font-bold text-[var(--earth)] uppercase">{tip.category}</span>
-                  <span className="px-2.5 py-1 bg-[var(--terracotta)]/10 rounded-full text-[10px] font-bold text-[var(--terracotta)] uppercase">{tip.level}</span>
+                {/* Meta Badges */}
+                <div className="tip-card-meta">
+                  <span className="tip-card-badge tip-card-badge--category">{tip.category}</span>
+                  <span className="tip-card-badge tip-card-badge--level">{tip.level}</span>
                 </div>
 
-                <h3 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-3 group-hover:text-[var(--earth)] transition-colors duration-[var(--duration-fast)]">{tip.title}</h3>
+                <h3 className="tip-card-title">{tip.title}</h3>
 
-                <div className="flex items-center justify-between">
-                  <span className="text-[var(--text-sm)] text-[var(--text-muted)] flex items-center gap-1.5">
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <div className="tip-card-footer">
+                  <span className="tip-card-duration">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                     {tip.duration}
                   </span>
-                  <span className="inline-flex items-center gap-1.5 text-[var(--text-sm)] font-semibold text-[var(--terracotta)] group-hover:gap-2 transition-all duration-[var(--duration-fast)]">
+                  <span className="tip-card-cta">
                     Watch
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                       <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
                       <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>

@@ -1,0 +1,305 @@
+/* ═══════════════════════════════════════════════════════════════
+   LESSONS PAGE — Component & Layout Styles
+   Import in page.tsx: import "./lessons.css"
+   
+   Uses design tokens from globals.css
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────
+   LAYOUT: Container
+   ─────────────────────────────────────────── */
+
+.lessons-container {
+  width: 100%;
+  max-width: var(--max-width-xl, 75rem);
+  margin-inline: auto;
+  padding-inline: var(--space-container, clamp(1.25rem, 4vw, 2.5rem));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LESSONS HERO SECTION
+   Gradient background with centered intro
+   ═══════════════════════════════════════════════════════════════ */
+
+.lessons-hero {
+  padding-block: clamp(4rem, 10vw, 7rem);
+  background: linear-gradient(
+    to bottom,
+    var(--beige-bg, #F0EDE7) 0%,
+    var(--neutral-bg, #FAF7F2) 100%
+  );
+}
+
+.lessons-hero-inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.lessons-hero-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--terracotta, #B05931);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.lessons-hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl, clamp(2.5rem, 2rem + 2.5vw, 3.5rem));
+  font-weight: 800;
+  line-height: var(--leading-tight, 1.2);
+  letter-spacing: var(--tracking-tight, -0.02em);
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 1.5rem;
+}
+
+.lessons-hero-desc {
+  color: var(--text-muted, #6B6B6B);
+  font-size: var(--text-base, 1rem);
+  line-height: var(--leading-relaxed, 1.65);
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .lessons-hero-desc {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FILTER BAR
+   Sticky filter with pill-style buttons
+   ═══════════════════════════════════════════════════════════════ */
+
+.lessons-filter {
+  padding-block: clamp(0.75rem, 1.5vw, 1rem);
+  background-color: var(--white, #FFFFFF);
+  border-top: 1px solid var(--border-beige, #E8DED0);
+  border-bottom: 1px solid var(--border-beige, #E8DED0);
+  position: sticky;
+  top: clamp(3.5rem, 3rem + 2vw, 4.5rem);
+  z-index: 40;
+}
+
+.lessons-filter-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.lessons-filter-label {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  font-weight: 500;
+  margin-right: 0.25rem;
+}
+
+.lessons-filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) var(--ease-default, ease);
+  background-color: var(--beige-bg, #F0EDE7);
+  color: var(--text-muted, #6B6B6B);
+}
+
+.lessons-filter-btn:hover {
+  background-color: var(--border-beige, #E8DED0);
+  color: var(--text-dark, #2D2D2D);
+}
+
+.lessons-filter-btn--active {
+  background-color: var(--earth, #5C6B4A);
+  color: var(--white, #FFFFFF);
+  border-color: var(--earth, #5C6B4A);
+}
+
+.lessons-filter-btn--active:hover {
+  background-color: var(--earth-dark, #4A5638);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LESSONS GRID
+   Responsive card layout
+   ═══════════════════════════════════════════════════════════════ */
+
+.lessons-grid-section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  background-color: var(--neutral-bg, #FAF7F2);
+}
+
+.lessons-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+@media (min-width: 640px) {
+  .lessons-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lessons-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   LESSON CARD
+   Product-style card with image, meta, and CTA
+   ═══════════════════════════════════════════════════════════════ */
+
+.lesson-card {
+  background-color: var(--white, #FFFFFF);
+  border-radius: var(--radius-xl, 1.5rem);
+  overflow: hidden;
+  border: 1px solid var(--border-beige, #E8DED0);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 300ms ease,
+              border-color 300ms ease;
+}
+
+.lesson-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(92, 107, 74, 0.15);
+  border-color: var(--earth-light, #8B9B7A);
+}
+
+/* Image Area */
+.lesson-card-image {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(135deg, var(--earth, #5C6B4A) 0%, var(--earth-light, #8B9B7A) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.lesson-card-image svg {
+  width: 4rem;
+  height: 4rem;
+  color: rgba(255, 255, 255, 0.25);
+}
+
+.lesson-card-image::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.08), transparent 40%);
+}
+
+/* Badge on image */
+.lesson-card-badge {
+  position: absolute;
+  top: clamp(0.75rem, 1.5vw, 1rem);
+  left: clamp(0.75rem, 1.5vw, 1rem);
+  padding: 0.375rem 0.875rem;
+  background-color: var(--terracotta, #B05931);
+  color: var(--white, #FFFFFF);
+  font-size: 0.625rem;
+  font-weight: 700;
+  border-radius: 9999px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  z-index: 1;
+  box-shadow: 0 2px 8px -2px rgba(0, 0, 0, 0.2);
+}
+
+/* Content Area */
+.lesson-card-content {
+  padding: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+/* Subject / Grade Tags */
+.lesson-card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.375rem;
+  margin-bottom: 0.875rem;
+}
+
+.lesson-card-tag {
+  padding: 0.25rem 0.5rem;
+  background-color: var(--beige-bg, #F0EDE7);
+  border-radius: var(--radius-sm, 0.25rem);
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--earth, #5C6B4A);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.lesson-card-title {
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 1rem;
+  line-height: var(--leading-tight, 1.2);
+  transition: color 200ms ease;
+}
+
+.lesson-card:hover .lesson-card-title {
+  color: var(--earth, #5C6B4A);
+}
+
+/* Price + CTA Row */
+.lesson-card-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 0.875rem;
+  border-top: 1px solid var(--border-beige, #E8DED0);
+}
+
+.lesson-card-price {
+  font-size: var(--text-xl, 1.25rem);
+  font-weight: 700;
+  color: var(--text-dark, #2D2D2D);
+}
+
+.lesson-card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--earth, #5C6B4A);
+  color: var(--white, #FFFFFF);
+  font-size: var(--text-xs, 0.75rem);
+  font-weight: 600;
+  border-radius: 9999px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.lesson-card-cta:hover {
+  background-color: var(--earth-dark, #4A5638);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -4px rgba(92, 107, 74, 0.4);
+}
+
+.lesson-card-cta:active {
+  transform: translateY(0);
+}
+
+.lesson-card-cta svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}

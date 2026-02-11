@@ -1,0 +1,320 @@
+/* ═══════════════════════════════════════════════════════════════
+   BLOG PAGE — Component & Layout Styles
+   Import in page.tsx: import "./blog.css"
+   
+   Coming-soon state with tree illustration, progress bar,
+   email signup, and feature badges.
+   Uses design tokens from globals.css
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────
+   LAYOUT: Container
+   ─────────────────────────────────────────── */
+
+.blog-container {
+  width: 100%;
+  max-width: var(--max-width-xl, 75rem);
+  margin-inline: auto;
+  padding-inline: var(--space-container, clamp(1.25rem, 4vw, 2.5rem));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   BLOG MAIN — Full-height coming-soon layout
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-main {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-block: clamp(3rem, 8vw, 6rem);
+}
+
+.blog-content {
+  max-width: 36rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   TREE ILLUSTRATION
+   Decorative SVG with gradient background circle
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-tree {
+  width: clamp(10rem, 14vw + 4rem, 13rem);
+  height: clamp(10rem, 14vw + 4rem, 13rem);
+  margin-inline: auto;
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+  position: relative;
+}
+
+.blog-tree-bg {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to bottom,
+    rgba(139, 155, 122, 0.2),
+    var(--beige-bg, #F0EDE7)
+  );
+  border-radius: 50%;
+}
+
+.blog-tree-svg {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.blog-tree-svg svg {
+  width: clamp(7rem, 10vw + 2rem, 9rem);
+  height: clamp(7rem, 10vw + 2rem, 9rem);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   PROGRESS BAR
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-progress {
+  max-width: 18rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+}
+
+.blog-progress-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.5rem;
+}
+
+.blog-progress-label {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted, #6B6B6B);
+  text-transform: uppercase;
+  letter-spacing: var(--tracking-widest, 0.08em);
+}
+
+.blog-progress-value {
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 700;
+  color: var(--text-dark, #2D2D2D);
+}
+
+.blog-progress-track {
+  height: 0.5rem;
+  background-color: var(--border-beige, #E8DED0);
+  border-radius: 9999px;
+  overflow: hidden;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+.blog-progress-fill {
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    var(--terracotta, #B05931) 0%,
+    var(--terracotta-light, #D5A372) 100%
+  );
+  border-radius: 9999px;
+  transition: width 600ms cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+}
+
+.blog-progress-fill::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  animation: blog-shimmer 2s ease-in-out infinite;
+}
+
+@keyframes blog-shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   HEADINGS
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-heading-primary {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl, clamp(2.5rem, 2rem + 2.5vw, 3.5rem));
+  font-weight: 800;
+  line-height: var(--leading-tight, 1.2);
+  letter-spacing: var(--tracking-tight, -0.02em);
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 0.5rem;
+}
+
+.blog-heading-accent {
+  font-family: var(--font-heading);
+  font-size: var(--text-4xl, clamp(2rem, 1.6rem + 2vw, 2.75rem));
+  font-weight: 700;
+  line-height: var(--leading-tight, 1.2);
+  color: var(--earth-light, #8B9B7A);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.blog-desc {
+  color: var(--text-muted, #6B6B6B);
+  font-size: var(--text-base, 1rem);
+  line-height: var(--leading-relaxed, 1.65);
+  max-width: 30rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 4vw, 2.5rem);
+}
+
+@media (min-width: 768px) {
+  .blog-desc {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   EMAIL SIGNUP FORM
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-signup {
+  max-width: 26rem;
+  margin-inline: auto;
+  margin-bottom: 1rem;
+}
+
+.blog-signup-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .blog-signup-form {
+    flex-direction: row;
+  }
+}
+
+.blog-signup-input {
+  flex: 1;
+  padding: 0.875rem 1.25rem;
+  border: 2px solid var(--border-beige, #E8DED0);
+  border-radius: var(--radius-md, 0.5rem);
+  background-color: var(--white, #FFFFFF);
+  color: var(--text-dark, #2D2D2D);
+  font-size: var(--text-base, 1rem);
+  transition: border-color 200ms ease, box-shadow 200ms ease;
+}
+
+.blog-signup-input::placeholder {
+  color: var(--text-muted, #6B6B6B);
+}
+
+.blog-signup-input:focus {
+  outline: none;
+  border-color: var(--earth, #5C6B4A);
+  box-shadow: 0 0 0 3px rgba(92, 107, 74, 0.1);
+}
+
+.blog-signup-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.5rem;
+  background-color: var(--earth, #5C6B4A);
+  color: var(--white, #FFFFFF);
+  font-weight: 600;
+  font-size: var(--text-sm, 0.875rem);
+  border: none;
+  border-radius: var(--radius-md, 0.5rem);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color 200ms ease, transform 200ms ease, box-shadow 200ms ease;
+}
+
+.blog-signup-btn:hover {
+  background-color: var(--earth-dark, #4A5638);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px -6px rgba(92, 107, 74, 0.4);
+}
+
+.blog-signup-btn:active {
+  transform: translateY(0);
+}
+
+.blog-signup-btn:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.blog-signup-btn svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.blog-signup-note {
+  font-size: var(--text-xs, 0.75rem);
+  color: var(--text-light, #8A8A8A);
+  text-align: center;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FEATURE BADGES
+   Pill-style badges showing what's coming
+   ═══════════════════════════════════════════════════════════════ */
+
+.blog-features {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-top: clamp(2rem, 4vw, 3rem);
+}
+
+.blog-feature-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--white, #FFFFFF);
+  border-radius: 9999px;
+  border: 1px solid var(--border-beige, #E8DED0);
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04);
+  transition: transform 200ms ease, box-shadow 200ms ease, border-color 200ms ease;
+}
+
+.blog-feature-badge:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px -4px rgba(0, 0, 0, 0.1);
+  border-color: var(--earth-light, #8B9B7A);
+}
+
+.blog-feature-badge-icon {
+  color: var(--earth, #5C6B4A);
+}
+
+.blog-feature-badge-icon svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.blog-feature-badge-label {
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 500;
+  color: var(--text-dark, #2D2D2D);
+}

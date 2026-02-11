@@ -1,7 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import Link from "next/link";
 import type { Metadata } from "next";
+import "./lessons.css";
 
 export const metadata: Metadata = {
   title: "Lessons | Rooted in Learning",
@@ -30,22 +30,12 @@ export default function LessonsPage() {
       <Header />
 
       {/* Hero Section */}
-      <section className="section-lg bg-gradient-to-b from-[var(--beige-bg)] to-[var(--neutral-bg)]">
-        <div className="container">
-          <div className="max-w-3xl mx-auto text-center">
-            <Link href="/resources" className="inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--earth)] mb-6 transition-colors duration-[var(--duration-fast)]">
-              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-              </svg>
-              Back to Resources
-            </Link>
-            <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-4">
-              Ready-to-Use Curriculum
-            </p>
-            <h1 className="hero-heading text-[var(--text-dark)] mb-6">
-              Lessons
-            </h1>
-            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] leading-[var(--leading-relaxed)]">
+      <section className="lessons-hero">
+        <div className="lessons-container">
+          <div className="lessons-hero-inner">
+            <p className="lessons-hero-label">Ready-to-Use Curriculum</p>
+            <h1 className="lessons-hero-title">Lessons</h1>
+            <p className="lessons-hero-desc">
               Standards-aligned lesson plans and activities designed by a veteran educator. Just download and teach.
             </p>
           </div>
@@ -53,18 +43,14 @@ export default function LessonsPage() {
       </section>
 
       {/* Filter Bar */}
-      <section className="py-4 bg-[var(--white)] border-y border-[var(--border-beige)] sticky top-[72px] z-40">
-        <div className="container">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="text-[var(--text-sm)] text-[var(--text-muted)]">Filter:</span>
-            {["All", "ELA", "Math", "Science", "STEM"].map((filter) => (
+      <section className="lessons-filter">
+        <div className="lessons-container">
+          <div className="lessons-filter-inner">
+            <span className="lessons-filter-label">Filter:</span>
+            {["All", "ELA", "Math", "Science", "STEM"].map((filter, index) => (
               <button
                 key={filter}
-                className={`px-4 py-2 rounded-full text-[var(--text-sm)] font-medium transition-all duration-[var(--duration-fast)] ${
-                  filter === "All"
-                    ? "bg-[var(--earth)] text-[var(--white)]"
-                    : "bg-[var(--beige-bg)] text-[var(--text-muted)] hover:bg-[var(--border-beige)]"
-                }`}
+                className={`lessons-filter-btn${index === 0 ? " lessons-filter-btn--active" : ""}`}
               >
                 {filter}
               </button>
@@ -74,35 +60,34 @@ export default function LessonsPage() {
       </section>
 
       {/* Lessons Grid */}
-      <section className="section-lg bg-[var(--neutral-bg)]">
-        <div className="container">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <section className="lessons-grid-section">
+        <div className="lessons-container">
+          <div className="lessons-grid">
             {lessons.map((lesson) => (
-              <div
-                key={lesson.id}
-                className="bg-[var(--white)] rounded-[var(--radius-xl)] overflow-hidden border border-[var(--border-beige)] hover:shadow-[var(--shadow-lg)] hover:-translate-y-1 transition-all duration-[var(--duration-base)] group"
-              >
+              <div key={lesson.id} className="lesson-card">
                 {/* Image placeholder */}
-                <div className="aspect-[4/3] bg-gradient-to-br from-[var(--earth)] to-[var(--earth-light)] relative flex items-center justify-center">
-                  <svg className="w-16 h-16 text-[var(--white)]/30" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
+                <div className="lesson-card-image">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                   {lesson.badge && (
-                    <span className="absolute top-4 left-4 px-3 py-1 bg-[var(--terracotta)] text-[var(--white)] text-[10px] font-bold rounded-full uppercase tracking-[var(--tracking-wide)]">
-                      {lesson.badge}
-                    </span>
+                    <span className="lesson-card-badge">{lesson.badge}</span>
                   )}
                 </div>
-                <div className="p-5 md:p-6">
-                  <div className="flex items-center gap-2 mb-3">
-                    <span className="px-2 py-1 bg-[var(--beige-bg)] rounded text-[10px] font-bold text-[var(--earth)] uppercase">{lesson.subject}</span>
-                    <span className="px-2 py-1 bg-[var(--beige-bg)] rounded text-[10px] font-bold text-[var(--earth)] uppercase">Grade {lesson.grade}</span>
+
+                <div className="lesson-card-content">
+                  <div className="lesson-card-tags">
+                    <span className="lesson-card-tag">{lesson.subject}</span>
+                    <span className="lesson-card-tag">Grade {lesson.grade}</span>
                   </div>
-                  <h3 className="text-[var(--text-lg)] font-bold text-[var(--text-dark)] mb-3 group-hover:text-[var(--earth)] transition-colors duration-[var(--duration-fast)]">{lesson.title}</h3>
-                  <div className="flex items-center justify-between">
-                    <span className="text-[var(--text-xl)] font-bold text-[var(--text-dark)]">${lesson.price}</span>
-                    <button className="btn btn-sm btn-primary rounded-full">
+                  <h3 className="lesson-card-title">{lesson.title}</h3>
+                  <div className="lesson-card-footer">
+                    <span className="lesson-card-price">${lesson.price}</span>
+                    <button className="lesson-card-cta">
                       Add to Cart
+                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
+                      </svg>
                     </button>
                   </div>
                 </div>

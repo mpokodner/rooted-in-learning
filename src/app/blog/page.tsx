@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import type { Metadata } from "next";
+import "./blog.css";
 
 export const metadata: Metadata = {
   title: "Blog | Rooted in Learning",
@@ -17,7 +18,6 @@ const features = [
   {
     icon: (
       <svg
-        className="w-4 h-4"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -35,7 +35,6 @@ const features = [
   {
     icon: (
       <svg
-        className="w-4 h-4"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -53,7 +52,6 @@ const features = [
   {
     icon: (
       <svg
-        className="w-4 h-4"
         fill="none"
         viewBox="0 0 24 24"
         stroke="currentColor"
@@ -78,14 +76,14 @@ export default function BlogPage() {
       <Header />
 
       {/* Main Content */}
-      <main className="flex-1 flex items-center justify-center section">
-        <div className="container">
-          <div className="max-w-2xl mx-auto text-center">
+      <main className="blog-main">
+        <div className="blog-container">
+          <div className="blog-content">
             {/* Tree Illustration */}
-            <div className="w-44 h-44 md:w-52 md:h-52 mx-auto mb-8 relative">
-              <div className="absolute inset-0 bg-gradient-to-b from-[var(--earth-light)]/20 to-[var(--beige-bg)] rounded-full"></div>
-              <div className="absolute inset-0 flex items-center justify-center">
-                <svg className="w-28 h-28 md:w-36 md:h-36" viewBox="0 0 100 100" fill="none">
+            <div className="blog-tree">
+              <div className="blog-tree-bg"></div>
+              <div className="blog-tree-svg">
+                <svg viewBox="0 0 100 100" fill="none">
                   {/* Tree trunk */}
                   <rect x="45" y="55" width="10" height="30" fill="var(--earth)" opacity="0.7" rx="2" />
                   {/* Roots */}
@@ -104,57 +102,57 @@ export default function BlogPage() {
             </div>
 
             {/* Progress Bar */}
-            <div className="max-w-xs mx-auto mb-10">
-              <div className="flex items-center justify-between text-[var(--text-xs)] text-[var(--text-muted)] mb-2">
-                <span className="uppercase tracking-[var(--tracking-widest)] font-semibold">Cultivating</span>
-                <span className="font-bold text-[var(--text-dark)]">{progress}%</span>
+            <div className="blog-progress">
+              <div className="blog-progress-header">
+                <span className="blog-progress-label">Cultivating</span>
+                <span className="blog-progress-value">{progress}%</span>
               </div>
-              <div className="h-2 bg-[var(--border-beige)] rounded-full overflow-hidden">
+              <div className="blog-progress-track">
                 <div
-                  className="h-full bg-gradient-to-r from-[var(--terracotta)] to-[var(--terracotta-light)] rounded-full transition-all duration-[var(--duration-slow)]"
+                  className="blog-progress-fill"
                   style={{ width: `${progress}%` }}
                 ></div>
               </div>
             </div>
 
             {/* Heading */}
-            <h1 className="hero-heading text-[var(--text-dark)] mb-2">
+            <h1 className="blog-heading-primary">
               Something impactful is
             </h1>
-            <h2 className="text-h1 md:text-display-md text-[var(--earth-light)] mb-8">
+            <h2 className="blog-heading-accent">
               growing
             </h2>
 
-            <p className="text-[var(--text-muted)] text-[var(--text-base)] md:text-[var(--text-lg)] max-w-lg mx-auto mb-10 leading-[var(--leading-relaxed)]">
+            <p className="blog-desc">
               We&apos;re cultivating a new space for pedagogy articles, educational insights, and curated resources. Our digital ecosystem is expanding to better serve educators and learners alike.
             </p>
 
             {/* Email Signup */}
-            <div className="max-w-md mx-auto mb-4">
-              <div className="flex flex-col sm:flex-row gap-3">
+            <div className="blog-signup">
+              <form className="blog-signup-form">
                 <input
                   type="email"
                   placeholder="Enter your email"
-                  className="py-3.5 px-5 border-2 border-[var(--border-beige)] rounded-[var(--radius-md)] flex-1 bg-[var(--white)] text-[var(--text-dark)] focus:outline-none focus:border-[var(--earth)]"
+                  className="blog-signup-input"
                 />
-                <button className="btn btn-md btn-primary rounded-[var(--radius-md)]">
+                <button type="button" className="blog-signup-btn">
                   Notify me
-                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                   </svg>
                 </button>
-              </div>
+              </form>
             </div>
-            <p className="text-[var(--text-xs)] text-[var(--text-light)]">
+            <p className="blog-signup-note">
               Be the first to know when we launch. No spam, just seeds of knowledge.
             </p>
 
             {/* Feature Badges */}
-            <div className="flex flex-wrap justify-center gap-3 mt-12">
+            <div className="blog-features">
               {features.map((feature, index) => (
-                <div key={index} className="inline-flex items-center gap-2 px-5 py-3 bg-[var(--white)] rounded-full border border-[var(--border-beige)] shadow-[var(--shadow-sm)]">
-                  <span className="text-[var(--earth)]">{feature.icon}</span>
-                  <span className="text-[var(--text-sm)] font-medium text-[var(--text-dark)]">{feature.label}</span>
+                <div key={index} className="blog-feature-badge">
+                  <span className="blog-feature-badge-icon">{feature.icon}</span>
+                  <span className="blog-feature-badge-label">{feature.label}</span>
                 </div>
               ))}
             </div>

@@ -4,28 +4,51 @@ import { useState, useRef, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
-interface NavItem {
+interface DropdownItem {
   href: string;
   label: string;
 }
 
+interface NavItem {
+  href: string;
+  label: string;
+  dropdown?: DropdownItem[];
+}
+
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
-    { href: "/resources/lessons", label: "Lessons" },
-    { href: "/consulting", label: "Consulting" },
+    {
+      href: "/resources",
+      label: "Resources",
+      dropdown: [
+        { href: "/resources/lessons", label: "Lessons" },
+        { href: "/resources/tech-tips", label: "Tech Tips" },
+        { href: "/resources/favorites", label: "My Favorites" },
+      ],
+    },
+    {
+      href: "/consulting",
+      label: "Consulting",
+      dropdown: [
+        { href: "/consulting", label: "Overview" },
+        { href: "/consulting/assessalign", label: "AssessAlign" },
+      ],
+    },
     { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
   ];
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
-    return pathname.startsWith(href);
+    return pathname.startsWith(href.split("#")[0]);
   };
 
   useEffect(() => {
@@ -35,6 +58,16 @@ export default function Header() {
     window.addEventListener("scroll", handleScroll, { passive: true });
     handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setOpenDropdown(null);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
   useEffect(() => {
@@ -50,7 +83,12 @@ export default function Header() {
 
   useEffect(() => {
     setMobileMenuOpen(false);
+    setOpenDropdown(null);
   }, [pathname]);
+
+  const handleDropdownToggle = (label: string) => {
+    setOpenDropdown(openDropdown === label ? null : label);
+  };
 
   return (
     <header
@@ -70,15 +108,51 @@ export default function Header() {
         </Link>
 
         {/* Desktop Navigation */}
-        <div className="header-nav">
+        <div className="header-nav" ref={dropdownRef}>
           {navItems.map((item) => (
-            <Link
-              key={item.label}
-              href={item.href}
-              className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}
-            >
-              {item.label}
-            </Link>
+            <div key={item.label} style={{ position: "relative" }}>
+              {item.dropdown ? (
+                <>
+                  <button
+                    onClick={() => handleDropdownToggle(item.label)}
+                    className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}
+                  >
+                    {item.label}
+                    <svg
+                      className={`header-chevron${openDropdown === item.label ? " header-chevron--open" : ""}`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                    </svg>
+                  </button>
+                  {openDropdown === item.label && (
+                    <div className="header-dropdown">
+                      {item.dropdown.map((dropItem) => (
+                        <Link
+                          key={dropItem.href}
+                          href={dropItem.href}
+                          className="header-dropdown-link"
+                          onClick={() => setOpenDropdown(null)}
+                        >
+                          {dropItem.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </>
+              ) : (
+                <Link
+                  href={item.href}
+                  className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}
+                >
+                  {item.label}
+                </Link>
+              )}
+            </div>
           ))}
         </div>
 
@@ -129,14 +203,54 @@ export default function Header() {
               {/* Navigation Links */}
               <div className="header-mobile-nav-group">
                 {navItems.map((item) => (
-                  <Link
-                    key={item.label}
-                    href={item.href}
-                    className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
-                    onClick={() => setMobileMenuOpen(false)}
-                  >
-                    {item.label}
-                  </Link>
+                  <div key={item.label}>
+                    {item.dropdown ? (
+                      <>
+                        <button
+                          onClick={() => handleDropdownToggle(item.label)}
+                          className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
+                        >
+                          {item.label}
+                          <svg
+                            className={`header-chevron${openDropdown === item.label ? " header-chevron--open" : ""}`}
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                            strokeWidth={2}
+                            style={{ width: "1.25rem", height: "1.25rem" }}
+                            aria-hidden="true"
+                          >
+                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                          </svg>
+                        </button>
+                        {openDropdown === item.label && (
+                          <div className="header-mobile-sub">
+                            {item.dropdown.map((dropItem) => (
+                              <Link
+                                key={dropItem.href}
+                                href={dropItem.href}
+                                className="header-mobile-sub-link"
+                                onClick={() => {
+                                  setMobileMenuOpen(false);
+                                  setOpenDropdown(null);
+                                }}
+                              >
+                                {dropItem.label}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </>
+                    ) : (
+                      <Link
+                        href={item.href}
+                        className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
+                        onClick={() => setMobileMenuOpen(false)}
+                      >
+                        {item.label}
+                      </Link>
+                    )}
+                  </div>
                 ))}
               </div>
 

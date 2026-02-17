@@ -725,6 +725,7 @@ a:hover {
 .header-mobile-link {
   display: flex;
   align-items: center;
+  justify-content: space-between;
   width: 100%;
   padding: 1rem 1.25rem;
   font-size: var(--text-lg);
@@ -750,6 +751,31 @@ a:hover {
   background-color: var(--beige-bg);
   font-weight: 700;
 }
+
+/* Mobile dropdown sub-links */
+.header-mobile-sub {
+  margin-left: 1rem;
+  margin-top: 0.25rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--border-beige);
+}
+
+.header-mobile-sub-link {
+  display: block;
+  padding: 0.75rem 0;
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.header-mobile-sub-link:hover {
+  color: var(--earth);
+  text-decoration: none;
+}
+
 
 /* Mobile CTA group */
 .header-mobile-cta-group {

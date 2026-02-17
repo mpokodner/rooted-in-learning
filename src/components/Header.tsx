@@ -43,7 +43,14 @@ export default function Header() {
       ],
     },
     { href: "/blog", label: "Blog" },
-    { href: "/about", label: "About" },
+    {
+      href: "/about",
+      label: "About",
+      dropdown: [
+        { href: "/about", label: "About Me" },
+        { href: "/about/projects", label: "Portfolio" },
+      ],
+    },
   ];
 
   const isActive = (href: string) => {

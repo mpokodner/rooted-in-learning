@@ -548,6 +548,67 @@ a:hover {
 }
 
 
+/* ─── Header Actions Group ─── */
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+@media (min-width: 640px) {
+  .header-actions {
+    gap: 0.75rem;
+  }
+}
+
+/* ─── Newsletter CTA Button ─── */
+
+.header-newsletter-btn {
+  display: none;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.875rem;
+  background-color: transparent;
+  color: var(--terracotta);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border: 1.5px solid var(--terracotta);
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  transition: all var(--duration-base) var(--ease-default);
+}
+
+.header-newsletter-btn:hover {
+  background-color: var(--terracotta);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-newsletter-btn svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .header-newsletter-btn {
+    display: inline-flex;
+  }
+}
+
+.header-newsletter-text {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  .header-newsletter-text {
+    display: inline;
+  }
+}
+
+
 /* ─── Login / CTA Button ─── */
 
 .header-login-btn {
@@ -622,29 +683,53 @@ a:hover {
 }
 
 
-/* ─── Mobile Menu Panel ─── */
+/* ─── Mobile Menu Overlay ─── */
 
-.header-mobile-menu {
-  padding-bottom: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid var(--border-beige);
+.header-mobile-overlay {
+  position: fixed;
+  top: clamp(3.5rem, 3rem + 2vw, 4.5rem);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--neutral-bg);
+  z-index: 49;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  animation: mobileMenuSlideIn var(--duration-base) var(--ease-out);
+}
+
+@keyframes mobileMenuSlideIn {
+  from { opacity: 0; transform: translateY(-8px); }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 @media (min-width: 1024px) {
-  .header-mobile-menu {
+  .header-mobile-overlay {
     display: none;
   }
+}
+
+.header-mobile-menu {
+  padding-block: 1.5rem 3rem;
+}
+
+.header-mobile-nav-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid var(--border-beige);
 }
 
 .header-mobile-link {
   display: flex;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: var(--text-sm);
+  padding: 1rem 1.25rem;
+  font-size: var(--text-lg);
   font-weight: 500;
-  color: var(--text-muted);
+  color: var(--text-dark);
   text-decoration: none;
   border-radius: var(--radius-lg);
   border: none;
@@ -652,52 +737,231 @@ a:hover {
   cursor: pointer;
   transition: color var(--duration-fast) var(--ease-default),
               background-color var(--duration-fast) var(--ease-default);
+  min-height: 3rem;
 }
 
 .header-mobile-link:hover {
   color: var(--earth);
-  background-color: rgba(240, 237, 231, 0.5);
+  background-color: var(--beige-bg);
 }
 
 .header-mobile-link--active {
   color: var(--earth);
   background-color: var(--beige-bg);
-  font-weight: 600;
+  font-weight: 700;
 }
 
-/* Mobile dropdown sub-links */
-.header-mobile-sub {
-  margin-left: 1rem;
-  margin-top: 0.25rem;
-  margin-bottom: 0.5rem;
-  padding-left: 1rem;
-  border-left: 2px solid var(--border-beige);
+/* Mobile CTA group */
+.header-mobile-cta-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-.header-mobile-sub-link {
-  display: block;
-  padding: 0.625rem 0;
-  font-size: var(--text-sm);
-  color: var(--text-muted);
+.header-mobile-cta-primary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 2rem;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-weight: 700;
+  font-size: var(--text-base);
+  border-radius: var(--radius-lg);
   text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default);
+  transition: background-color var(--duration-base) var(--ease-default);
 }
 
-.header-mobile-sub-link:hover {
+.header-mobile-cta-primary:hover {
+  background-color: var(--terracotta-dark);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-mobile-cta-primary svg {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+.header-mobile-cta-secondary {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background-color: transparent;
   color: var(--earth);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border: 2px solid var(--earth);
+  border-radius: var(--radius-lg);
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-default);
+}
+
+.header-mobile-cta-secondary:hover {
+  background-color: var(--earth);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-mobile-cta-secondary svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 
 /* ═══════════════════════════════════════════════════════════════
    SITE FOOTER
-   Dark-earth background, high-contrast links
+   Dark-earth background, high-contrast links, conversion-focused
    ═══════════════════════════════════════════════════════════════ */
 
 .site-footer {
   background-color: var(--earth);
 }
 
-/* Main footer content area */
+
+/* ─── Footer Lead Capture Bar ─── */
+
+.footer-capture {
+  background-color: var(--earth-dark);
+  padding-block: clamp(2rem, 4vw, 3rem);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.footer-capture-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  align-items: center;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-capture-inner {
+    flex-direction: row;
+    text-align: left;
+    justify-content: space-between;
+    gap: 2rem;
+  }
+}
+
+.footer-capture-content {
+  max-width: 26rem;
+}
+
+.footer-capture-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-xl);
+  font-weight: 700;
+  color: var(--white);
+  margin-bottom: 0.375rem;
+}
+
+.footer-capture-desc {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.6);
+  line-height: var(--leading-relaxed);
+}
+
+.footer-capture-form {
+  width: 100%;
+  max-width: 24rem;
+  flex-shrink: 0;
+}
+
+.footer-capture-input-group {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.footer-capture-input {
+  flex: 1;
+  padding: 0.75rem 1rem;
+  background-color: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  color: var(--white);
+  font-size: var(--text-sm);
+  transition: border-color var(--duration-fast) var(--ease-default),
+              background-color var(--duration-fast) var(--ease-default);
+}
+
+.footer-capture-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.footer-capture-input:focus {
+  outline: none;
+  border-color: var(--terracotta-light);
+  background-color: rgba(255, 255, 255, 0.14);
+}
+
+.footer-capture-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.75rem 1.25rem;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  border: none;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background-color var(--duration-base) var(--ease-default),
+              transform var(--duration-fast) var(--ease-default);
+}
+
+.footer-capture-btn:hover {
+  background-color: var(--terracotta-dark);
+}
+
+.footer-capture-btn:active {
+  transform: translateY(1px);
+}
+
+.footer-capture-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.footer-capture-btn svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+.footer-capture-note {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.4);
+  margin-top: 0.5rem;
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .footer-capture-note {
+    text-align: left;
+  }
+}
+
+.footer-capture-success {
+  font-size: var(--text-sm);
+  color: var(--earth-mist);
+  margin-top: 0.5rem;
+  font-weight: 600;
+}
+
+.footer-capture-error {
+  font-size: var(--text-sm);
+  color: var(--terracotta-light);
+  margin-top: 0.5rem;
+}
+
+
+/* ─── Main Footer Content ─── */
+
 .footer-main {
   padding-block: var(--space-section, clamp(3rem, 6vw, 5rem));
 }
@@ -716,13 +980,17 @@ a:hover {
 
 @media (min-width: 1024px) {
   .footer-grid {
-    grid-template-columns: 4fr 8fr;
-    gap: clamp(3rem, 5vw, 4rem);
+    grid-template-columns: 5fr 7fr;
+    gap: clamp(3rem, 5vw, 5rem);
   }
 }
 
 
 /* ─── Footer Brand Column ─── */
+
+.footer-brand {
+  max-width: 22rem;
+}
 
 .footer-logo {
   display: inline-flex;
@@ -765,6 +1033,37 @@ a:hover {
   max-width: 24rem;
   line-height: var(--leading-relaxed);
   margin-bottom: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+
+/* ─── Footer Trust Metrics ─── */
+
+.footer-trust-metrics {
+  display: flex;
+  gap: clamp(1rem, 2vw, 1.5rem);
+  margin-bottom: clamp(1.25rem, 2vw, 1.5rem);
+}
+
+.footer-trust-metric {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+}
+
+.footer-trust-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 800;
+  color: var(--white);
+  line-height: 1;
+}
+
+.footer-trust-label {
+  font-size: 0.625rem;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 
 
@@ -841,14 +1140,12 @@ a:hover {
 }
 
 
-/* ─── Footer Links (dark bg) ───
-   Default: soft white (high contrast on dark green)
-   Hover: full white + subtle shift
-   Active: terracotta-light accent
-   ──────────────────────────────── */
+/* ─── Footer Links (dark bg) ─── */
 
 .footer-link {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
@@ -869,6 +1166,22 @@ a:hover {
 .footer-link--active {
   color: var(--terracotta-light);
   font-weight: 600;
+}
+
+.footer-link--pathway {
+  gap: 0.5rem;
+}
+
+.footer-link--pathway svg {
+  width: 1rem;
+  height: 1rem;
+  color: rgba(255, 255, 255, 0.45);
+  flex-shrink: 0;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.footer-link--pathway:hover svg {
+  color: var(--terracotta-light);
 }
 
 
@@ -910,4 +1223,22 @@ a:hover {
 .footer-bottom-text .accent {
   color: var(--terracotta);
   font-weight: 600;
+}
+
+.footer-bottom-links {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.footer-bottom-link {
+  font-size: var(--text-xs);
+  color: rgba(255, 255, 255, 0.45);
+  text-decoration: none;
+  transition: color var(--duration-fast) var(--ease-default);
+}
+
+.footer-bottom-link:hover {
+  color: rgba(255, 255, 255, 0.8);
+  text-decoration: none;
 }

@@ -1,119 +1,312 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./blog.css";
 
 export const metadata: Metadata = {
   title: "Blog | Rooted in Learning",
   description:
-    "Thoughtful insights for intentional learning at home. Explore evidence-based teaching strategies and educational philosophy.",
+    "Research-backed teaching strategies, Science of Reading insights, AI in education, and classroom systems design. Written by a 12+ year practitioner.",
+  keywords: [
+    "science of reading",
+    "teaching strategies",
+    "AI in education",
+    "multilingual learners",
+    "classroom strategy",
+    "education blog",
+  ],
   openGraph: {
-    title: "The Pedagogy Blog | Rooted in Learning",
+    title: "Blog | Rooted in Learning",
     description:
-      "Thoughtful insights for intentional learning at home.",
+      "Research-backed insights for modern educators. Science of Reading, AI tools, and classroom systems.",
+    type: "website",
   },
 };
 
-const features = [
+const contentPillars = [
+  { id: "all", label: "All Posts" },
+  { id: "science-of-reading", label: "Science of Reading" },
+  { id: "multilingual-learners", label: "Multilingual Learners" },
+  { id: "ai-in-education", label: "AI in Education" },
+  { id: "classroom-strategy", label: "Classroom Strategy" },
+  { id: "teaching-systems", label: "Teaching Systems Design" },
+];
+
+const featuredPost = {
+  title: "Why AI Won't Replace Teachers — But Teachers Who Use AI Will Replace Those Who Don't",
+  excerpt:
+    "The conversation around AI in education is missing the point. Here's what actually matters: building systems that give teachers leverage, not tools that try to replace their judgment.",
+  category: "AI in Education",
+  readTime: "8 min read",
+  date: "Coming Soon",
+  slug: "/blog",
+};
+
+const posts = [
   {
-    icon: (
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-      </svg>
-    ),
-    label: "Pedagogy Articles",
+    title: "The Science of Reading in 2026: What's Changed and What Hasn't",
+    excerpt: "A practitioner's guide to the current evidence base — and what it actually means for your classroom.",
+    category: "Science of Reading",
+    readTime: "6 min",
+    slug: "/blog",
   },
   {
-    icon: (
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" />
-      </svg>
-    ),
-    label: "Teaching Insights",
+    title: "5 Strategies for Supporting Multilingual Learners Beyond 'Modify the Text'",
+    excerpt: "Your ML students deserve more than simplified worksheets. Here are evidence-based approaches that actually build language.",
+    category: "Multilingual Learners",
+    readTime: "7 min",
+    slug: "/blog",
   },
   {
-    icon: (
-      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-      </svg>
-    ),
-    label: "EdTech Reviews",
+    title: "Building a Lesson Planning System That Survives Monday Morning",
+    excerpt: "Stop planning in survival mode. Here's how to build a repeatable system that saves 5+ hours per week.",
+    category: "Teaching Systems Design",
+    readTime: "5 min",
+    slug: "/blog",
+  },
+  {
+    title: "How I Use AI to Differentiate Instruction for 28 Students",
+    excerpt: "A real-world walkthrough of the AI tools and prompts I use daily for personalized instruction.",
+    category: "AI in Education",
+    readTime: "9 min",
+    slug: "/blog",
+  },
+  {
+    title: "The Reading Intervention Framework That Actually Works",
+    excerpt: "After implementing this in three schools, here are the results — and the exact framework you can replicate.",
+    category: "Science of Reading",
+    readTime: "10 min",
+    slug: "/blog",
+  },
+  {
+    title: "Stop Teaching to the Middle: A Practical Guide to Small Group Strategy",
+    excerpt: "Whole-group instruction has its place, but the real magic happens in small groups. Here's how to structure them.",
+    category: "Classroom Strategy",
+    readTime: "6 min",
+    slug: "/blog",
+  },
+];
+
+const startHere = [
+  {
+    title: "New to Science of Reading?",
+    description: "Start with the evidence base that's changing literacy instruction nationwide.",
+    link: "/blog",
+    linkText: "Read the SoR Primer",
+  },
+  {
+    title: "Exploring AI for Teaching?",
+    description: "A practical, no-hype guide to AI tools that actually help in the classroom.",
+    link: "/blog",
+    linkText: "Get Started with AI",
+  },
+  {
+    title: "Building Better Systems?",
+    description: "Learn how to create teaching infrastructure that scales your impact.",
+    link: "/blog",
+    linkText: "Read Systems Design",
   },
 ];
 
 export default function BlogPage() {
-  const progress = 60;
-
   return (
-    <div className="min-h-screen bg-[var(--neutral-bg)] flex flex-col">
-      {/* Main Content */}
-      <main className="blog-main">
-        <div className="blog-container">
-          <div className="blog-content">
-            {/* Tree Illustration */}
-            <div className="blog-tree">
-              <div className="blog-tree-bg"></div>
-              <div className="blog-tree-svg">
-                <svg viewBox="0 0 100 100" fill="none">
-                  <rect x="45" y="55" width="10" height="30" fill="var(--earth)" opacity="0.7" rx="2" />
-                  <path d="M45 80 Q35 85 25 82" stroke="var(--earth)" strokeWidth="3" opacity="0.5" fill="none" />
-                  <path d="M55 80 Q65 85 75 82" stroke="var(--earth)" strokeWidth="3" opacity="0.5" fill="none" />
-                  <path d="M48 85 Q40 92 30 88" stroke="var(--earth)" strokeWidth="2" opacity="0.4" fill="none" />
-                  <path d="M52 85 Q60 92 70 88" stroke="var(--earth)" strokeWidth="2" opacity="0.4" fill="none" />
-                  <ellipse cx="50" cy="35" rx="32" ry="30" fill="var(--earth-light)" opacity="0.3" />
-                  <ellipse cx="38" cy="40" rx="22" ry="20" fill="var(--earth-light)" opacity="0.4" />
-                  <ellipse cx="62" cy="40" rx="22" ry="20" fill="var(--earth-light)" opacity="0.4" />
-                  <ellipse cx="50" cy="28" rx="24" ry="22" fill="var(--earth)" opacity="0.5" />
-                  <ellipse cx="50" cy="22" rx="18" ry="16" fill="var(--earth)" opacity="0.6" />
-                </svg>
-              </div>
-            </div>
+    <div className="blog-page">
+      {/* ─── Blog Hero ─── */}
+      <section className="bloghero" aria-labelledby="blog-heading">
+        <div className="bloghero-bg" aria-hidden="true">
+          <div className="bloghero-circle bloghero-circle--1" />
+          <div className="bloghero-circle bloghero-circle--2" />
+        </div>
+        <div className="container bloghero-container">
+          <div className="bloghero-badge">
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125" />
+            </svg>
+            <span>Thought Leadership &amp; Strategy</span>
+          </div>
+          <h1 id="blog-heading" className="bloghero-title">
+            Research-Backed Insights
+            <br />
+            <span className="bloghero-accent">For Modern Educators</span>
+          </h1>
+          <p className="bloghero-desc">
+            Practical strategies grounded in research. Science of Reading,
+            multilingual learner support, AI in education, and the systems
+            that make great teaching sustainable.
+          </p>
+        </div>
+      </section>
 
-            {/* Progress Bar */}
-            <div className="blog-progress">
-              <div className="blog-progress-header">
-                <span className="blog-progress-label">Cultivating</span>
-                <span className="blog-progress-value">{progress}%</span>
-              </div>
-              <div className="blog-progress-track">
-                <div className="blog-progress-fill" style={{ width: `${progress}%` }}></div>
-              </div>
-            </div>
-
-            {/* Heading */}
-            <h1 className="blog-heading-primary">Something impactful is</h1>
-            <h2 className="blog-heading-accent">growing</h2>
-
-            <p className="blog-desc">
-              We&apos;re cultivating a new space for pedagogy articles, educational insights, and curated resources. Our digital ecosystem is expanding to better serve educators and learners alike.
-            </p>
-
-            {/* Email Signup */}
-            <div className="blog-signup">
-              <form className="blog-signup-form">
-                <input type="email" placeholder="Enter your email" className="blog-signup-input" />
-                <button type="button" className="blog-signup-btn">
-                  Notify me
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                  </svg>
-                </button>
-              </form>
-            </div>
-            <p className="blog-signup-note">
-              Be the first to know when we launch. No spam, just seeds of knowledge.
-            </p>
-
-            {/* Feature Badges */}
-            <div className="blog-features">
-              {features.map((feature, index) => (
-                <div key={index} className="blog-feature-badge">
-                  <span className="blog-feature-badge-icon">{feature.icon}</span>
-                  <span className="blog-feature-badge-label">{feature.label}</span>
-                </div>
-              ))}
-            </div>
+      {/* ─── Content Pillar Filters ─── */}
+      <section className="blog-filters" aria-label="Content categories">
+        <div className="container">
+          <div className="blog-filters-inner">
+            {contentPillars.map((pillar, index) => (
+              <button
+                key={pillar.id}
+                className={`blog-filter-btn${index === 0 ? " blog-filter-btn--active" : ""}`}
+                aria-pressed={index === 0}
+              >
+                {pillar.label}
+              </button>
+            ))}
           </div>
         </div>
-      </main>
+      </section>
+
+      {/* ─── Featured Post ─── */}
+      <section className="blog-featured section" aria-labelledby="featured-heading">
+        <div className="container">
+          <h2 id="featured-heading" className="sr-only">Featured Article</h2>
+          <Link href={featuredPost.slug} className="blog-featured-card">
+            <div className="blog-featured-visual">
+              <div className="blog-featured-mockup">
+                <div className="blog-featured-mockup-dots">
+                  <span /><span /><span />
+                </div>
+                <div className="blog-featured-mockup-lines">
+                  <span style={{ width: "100%" }} />
+                  <span style={{ width: "80%" }} />
+                  <span style={{ width: "60%" }} />
+                  <span style={{ width: "90%" }} />
+                  <span style={{ width: "70%" }} />
+                </div>
+              </div>
+            </div>
+            <div className="blog-featured-content">
+              <div className="blog-featured-meta">
+                <span className="blog-featured-category">{featuredPost.category}</span>
+                <span>&middot;</span>
+                <span>{featuredPost.readTime}</span>
+                <span>&middot;</span>
+                <span>{featuredPost.date}</span>
+              </div>
+              <h3 className="blog-featured-title">{featuredPost.title}</h3>
+              <p className="blog-featured-excerpt">{featuredPost.excerpt}</p>
+              <span className="blog-featured-link">
+                Read Article
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </div>
+          </Link>
+        </div>
+      </section>
+
+      {/* ─── Post Grid ─── */}
+      <section className="blog-grid-section section" aria-labelledby="posts-heading">
+        <div className="container">
+          <div className="blog-grid-header">
+            <h2 id="posts-heading" className="blog-grid-title">Latest Articles</h2>
+            <p className="blog-grid-desc">
+              Deep dives, practical guides, and strategic thinking from the classroom to the system level.
+            </p>
+          </div>
+
+          <div className="blog-post-grid">
+            {posts.map((post, index) => (
+              <Link key={index} href={post.slug} className="blog-post-card">
+                <div className="blog-post-image">
+                  <span className="blog-post-category-badge">{post.category}</span>
+                </div>
+                <div className="blog-post-body">
+                  <h3 className="blog-post-title">{post.title}</h3>
+                  <p className="blog-post-excerpt">{post.excerpt}</p>
+                  <div className="blog-post-footer">
+                    <span className="blog-post-time">{post.readTime}</span>
+                    <span className="blog-post-read">
+                      Read
+                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Email Capture ─── */}
+      <section id="newsletter" className="blog-capture section" aria-labelledby="capture-heading">
+        <div className="container">
+          <div className="blog-capture-card">
+            <div className="blog-capture-icon">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </div>
+            <span className="blog-capture-badge">Free Download</span>
+            <h2 id="capture-heading" className="blog-capture-title">
+              The Weekly Planner Template
+            </h2>
+            <p className="blog-capture-desc">
+              The exact planning template I used to cut my prep time in half.
+              Plus weekly teaching tips, strategies, and free resources
+              delivered to your inbox every Tuesday.
+            </p>
+            <form className="blog-capture-form">
+              <input
+                type="email"
+                placeholder="your@email.com"
+                className="blog-capture-input"
+                aria-label="Email address"
+              />
+              <button type="submit" className="blog-capture-btn">
+                Get My Free Planner
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </button>
+            </form>
+            <p className="blog-capture-note">
+              Join 5,000+ educators. Unsubscribe anytime.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Start Here Section ─── */}
+      <section className="blog-start section" aria-labelledby="start-heading">
+        <div className="container">
+          <div className="blog-start-header">
+            <p className="blog-section-label">New Here?</p>
+            <h2 id="start-heading" className="blog-start-title">
+              Start Here
+            </h2>
+            <p className="blog-start-desc">
+              Not sure where to begin? Pick the topic that speaks to your biggest challenge right now.
+            </p>
+          </div>
+
+          <div className="blog-start-grid">
+            {startHere.map((item, index) => (
+              <Link key={index} href={item.link} className="blog-start-card">
+                <div className="blog-start-number">{String(index + 1).padStart(2, "0")}</div>
+                <h3 className="blog-start-card-title">{item.title}</h3>
+                <p className="blog-start-card-desc">{item.description}</p>
+                <span className="blog-start-card-link">
+                  {item.linkText}
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </span>
+              </Link>
+            ))}
+          </div>
+
+          {/* Cross-links */}
+          <div className="blog-crosslinks">
+            <Link href="/resources/lessons" className="blog-crosslink">
+              Browse Lesson Library &rarr;
+            </Link>
+            <Link href="/consulting" className="blog-crosslink">
+              Explore Consulting &rarr;
+            </Link>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

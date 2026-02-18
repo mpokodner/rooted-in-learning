@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { ForgotPasswordForm } from "./forgot-password-form";
 
 export const metadata: Metadata = {
   title: "Reset Password | Rooted in Learning",
@@ -19,20 +20,16 @@ export default function ForgotPasswordPage() {
                 </svg>
               </div>
               <h1 className="text-h2 text-[#2D2D2D] mb-2">Reset Password</h1>
-              <p className="text-sm text-[#666666]">Enter your email and we&apos;ll send you a reset link.</p>
+              <p className="text-sm text-[#666666]">
+                Enter your email and we&apos;ll send you a reset link.
+              </p>
             </div>
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#2D2D2D] mb-2">Email</label>
-                <input type="email" id="email" className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]" placeholder="your@email.com" />
-              </div>
-              <button type="submit" className="w-full bg-[#5C6B4D] text-white py-3.5 rounded-[0.75rem] font-semibold text-sm hover:bg-[#4A5638] transition-all">
-                Send Reset Link
-              </button>
-            </form>
+
+            <ForgotPasswordForm />
+
             <div className="mt-6 pt-6 border-t border-[#E8DED0] text-center">
               <Link href="/login" className="text-sm text-[#C17B5C] font-semibold hover:underline">
-                ← Back to Login
+                &larr; Back to Login
               </Link>
             </div>
           </div>

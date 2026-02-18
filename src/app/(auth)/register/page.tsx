@@ -1,9 +1,11 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { RegisterForm } from "./register-form";
 
 export const metadata: Metadata = {
   title: "Create Account | Rooted in Learning",
-  description: "Join Rooted in Learning to access exclusive resources, save your favorites, and shop educator-curated products.",
+  description:
+    "Join Rooted in Learning to access exclusive resources, save your favorites, and shop educator-curated products.",
   robots: "noindex, nofollow",
 };
 
@@ -23,32 +25,14 @@ export default function RegisterPage() {
               <p className="text-sm text-[#666666]">Join 5,000+ educators growing with us</p>
             </div>
 
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-[#2D2D2D] mb-2">Full Name</label>
-                <input type="text" id="name" className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]" placeholder="Jane Doe" />
-              </div>
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#2D2D2D] mb-2">Email</label>
-                <input type="email" id="email" className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]" placeholder="your@email.com" />
-              </div>
-              <div>
-                <label htmlFor="password" className="block text-sm font-medium text-[#2D2D2D] mb-2">Password</label>
-                <input type="password" id="password" className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]" placeholder="••••••••" />
-              </div>
-              <div>
-                <label htmlFor="confirm" className="block text-sm font-medium text-[#2D2D2D] mb-2">Confirm Password</label>
-                <input type="password" id="confirm" className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]" placeholder="••••••••" />
-              </div>
-              <button type="submit" className="w-full bg-[#5C6B4D] text-white py-3.5 rounded-[0.75rem] font-semibold text-sm hover:bg-[#4A5638] transition-all">
-                Create Account
-              </button>
-            </form>
+            <RegisterForm />
 
             <div className="mt-6 pt-6 border-t border-[#E8DED0] text-center">
               <p className="text-sm text-[#666666]">
                 Already have an account?{" "}
-                <Link href="/login" className="text-[#C17B5C] font-semibold hover:underline">Sign in</Link>
+                <Link href="/login" className="text-[#C17B5C] font-semibold hover:underline">
+                  Sign in
+                </Link>
               </p>
             </div>
           </div>

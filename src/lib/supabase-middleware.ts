@@ -15,7 +15,7 @@ export async function updateSession(request: NextRequest) {
 
   if (!supabaseUrl || !supabaseKey) {
     // Env vars unavailable — pass through without auth.
-    return { user: null, supabaseResponse };
+    return { user: null, supabase: null, supabaseResponse };
   }
 
   const supabase = createServerClient(supabaseUrl, supabaseKey, {
@@ -40,5 +40,5 @@ export async function updateSession(request: NextRequest) {
     data: { user },
   } = await supabase.auth.getUser();
 
-  return { user, supabaseResponse };
+  return { user, supabase, supabaseResponse };
 }

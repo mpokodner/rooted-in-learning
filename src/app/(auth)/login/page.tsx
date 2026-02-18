@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { Metadata } from "next";
+import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
   title: "Login | Rooted in Learning",
@@ -8,12 +9,17 @@ export const metadata: Metadata = {
   robots: "noindex, nofollow",
 };
 
-export default function LoginPage() {
+export default async function LoginPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ redirect?: string; message?: string; error?: string }>;
+}) {
+  const params = await searchParams;
+
   return (
     <main className="flex-1 flex items-center justify-center section">
       <div className="container">
         <div className="max-w-md mx-auto">
-          {/* Login Card */}
           <div className="bg-white rounded-[1.5rem] p-8 md:p-10 shadow-lg border border-[#E8DED0]">
             <div className="text-center mb-8">
               <div className="w-14 h-14 bg-[#5C6B4A] rounded-[0.75rem] flex items-center justify-center mx-auto mb-4">
@@ -25,54 +31,21 @@ export default function LoginPage() {
               <p className="text-sm text-[#666666]">Sign in to access your resources</p>
             </div>
 
-            <form className="space-y-5">
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-[#2D2D2D] mb-2">
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
-                  placeholder="your@email.com"
-                />
+            {params.message && (
+              <div className="bg-green-50 border border-green-200 text-green-700 text-sm px-4 py-3 rounded-[0.75rem] mb-5">
+                {params.message}
               </div>
+            )}
 
-              <div>
-                <div className="flex items-center justify-between mb-2">
-                  <label htmlFor="password" className="block text-sm font-medium text-[#2D2D2D]">
-                    Password
-                  </label>
-                  <Link href="/forgot-password" className="text-xs text-[#C17B5C] hover:underline">
-                    Forgot password?
-                  </Link>
-                </div>
-                <input
-                  type="password"
-                  id="password"
-                  className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
-                  placeholder="••••••••"
-                />
+            {params.error && (
+              <div className="bg-red-50 border border-red-200 text-red-700 text-sm px-4 py-3 rounded-[0.75rem] mb-5">
+                {params.error === "auth_failed"
+                  ? "Authentication failed. Please try again."
+                  : params.error}
               </div>
+            )}
 
-              <div className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  id="remember"
-                  className="w-4 h-4 rounded border-[#E8DED0] text-[#5C6B4D] focus:ring-[#5C6B4D]"
-                />
-                <label htmlFor="remember" className="text-sm text-[#666666]">
-                  Remember me
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-[#5C6B4D] text-white py-3.5 rounded-[0.75rem] font-semibold text-sm hover:bg-[#4A5638] transition-all"
-              >
-                Sign In
-              </button>
-            </form>
+            <LoginForm redirectTo={params.redirect} />
 
             <div className="mt-6 pt-6 border-t border-[#E8DED0] text-center">
               <p className="text-sm text-[#666666]">
@@ -84,7 +57,6 @@ export default function LoginPage() {
             </div>
           </div>
 
-          {/* Back to Home */}
           <div className="text-center mt-6">
             <Link href="/" className="inline-flex items-center gap-2 text-sm text-[#666666] hover:text-[#5C6B4D] transition-colors">
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

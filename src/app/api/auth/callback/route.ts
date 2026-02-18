@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase-server";
 
 /**
  * GET /api/auth/callback
- * Handles the OAuth callback from Supabase Auth.
+ * Handles OAuth callbacks, email confirmation, and password reset links.
  * Exchanges the auth code for a session and redirects.
  */
 export async function GET(request: NextRequest) {
@@ -16,12 +16,12 @@ export async function GET(request: NextRequest) {
     if (!supabase) {
       return NextResponse.redirect(`${origin}/login?error=config_error`);
     }
+
     const { error } = await supabase.auth.exchangeCodeForSession(code);
     if (!error) {
       return NextResponse.redirect(`${origin}${next}`);
     }
   }
 
-  // Return to login with error
   return NextResponse.redirect(`${origin}/login?error=auth_failed`);
 }

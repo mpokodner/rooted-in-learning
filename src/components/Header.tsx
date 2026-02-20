@@ -22,7 +22,11 @@ export default function Header() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const mobileOverlayRef = useRef<HTMLDivElement>(null);
+  const mobileOverlayRef = useCallback((node: HTMLDivElement | null) => {
+    if (node) {
+      node.scrollTop = 0;
+    }
+  }, []);
 
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
@@ -81,9 +85,6 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
-      if (mobileOverlayRef.current) {
-        mobileOverlayRef.current.scrollTop = 0;
-      }
     } else {
       document.body.style.overflow = "";
     }
@@ -286,18 +287,8 @@ export default function Header() {
               {/* Mobile CTAs */}
               <div className="header-mobile-cta-group">
                 <Link
-                  href="/consulting"
-                  className="header-mobile-cta-primary"
-                  onClick={closeMobile}
-                >
-                  Book a Consultation
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-                <Link
                   href="/blog#newsletter"
-                  className="header-mobile-cta-secondary"
+                  className="header-mobile-cta-primary"
                   onClick={closeMobile}
                 >
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">

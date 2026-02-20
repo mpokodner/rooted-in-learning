@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 
@@ -22,6 +22,7 @@ export default function Header() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const mobileOverlayRef = useRef<HTMLDivElement>(null);
 
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
@@ -43,6 +44,7 @@ export default function Header() {
       ],
     },
     { href: "/blog", label: "Blog" },
+    { href: "/shop", label: "Shop" },
     {
       href: "/about",
       label: "About",
@@ -80,6 +82,9 @@ export default function Header() {
   useEffect(() => {
     if (mobileMenuOpen) {
       document.body.style.overflow = "hidden";
+      if (mobileOverlayRef.current) {
+        mobileOverlayRef.current.scrollTop = 0;
+      }
     } else {
       document.body.style.overflow = "";
     }
@@ -93,9 +98,14 @@ export default function Header() {
     setOpenDropdown(null);
   }, [pathname]);
 
-  const handleDropdownToggle = (label: string) => {
-    setOpenDropdown(openDropdown === label ? null : label);
-  };
+  const handleDropdownToggle = useCallback((label: string) => {
+    setOpenDropdown((prev) => (prev === label ? null : label));
+  }, []);
+
+  const closeMobile = useCallback(() => {
+    setMobileMenuOpen(false);
+    setOpenDropdown(null);
+  }, []);
 
   return (
     <header
@@ -204,7 +214,14 @@ export default function Header() {
 
       {/* Mobile Menu */}
       {mobileMenuOpen && (
-        <div id="mobile-menu" className="header-mobile-overlay" role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div
+          id="mobile-menu"
+          ref={mobileOverlayRef}
+          className="header-mobile-overlay"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Navigation menu"
+        >
           <div className="container">
             <div className="header-mobile-menu">
               {/* Navigation Links */}
@@ -237,10 +254,7 @@ export default function Header() {
                                 key={dropItem.href}
                                 href={dropItem.href}
                                 className="header-mobile-sub-link"
-                                onClick={() => {
-                                  setMobileMenuOpen(false);
-                                  setOpenDropdown(null);
-                                }}
+                                onClick={closeMobile}
                               >
                                 {dropItem.label}
                               </Link>
@@ -252,13 +266,22 @@ export default function Header() {
                       <Link
                         href={item.href}
                         className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
-                        onClick={() => setMobileMenuOpen(false)}
+                        onClick={closeMobile}
                       >
                         {item.label}
                       </Link>
                     )}
                   </div>
                 ))}
+
+                {/* Contact link in mobile menu */}
+                <Link
+                  href="/contact"
+                  className={`header-mobile-link${isActive("/contact") ? " header-mobile-link--active" : ""}`}
+                  onClick={closeMobile}
+                >
+                  Contact
+                </Link>
               </div>
 
               {/* Mobile CTAs */}
@@ -266,7 +289,7 @@ export default function Header() {
                 <Link
                   href="/consulting"
                   className="header-mobile-cta-primary"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobile}
                 >
                   Book a Consultation
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -276,7 +299,7 @@ export default function Header() {
                 <Link
                   href="/blog#newsletter"
                   className="header-mobile-cta-secondary"
-                  onClick={() => setMobileMenuOpen(false)}
+                  onClick={closeMobile}
                 >
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />

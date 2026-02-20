@@ -44,7 +44,6 @@ export default function Header() {
       ],
     },
     { href: "/blog", label: "Blog" },
-    { href: "/shop", label: "Shop" },
     {
       href: "/about",
       label: "About",

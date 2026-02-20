@@ -64,7 +64,7 @@ export async function POST(request: NextRequest) {
             <h1>Welcome to Rooted in Learning!</h1>
             <p>Thank you for joining our community of 5,000+ educators.</p>
             <p>Here's your free resource:</p>
-            <p><a href="https://rootedinlearning.com/freebies/weekly-planner.pdf">📥 Download Your Weekly Planner Template</a></p>
+            <p><a href="https://therootedlearner.com/freebies/weekly-planner.pdf">📥 Download Your Weekly Planner Template</a></p>
             <p>Happy teaching!</p>
             <p>— Michelle</p>
           `,

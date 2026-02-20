@@ -86,10 +86,10 @@ export async function generateMetadata({
       title: demoProduct.title,
       description: demoProduct.subtitle,
       type: "website",
-      url: `https://rootedinlearning.com/shop/${slug}`,
+      url: `https://therootedlearner.com/shop/${slug}`,
     },
     alternates: {
-      canonical: `https://rootedinlearning.com/shop/${slug}`,
+      canonical: `https://therootedlearner.com/shop/${slug}`,
     },
   };
 }

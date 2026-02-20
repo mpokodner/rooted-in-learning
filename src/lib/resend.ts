@@ -33,4 +33,4 @@ export const resend = new Proxy({} as Resend, {
 });
 
 /** Default "from" address — update with your verified Resend domain */
-export const FROM_EMAIL = "Rooted in Learning <hello@rootedinlearning.com>";
+export const FROM_EMAIL = "Rooted in Learning <hello@therootedlearner.com>";

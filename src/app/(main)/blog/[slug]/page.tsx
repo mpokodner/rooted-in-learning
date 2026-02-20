@@ -74,10 +74,10 @@ export async function generateMetadata({
       type: "article",
       publishedTime: "2026-02-10",
       authors: [demoPost.author],
-      url: `https://rootedinlearning.com/blog/${slug}`,
+      url: `https://therootedlearner.com/blog/${slug}`,
     },
     alternates: {
-      canonical: `https://rootedinlearning.com/blog/${slug}`,
+      canonical: `https://therootedlearner.com/blog/${slug}`,
     },
   };
 }

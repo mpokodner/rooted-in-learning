@@ -21,7 +21,7 @@ export async function POST(request: NextRequest) {
     // Send notification to site owner
     await resend.emails.send({
       from: FROM_EMAIL,
-      to: "hello@rootedinlearning.com", // Update with your email
+      to: "hello@therootedlearner.com",
       subject: `[Contact Form] ${subject || "New Message"} from ${name}`,
       html: `
         <h2>New Contact Form Submission</h2>
@@ -42,7 +42,7 @@ export async function POST(request: NextRequest) {
       html: `
         <h1>Thanks for reaching out, ${name}!</h1>
         <p>I received your message and will get back to you within 48 hours.</p>
-        <p>In the meantime, check out our latest resources at <a href="https://rootedinlearning.com">rootedinlearning.com</a>.</p>
+        <p>In the meantime, check out our latest resources at <a href="https://therootedlearner.com">therootedlearner.com</a>.</p>
         <p>— Michelle</p>
       `,
     });

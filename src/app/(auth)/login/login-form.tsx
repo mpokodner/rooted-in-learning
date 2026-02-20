@@ -2,19 +2,15 @@
 
 import Link from "next/link";
 import { AuthForm } from "@/components/AuthForm";
-import { signIn, type AuthResult } from "@/lib/auth-actions";
+import { signIn } from "@/lib/auth-actions";
 
 export function LoginForm({ redirectTo }: { redirectTo?: string }) {
-  async function loginAction(prev: AuthResult, formData: FormData) {
-    "use server";
-    if (redirectTo) {
-      formData.set("redirect", redirectTo);
-    }
-    return signIn(prev, formData);
-  }
-
   return (
-    <AuthForm action={loginAction} submitLabel="Sign In">
+    <AuthForm action={signIn} submitLabel="Sign In">
+      {redirectTo && (
+        <input type="hidden" name="redirect" value={redirectTo} />
+      )}
+
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-[#2D2D2D] mb-2">
           Email

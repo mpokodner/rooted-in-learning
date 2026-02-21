@@ -1,5 +1,5 @@
 /**
- * Rooted in Learning — Shared Type Definitions
+ * The Rooted Learner — Shared Type Definitions
  * These types mirror the Supabase database schema and
  * are used across both server and client code.
  */

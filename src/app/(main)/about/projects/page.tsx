@@ -9,7 +9,7 @@ import dataVizImg from "./images/pythonadvanced.png";
 import weatherAppImg from "./images/react-weather-app.png";
 
 export const metadata: Metadata = {
-  title: "Portfolio | Rooted in Learning",
+  title: "Portfolio | The Rooted Learner",
   description:
     "From EdTech platforms to instructional design systems — explore a portfolio that bridges 12+ years of education expertise with modern development.",
   keywords: [
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     "assessment tools",
   ],
   openGraph: {
-    title: "Portfolio | Rooted in Learning",
+    title: "Portfolio | The Rooted Learner",
     description:
       "EdTech development, instructional design, and curriculum projects from an educator who builds.",
     type: "website",

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "Shop | Rooted in Learning",
+  title: "Shop | The Rooted Learner",
   description: "Browse educator-curated lessons, templates, courses, and classroom gear.",
   keywords: ["teacher resources", "lesson plans", "educational materials", "classroom supplies"],
 };

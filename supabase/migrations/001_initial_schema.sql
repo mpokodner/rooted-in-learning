@@ -1,5 +1,5 @@
 -- ═══════════════════════════════════════════════════════════════
--- Rooted in Learning — Initial Database Schema
+-- The Rooted Learner — Initial Database Schema
 -- Run this in: Supabase Dashboard → SQL Editor → New Query
 -- ═══════════════════════════════════════════════════════════════
 

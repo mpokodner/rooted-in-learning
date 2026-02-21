@@ -80,7 +80,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   return {
-    title: `${demoProduct.title} | Rooted in Learning Shop`,
+    title: `${demoProduct.title} | The Rooted Learner Shop`,
     description: demoProduct.subtitle,
     openGraph: {
       title: demoProduct.title,

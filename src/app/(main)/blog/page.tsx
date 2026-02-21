@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./blog.css";
 
 export const metadata: Metadata = {
-  title: "Blog | Rooted in Learning",
+  title: "Blog | The Rooted Learner",
   description:
     "Research-backed teaching strategies, Science of Reading insights, AI in education, and classroom systems design. Written by a 12+ year practitioner.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "education blog",
   ],
   openGraph: {
-    title: "Blog | Rooted in Learning",
+    title: "Blog | The Rooted Learner",
     description:
       "Research-backed insights for modern educators. Science of Reading, AI tools, and classroom systems.",
     type: "website",

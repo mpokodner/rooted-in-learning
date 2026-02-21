@@ -29,7 +29,7 @@ export default function ComingSoon({
                 </svg>
               </div>
               <span className="text-[var(--text-base)] font-semibold text-[var(--earth)] font-[var(--font-heading)]">
-                Rooted in Learning
+                The Rooted Learner
               </span>
             </Link>
             <Link href="/" className="inline-flex items-center gap-2 text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--text-dark)] transition-colors duration-[var(--duration-fast)]">
@@ -132,7 +132,7 @@ export default function ComingSoon({
         <div className="container">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <p className="text-[var(--text-xs)] text-[var(--text-light)]">
-              © {new Date().getFullYear()} Rooted in Learning. All rights reserved.
+              © {new Date().getFullYear()} The Rooted Learner. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <Link href="/blog" className="text-[var(--text-sm)] text-[var(--text-muted)] hover:text-[var(--text-dark)] transition-colors duration-[var(--duration-fast)]">Philosophy</Link>

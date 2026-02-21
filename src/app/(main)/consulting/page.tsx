@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./consulting.css";
 
 export const metadata: Metadata = {
-  title: "Consulting | Rooted in Learning",
+  title: "Consulting | The Rooted Learner",
   description:
     "Strategic consulting for schools, districts, and educators. Literacy systems, EdTech integration, AI implementation, and curriculum design from a 12+ year practitioner.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "school consulting",
   ],
   openGraph: {
-    title: "Consulting | Rooted in Learning",
+    title: "Consulting | The Rooted Learner",
     description:
       "Strategic consulting for schools, districts, and educators from a practitioner who builds.",
     type: "website",

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Admin Dashboard | Rooted in Learning",
+  title: "Admin Dashboard | The Rooted Learner",
   robots: "noindex, nofollow",
 };
 

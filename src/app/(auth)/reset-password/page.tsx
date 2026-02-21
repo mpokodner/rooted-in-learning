@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { ResetPasswordForm } from "./reset-password-form";
 
 export const metadata: Metadata = {
-  title: "Set New Password | Rooted in Learning",
+  title: "Set New Password | The Rooted Learner",
   robots: "noindex, nofollow",
 };
 

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 /* 
- * Rooted in Learning - Design System
+ * The Rooted Learner - Design System
  * Tailwind v4 CSS-based configuration
  */
 
@@ -352,6 +352,7 @@ a:hover {
    ═══════════════════════════════════════════════════════════════ */
 
 .site-header {
+  position: -webkit-sticky;
   position: sticky;
   top: 0;
   z-index: 50;
@@ -412,19 +413,20 @@ a:hover {
 }
 
 .header-logo-icon {
-  width: clamp(2rem, 1.5rem + 1vw, 2.25rem);
-  height: clamp(2rem, 1.5rem + 1vw, 2.25rem);
-  background-color: var(--earth);
+  width: clamp(2.25rem, 2rem + 1vw, 2.75rem);
+  height: clamp(2.25rem, 2rem + 1vw, 2.75rem);
   border-radius: var(--radius-md);
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
 
-.header-logo-icon svg {
-  width: 1.25rem;
-  height: 1.25rem;
-  color: var(--white);
+.header-logo-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .header-logo-text {
@@ -708,42 +710,46 @@ a:hover {
 }
 
 
-/* ─── Mobile Menu Overlay ─── */
+/* ─── Mobile Menu Panel (slides down from header) ─── */
 
-.header-mobile-overlay {
-  position: fixed;
-  top: clamp(3.5rem, 3rem + 2vw, 4.5rem);
-  left: 0;
-  right: 0;
-  bottom: 0;
+.header-mobile-panel {
+  max-height: 0;
+  overflow: hidden;
   background-color: var(--neutral-bg);
-  z-index: 49;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  animation: mobileMenuSlideIn var(--duration-base) var(--ease-out);
+  border-top: 1px solid var(--border-beige);
+  transition: max-height 0.3s ease-in-out;
 }
 
-@keyframes mobileMenuSlideIn {
-  from { opacity: 0; transform: translateY(-8px); }
-  to { opacity: 1; transform: translateY(0); }
+.header-mobile-panel--open {
+  max-height: 100vh;
 }
 
 @media (min-width: 768px) {
-  .header-mobile-overlay {
+  .header-mobile-panel {
     display: none;
   }
 }
 
-.header-mobile-menu {
-  padding-block: 1rem 2rem;
+.header-mobile-backdrop {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 40;
 }
 
-.header-mobile-nav-group {
+@media (min-width: 768px) {
+  .header-mobile-backdrop {
+    display: none;
+  }
+}
+
+.header-mobile-nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.75rem 0;
   display: flex;
   flex-direction: column;
   gap: 0.125rem;
-  margin-bottom: 1.5rem;
-  padding-bottom: 1.5rem;
   border-bottom: 1px solid var(--border-beige);
 }
 
@@ -786,9 +792,10 @@ a:hover {
 
 /* Mobile dropdown sub-links */
 .header-mobile-sub {
+  list-style: none;
+  margin: 0;
   margin-left: 1rem;
-  margin-top: 0.125rem;
-  margin-bottom: 0.25rem;
+  padding: 0;
   padding-left: 1.25rem;
   border-left: 2px solid var(--border-beige);
 }
@@ -821,6 +828,7 @@ a:hover {
   display: flex;
   flex-direction: column;
   gap: 0.625rem;
+  padding: 0.75rem 0 1rem;
 }
 
 .header-mobile-cta-primary {

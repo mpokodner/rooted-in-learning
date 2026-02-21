@@ -65,7 +65,7 @@ export async function generateMetadata({
 }): Promise<Metadata> {
   const { slug } = await params;
   return {
-    title: `${demoPost.title} | Rooted in Learning`,
+    title: `${demoPost.title} | The Rooted Learner`,
     description: demoPost.excerpt,
     keywords: ["AI in education", "teaching with AI", "edtech", "classroom strategy"],
     openGraph: {

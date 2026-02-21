@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Saved Items | Rooted in Learning",
+  title: "Saved Items | The Rooted Learner",
   robots: "noindex, nofollow",
 };
 

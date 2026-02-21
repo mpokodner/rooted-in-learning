@@ -2,6 +2,7 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
 
 interface DropdownItem {
@@ -22,11 +23,6 @@ export default function Header() {
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const mobileOverlayRef = useCallback((node: HTMLDivElement | null) => {
-    if (node) {
-      node.scrollTop = 0;
-    }
-  }, []);
 
   const navItems: NavItem[] = [
     { href: "/", label: "Home" },
@@ -56,6 +52,7 @@ export default function Header() {
         { href: "/about/projects", label: "Portfolio" },
       ],
     },
+    { href: "/contact", label: "Contact" },
   ];
 
   const isActive = (href: string) => {
@@ -115,13 +112,18 @@ export default function Header() {
     >
       <nav className="container" aria-label="Primary navigation">
         {/* Logo */}
-        <Link href="/" className="header-logo" aria-label="Rooted in Learning — Home">
+        <Link href="/" className="header-logo" aria-label="The Rooted Learner — Home">
           <div className="header-logo-icon">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-            </svg>
+            <Image
+              src="/logo.png"
+              alt="The Rooted Learner"
+              width={40}
+              height={40}
+              className="header-logo-img"
+              priority
+            />
           </div>
-          <span className="header-logo-text">Rooted in Learning</span>
+          <span className="header-logo-text">The Rooted Learner</span>
         </Link>
 
         {/* Desktop Navigation */}
@@ -175,7 +177,6 @@ export default function Header() {
 
         {/* Desktop Utility Actions */}
         <div className="header-actions">
-          {/* Newsletter CTA */}
           <Link href="/blog#newsletter" className="header-newsletter-btn">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -183,7 +184,6 @@ export default function Header() {
             <span className="header-newsletter-text">Subscribe</span>
           </Link>
 
-          {/* Login / Account */}
           <Link href="/login" className="header-login-btn" aria-label="Login to your account">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
@@ -191,7 +191,6 @@ export default function Header() {
             <span className="header-login-text">Login</span>
           </Link>
 
-          {/* Mobile Menu Toggle */}
           <button
             className="header-mobile-toggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -212,94 +211,82 @@ export default function Header() {
         </div>
       </nav>
 
-      {/* Mobile Menu */}
-      {mobileMenuOpen && (
-        <div
-          id="mobile-menu"
-          ref={mobileOverlayRef}
-          className="header-mobile-overlay"
-          role="dialog"
-          aria-modal="true"
-          aria-label="Navigation menu"
-        >
-          <div className="container">
-            <div className="header-mobile-menu">
-              {/* Navigation Links */}
-              <div className="header-mobile-nav-group">
-                {navItems.map((item) => (
-                  <div key={item.label}>
-                    {item.dropdown ? (
-                      <>
-                        <button
-                          onClick={() => handleDropdownToggle(item.label)}
-                          className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
-                        >
-                          {item.label}
-                          <svg
-                            className={`header-chevron${openDropdown === item.label ? " header-chevron--open" : ""}`}
-                            fill="none"
-                            viewBox="0 0 24 24"
-                            stroke="currentColor"
-                            strokeWidth={2}
-                            style={{ width: "1.25rem", height: "1.25rem" }}
-                            aria-hidden="true"
-                          >
-                            <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                          </svg>
-                        </button>
-                        {openDropdown === item.label && (
-                          <div className="header-mobile-sub">
-                            {item.dropdown.map((dropItem) => (
-                              <Link
-                                key={dropItem.href}
-                                href={dropItem.href}
-                                className="header-mobile-sub-link"
-                                onClick={closeMobile}
-                              >
-                                {dropItem.label}
-                              </Link>
-                            ))}
-                          </div>
-                        )}
-                      </>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
-                        onClick={closeMobile}
+      {/* Mobile Menu — rendered inside header, no position:fixed overlay */}
+      <div
+        id="mobile-menu"
+        className={`header-mobile-panel${mobileMenuOpen ? " header-mobile-panel--open" : ""}`}
+        aria-hidden={!mobileMenuOpen}
+      >
+        <div className="container">
+          <ul className="header-mobile-nav-list">
+            {navItems.map((item) => (
+              <li key={item.label}>
+                {item.dropdown ? (
+                  <>
+                    <button
+                      onClick={() => handleDropdownToggle(item.label)}
+                      className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
+                    >
+                      {item.label}
+                      <svg
+                        className={`header-chevron${openDropdown === item.label ? " header-chevron--open" : ""}`}
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        style={{ width: "1.25rem", height: "1.25rem" }}
+                        aria-hidden="true"
                       >
-                        {item.label}
-                      </Link>
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                    {openDropdown === item.label && (
+                      <ul className="header-mobile-sub">
+                        {item.dropdown.map((dropItem) => (
+                          <li key={dropItem.href}>
+                            <Link
+                              href={dropItem.href}
+                              className="header-mobile-sub-link"
+                              onClick={closeMobile}
+                            >
+                              {dropItem.label}
+                            </Link>
+                          </li>
+                        ))}
+                      </ul>
                     )}
-                  </div>
-                ))}
+                  </>
+                ) : (
+                  <Link
+                    href={item.href}
+                    className={`header-mobile-link${isActive(item.href) ? " header-mobile-link--active" : ""}`}
+                    onClick={closeMobile}
+                  >
+                    {item.label}
+                  </Link>
+                )}
+              </li>
+            ))}
+          </ul>
 
-                {/* Contact link in mobile menu */}
-                <Link
-                  href="/contact"
-                  className={`header-mobile-link${isActive("/contact") ? " header-mobile-link--active" : ""}`}
-                  onClick={closeMobile}
-                >
-                  Contact
-                </Link>
-              </div>
-
-              {/* Mobile CTAs */}
-              <div className="header-mobile-cta-group">
-                <Link
-                  href="/blog#newsletter"
-                  className="header-mobile-cta-primary"
-                  onClick={closeMobile}
-                >
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                  </svg>
-                  Join the Newsletter
-                </Link>
-              </div>
-            </div>
+          <div className="header-mobile-cta-group">
+            <Link
+              href="/blog#newsletter"
+              className="header-mobile-cta-primary"
+              onClick={closeMobile}
+            >
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+              </svg>
+              Join the Newsletter
+            </Link>
           </div>
         </div>
+      </div>
+
+      {/* Backdrop */}
+      {mobileMenuOpen && (
+        <div className="header-mobile-backdrop" onClick={closeMobile} aria-hidden="true" />
       )}
     </header>
   );

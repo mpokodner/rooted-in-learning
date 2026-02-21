@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
-  title: "My Account | Rooted in Learning",
+  title: "My Account | The Rooted Learner",
   robots: "noindex, nofollow",
 };
 

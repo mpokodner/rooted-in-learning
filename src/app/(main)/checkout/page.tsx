@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Checkout | Rooted in Learning",
+  title: "Checkout | The Rooted Learner",
   description: "Complete your purchase securely with Stripe.",
   robots: "noindex, nofollow",
 };

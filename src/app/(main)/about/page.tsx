@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./about.css";
 
 export const metadata: Metadata = {
-  title: "About Michelle | Rooted in Learning",
+  title: "About Michelle | The Rooted Learner",
   description:
     "12+ year educator, reading interventionist, curriculum designer, and EdTech developer. Building the infrastructure that makes great teaching sustainable.",
   keywords: [
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     "multilingual learner specialist",
   ],
   openGraph: {
-    title: "About Michelle | Rooted in Learning",
+    title: "About Michelle | The Rooted Learner",
     description:
       "From classroom practitioner to education infrastructure builder. 12+ years shaping how teaching works.",
     type: "website",
@@ -152,7 +152,7 @@ export default function AboutPage() {
                   that give educators the leverage they&apos;ve always deserved.
                 </p>
                 <p>
-                  <strong>Rooted in Learning</strong> is the ecosystem I wish I&apos;d
+                  <strong>The Rooted Learner</strong> is the ecosystem I wish I&apos;d
                   had: lessons that save time, strategies backed by research, tools
                   that actually work, and a community that understands the job.
                 </p>

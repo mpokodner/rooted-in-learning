@@ -94,7 +94,7 @@ export default function Footer() {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
                   </svg>
                 </div>
-                <span className="footer-logo-text">Rooted in Learning</span>
+                <span className="footer-logo-text">The Rooted Learner</span>
               </Link>
               <p className="footer-desc">
                 Built by a 12+ year educator, reading interventionist, and EdTech developer. Practical tools and strategies for educators, schools, and families.
@@ -206,7 +206,7 @@ export default function Footer() {
       <div className="footer-bottom">
         <div className="container">
           <p className="footer-bottom-text">
-            &copy; {new Date().getFullYear()} Rooted in Learning. All rights reserved.
+            &copy; {new Date().getFullYear()} The Rooted Learner. All rights reserved.
           </p>
           <div className="footer-bottom-links">
             <Link href="/privacy" className="footer-bottom-link">Privacy Policy</Link>

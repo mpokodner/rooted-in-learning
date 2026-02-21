@@ -59,9 +59,9 @@ export async function POST(request: NextRequest) {
         await resend.emails.send({
           from: FROM_EMAIL,
           to: email.toLowerCase(),
-          subject: "Your Free Resource from Rooted in Learning 🌱",
+          subject: "Your Free Resource from The Rooted Learner 🌱",
           html: `
-            <h1>Welcome to Rooted in Learning!</h1>
+            <h1>Welcome to The Rooted Learner!</h1>
             <p>Thank you for joining our community of 5,000+ educators.</p>
             <p>Here's your free resource:</p>
             <p><a href="https://therootedlearner.com/freebies/weekly-planner.pdf">📥 Download Your Weekly Planner Template</a></p>

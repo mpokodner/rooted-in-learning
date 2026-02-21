@@ -21,8 +21,8 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://rootedinlearning-mu.vercel.app"),
   title: {
-    default: "Rooted in Learning | EdTech Solutions for Modern Educators",
-    template: "%s | Rooted in Learning",
+    default: "The Rooted Learner | EdTech Solutions for Modern Educators",
+    template: "%s | The Rooted Learner",
   },
   description:
     "Bridging pedagogy and technology with 15+ years of classroom experience. Discover educational resources, tools, and professional development designed by a certified educator and full-stack developer.",
@@ -39,9 +39,9 @@ export const metadata: Metadata = {
     "reading intervention",
     "literacy tools",
   ],
-  authors: [{ name: "Rooted in Learning" }],
-  creator: "Rooted in Learning",
-  publisher: "Rooted in Learning",
+  authors: [{ name: "The Rooted Learner" }],
+  creator: "The Rooted Learner",
+  publisher: "The Rooted Learner",
   robots: {
     index: true,
     follow: true,
@@ -57,8 +57,8 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     url: "https://rootedinlearning-mu.vercel.app",
-    siteName: "Rooted in Learning",
-    title: "Rooted in Learning | EdTech Solutions for Modern Educators",
+    siteName: "The Rooted Learner",
+    title: "The Rooted Learner | EdTech Solutions for Modern Educators",
     description:
       "Bridging pedagogy and technology with 15+ years of classroom experience. Discover educational resources, tools, and professional development.",
     images: [
@@ -66,13 +66,13 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "Rooted in Learning - EdTech Solutions",
+        alt: "The Rooted Learner - EdTech Solutions",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Rooted in Learning | EdTech Solutions",
+    title: "The Rooted Learner | EdTech Solutions",
     description:
       "Bridging pedagogy and technology with 15+ years of classroom experience.",
     images: ["/og-image.png"],

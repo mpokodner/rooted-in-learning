@@ -3,12 +3,12 @@ import Link from "next/link";
 import "./tech-tips.css";
 
 export const metadata: Metadata = {
-  title: "Tech Tips | Rooted in Learning",
+  title: "Tech Tips | The Rooted Learner",
   description:
     "Step-by-step technology tutorials for educators. Learn to integrate classroom tools with confidence — no IT degree required.",
   keywords: ["educational technology", "tech tutorials", "classroom technology", "edtech", "teacher tech tips"],
   openGraph: {
-    title: "Tech Tips | Rooted in Learning",
+    title: "Tech Tips | The Rooted Learner",
     description: "Step-by-step technology tutorials for educators.",
     type: "website",
   },

@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { LoginForm } from "./login-form";
 
 export const metadata: Metadata = {
-  title: "Login | Rooted in Learning",
+  title: "Login | The Rooted Learner",
   description:
     "Sign in to access your purchased resources, saved favorites, and exclusive member content.",
   robots: "noindex, nofollow",

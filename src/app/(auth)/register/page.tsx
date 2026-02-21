@@ -3,9 +3,9 @@ import type { Metadata } from "next";
 import { RegisterForm } from "./register-form";
 
 export const metadata: Metadata = {
-  title: "Create Account | Rooted in Learning",
+  title: "Create Account | The Rooted Learner",
   description:
-    "Join Rooted in Learning to access exclusive resources, save your favorites, and shop educator-curated products.",
+    "Join The Rooted Learner to access exclusive resources, save your favorites, and shop educator-curated products.",
   robots: "noindex, nofollow",
 };
 

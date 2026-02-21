@@ -2,12 +2,12 @@ import type { Metadata } from "next";
 import "./favorites.css";
 
 export const metadata: Metadata = {
-  title: "Favorites | Rooted in Learning",
+  title: "Favorites | The Rooted Learner",
   description:
     "Curated list of must-have tools, books, and gear for educators. Personally tested and recommended by a veteran teacher.",
   keywords: ["teacher favorites", "educator tools", "classroom supplies", "teaching books", "educational gear"],
   openGraph: {
-    title: "Favorites | Rooted in Learning",
+    title: "Favorites | The Rooted Learner",
     description: "Curated must-haves for educators, personally tested and recommended.",
     type: "website",
   },

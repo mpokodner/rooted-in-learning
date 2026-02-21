@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./assessalign.css";
 
 export const metadata: Metadata = {
-  title: "AssessAlign | Rooted in Learning",
+  title: "AssessAlign | The Rooted Learner",
   description: "AssessAlign — Intelligent Assessment Orchestration for Modern EdTech, featuring AI-driven standardization and instant feedback loops.",
   keywords: ["assessment alignment", "standards mapping", "educational assessment", "AI grading", "rubric generation", "LMS integration"],
 };

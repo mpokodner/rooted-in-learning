@@ -416,31 +416,21 @@ a:hover {
   width: clamp(2.25rem, 2rem + 1vw, 2.75rem);
   height: clamp(2.25rem, 2rem + 1vw, 2.75rem);
   border-radius: var(--radius-md);
+  border: 1.5px solid #222;
   overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+  padding: 2px;
+  background: #fff;
 }
 
 .header-logo-img {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.header-logo-text {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: var(--text-base);
-  color: var(--earth);
-}
-
-/* Hide logo text on very small screens */
-@media (max-width: 639px) {
-  .header-logo-text {
-    display: none;
-  }
+  border-radius: calc(var(--radius-md) - 2px);
 }
 
 
@@ -710,192 +700,9 @@ a:hover {
 }
 
 
-/* ─── Mobile Menu Panel (slides down from header) ─── */
+/* ─── Mobile Menu (styles handled via inline styles in Header.tsx) ─── */
 
-.header-mobile-panel {
-  max-height: 0;
-  overflow: hidden;
-  background-color: var(--neutral-bg);
-  border-top: 1px solid var(--border-beige);
-  transition: max-height 0.3s ease-in-out;
-}
-
-.header-mobile-panel--open {
-  max-height: 100vh;
-}
-
-@media (min-width: 768px) {
-  .header-mobile-panel {
-    display: none;
-  }
-}
-
-.header-mobile-backdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0, 0, 0, 0.3);
-  z-index: 40;
-}
-
-@media (min-width: 768px) {
-  .header-mobile-backdrop {
-    display: none;
-  }
-}
-
-.header-mobile-nav-list {
-  list-style: none;
-  margin: 0;
-  padding: 0.75rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.125rem;
-  border-bottom: 1px solid var(--border-beige);
-}
-
-.header-mobile-link {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0.75rem 1rem;
-  font-size: var(--text-base);
-  font-weight: 500;
-  color: var(--text-dark);
-  text-decoration: none;
-  border-radius: var(--radius-lg);
-  border: none;
-  background: none;
-  cursor: pointer;
-  transition: color var(--duration-fast) var(--ease-default),
-              background-color var(--duration-fast) var(--ease-default);
-  min-height: 2.75rem;
-}
-
-@media (min-width: 640px) {
-  .header-mobile-link {
-    padding: 0.875rem 1.25rem;
-    font-size: var(--text-lg);
-  }
-}
-
-.header-mobile-link:hover {
-  color: var(--earth);
-  background-color: var(--beige-bg);
-}
-
-.header-mobile-link--active {
-  color: var(--earth);
-  background-color: var(--beige-bg);
-  font-weight: 700;
-}
-
-/* Mobile dropdown sub-links */
-.header-mobile-sub {
-  list-style: none;
-  margin: 0;
-  margin-left: 1rem;
-  padding: 0;
-  padding-left: 1.25rem;
-  border-left: 2px solid var(--border-beige);
-}
-
-.header-mobile-sub-link {
-  display: block;
-  padding: 0.5rem 0;
-  font-size: var(--text-sm);
-  font-weight: 500;
-  color: var(--text-muted);
-  text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default);
-}
-
-@media (min-width: 640px) {
-  .header-mobile-sub-link {
-    padding: 0.75rem 0;
-    font-size: var(--text-base);
-  }
-}
-
-.header-mobile-sub-link:hover {
-  color: var(--earth);
-  text-decoration: none;
-}
-
-
-/* Mobile CTA group */
-.header-mobile-cta-group {
-  display: flex;
-  flex-direction: column;
-  gap: 0.625rem;
-  padding: 0.75rem 0 1rem;
-}
-
-.header-mobile-cta-primary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.625rem;
-  padding: 0.875rem 1.5rem;
-  background-color: var(--terracotta);
-  color: var(--white);
-  font-weight: 700;
-  font-size: var(--text-sm);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  transition: background-color var(--duration-base) var(--ease-default);
-}
-
-@media (min-width: 640px) {
-  .header-mobile-cta-primary {
-    padding: 1rem 2rem;
-    font-size: var(--text-base);
-  }
-}
-
-.header-mobile-cta-primary:hover {
-  background-color: var(--terracotta-dark);
-  color: var(--white);
-  text-decoration: none;
-}
-
-.header-mobile-cta-primary svg {
-  width: 1.25rem;
-  height: 1.25rem;
-}
-
-.header-mobile-cta-secondary {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.75rem 1.5rem;
-  background-color: transparent;
-  color: var(--earth);
-  font-weight: 600;
-  font-size: var(--text-sm);
-  border: 2px solid var(--earth);
-  border-radius: var(--radius-lg);
-  text-decoration: none;
-  transition: all var(--duration-base) var(--ease-default);
-}
-
-@media (min-width: 640px) {
-  .header-mobile-cta-secondary {
-    padding: 0.875rem 2rem;
-  }
-}
-
-.header-mobile-cta-secondary:hover {
-  background-color: var(--earth);
-  color: var(--white);
-  text-decoration: none;
-}
-
-.header-mobile-cta-secondary svg {
-  width: 1rem;
-  height: 1rem;
-}
+/* Mobile menu styles are handled via inline styles in Header.tsx */
 
 
 /* ═══════════════════════════════════════════════════════════════

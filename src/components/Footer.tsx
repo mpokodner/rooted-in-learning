@@ -150,7 +150,7 @@ export default function Footer() {
               {/* Social / Authority Links */}
               <div className="footer-social-row">
                 <a
-                  href="https://linkedin.com/in/michelle-van-slyke"
+                  href="https://www.linkedin.com/in/michelle-pokodner-edtech/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="footer-social-icon"

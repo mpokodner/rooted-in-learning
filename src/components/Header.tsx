@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { useRouter, usePathname } from "next/navigation";
+import { usePathname } from "next/navigation";
 
 interface DropdownItem {
   href: string;
@@ -52,7 +52,6 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(56);
-  const router = useRouter();
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -77,13 +76,14 @@ export default function Header() {
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
+      if (mobileMenuOpen) return;
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setOpenDropdown(null);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
     return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
+  }, [mobileMenuOpen]);
 
   useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
@@ -266,25 +266,20 @@ export default function Header() {
                     {openDropdown === item.label && (
                       <div style={{ paddingLeft: "1rem", borderLeft: "2px solid #E8DED0", margin: "0.25rem 0 0.5rem" }}>
                         {item.dropdown.map((d) => (
-                          <a
+                          <Link
                             key={d.href}
                             href={d.href}
-                            onClick={(e) => {
-                              e.preventDefault();
-                              closeMobile();
-                              router.push(d.href);
-                            }}
+                            onClick={closeMobile}
                             style={{
                               display: "block",
                               padding: "0.625rem 0",
                               fontSize: "1rem",
                               color: "#666",
                               textDecoration: "none",
-                              cursor: "pointer",
                             }}
                           >
                             {d.label}
-                          </a>
+                          </Link>
                         ))}
                       </div>
                     )}

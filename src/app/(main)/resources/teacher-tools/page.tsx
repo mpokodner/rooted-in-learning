@@ -152,7 +152,7 @@ export default function TeacherToolsPage() {
           <div className="tips-social-grid">
             {/* YouTube */}
             <a
-              href="https://youtube.com/@therootedlearner"
+              href="https://www.youtube.com/@TheRootedLearner"
               target="_blank"
               rel="noopener noreferrer"
               className="tips-social-card"
@@ -174,7 +174,7 @@ export default function TeacherToolsPage() {
 
             {/* TikTok */}
             <a
-              href="https://tiktok.com/@therootedlearner"
+              href="https://www.tiktok.com/@therootedlearner"
               target="_blank"
               rel="noopener noreferrer"
               className="tips-social-card"
@@ -196,7 +196,7 @@ export default function TeacherToolsPage() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com/therootedlearner"
+              href="https://www.instagram.com/rootedinlearninged/"
               target="_blank"
               rel="noopener noreferrer"
               className="tips-social-card"

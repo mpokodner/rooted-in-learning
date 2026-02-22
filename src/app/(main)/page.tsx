@@ -784,7 +784,7 @@ export default function Home() {
           <div className="social-grid">
             {/* YouTube */}
             <a
-              href="https://youtube.com/@therootedlearner"
+              href="https://www.youtube.com/@TheRootedLearner"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card group"
@@ -821,7 +821,7 @@ export default function Home() {
 
             {/* TikTok */}
             <a
-              href="https://tiktok.com/@therootedlearner"
+              href="https://www.tiktok.com/@therootedlearner"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card group"
@@ -858,7 +858,7 @@ export default function Home() {
 
             {/* Instagram */}
             <a
-              href="https://instagram.com/therootedlearner"
+              href="https://www.instagram.com/rootedinlearninged/"
               target="_blank"
               rel="noopener noreferrer"
               className="social-card group"

@@ -11,8 +11,8 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
         <input type="hidden" name="redirect" value={redirectTo} />
       )}
 
-      <div>
-        <label htmlFor="email" className="block text-sm font-medium text-[#2D2D2D] mb-2">
+      <div className="auth-field">
+        <label htmlFor="email" className="auth-label">
           Email
         </label>
         <input
@@ -21,17 +21,17 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
           name="email"
           required
           autoComplete="email"
-          className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
+          className="auth-input"
           placeholder="your@email.com"
         />
       </div>
 
-      <div>
-        <div className="flex items-center justify-between mb-2">
-          <label htmlFor="password" className="block text-sm font-medium text-[#2D2D2D]">
+      <div className="auth-field">
+        <div className="auth-label-row">
+          <label htmlFor="password" className="auth-label" style={{ marginBottom: 0 }}>
             Password
           </label>
-          <Link href="/forgot-password" className="text-xs text-[#C17B5C] hover:underline">
+          <Link href="/forgot-password" className="auth-forgot-link">
             Forgot password?
           </Link>
         </div>
@@ -41,7 +41,7 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
           name="password"
           required
           autoComplete="current-password"
-          className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
+          className="auth-input"
           placeholder="••••••••"
         />
       </div>

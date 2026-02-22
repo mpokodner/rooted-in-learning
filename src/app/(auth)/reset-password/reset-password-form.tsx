@@ -6,10 +6,8 @@ import { resetPassword } from "@/lib/auth-actions";
 export function ResetPasswordForm() {
   return (
     <AuthForm action={resetPassword} submitLabel="Update Password">
-      <div>
-        <label htmlFor="password" className="block text-sm font-medium text-[#2D2D2D] mb-2">
-          New Password
-        </label>
+      <div className="auth-field">
+        <label htmlFor="password" className="auth-label">New Password</label>
         <input
           type="password"
           id="password"
@@ -17,15 +15,13 @@ export function ResetPasswordForm() {
           required
           minLength={6}
           autoComplete="new-password"
-          className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
+          className="auth-input"
           placeholder="••••••••"
         />
-        <p className="text-xs text-[#999] mt-1">At least 6 characters</p>
+        <p className="auth-hint">At least 6 characters</p>
       </div>
-      <div>
-        <label htmlFor="confirm" className="block text-sm font-medium text-[#2D2D2D] mb-2">
-          Confirm New Password
-        </label>
+      <div className="auth-field">
+        <label htmlFor="confirm" className="auth-label">Confirm New Password</label>
         <input
           type="password"
           id="confirm"
@@ -33,7 +29,7 @@ export function ResetPasswordForm() {
           required
           minLength={6}
           autoComplete="new-password"
-          className="w-full px-4 py-3 border border-[#E8DED0] rounded-[0.75rem] focus:outline-none focus:border-[#5C6B4D] text-[#2D2D2D]"
+          className="auth-input"
           placeholder="••••••••"
         />
       </div>

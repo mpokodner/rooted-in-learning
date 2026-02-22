@@ -1,6 +1,6 @@
 /* ═══════════════════════════════════════════════════════════════
-   TECH TIPS PAGE — Component & Layout Styles
-   Import in page.tsx: import "./tech-tips.css"
+   TEACHER TOOLS PAGE — Component & Layout Styles
+   Import in page.tsx: import "./teacher-tools.css"
    
    Uses design tokens from globals.css
    ═══════════════════════════════════════════════════════════════ */
@@ -19,7 +19,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   TECH TIPS HERO SECTION
+   TEACHER TOOLS HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 
 .tips-hero {

@@ -1,20 +1,20 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import "./tech-tips.css";
+import "./teacher-tools.css";
 
 export const metadata: Metadata = {
-  title: "Tech Tips | The Rooted Learner",
+  title: "Teacher Tools | The Rooted Learner",
   description:
     "Step-by-step technology tutorials for educators. Learn to integrate classroom tools with confidence — no IT degree required.",
-  keywords: ["educational technology", "tech tutorials", "classroom technology", "edtech", "teacher tech tips"],
+  keywords: ["educational technology", "tech tutorials", "classroom technology", "edtech", "teacher tools"],
   openGraph: {
-    title: "Tech Tips | The Rooted Learner",
+    title: "Teacher Tools | The Rooted Learner",
     description: "Step-by-step technology tutorials for educators.",
     type: "website",
   },
 };
 
-const techTips = [
+const teacherTools = [
   { id: 1, title: "Getting Started with Google Classroom", category: "Google", duration: "10 min", level: "Beginner" },
   { id: 2, title: "Creating Interactive Slides", category: "Presentations", duration: "15 min", level: "Intermediate" },
   { id: 3, title: "Canva for Educators: Complete Guide", category: "Design", duration: "20 min", level: "Beginner" },
@@ -41,7 +41,7 @@ const relatedBlogPosts = [
   },
 ];
 
-export default function TechTipsPage() {
+export default function TeacherToolsPage() {
   return (
     <div className="min-h-screen bg-(--neutral-bg)">
       {/* Hero Section */}
@@ -49,7 +49,7 @@ export default function TechTipsPage() {
         <div className="tips-container">
           <div className="tips-hero-inner">
             <p className="tips-hero-label">Technology Tutorials</p>
-            <h1 className="tips-hero-title">Tech Tips</h1>
+            <h1 className="tips-hero-title">Teacher Tools</h1>
             <p className="tips-hero-desc">
               Step-by-step tutorials to help you integrate technology with confidence. No IT degree required.
             </p>
@@ -61,7 +61,7 @@ export default function TechTipsPage() {
       <section className="tips-grid-section">
         <div className="tips-container">
           <div className="tips-grid">
-            {techTips.map((tip) => (
+            {teacherTools.map((tip) => (
               <div key={tip.id} className="tip-card">
                 {/* Icon */}
                 <div className="tip-card-icon">
@@ -107,7 +107,7 @@ export default function TechTipsPage() {
             <h2 className="tips-blog-title">Related Articles &amp; Deep Dives</h2>
             <p className="tips-blog-desc">
               Go deeper on the strategies behind the tools. These blog posts complement
-              our tech tips with research-backed context and classroom walkthroughs.
+              our teacher tools with research-backed context and classroom walkthroughs.
             </p>
           </div>
 
@@ -137,12 +137,12 @@ export default function TechTipsPage() {
         </div>
       </section>
 
-      {/* Follow Along — Social Media for Tech Tips */}
+      {/* Follow Along — Social Media */}
       <section className="tips-social-section">
         <div className="tips-container">
           <div className="tips-social-header">
             <p className="tips-section-label">Follow Along</p>
-            <h2 className="tips-social-title">More Tech Tips on Social</h2>
+            <h2 className="tips-social-title">More Teacher Tools on Social</h2>
             <p className="tips-social-desc">
               Quick walkthroughs, behind-the-scenes tool reviews, and implementation
               tips — find me wherever you scroll.

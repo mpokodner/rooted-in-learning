@@ -191,7 +191,7 @@ export default function Footer() {
                 <h5 className="footer-heading">Resources</h5>
                 <ul className="footer-link-list">
                   <li><Link href="/resources/lessons" className="footer-link">Lesson Library</Link></li>
-                  <li><Link href="/resources/tech-tips" className="footer-link">Tech Tips</Link></li>
+                  <li><Link href="/resources/teacher-tools" className="footer-link">Teacher Tools</Link></li>
                   <li><Link href="/resources/favorites" className="footer-link">Favorites</Link></li>
                   <li><Link href="/blog" className="footer-link">Blog Articles</Link></li>
                   <li><Link href="/contact" className="footer-link">Contact</Link></li>

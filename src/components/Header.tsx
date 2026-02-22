@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect, useCallback } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { usePathname } from "next/navigation";
+import { useRouter, usePathname } from "next/navigation";
 
 interface DropdownItem {
   href: string;
@@ -23,8 +23,8 @@ const NAV_ITEMS: NavItem[] = [
     label: "Resources",
     dropdown: [
       { href: "/resources/lessons", label: "Lessons" },
-      { href: "/resources/tech-tips", label: "Tech Tips" },
-      { href: "/resources/favorites", label: "My Favorites" },
+      { href: "/resources/teacher-tools", label: "Teacher Tools" },
+      { href: "/resources/favorites", label: "Favorites" },
     ],
   },
   {
@@ -52,6 +52,7 @@ export default function Header() {
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(56);
+  const router = useRouter();
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -265,20 +266,25 @@ export default function Header() {
                     {openDropdown === item.label && (
                       <div style={{ paddingLeft: "1rem", borderLeft: "2px solid #E8DED0", margin: "0.25rem 0 0.5rem" }}>
                         {item.dropdown.map((d) => (
-                          <Link
+                          <a
                             key={d.href}
                             href={d.href}
-                            onClick={closeMobile}
+                            onClick={(e) => {
+                              e.preventDefault();
+                              closeMobile();
+                              router.push(d.href);
+                            }}
                             style={{
                               display: "block",
                               padding: "0.625rem 0",
                               fontSize: "1rem",
                               color: "#666",
                               textDecoration: "none",
+                              cursor: "pointer",
                             }}
                           >
                             {d.label}
-                          </Link>
+                          </a>
                         ))}
                       </div>
                     )}

@@ -414,7 +414,7 @@ export default function Home() {
 
       {/* ═══════════════════════════════════════════
           RESOURCES SECTION — Teaching Toolkit
-          Lessons • Tech Tips • The Favorites
+          Lessons • Teacher Tools • The Favorites
       ═══════════════════════════════════════════ */}
       <section className="resources-section">
         <div className="container">
@@ -470,7 +470,7 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Tech Tips */}
+            {/* Teacher Tools */}
             <div className="resource-card group">
               <div className="resource-icon-wrapper">
                 <svg
@@ -487,13 +487,13 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="resource-title">Tech Tips</h3>
+              <h3 className="resource-title">Teacher Tools</h3>
               <p className="resource-desc">
                 Step-by-step tech training and tutorials so you can integrate
                 tools with confidence &mdash; no IT degree required.
               </p>
-              <Link href="/resources/tech-tips" className="resource-link">
-                Explore Tips
+              <Link href="/resources/teacher-tools" className="resource-link">
+                Explore Tools
                 <svg
                   className="resource-link-icon"
                   fill="none"
@@ -732,7 +732,7 @@ export default function Home() {
             </div>
             <div className="featured-article-content">
               <div className="featured-article-meta">
-                <span className="featured-article-category">Tech Tips</span>
+                <span className="featured-article-category">Teacher Tools</span>
                 <span>&bull;</span>
                 <span>Latest</span>
               </div>

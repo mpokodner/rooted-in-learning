@@ -979,14 +979,14 @@
 }
 
 .consulting-desc {
-  color: var(--earth-light, #8B9B7A);
-  font-size: var(--text-base, 1rem);
-  line-height: var(--leading-relaxed, 1.65);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: var(--text-lg, 1.125rem);
+  line-height: 1.8;
 }
 
 @media (min-width: 768px) {
   .consulting-desc {
-    font-size: var(--text-lg, 1.125rem);
+    font-size: var(--text-xl, 1.25rem);
   }
 }
 

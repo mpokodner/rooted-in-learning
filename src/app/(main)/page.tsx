@@ -71,7 +71,10 @@ export default function Home() {
 
           {/* SECONDARY CTA ROW */}
           <div className="hero-secondary-row animate-fade-up animate-delay-3">
-            <Link href="/consulting" className="hero-secondary-btn">
+            <Link
+              href="/resources/teacher-tools"
+              className="hero-secondary-btn"
+            >
               <svg
                 className="hero-secondary-icon"
                 fill="none"
@@ -85,7 +88,7 @@ export default function Home() {
                   d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
                 />
               </svg>
-              Explore AI Tools
+              Explore Teacher Tools
             </Link>
             <Link href="/blog" className="hero-secondary-btn">
               <svg
@@ -103,7 +106,7 @@ export default function Home() {
               </svg>
               Read Teaching Insights
             </Link>
-            <Link href="/resources/lessons" className="hero-secondary-btn">
+            <Link href="/about" className="hero-secondary-btn">
               <svg
                 className="hero-secondary-icon"
                 fill="none"
@@ -117,14 +120,14 @@ export default function Home() {
                   d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
                 />
               </svg>
-              Get Free Resources
+              My Story
             </Link>
           </div>
 
           {/* TRUST / SOCIAL PROOF BAR */}
           <div className="hero-trust-bar animate-fade-up animate-delay-4">
             <div className="hero-trust-item">
-              <span className="hero-trust-number">5,000+</span>
+              <span className="hero-trust-number">100+</span>
               <span className="hero-trust-label">Educators &amp; Families</span>
             </div>
             <div className="hero-trust-divider" />
@@ -134,7 +137,7 @@ export default function Home() {
             </div>
             <div className="hero-trust-divider" />
             <div className="hero-trust-item">
-              <span className="hero-trust-number">15 yrs</span>
+              <span className="hero-trust-number">12 yrs</span>
               <span className="hero-trust-label">Classroom Experience</span>
             </div>
           </div>
@@ -613,7 +616,7 @@ export default function Home() {
                 </button>
               </div>
               <p className="newsletter-disclaimer">
-                Join 5,000+ educators. Unsubscribe anytime.
+                Join 100+ educators. Unsubscribe anytime.
               </p>
             </div>
           </div>
@@ -656,9 +659,10 @@ export default function Home() {
                   <span className="testimonial-rating">5.0 average</span>
                 </div>
                 <p className="testimonial-quote">
-                  &ldquo;Michelle helped us implement a reading intervention
-                  program that moved 80% of our students up a level in one
-                  semester.&rdquo;
+                  &ldquo;Consulting with The Rooted Learner is being developed
+                  alongside lessons and teacher tools. Stay tuned for
+                  testimonials as we continue to grow our services and our
+                  brand!&rdquo;
                 </p>
                 <p className="testimonial-author">— K-5 Literacy Coach, MD</p>
               </div>

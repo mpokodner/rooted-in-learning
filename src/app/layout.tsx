@@ -19,7 +19,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://rootedinlearning-mu.vercel.app"),
+  metadataBase: new URL("https://therootedlearner.com"),
   title: {
     default: "The Rooted Learner | EdTech Solutions for Modern Educators",
     template: "%s | The Rooted Learner",
@@ -53,10 +53,13 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
+  alternates: {
+    canonical: "https://therootedlearner.com",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rootedinlearning-mu.vercel.app",
+    url: "https://therootedlearner.com",
     siteName: "The Rooted Learner",
     title: "The Rooted Learner | EdTech Solutions for Modern Educators",
     description:

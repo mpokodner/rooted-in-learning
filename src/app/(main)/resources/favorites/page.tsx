@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   description:
     "Curated list of must-have tools, books, and gear for educators. Personally tested and recommended by a veteran teacher.",
   keywords: ["teacher favorites", "educator tools", "classroom supplies", "teaching books", "educational gear"],
+  alternates: {
+    canonical: "/resources/favorites",
+  },
   openGraph: {
     title: "Favorites | The Rooted Learner",
     description: "Curated must-haves for educators, personally tested and recommended.",

@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "EdTech developer",
     "multilingual learner specialist",
   ],
+  alternates: {
+    canonical: "/about",
+  },
   openGraph: {
     title: "About Michelle | The Rooted Learner",
     description:

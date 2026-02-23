@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   title: "Accessibility | The Rooted Learner",
   description:
     "Our commitment to making The Rooted Learner accessible to all educators, regardless of ability.",
-  robots: "noindex, follow",
+  alternates: {
+    canonical: "/accessibility",
+  },
 };
 
 export default function AccessibilityPage() {

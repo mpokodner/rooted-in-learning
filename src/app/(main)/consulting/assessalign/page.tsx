@@ -6,6 +6,9 @@ export const metadata: Metadata = {
   title: "AssessAlign | The Rooted Learner",
   description: "AssessAlign — Intelligent Assessment Orchestration for Modern EdTech, featuring AI-driven standardization and instant feedback loops.",
   keywords: ["assessment alignment", "standards mapping", "educational assessment", "AI grading", "rubric generation", "LMS integration"],
+  alternates: {
+    canonical: "/consulting/assessalign",
+  },
 };
 
 const techStack = [

@@ -7,6 +7,9 @@ export const metadata: Metadata = {
   description:
     "Step-by-step technology tutorials for educators. Learn to integrate classroom tools with confidence — no IT degree required.",
   keywords: ["educational technology", "tech tutorials", "classroom technology", "edtech", "teacher tools"],
+  alternates: {
+    canonical: "/resources/teacher-tools",
+  },
   openGraph: {
     title: "Teacher Tools | The Rooted Learner",
     description: "Step-by-step technology tutorials for educators.",

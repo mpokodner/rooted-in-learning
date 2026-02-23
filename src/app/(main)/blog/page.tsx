@@ -14,6 +14,9 @@ export const metadata: Metadata = {
     "classroom strategy",
     "education blog",
   ],
+  alternates: {
+    canonical: "/blog",
+  },
   openGraph: {
     title: "Blog | The Rooted Learner",
     description:

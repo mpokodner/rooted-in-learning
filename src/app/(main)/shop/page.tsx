@@ -5,6 +5,9 @@ export const metadata: Metadata = {
   title: "Shop | The Rooted Learner",
   description: "Browse educator-curated lessons, templates, courses, and classroom gear.",
   keywords: ["teacher resources", "lesson plans", "educational materials", "classroom supplies"],
+  alternates: {
+    canonical: "/shop",
+  },
 };
 
 export default function ShopPage() {

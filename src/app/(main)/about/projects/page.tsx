@@ -12,6 +12,9 @@ export const metadata: Metadata = {
   title: "Portfolio | The Rooted Learner",
   description:
     "From EdTech platforms to instructional design systems — explore a portfolio that bridges 12+ years of education expertise with modern development.",
+  alternates: {
+    canonical: "/about/projects",
+  },
   keywords: [
     "portfolio",
     "edtech development",

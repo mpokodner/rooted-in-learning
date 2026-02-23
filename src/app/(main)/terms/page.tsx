@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   title: "Terms of Use | The Rooted Learner",
   description:
     "Terms and conditions governing the use of The Rooted Learner website, resources, and services.",
-  robots: "noindex, follow",
+  alternates: {
+    canonical: "/terms",
+  },
 };
 
 export default function TermsOfUsePage() {

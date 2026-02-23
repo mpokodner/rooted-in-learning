@@ -6,7 +6,9 @@ export const metadata: Metadata = {
   title: "Privacy Policy | The Rooted Learner",
   description:
     "How The Rooted Learner collects, uses, and protects your personal information.",
-  robots: "noindex, follow",
+  alternates: {
+    canonical: "/privacy",
+  },
 };
 
 export default function PrivacyPolicyPage() {

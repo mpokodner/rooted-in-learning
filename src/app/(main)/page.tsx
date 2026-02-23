@@ -330,7 +330,10 @@ export default function Home() {
             </Link>
 
             {/* AI Teaching Tools */}
-            <Link href="/consulting" className="pathway-card group">
+            <Link
+              href="/resources/teacher-tools"
+              className="pathway-card group"
+            >
               <div className="pathway-icon-wrapper pathway-icon-wrapper--ai">
                 <svg
                   className="pathway-icon"
@@ -346,10 +349,11 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="pathway-title">AI Teaching Tools</h3>
+              <h3 className="pathway-title">Teacher Tools</h3>
               <p className="pathway-desc">
-                AI-powered classroom tools designed to give you cognitive
-                leverage and teaching superpowers.
+                Real tools. Save hours every week. Explore AI tips, Google
+                tricks, and teacher built resources designed to give you your
+                time back and make teaching more impactful.
               </p>
               <span className="pathway-cta">
                 See the Vision

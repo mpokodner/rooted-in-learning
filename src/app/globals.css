@@ -11,25 +11,25 @@
 
 :root {
   /* ─── Brand Colors ─── */
-  --earth: #5C6B4A;
-  --earth-dark: #4A5638;
-  --earth-light: #8B9B7A;
-  --earth-mist: #A8B89A;
-  --terracotta: #B05931;
-  --terracotta-dark: #923C29;
-  --terracotta-light: #D5A372;
+  --earth: #5c6b4a;
+  --earth-dark: #4a5638;
+  --earth-light: #8b9b7a;
+  --earth-mist: #a8b89a;
+  --terracotta: #b05931;
+  --terracotta-dark: #923c29;
+  --terracotta-light: #d5a372;
 
   /* ─── Neutrals ─── */
-  --white: #FFFFFF;
-  --neutral-bg: #FAF7F2;
-  --beige-bg: #F0EDE7;
-  --border-beige: #E8DED0;
-  --border-greige: #D9D5CE;
-  --text-black: #1A1A1A;
-  --text-dark: #2D2D2D;
-  --text-muted: #6B6B6B;
-  --text-light: #8A8A8A;
-  --text-on-dark: #FAF7F2;
+  --white: #ffffff;
+  --neutral-bg: #faf7f2;
+  --beige-bg: #f0ede7;
+  --border-beige: #e8ded0;
+  --border-greige: #d9d5ce;
+  --text-black: #1a1a1a;
+  --text-dark: #2d2d2d;
+  --text-muted: #6b6b6b;
+  --text-light: #8a8a8a;
+  --text-on-dark: #faf7f2;
 
   /* ─── Typography ─── */
   --font-heading: "Cal Sans", "Inter", system-ui, -apple-system, sans-serif;
@@ -84,12 +84,12 @@
 
   /* ─── Shadows ─── */
   --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-               0 2px 4px -2px rgba(0, 0, 0, 0.1);
-  --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
-               0 4px 6px -4px rgba(0, 0, 0, 0.1);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1),
-               0 8px 10px -6px rgba(0, 0, 0, 0.1);
+  --shadow-md:
+    0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+  --shadow-xl:
+    0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
 
   /* ─── Transitions ─── */
   --ease-default: cubic-bezier(0.4, 0, 0.2, 1);
@@ -103,12 +103,13 @@
   --focus-ring: 0 0 0 2px var(--neutral-bg), 0 0 0 4px var(--earth);
 }
 
-
 /* ═══════════════════════════════════
    RESET & BASE
    ═══════════════════════════════════ */
 
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -129,17 +130,29 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
   color: inherit;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--font-heading);
   line-height: var(--leading-tight);
   color: var(--text-black);
@@ -155,15 +168,15 @@ a {
   color: var(--earth);
   text-decoration-color: var(--earth-light);
   text-underline-offset: 0.15em;
-  transition: color var(--duration-fast) var(--ease-default),
-              text-decoration-color var(--duration-fast) var(--ease-default);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    text-decoration-color var(--duration-fast) var(--ease-default);
 }
 
 a:hover {
   color: var(--earth-dark);
   text-decoration-color: var(--earth-dark);
 }
-
 
 /* ═══════════════════════════════════
    BUTTONS
@@ -294,7 +307,6 @@ a:hover {
   border-radius: var(--radius-full);
 }
 
-
 /* ═══════════════════════════════════
    ACCESSIBILITY
    ═══════════════════════════════════ */
@@ -317,14 +329,15 @@ a:hover {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
 }
-
 
 /* ═══════════════════════════════════
    GLOBAL LAYOUT UTILITIES
@@ -345,7 +358,6 @@ a:hover {
   padding-block: var(--space-section-lg, clamp(4rem, 8vw, 6rem));
 }
 
-
 /* ═══════════════════════════════════════════════════════════════
    SITE HEADER
    Sticky, neutral-white background with blur on scroll
@@ -358,14 +370,16 @@ a:hover {
   z-index: 50;
   background-color: var(--neutral-bg);
   border-bottom: 1px solid var(--border-beige);
-  transition: box-shadow var(--duration-base) var(--ease-default),
-              background-color var(--duration-base) var(--ease-default);
+  transition:
+    box-shadow var(--duration-base) var(--ease-default),
+    background-color var(--duration-base) var(--ease-default);
 }
 
 /* Scrolled state — adds shadow + slightly more opaque */
 .site-header--scrolled {
-  box-shadow: 0 1px 12px -2px rgba(0, 0, 0, 0.08),
-              0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  box-shadow:
+    0 1px 12px -2px rgba(0, 0, 0, 0.08),
+    0 2px 4px -2px rgba(0, 0, 0, 0.04);
   background-color: rgba(250, 247, 242, 0.97);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -389,7 +403,6 @@ a:hover {
     justify-content: space-between;
   }
 }
-
 
 /* ─── Header Logo ─── */
 
@@ -433,7 +446,6 @@ a:hover {
   border-radius: calc(var(--radius-md) - 2px);
 }
 
-
 /* ─── Desktop Navigation ─── */
 
 .header-nav {
@@ -448,7 +460,6 @@ a:hover {
     display: flex;
   }
 }
-
 
 /* ─── Header Nav Links (light bg) ───
    Default: muted grey
@@ -472,8 +483,9 @@ a:hover {
   cursor: pointer;
   border: none;
   background: none;
-  transition: color var(--duration-fast) var(--ease-default),
-              background-color var(--duration-fast) var(--ease-default);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
 }
 
 .header-nav-link:hover {
@@ -488,7 +500,7 @@ a:hover {
 }
 
 .header-nav-link--active::after {
-  content: '';
+  content: "";
   position: absolute;
   bottom: 0;
   left: clamp(0.625rem, 1vw, 1rem);
@@ -497,7 +509,6 @@ a:hover {
   background-color: var(--terracotta);
   border-radius: 1px;
 }
-
 
 /* ─── Header Dropdown ─── */
 
@@ -533,9 +544,10 @@ a:hover {
   font-size: var(--text-sm);
   color: var(--text-muted);
   text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default),
-              background-color var(--duration-fast) var(--ease-default),
-              padding-left var(--duration-fast) var(--ease-default);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default),
+    padding-left var(--duration-fast) var(--ease-default);
 }
 
 .header-dropdown-link:hover {
@@ -543,7 +555,6 @@ a:hover {
   background-color: var(--beige-bg);
   padding-left: 1.25rem;
 }
-
 
 /* ─── Chevron icon animation ─── */
 
@@ -556,7 +567,6 @@ a:hover {
 .header-chevron--open {
   transform: rotate(180deg);
 }
-
 
 /* ─── Header Actions Group ─── */
 
@@ -625,7 +635,6 @@ a:hover {
   }
 }
 
-
 /* ─── Login / CTA Button ─── */
 
 .header-login-btn {
@@ -639,9 +648,10 @@ a:hover {
   font-weight: 600;
   border-radius: var(--radius-full);
   text-decoration: none;
-  transition: background-color var(--duration-base) var(--ease-default),
-              box-shadow var(--duration-base) var(--ease-default),
-              transform var(--duration-fast) var(--ease-default);
+  transition:
+    background-color var(--duration-base) var(--ease-default),
+    box-shadow var(--duration-base) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
 }
 
 .header-login-btn:hover {
@@ -667,7 +677,6 @@ a:hover {
     display: none;
   }
 }
-
 
 /* ─── Mobile Menu Toggle ─── */
 
@@ -699,11 +708,9 @@ a:hover {
   height: 1.5rem;
 }
 
-
 /* ─── Mobile Menu (styles handled via inline styles in Header.tsx) ─── */
 
 /* Mobile menu styles are handled via inline styles in Header.tsx */
-
 
 /* ═══════════════════════════════════════════════════════════════
    SITE FOOTER
@@ -713,7 +720,6 @@ a:hover {
 .site-footer {
   background-color: var(--earth);
 }
-
 
 /* ─── Footer Lead Capture Bar ─── */
 
@@ -777,8 +783,9 @@ a:hover {
   border-radius: var(--radius-md);
   color: var(--white);
   font-size: var(--text-sm);
-  transition: border-color var(--duration-fast) var(--ease-default),
-              background-color var(--duration-fast) var(--ease-default);
+  transition:
+    border-color var(--duration-fast) var(--ease-default),
+    background-color var(--duration-fast) var(--ease-default);
 }
 
 .footer-capture-input::placeholder {
@@ -804,8 +811,9 @@ a:hover {
   border-radius: var(--radius-md);
   cursor: pointer;
   white-space: nowrap;
-  transition: background-color var(--duration-base) var(--ease-default),
-              transform var(--duration-fast) var(--ease-default);
+  transition:
+    background-color var(--duration-base) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
 }
 
 .footer-capture-btn:hover {
@@ -852,7 +860,6 @@ a:hover {
   margin-top: 0.5rem;
 }
 
-
 /* ─── Main Footer Content ─── */
 
 .footer-main {
@@ -877,7 +884,6 @@ a:hover {
     gap: clamp(3rem, 5vw, 5rem);
   }
 }
-
 
 /* ─── Footer Brand Column ─── */
 
@@ -928,7 +934,6 @@ a:hover {
   margin-bottom: clamp(1.25rem, 2vw, 1.5rem);
 }
 
-
 /* ─── Footer Trust Metrics ─── */
 
 .footer-trust-metrics {
@@ -959,7 +964,6 @@ a:hover {
   letter-spacing: 0.06em;
 }
 
-
 /* ─── Footer Social Icons ─── */
 
 .footer-social-row {
@@ -977,9 +981,10 @@ a:hover {
   justify-content: center;
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
-  transition: background-color var(--duration-fast) var(--ease-default),
-              color var(--duration-fast) var(--ease-default),
-              transform var(--duration-fast) var(--ease-default);
+  transition:
+    background-color var(--duration-fast) var(--ease-default),
+    color var(--duration-fast) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
 }
 
 .footer-social-icon svg {
@@ -997,7 +1002,6 @@ a:hover {
   transform: translateY(0);
   background-color: rgba(255, 255, 255, 0.28);
 }
-
 
 /* ─── Footer Link Columns ─── */
 
@@ -1032,7 +1036,6 @@ a:hover {
   gap: clamp(0.5rem, 1vw, 0.75rem);
 }
 
-
 /* ─── Footer Links (dark bg) ─── */
 
 .footer-link {
@@ -1042,8 +1045,9 @@ a:hover {
   font-size: var(--text-sm);
   color: rgba(255, 255, 255, 0.75);
   text-decoration: none;
-  transition: color var(--duration-fast) var(--ease-default),
-              padding-left var(--duration-fast) var(--ease-default);
+  transition:
+    color var(--duration-fast) var(--ease-default),
+    padding-left var(--duration-fast) var(--ease-default);
 }
 
 .footer-link:hover {
@@ -1076,7 +1080,6 @@ a:hover {
 .footer-link--pathway:hover svg {
   color: var(--terracotta-light);
 }
-
 
 /* ─── Footer Bottom Bar ─── */
 

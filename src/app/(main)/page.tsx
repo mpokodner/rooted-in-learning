@@ -630,15 +630,17 @@ export default function Home() {
         <div className="container">
           <div className="consulting-grid">
             <div className="consulting-content">
-              <p className="consulting-label">1-on-1 Support</p>
+              <p className="consulting-label">Personalized Support</p>
               <h2 className="text-h2 consulting-title">
-                Consulting &amp; Coaching
+                One-on-One Consulting
               </h2>
               <p className="consulting-desc">
-                Need personalized support? Whether you&apos;re a school rolling
-                out new tech, a homeschool family building curriculum, or a
-                teacher starting your side hustle &mdash; let&apos;s build a
-                plan together.
+                Every school has unique needs &mdash; and cookie-cutter
+                solutions rarely cut it. The Rooted Learner is developing
+                customized consulting services to help your team integrate
+                practical technology, streamline workflows, and create
+                meaningful change from the inside out. Launching soon. Inquire
+                to get on the list.
               </p>
             </div>
 
@@ -681,7 +683,7 @@ export default function Home() {
                     d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                   />
                 </svg>
-                Book a Free Discovery Call
+                Inquire Now
               </Link>
             </div>
           </div>

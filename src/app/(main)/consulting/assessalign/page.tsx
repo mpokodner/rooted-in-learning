@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import dashboardImg from "../../about/projects/images/assessalignpng.png";
 import "./assessalign.css";
 
 export const metadata: Metadata = {
@@ -110,6 +112,23 @@ export default function AssessAlignPage() {
               <Link href="/consulting" className="aa-btn-back">
                 Back to Consulting
               </Link>
+            </div>
+          </div>
+
+          <div className="aa-hero-mockup">
+            <div className="aa-mockup-frame">
+              <div className="aa-mockup-toolbar">
+                <span className="aa-mockup-dot aa-mockup-dot--red" />
+                <span className="aa-mockup-dot aa-mockup-dot--yellow" />
+                <span className="aa-mockup-dot aa-mockup-dot--green" />
+              </div>
+              <Image
+                src={dashboardImg}
+                alt="AssessAlign teacher dashboard showing assessment creation, class management, and student performance views"
+                className="aa-mockup-img"
+                placeholder="blur"
+                priority
+              />
             </div>
           </div>
         </div>

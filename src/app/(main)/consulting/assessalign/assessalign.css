@@ -183,6 +183,57 @@
   }
 }
 
+/* Hero — Dashboard Mockup */
+.aa-hero-mockup {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  position: relative;
+  z-index: 1;
+}
+
+.aa-mockup-frame {
+  max-width: 56rem;
+  margin-inline: auto;
+  border-radius: var(--radius-lg, 1rem);
+  overflow: hidden;
+  background: var(--white, #FFFFFF);
+  box-shadow:
+    0 25px 60px -12px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+.aa-mockup-toolbar {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.75rem 1rem;
+  background: var(--beige-bg, #F0EDE7);
+  border-bottom: 1px solid var(--border-beige, #E8DED0);
+}
+
+.aa-mockup-dot {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+}
+
+.aa-mockup-dot--red {
+  background: #EF4444;
+}
+
+.aa-mockup-dot--yellow {
+  background: #F59E0B;
+}
+
+.aa-mockup-dot--green {
+  background: #22C55E;
+}
+
+.aa-mockup-img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    TECH STACK SECTION

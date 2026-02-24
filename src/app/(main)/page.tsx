@@ -5,8 +5,7 @@ export default function Home() {
   return (
     <div className="home-page">
       {/* ═══════════════════════════════════════════
-          HERO SECTION — Identity-First Positioning
-          Unified message: Teaching Leverage
+          SECTION 1 — HERO
       ═══════════════════════════════════════════ */}
       <section className="hero-section">
         <div className="hero-bg-decor" aria-hidden="true">
@@ -15,7 +14,6 @@ export default function Home() {
         </div>
 
         <div className="container hero-container">
-          {/* Innovation Signal Badge */}
           <div className="hero-badge animate-fade-up">
             <svg
               className="hero-badge-icon"
@@ -36,23 +34,23 @@ export default function Home() {
             </span>
           </div>
 
-          {/* HEADLINE */}
           <h1 className="hero-heading animate-fade-up animate-delay-1">
-            Reclaim Your Prep Time.
+            Research-Based Literacy Support,
             <br />
-            <span className="hero-heading-accent">Elevate Your Teaching.</span>
+            <span className="hero-heading-accent">
+              Teacher Tools, and Digital Solutions for Schools &amp; Families
+            </span>
           </h1>
 
-          {/* SUB-HEADLINE */}
           <p className="hero-subheadline animate-fade-up animate-delay-2">
-            Ready-to-teach lessons, AI-powered classroom tools, and
-            research-backed strategies designed for educators and families.
+            Helping educators and parents support struggling learners using
+            science-of-reading practices, multilingual strategies, and modern
+            classroom technology.
           </p>
 
-          {/* PRIMARY CTA */}
           <div className="hero-primary-cta animate-fade-up animate-delay-3">
-            <Link href="/resources/lessons" className="hero-cta-btn">
-              Browse Lesson Library
+            <Link href="/products/" className="hero-cta-btn">
+              Explore Tools &amp; Lessons
               <svg
                 className="hero-cta-arrow"
                 fill="none"
@@ -69,10 +67,9 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* SECONDARY CTA ROW */}
           <div className="hero-secondary-row animate-fade-up animate-delay-3">
             <Link
-              href="/resources/teacher-tools"
+              href="/products/assessalign/"
               className="hero-secondary-btn"
             >
               <svg
@@ -85,12 +82,12 @@ export default function Home() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                 />
               </svg>
-              Explore Teacher Tools
+              See AssessAlign
             </Link>
-            <Link href="/blog" className="hero-secondary-btn">
+            <Link href="/services/consulting" className="hero-secondary-btn">
               <svg
                 className="hero-secondary-icon"
                 fill="none"
@@ -101,30 +98,13 @@ export default function Home() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                 />
               </svg>
-              Read Teaching Insights
-            </Link>
-            <Link href="/about" className="hero-secondary-btn">
-              <svg
-                className="hero-secondary-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M21 11.25v8.25a1.5 1.5 0 01-1.5 1.5H5.25a1.5 1.5 0 01-1.5-1.5v-8.25M12 4.875A2.625 2.625 0 109.375 7.5H12m0-2.625V7.5m0-2.625A2.625 2.625 0 1114.625 7.5H12m0 0V21m-8.625-9.75h18c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125h-18c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z"
-                />
-              </svg>
-              My Story
+              Book Consultation
             </Link>
           </div>
 
-          {/* TRUST / SOCIAL PROOF BAR */}
           <div className="hero-trust-bar animate-fade-up animate-delay-4">
             <div className="hero-trust-item">
               <span className="hero-trust-number">100+</span>
@@ -145,8 +125,7 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          AUDIENCE PATHWAY SELECTOR
-          Educators → Lessons · Schools → Consulting · Families → Lessons
+          SECTION 2 — AUDIENCE SELECTOR
       ═══════════════════════════════════════════ */}
       <section
         className="audience-pathway-section"
@@ -159,7 +138,7 @@ export default function Home() {
               id="audience-heading"
               className="text-h2 audience-pathway-title"
             >
-              Who Are You?
+              How Can We Help You Today?
             </h2>
             <p className="audience-pathway-desc">
               We serve educators, schools, and families. Select your path to
@@ -168,8 +147,7 @@ export default function Home() {
           </div>
 
           <div className="audience-pathway-grid">
-            {/* Educators */}
-            <Link href="/resources/lessons" className="audience-card group">
+            <Link href="/products/lessons/" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--educator">
                 <svg
                   fill="none"
@@ -184,13 +162,13 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="audience-card-title">I&apos;m an Educator</h3>
+              <h3 className="audience-card-title">I&apos;m a Teacher</h3>
               <p className="audience-card-desc">
                 Ready-to-teach lessons, time-saving tools, and strategies that
                 actually work in the classroom.
               </p>
               <span className="audience-card-cta">
-                Browse Lessons
+                Browse Lessons &amp; Tools
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -206,46 +184,7 @@ export default function Home() {
               </span>
             </Link>
 
-            {/* Schools & Districts */}
-            <Link href="/consulting" className="audience-card group">
-              <div className="audience-card-icon audience-card-icon--school">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
-                  />
-                </svg>
-              </div>
-              <h3 className="audience-card-title">I&apos;m a School Leader</h3>
-              <p className="audience-card-desc">
-                Strategic consulting for literacy programs, EdTech integration,
-                AI implementation, and curriculum design.
-              </p>
-              <span className="audience-card-cta audience-card-cta--school">
-                Explore Consulting
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </span>
-            </Link>
-
-            {/* Families */}
-            <Link href="/resources/lessons" className="audience-card group">
+            <Link href="/products/lessons/" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--family">
                 <svg
                   fill="none"
@@ -281,29 +220,67 @@ export default function Home() {
                 </svg>
               </span>
             </Link>
+
+            <Link href="/products/assessalign/" className="audience-card group">
+              <div className="audience-card-icon audience-card-icon--school">
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                  />
+                </svg>
+              </div>
+              <h3 className="audience-card-title">
+                I&apos;m a School or District Leader
+              </h3>
+              <p className="audience-card-desc">
+                Strategic consulting for literacy programs, EdTech integration,
+                AI implementation, and curriculum design.
+              </p>
+              <span className="audience-card-cta audience-card-cta--school">
+                Explore Solutions
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          RESOURCES SECTION — Teaching Toolkit
-          Lessons • Teacher Tools • The Favorites
+          SECTION 3 — FEATURED SOLUTIONS
       ═══════════════════════════════════════════ */}
       <section className="resources-section">
         <div className="container">
           <div className="resources-header">
-            <p className="resources-header-label">Your Teaching Toolkit</p>
+            <p className="resources-header-label">Featured Solutions</p>
             <h2 className="text-h2 resources-header-title">
               Everything You Need, Nothing You Don&apos;t
             </h2>
             <p className="resources-header-desc">
-              Curriculum, tech training, and curated gear &mdash; all in one
-              place. Built by a 15-year veteran educator who gets it.
+              Assessment tools, tech training, and ready-to-teach curriculum
+              &mdash; all in one place. Built by a 12-year veteran educator who
+              gets it.
             </p>
           </div>
 
           <div className="resources-grid">
-            {/* Lessons */}
             <div className="resource-card group">
               <div className="resource-icon-wrapper">
                 <svg
@@ -316,17 +293,17 @@ export default function Home() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
                   />
                 </svg>
               </div>
-              <h3 className="resource-title">Lessons</h3>
+              <h3 className="resource-title">AssessAlign</h3>
               <p className="resource-desc">
-                Standards-aligned, ready-to-use curriculum and activities for
-                K-8 classrooms and homeschool families. Just download and teach.
+                Standards-based assessment tools that align to your curriculum
+                and give you actionable data on student progress.
               </p>
-              <Link href="/resources/lessons" className="resource-link">
-                Browse Lessons
+              <Link href="/products/assessalign/" className="resource-link">
+                Standards-Based Assessment
                 <svg
                   className="resource-link-icon"
                   fill="none"
@@ -343,7 +320,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* Teacher Tools */}
             <div className="resource-card group">
               <div className="resource-icon-wrapper">
                 <svg
@@ -362,11 +338,11 @@ export default function Home() {
               </div>
               <h3 className="resource-title">Teacher Tools</h3>
               <p className="resource-desc">
-                Step-by-step tech training and tutorials so you can integrate
-                tools with confidence &mdash; no IT degree required.
+                Step-by-step tech tutorials so you can integrate classroom tools
+                with confidence &mdash; no IT degree required.
               </p>
-              <Link href="/resources/teacher-tools" className="resource-link">
-                Explore Tools
+              <Link href="/products/teacher-tools/" className="resource-link">
+                Tech Tutorials
                 <svg
                   className="resource-link-icon"
                   fill="none"
@@ -383,7 +359,6 @@ export default function Home() {
               </Link>
             </div>
 
-            {/* The Favorites */}
             <div className="resource-card group">
               <div className="resource-icon-wrapper">
                 <svg
@@ -396,17 +371,17 @@ export default function Home() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
                   />
                 </svg>
               </div>
-              <h3 className="resource-title">The Favorites</h3>
+              <h3 className="resource-title">Lesson Packs</h3>
               <p className="resource-desc">
-                My personally curated must-haves &mdash; the tools, books, and
-                gear I actually use and recommend to every educator.
+                Standards-aligned, ready-to-use curriculum and activities for
+                K-8 classrooms and homeschool families. Just download and teach.
               </p>
-              <Link href="/resources/favorites" className="resource-link">
-                See My Picks
+              <Link href="/products/lessons/" className="resource-link">
+                Ready-to-Teach Curriculum
                 <svg
                   className="resource-link-icon"
                   fill="none"
@@ -427,47 +402,34 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          NEWSLETTER CAPTURE — Mid-Page Gated Resource
-          Moved from hero for higher conversion
+          SECTION 4 — AUTHORITY / TRUST
       ═══════════════════════════════════════════ */}
-      <section className="newsletter-section">
+      <section className="consulting-section">
         <div className="container">
-          <div className="newsletter-card">
-            <div className="newsletter-card-content">
-              <div className="newsletter-icon-wrap">
-                <svg
-                  className="newsletter-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
-              <span className="newsletter-free-badge">Free Download</span>
-              <h3 className="newsletter-card-title">
-                The Weekly Planner Template
-              </h3>
-              <p className="newsletter-card-desc">
-                The exact planning template I used to cut my prep time in half.
-                Plus weekly teaching tips, strategies, and free resources
-                delivered to your inbox.
+          <div className="consulting-grid">
+            <div className="consulting-content">
+              <p className="consulting-label">Built by an Educator Who Codes</p>
+              <h2 className="text-h2 consulting-title">
+                12+ Years of Classroom Experience
+              </h2>
+              <p className="consulting-desc">
+                As a reading interventionist, curriculum designer, and EdTech
+                developer, I&apos;ve spent over a decade bridging the gap
+                between research-based literacy instruction and modern
+                technology. Every tool, lesson, and resource on this site is
+                built from real classroom experience &mdash; not theory.
               </p>
-              <div className="newsletter-form">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="newsletter-input"
-                />
-                <button className="btn btn-lg btn-secondary newsletter-submit-btn">
-                  Get My Free Planner
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  gap: "0.75rem",
+                  marginTop: "1.5rem",
+                }}
+              >
+                <Link href="/about#projects" className="consulting-cta-btn">
                   <svg
-                    className="newsletter-submit-arrow"
+                    className="consulting-cta-icon"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -476,38 +438,47 @@ export default function Home() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
                     />
                   </svg>
-                </button>
+                  View Portfolio
+                </Link>
+                <Link href="/about/" className="consulting-cta-btn">
+                  <svg
+                    className="consulting-cta-icon"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                    />
+                  </svg>
+                  About Me
+                </Link>
+                <Link
+                  href="/services/consulting"
+                  className="consulting-cta-btn"
+                >
+                  <svg
+                    className="consulting-cta-icon"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                    />
+                  </svg>
+                  Work With Me
+                </Link>
               </div>
-              <p className="newsletter-disclaimer">
-                Join 100+ educators. Unsubscribe anytime.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          CONSULTING SECTION
-      ═══════════════════════════════════════════ */}
-      <section className="consulting-section">
-        <div className="container">
-          <div className="consulting-grid">
-            <div className="consulting-content">
-              <p className="consulting-label">Personalized Support</p>
-              <h2 className="text-h2 consulting-title">
-                One-on-One Consulting
-              </h2>
-              <p className="consulting-desc">
-                Every school has unique needs &mdash; and cookie-cutter
-                solutions rarely cut it. The Rooted Learner is developing
-                customized consulting services to help your team integrate
-                practical technology, streamline workflows, and create
-                meaningful change from the inside out. Launching soon. Inquire
-                to get on the list.
-              </p>
             </div>
 
             <div className="consulting-cta-area">
@@ -534,30 +505,14 @@ export default function Home() {
                 </p>
                 <p className="testimonial-author">— K-5 Literacy Coach, MD</p>
               </div>
-
-              <Link href="/consulting" className="consulting-cta-btn">
-                <svg
-                  className="consulting-cta-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                Inquire Now
-              </Link>
+              {/* Future: expand testimonials section here */}
             </div>
           </div>
         </div>
       </section>
 
       {/* ═══════════════════════════════════════════
-          BLOG SECTION
+          SECTION 5 — FREE RESOURCES / BLOG
       ═══════════════════════════════════════════ */}
       <section className="blog-section">
         <div className="container">
@@ -590,7 +545,6 @@ export default function Home() {
             </Link>
           </div>
 
-          {/* Featured Article — Full Width */}
           <div className="featured-article">
             <div className="featured-article-visual">
               <div className="featured-article-mockup">
@@ -642,132 +596,123 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SOCIAL CONNECTIONS
+          SECTION 6 — LEAD MAGNET / NEWSLETTER
+      ═══════════════════════════════════════════ */}
+      <section className="newsletter-section">
+        <div className="container">
+          <div className="newsletter-card">
+            <div className="newsletter-card-content">
+              <div className="newsletter-icon-wrap">
+                <svg
+                  className="newsletter-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                  />
+                </svg>
+              </div>
+              <span className="newsletter-free-badge">Free Download</span>
+              <h3 className="newsletter-card-title">
+                Free Literacy Intervention Toolkit
+              </h3>
+              <p className="newsletter-card-desc">
+                Download our free literacy intervention toolkit &mdash; packed
+                with strategies, templates, and progress monitoring tools. Plus
+                get weekly teaching tips delivered to your inbox.
+              </p>
+              <div className="newsletter-form">
+                <input
+                  type="email"
+                  placeholder="your@email.com"
+                  className="newsletter-input"
+                />
+                <button className="btn btn-lg btn-secondary newsletter-submit-btn">
+                  Get My Free Toolkit
+                  <svg
+                    className="newsletter-submit-arrow"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </button>
+              </div>
+              <p className="newsletter-disclaimer">
+                Join 100+ educators. Unsubscribe anytime.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 7 — FINAL CTA
       ═══════════════════════════════════════════ */}
       <section className="social-section">
         <div className="container">
           <div className="social-section-header">
-            <p className="social-section-label">Let&apos;s Connect</p>
+            <p className="social-section-label">Take the Next Step</p>
             <h2 className="text-h2 social-section-title">
-              Follow Along for Daily Inspo
+              Ready to Support Your Learners?
             </h2>
             <p className="social-section-desc">
-              Quick tips, behind-the-scenes, and real talk about education
-              &mdash; find me wherever you scroll.
+              Whether you&apos;re a teacher, parent, or school leader &mdash; we
+              have tools built for you.
             </p>
           </div>
 
-          <div className="social-grid">
-            {/* YouTube */}
-            <a
-              href="https://www.youtube.com/@TheRootedLearner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-card group"
-            >
-              <div className="social-icon-wrapper social-icon-wrapper--youtube">
-                <svg
-                  className="social-brand-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  style={{ color: "#FF0000" }}
-                >
-                  <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-                </svg>
-              </div>
-              <h3 className="social-card-title">YouTube</h3>
-              <p className="social-card-desc">Tutorials &amp; deep dives</p>
-              <span className="social-card-link social-card-link--youtube">
-                Subscribe
-                <svg
-                  className="social-card-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </span>
-            </a>
-
-            {/* TikTok */}
-            <a
-              href="https://www.tiktok.com/@therootedlearner"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-card group"
-            >
-              <div className="social-icon-wrapper social-icon-wrapper--tiktok">
-                <svg
-                  className="social-brand-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  style={{ color: "#010101" }}
-                >
-                  <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.5 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3.15 15.2a6.34 6.34 0 0 0 6.34 6.34 6.34 6.34 0 0 0 6.34-6.34V8.73a8.19 8.19 0 0 0 4.76 1.52v-3.4a4.85 4.85 0 0 1-1-.16z" />
-                </svg>
-              </div>
-              <h3 className="social-card-title">TikTok</h3>
-              <p className="social-card-desc">Quick tips &amp; real talk</p>
-              <span className="social-card-link social-card-link--tiktok">
-                Follow
-                <svg
-                  className="social-card-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </span>
-            </a>
-
-            {/* Instagram */}
-            <a
-              href="https://www.instagram.com/rootedinlearninged/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="social-card group"
-            >
-              <div className="social-icon-wrapper social-icon-wrapper--instagram">
-                <svg
-                  className="social-brand-icon"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  style={{ color: "#E4405F" }}
-                >
-                  <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z" />
-                </svg>
-              </div>
-              <h3 className="social-card-title">Instagram</h3>
-              <p className="social-card-desc">Behind the scenes</p>
-              <span className="social-card-link social-card-link--instagram">
-                Follow
-                <svg
-                  className="social-card-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </span>
-            </a>
+          <div
+            style={{
+              display: "flex",
+              flexWrap: "wrap",
+              justifyContent: "center",
+              gap: "1rem",
+            }}
+          >
+            <Link href="/products/assessalign/" className="hero-cta-btn">
+              View AssessAlign
+              <svg
+                className="hero-cta-arrow"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+            <Link href="/services/consulting" className="consulting-cta-btn">
+              <svg
+                className="consulting-cta-icon"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                />
+              </svg>
+              Book Consultation
+            </Link>
           </div>
         </div>
       </section>

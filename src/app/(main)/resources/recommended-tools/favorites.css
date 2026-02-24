@@ -1,0 +1,261 @@
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITES PAGE — Component & Layout Styles
+   Import in page.tsx: import "./favorites.css"
+   
+   Uses design tokens from globals.css
+   ═══════════════════════════════════════════════════════════════ */
+
+
+/* ───────────────────────────────────────────
+   LAYOUT: Container
+   ─────────────────────────────────────────── */
+
+.favs-container {
+  width: 100%;
+  max-width: var(--max-width-xl, 75rem);
+  margin-inline: auto;
+  padding-inline: var(--space-container, clamp(1.25rem, 4vw, 2.5rem));
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITES HERO SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-hero {
+  padding-block: clamp(4rem, 10vw, 7rem);
+  background: linear-gradient(
+    to bottom,
+    var(--beige-bg, #F0EDE7) 0%,
+    var(--neutral-bg, #FAF7F2) 100%
+  );
+}
+
+.favs-hero-inner {
+  max-width: 48rem;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.favs-hero-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  color: var(--terracotta, #B05931);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  margin-bottom: 1rem;
+}
+
+.favs-hero-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-5xl, clamp(2.5rem, 2rem + 2.5vw, 3.5rem));
+  font-weight: 800;
+  line-height: var(--leading-tight, 1.2);
+  letter-spacing: var(--tracking-tight, -0.02em);
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 1.5rem;
+}
+
+.favs-hero-desc {
+  color: var(--text-muted, #6B6B6B);
+  font-size: var(--text-base, 1rem);
+  line-height: var(--leading-relaxed, 1.65);
+  max-width: 40rem;
+  margin-inline: auto;
+}
+
+@media (min-width: 768px) {
+  .favs-hero-desc {
+    font-size: var(--text-lg, 1.125rem);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FILTER BAR
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-filter {
+  padding-block: clamp(0.75rem, 1.5vw, 1rem);
+  background-color: var(--white, #FFFFFF);
+  border-top: 1px solid var(--border-beige, #E8DED0);
+  border-bottom: 1px solid var(--border-beige, #E8DED0);
+  position: sticky;
+  top: clamp(3.5rem, 3rem + 2vw, 4.5rem);
+  z-index: 40;
+}
+
+.favs-filter-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.625rem;
+}
+
+.favs-filter-btn {
+  padding: 0.5rem 1rem;
+  border-radius: 9999px;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 500;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--duration-fast, 150ms) var(--ease-default, ease);
+  background-color: var(--beige-bg, #F0EDE7);
+  color: var(--text-muted, #6B6B6B);
+}
+
+.favs-filter-btn:hover {
+  background-color: var(--border-beige, #E8DED0);
+  color: var(--text-dark, #2D2D2D);
+}
+
+.favs-filter-btn--active {
+  background-color: var(--earth, #5C6B4A);
+  color: var(--white, #FFFFFF);
+  border-color: var(--earth, #5C6B4A);
+}
+
+.favs-filter-btn--active:hover {
+  background-color: var(--earth-dark, #4A5638);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITES GRID
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-grid-section {
+  padding-block: clamp(3rem, 6vw, 5rem);
+  background-color: var(--neutral-bg, #FAF7F2);
+}
+
+.favs-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: clamp(1.25rem, 2.5vw, 1.5rem);
+}
+
+@media (min-width: 768px) {
+  .favs-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: clamp(1.5rem, 3vw, 2rem);
+  }
+}
+
+@media (min-width: 1024px) {
+  .favs-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   FAVORITE CARD
+   Recommendation card with icon, badge, and external link
+   ═══════════════════════════════════════════════════════════════ */
+
+.fav-card {
+  background-color: var(--white, #FFFFFF);
+  border-radius: var(--radius-xl, 1.5rem);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 1px solid var(--border-beige, #E8DED0);
+  display: flex;
+  flex-direction: column;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              box-shadow 300ms ease,
+              border-color 300ms ease;
+}
+
+.fav-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px -12px rgba(92, 107, 74, 0.15);
+  border-color: var(--earth-light, #8B9B7A);
+}
+
+/* Icon */
+.fav-card-icon {
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: var(--radius-lg, 1rem);
+  background-color: var(--beige-bg, #F0EDE7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: clamp(1rem, 2vw, 1.25rem);
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 200ms ease;
+}
+
+.fav-card:hover .fav-card-icon {
+  transform: scale(1.1) rotate(-3deg);
+  background-color: var(--earth-light, #8B9B7A);
+}
+
+.fav-card-icon svg {
+  width: 1.75rem;
+  height: 1.75rem;
+  color: var(--terracotta, #B05931);
+  transition: color 200ms ease;
+}
+
+.fav-card:hover .fav-card-icon svg {
+  color: var(--white, #FFFFFF);
+}
+
+/* Badge */
+.fav-card-badge {
+  display: inline-block;
+  padding: 0.25rem 0.625rem;
+  background-color: var(--border-beige, #E8DED0);
+  border-radius: 9999px;
+  font-size: 0.625rem;
+  font-weight: 700;
+  color: var(--earth, #5C6B4A);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  margin-bottom: 0.75rem;
+  align-self: flex-start;
+}
+
+.fav-card-title {
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 0.5rem;
+  line-height: var(--leading-tight, 1.2);
+  transition: color 200ms ease;
+}
+
+.fav-card:hover .fav-card-title {
+  color: var(--earth, #5C6B4A);
+}
+
+.fav-card-desc {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  line-height: var(--leading-relaxed, 1.65);
+  margin-bottom: clamp(1rem, 2vw, 1.25rem);
+  flex: 1;
+}
+
+/* External Link CTA */
+.fav-card-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--terracotta, #B05931);
+  text-decoration: none;
+  transition: gap 200ms ease, color 200ms ease;
+}
+
+.fav-card:hover .fav-card-link {
+  gap: 0.75rem;
+  color: var(--terracotta-dark, #923C29);
+}
+
+.fav-card-link svg {
+  width: 1rem;
+  height: 1rem;
+}

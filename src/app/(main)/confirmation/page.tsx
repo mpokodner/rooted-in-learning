@@ -54,7 +54,7 @@ export default function ConfirmationPage() {
               <Link href="/account/orders" className="btn btn-md btn-secondary rounded-[var(--radius-lg)]">
                 View My Orders
               </Link>
-              <Link href="/shop" className="btn btn-md btn-primary rounded-[var(--radius-lg)]">
+              <Link href="/products" className="btn btn-md btn-primary rounded-[var(--radius-lg)]">
                 Continue Shopping
               </Link>
             </div>

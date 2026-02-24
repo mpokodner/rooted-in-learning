@@ -19,31 +19,31 @@ interface NavItem {
 const NAV_ITEMS: NavItem[] = [
   { href: "/", label: "Home" },
   {
+    href: "/products",
+    label: "Products",
+    dropdown: [
+      { href: "/products/assessalign", label: "AssessAlign" },
+      { href: "/products/lessons", label: "Lessons" },
+      { href: "/products/teacher-tools", label: "Teacher Tools" },
+    ],
+  },
+  {
     href: "/resources",
     label: "Resources",
     dropdown: [
-      { href: "/resources/lessons", label: "Lessons" },
-      { href: "/resources/teacher-tools", label: "Teacher Tools" },
-      { href: "/resources/favorites", label: "Favorites" },
+      { href: "/resources/recommended-tools", label: "Recommended Tools" },
+      { href: "/blog", label: "Blog" },
     ],
   },
   {
-    href: "/consulting",
-    label: "Consulting",
+    href: "/services",
+    label: "Services",
     dropdown: [
-      { href: "/consulting", label: "Overview" },
-      { href: "/consulting/assessalign", label: "AssessAlign" },
+      { href: "/services/consulting", label: "Consulting" },
     ],
   },
+  { href: "/about", label: "About" },
   { href: "/blog", label: "Blog" },
-  {
-    href: "/about",
-    label: "About",
-    dropdown: [
-      { href: "/about", label: "About Me" },
-      { href: "/about/projects", label: "Portfolio" },
-    ],
-  },
   { href: "/contact", label: "Contact" },
 ];
 
@@ -166,18 +166,21 @@ export default function Header() {
 
           {/* Actions */}
           <div className="header-actions">
-            <Link href="/blog#newsletter" className="header-newsletter-btn">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              <span className="header-newsletter-text">Subscribe</span>
-            </Link>
-
-            <Link href="/login" className="header-login-btn" aria-label="Login to your account">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-              </svg>
-              <span className="header-login-text">Login</span>
+            <Link
+              href="/services/consulting"
+              className="header-cta-btn"
+              style={{
+                backgroundColor: "var(--terracotta)",
+                color: "#fff",
+                fontWeight: 700,
+                padding: "0.5rem 1.25rem",
+                borderRadius: "0.5rem",
+                textDecoration: "none",
+                fontSize: "0.875rem",
+                whiteSpace: "nowrap",
+              }}
+            >
+              Book Consultation
             </Link>
 
             <button
@@ -305,7 +308,7 @@ export default function Header() {
             ))}
 
             <Link
-              href="/blog#newsletter"
+              href="/services/consulting"
               onClick={closeMobile}
               style={{
                 display: "flex",
@@ -322,10 +325,7 @@ export default function Header() {
                 textDecoration: "none",
               }}
             >
-              <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-              </svg>
-              Join the Newsletter
+              Book Consultation
             </Link>
           </div>
         </>

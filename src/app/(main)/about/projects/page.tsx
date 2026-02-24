@@ -95,7 +95,7 @@ const featuredProjects: FeaturedProject[] = [
       "LMS integration (Canvas, Blackboard, Moodle)",
     ],
     status: "In Progress",
-    href: "/consulting/assessalign",
+    href: "/products/assessalign",
     linkLabel: "Explore AssessAlign",
     isInternal: true,
     color: "earth",
@@ -120,7 +120,7 @@ const featuredProjects: FeaturedProject[] = [
       "Differentiation tiers for intervention & enrichment",
     ],
     status: "Published",
-    href: "/resources/lessons",
+    href: "/products/lessons",
     linkLabel: "Browse Lessons",
     isInternal: true,
     color: "terracotta",
@@ -326,7 +326,7 @@ export default function ProjectsPage() {
                     </a>
                   )}
                   {index === 0 && (
-                    <Link href="/consulting" className="pf-flagship-secondary">
+                    <Link href="/services/consulting" className="pf-flagship-secondary">
                       Learn about my consulting practice
                     </Link>
                   )}
@@ -471,7 +471,7 @@ export default function ProjectsPage() {
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                 </svg>
               </Link>
-              <Link href="/consulting" className="pf-credentials-btn-secondary">
+              <Link href="/services/consulting" className="pf-credentials-btn-secondary">
                 Work With Me
               </Link>
             </div>

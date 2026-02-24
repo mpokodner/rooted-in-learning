@@ -301,10 +301,10 @@ export default function BlogPage() {
 
           {/* Cross-links */}
           <div className="blog-crosslinks">
-            <Link href="/resources/lessons" className="blog-crosslink">
+            <Link href="/products/lessons" className="blog-crosslink">
               Browse Lesson Library &rarr;
             </Link>
-            <Link href="/consulting" className="blog-crosslink">
+            <Link href="/services/consulting" className="blog-crosslink">
               Explore Consulting &rarr;
             </Link>
           </div>

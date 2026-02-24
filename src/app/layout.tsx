@@ -113,6 +113,32 @@ export default function RootLayout({
           href="https://cdn.jsdelivr.net/npm/@calcom/font@1.1.0/index.css"
         />
 
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Organization",
+              "name": "The Rooted Learner",
+              "url": "https://www.therootedlearner.com",
+              "logo": "https://www.therootedlearner.com/logo.png",
+              "description": "Research-based literacy support, teacher tools, and digital solutions for schools and families.",
+              "sameAs": [
+                "https://www.youtube.com/@TheRootedLearner",
+                "https://www.tiktok.com/@therootedlearner",
+                "https://www.instagram.com/rootedinlearninged/",
+                "https://www.linkedin.com/in/michelle-pokodner-edtech/",
+                "https://www.pinterest.com/rootedinlearninged/"
+              ],
+              "contactPoint": {
+                "@type": "ContactPoint",
+                "email": "hello@therootedlearner.com",
+                "contactType": "customer service"
+              }
+            }),
+          }}
+        />
+
         {/* Google Tag Manager — Head Script */}
         {GTM_ID && (
           <Script

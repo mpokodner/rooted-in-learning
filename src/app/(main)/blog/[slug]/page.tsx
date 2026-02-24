@@ -49,12 +49,12 @@ const relatedLessons = [
   {
     title: "AI-Powered Lesson Planning Template Pack",
     price: "$12",
-    slug: "/shop/ai-lesson-planning-templates",
+    slug: "/products/ai-lesson-planning-templates",
   },
   {
     title: "Differentiated Reading Intervention Kit",
     price: "$18",
-    slug: "/shop/reading-intervention-kit",
+    slug: "/products/reading-intervention-kit",
   },
 ];
 
@@ -285,7 +285,7 @@ export default async function BlogPostPage({
                   </p>
                   <div className="bp-author-bio-links">
                     <Link href="/about" className="bp-author-bio-link">About Me</Link>
-                    <Link href="/consulting" className="bp-author-bio-link">Work With Me</Link>
+                    <Link href="/services/consulting" className="bp-author-bio-link">Work With Me</Link>
                   </div>
                 </div>
               </div>

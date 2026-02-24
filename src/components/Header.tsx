@@ -27,24 +27,10 @@ const NAV_ITEMS: NavItem[] = [
       { href: "/products/teacher-tools", label: "Teacher Tools" },
     ],
   },
-  {
-    href: "/resources",
-    label: "Resources",
-    dropdown: [
-      { href: "/resources/recommended-tools", label: "Recommended Tools" },
-      { href: "/blog", label: "Blog" },
-    ],
-  },
-  {
-    href: "/services",
-    label: "Services",
-    dropdown: [
-      { href: "/services/consulting", label: "Consulting" },
-    ],
-  },
-  { href: "/about", label: "About" },
+  { href: "/resources", label: "Resources" },
+  { href: "/consulting", label: "Consulting" },
   { href: "/blog", label: "Blog" },
-  { href: "/contact", label: "Contact" },
+  { href: "/about", label: "About" },
 ];
 
 export default function Header() {
@@ -167,7 +153,7 @@ export default function Header() {
           {/* Actions */}
           <div className="header-actions">
             <Link
-              href="/services/consulting"
+              href="/consulting"
               className="header-cta-btn"
               style={{
                 backgroundColor: "var(--terracotta)",
@@ -308,7 +294,7 @@ export default function Header() {
             ))}
 
             <Link
-              href="/services/consulting"
+              href="/consulting"
               onClick={closeMobile}
               style={{
                 display: "flex",

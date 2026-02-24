@@ -270,13 +270,13 @@ export default function Footer() {
                 </ul>
               </div>
 
-              {/* Resources */}
+              {/* Resources & Blog */}
               <div>
-                <h5 className="footer-heading">Resources</h5>
+                <h5 className="footer-heading">Learn</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/resources/recommended-tools" className="footer-link">
-                      Recommended Tools
+                    <Link href="/resources" className="footer-link">
+                      Resources
                     </Link>
                   </li>
                   <li>
@@ -284,18 +284,18 @@ export default function Footer() {
                       Blog
                     </Link>
                   </li>
-                </ul>
-              </div>
-
-              {/* Services & About */}
-              <div>
-                <h5 className="footer-heading">Services &amp; About</h5>
-                <ul className="footer-link-list">
                   <li>
-                    <Link href="/services/consulting" className="footer-link">
+                    <Link href="/consulting" className="footer-link">
                       Consulting
                     </Link>
                   </li>
+                </ul>
+              </div>
+
+              {/* About & Contact */}
+              <div>
+                <h5 className="footer-heading">Company</h5>
+                <ul className="footer-link-list">
                   <li>
                     <Link href="/about" className="footer-link">
                       About

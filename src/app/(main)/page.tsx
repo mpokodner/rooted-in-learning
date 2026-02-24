@@ -1,4 +1,5 @@
 import Link from "next/link";
+import NewsletterForm from "@/components/NewsletterForm";
 import "./home.css";
 
 export default function Home() {
@@ -620,29 +621,7 @@ export default function Home() {
                 with strategies, templates, and progress monitoring tools. Plus
                 get weekly teaching tips delivered to your inbox.
               </p>
-              <div className="newsletter-form">
-                <input
-                  type="email"
-                  placeholder="your@email.com"
-                  className="newsletter-input"
-                />
-                <button className="btn btn-lg btn-secondary newsletter-submit-btn">
-                  Get My Free Toolkit
-                  <svg
-                    className="newsletter-submit-arrow"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </button>
-              </div>
+              <NewsletterForm />
               <p className="newsletter-disclaimer">
                 Join 100+ educators. Unsubscribe anytime.
               </p>

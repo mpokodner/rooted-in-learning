@@ -44,77 +44,27 @@ const products = [
 export default function ProductsPage() {
   return (
     <div className="products-page">
-      {/* Hero */}
+      {/* Hero with embedded product cards */}
       <section className="products-hero" aria-labelledby="products-heading">
         <div className="products-hero-bg" aria-hidden="true">
           <div className="products-hero-circle products-hero-circle--1" />
           <div className="products-hero-circle products-hero-circle--2" />
         </div>
+
         <div className="container products-hero-container">
-          <div className="products-hero-badge">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
-            <span>Built by a 12+ year classroom educator</span>
-          </div>
-
+          <p className="products-hero-label">Products &amp; Tools</p>
           <h1 id="products-heading" className="products-hero-title">
-            Research-Based Tools
-            <br />
-            <span className="products-hero-accent">
-              for Educators, Schools &amp; Families
-            </span>
+            Choose Your Path
           </h1>
-
           <p className="products-hero-desc">
-            Digital solutions designed for how modern classrooms actually work —
-            built by a reading interventionist, curriculum designer, and EdTech
-            developer.
+            Research-based tools built by a 12+ year classroom educator.
+            Pick the one that fits your needs.
           </p>
-
-          <div className="products-hero-trust">
-            <div className="products-hero-trust-item">
-              <span className="products-hero-trust-number">100+</span>
-              <span className="products-hero-trust-label">Resources Built</span>
-            </div>
-            <div className="products-hero-trust-divider" />
-            <div className="products-hero-trust-item">
-              <span className="products-hero-trust-number">K–8</span>
-              <span className="products-hero-trust-label">Grade Coverage</span>
-            </div>
-            <div className="products-hero-trust-divider" />
-            <div className="products-hero-trust-item">
-              <span className="products-hero-trust-number">SoR</span>
-              <span className="products-hero-trust-label">Aligned</span>
-            </div>
-          </div>
         </div>
-      </section>
 
-      {/* Product Cards */}
-      <section
-        className="products-grid-section"
-        aria-labelledby="products-grid-heading"
-      >
-        <div className="container">
-          <div className="products-grid-header">
-            <p className="products-grid-label">Our Products</p>
-            <h2 id="products-grid-heading" className="products-grid-title">
-              Everything You Need, Nothing You Don&apos;t
-            </h2>
-          </div>
-
-          <div className="products-grid">
+        {/* Product cards inside the hero */}
+        <div className="container products-hero-cards-wrap">
+          <div className="products-hero-cards">
             {products.map((product) => (
               <Link
                 key={product.title}
@@ -139,7 +89,7 @@ export default function ProductsPage() {
                   </svg>
                 </div>
                 <div className="products-card-header">
-                  <h3 className="products-card-title">{product.title}</h3>
+                  <h2 className="products-card-title">{product.title}</h2>
                   {product.badge && (
                     <span className="products-card-badge">{product.badge}</span>
                   )}

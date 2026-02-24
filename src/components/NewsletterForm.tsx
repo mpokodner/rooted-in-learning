@@ -2,7 +2,23 @@
 
 import { useState } from "react";
 
-export default function NewsletterForm() {
+interface NewsletterFormProps {
+  source?: string;
+  buttonText?: string;
+  inputClassName?: string;
+  buttonClassName?: string;
+  formClassName?: string;
+  errorClassName?: string;
+}
+
+export default function NewsletterForm({
+  source = "homepage",
+  buttonText = "Get My Free Toolkit",
+  inputClassName = "newsletter-input",
+  buttonClassName = "btn btn-lg btn-secondary newsletter-submit-btn",
+  formClassName = "newsletter-form",
+  errorClassName = "newsletter-error",
+}: NewsletterFormProps) {
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -19,7 +35,7 @@ export default function NewsletterForm() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
-          source: "homepage",
+          source,
           sendFreebie: true,
         }),
       });
@@ -49,29 +65,30 @@ export default function NewsletterForm() {
   }
 
   return (
-    <form className="newsletter-form" onSubmit={handleSubmit}>
+    <form className={formClassName} onSubmit={handleSubmit}>
       <input
         type="email"
         placeholder="your@email.com"
-        className="newsletter-input"
+        className={inputClassName}
         value={email}
         onChange={(e) => setEmail(e.target.value)}
         required
         disabled={status === "loading"}
+        aria-label="Email address"
       />
       <button
         type="submit"
-        className="btn btn-lg btn-secondary newsletter-submit-btn"
+        className={buttonClassName}
         disabled={status === "loading"}
       >
-        {status === "loading" ? "Sending…" : "Get My Free Toolkit"}
+        {status === "loading" ? "Sending…" : buttonText}
         {status !== "loading" && (
           <svg
-            className="newsletter-submit-arrow"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
             strokeWidth={2}
+            aria-hidden="true"
           >
             <path
               strokeLinecap="round"
@@ -82,7 +99,7 @@ export default function NewsletterForm() {
         )}
       </button>
       {status === "error" && (
-        <p className="newsletter-error">{message}</p>
+        <p className={errorClassName}>{message}</p>
       )}
     </form>
   );

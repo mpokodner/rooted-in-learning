@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import NewsletterForm from "@/components/NewsletterForm";
 import "./blog.css";
 
 export const metadata: Metadata = {
@@ -249,20 +250,14 @@ export default function BlogPage() {
               Plus weekly teaching tips, strategies, and free resources
               delivered to your inbox every Tuesday.
             </p>
-            <form className="blog-capture-form">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="blog-capture-input"
-                aria-label="Email address"
-              />
-              <button type="submit" className="blog-capture-btn">
-                Get My Free Planner
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </button>
-            </form>
+            <NewsletterForm
+              source="blog"
+              buttonText="Get My Free Planner"
+              inputClassName="blog-capture-input"
+              buttonClassName="blog-capture-btn"
+              formClassName="blog-capture-form"
+              errorClassName="newsletter-error"
+            />
             <p className="blog-capture-note">
               Join 5,000+ educators. Unsubscribe anytime.
             </p>

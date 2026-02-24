@@ -19,13 +19,13 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://therootedlearner.com"),
+  metadataBase: new URL("https://www.therootedlearner.com"),
   title: {
     default: "The Rooted Learner | EdTech Solutions for Modern Educators",
     template: "%s | The Rooted Learner",
   },
   description:
-    "Bridging pedagogy and technology with 15+ years of classroom experience. Discover educational resources, tools, and professional development designed by a certified educator and full-stack developer.",
+    "Bridging pedagogy and technology with 12+ years of classroom experience. Discover educational resources, tools, and professional development designed by a certified educator and full-stack developer.",
   keywords: [
     "education technology",
     "edtech",
@@ -54,16 +54,16 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://therootedlearner.com",
+    canonical: "https://www.therootedlearner.com",
   },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://therootedlearner.com",
+    url: "https://www.therootedlearner.com",
     siteName: "The Rooted Learner",
     title: "The Rooted Learner | EdTech Solutions for Modern Educators",
     description:
-      "Bridging pedagogy and technology with 15+ years of classroom experience. Discover educational resources, tools, and professional development.",
+      "Bridging pedagogy and technology with 12+ years of classroom experience. Discover educational resources, tools, and professional development.",
     images: [
       {
         url: "/og-image.png",
@@ -77,11 +77,15 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "The Rooted Learner | EdTech Solutions",
     description:
-      "Bridging pedagogy and technology with 15+ years of classroom experience.",
+      "Bridging pedagogy and technology with 12+ years of classroom experience.",
     images: ["/og-image.png"],
   },
   icons: {
-    icon: "/favicon.ico",
+    icon: [
+      { url: "/favicon.ico", sizes: "32x32" },
+      { url: "/icon-192.png", sizes: "192x192", type: "image/png" },
+      { url: "/icon-512.png", sizes: "512x512", type: "image/png" },
+    ],
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",

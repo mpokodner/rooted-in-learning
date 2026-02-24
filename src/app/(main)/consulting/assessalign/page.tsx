@@ -6,53 +6,93 @@ import "./assessalign.css";
 
 export const metadata: Metadata = {
   title: "AssessAlign | The Rooted Learner",
-  description: "AssessAlign — Intelligent Assessment Orchestration for Modern EdTech, featuring AI-driven standardization and instant feedback loops.",
-  keywords: ["assessment alignment", "standards mapping", "educational assessment", "AI grading", "rubric generation", "LMS integration"],
+  description:
+    "AssessAlign — Standards-based assessment, AI-powered question generation, real-time analytics, and automatic intervention grouping built for how schools actually work.",
+  keywords: [
+    "assessment alignment",
+    "standards mapping",
+    "educational assessment",
+    "AI question generation",
+    "intervention grouping",
+    "MTSS",
+    "FLEX groups",
+    "WIN groups",
+    "data-driven instruction",
+  ],
   alternates: {
     canonical: "/consulting/assessalign",
   },
 };
 
 const techStack = [
-  { name: "React + TS", icon: "JS" },
-  { name: "Node.js", icon: "node" },
+  { name: "Vue.js", icon: "vue" },
+  { name: "React", icon: "react" },
+  { name: "Next.js", icon: "next" },
+  { name: "Supabase", icon: "supabase" },
   { name: "OpenAI", icon: "ai" },
-  { name: "PostgreSQL", icon: "db" },
-  { name: "AWS", icon: "aws" },
 ];
 
-const challenges = [
-  "Inconsistent grading across multiple teaching assistants leads to student confusion.",
-  "Feedback loops take 5-7 days, delaying student learning progression.",
-  "Manual rubric alignment is tedious and prone to human error.",
-];
-
-const solutions = [
-  "AI-driven standardization ensures 99% consistency in initial grading passes.",
-  "Instant feedback loops allow students to iterate on work immediately.",
-  "Automated rubric generation matches learning outcomes to assessment criteria.",
-];
-
-const capabilities = [
+const features = [
   {
-    title: "Real-time Analytics",
-    desc: "Monitor class performance with live dashboards. Identify knowledge gaps before they become critical failures.",
-    emoji: "📊",
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+      </svg>
+    ),
+    title: "Standards-Based Assessment at Its Core",
+    desc: "Every assessment, question, and data point aligns to academic standards — so teachers always know exactly what skills students have and haven't mastered, not just how they scored.",
+    accent: "earth",
   },
   {
-    title: "Custom Rubrics",
-    desc: "Create flexible grading criteria that adapt to various assessment types, from essays to code snippets.",
-    emoji: "📝",
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 00-2.455 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z" />
+      </svg>
+    ),
+    title: "AI-Powered Question Generation",
+    desc: "Generate assessment questions directly from reading passages using OpenAI. Questions align automatically to standards, support multiple choice and constructed response formats, and include difficulty level control — saving hours of prep time.",
+    accent: "blue",
   },
   {
-    title: "LMS Integration",
-    desc: "Seamlessly connects with Canvas, Blackboard, and Moodle using LTI 1.3 standards for easy roster syncing.",
-    emoji: "🔗",
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M3 13.125C3 12.504 3.504 12 4.125 12h2.25c.621 0 1.125.504 1.125 1.125v6.75C7.5 20.496 6.996 21 6.375 21h-2.25A1.125 1.125 0 013 19.875v-6.75zM9.75 8.625c0-.621.504-1.125 1.125-1.125h2.25c.621 0 1.125.504 1.125 1.125v11.25c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V8.625zM16.5 4.125c0-.621.504-1.125 1.125-1.125h2.25C20.496 3 21 3.504 21 4.125v15.75c0 .621-.504 1.125-1.125 1.125h-2.25a1.125 1.125 0 01-1.125-1.125V4.125z" />
+      </svg>
+    ),
+    title: "Real-Time Data Analytics",
+    desc: "A live dashboard gives teachers and administrators a clear picture of student performance across standards, subjects, and classrooms. Data is triangulated across multiple sources so educators can spot discrepancies and make smarter decisions.",
+    accent: "earth",
   },
   {
-    title: "Student Portal",
-    desc: "A dedicated interface for students to track their own progress, view feedback history, and request regrades.",
-    emoji: "🎓",
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
+      </svg>
+    ),
+    title: "Automatic Intervention Grouping",
+    desc: "The flagship differentiator. AssessAlign auto-generates WIN and FLEX groups based on assessment results — no more spending hours manually sorting spreadsheets. Teachers get ready-to-use groupings backed by real data.",
+    accent: "blue",
+    flagship: true,
+  },
+  {
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M7.5 21L3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5" />
+      </svg>
+    ),
+    title: "Cross-Subject Performance Tracking",
+    desc: "View and compare student performance across ELA and math in one place, including house and grade-level views — ideal for middle school team structures and cross-curricular collaboration.",
+    accent: "earth",
+  },
+  {
+    icon: (
+      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+        <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+      </svg>
+    ),
+    title: "FERPA-Compliant & Secure",
+    desc: "Built with row-level security, AES-256 encryption, and full access logging. Student data is protected at the infrastructure level, giving districts and families peace of mind.",
+    accent: "blue",
   },
 ];
 
@@ -89,28 +129,32 @@ const roadmapPhases = [
 
 export default function AssessAlignPage() {
   return (
-    <div className="min-h-screen bg-[var(--neutral-bg)]">
-      {/* Hero */}
+    <div className="aa-page">
+      {/* ═══════════════════════════════════════════
+          HERO
+      ═══════════════════════════════════════════ */}
       <section className="aa-hero">
         <div className="aa-container">
           <div className="aa-hero-inner">
             <span className="aa-badge">
               <span className="aa-badge-dot" />
-              Development Status: Beta v0.8
+              In Development &mdash; Early Access Coming Soon
             </span>
             <h1 className="aa-hero-title">AssessAlign</h1>
             <p className="aa-hero-subtitle">
-              Intelligent Assessment Orchestration for Modern EdTech
+              Standards-Based Assessment Built for How Schools Actually Work
             </p>
             <p className="aa-hero-desc">
-              A comprehensive platform designed to bridge the gap between technical documentation and pedagogical assessment, featuring AI-driven standardization and instant feedback loops.
+              Designed by a classroom teacher and reading interventionist with
+              12+ years of experience, AssessAlign reflects real MTSS workflows
+              &mdash; not a tech company&apos;s idea of what schools need.
             </p>
             <div className="aa-hero-actions">
-              <a href="#capabilities" className="aa-btn-features">
+              <a href="#features" className="aa-btn-features">
                 Explore Features
               </a>
-              <Link href="/consulting" className="aa-btn-back">
-                Back to Consulting
+              <Link href="/contact" className="aa-btn-back">
+                Request Early Access
               </Link>
             </div>
           </div>
@@ -134,42 +178,41 @@ export default function AssessAlignPage() {
         </div>
       </section>
 
-      {/* Tech Stack */}
+      {/* ═══════════════════════════════════════════
+          TECH STACK
+      ═══════════════════════════════════════════ */}
       <section className="aa-tech-section">
         <div className="aa-container">
-          <p className="aa-tech-heading">POWERED BY MODERN ARCHITECTURE</p>
+          <p className="aa-tech-heading">BUILT WITH A MODERN STACK</p>
           <div className="aa-tech-grid">
             {techStack.map((tech, i) => (
               <div key={i} className="aa-tech-item">
                 <div className={`aa-tech-icon aa-tech-icon--${tech.icon}`}>
-                  {tech.icon === "JS" && (
-                    <span className="aa-tech-icon-text">JS</span>
-                  )}
-                  {tech.icon === "node" && (
+                  {tech.icon === "vue" && (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                      <rect x="3" y="3" width="7" height="7" rx="1" />
-                      <rect x="14" y="3" width="7" height="7" rx="1" />
-                      <rect x="3" y="14" width="7" height="7" rx="1" />
-                      <rect x="14" y="14" width="7" height="7" rx="1" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 20L2 4h4l6 10 6-10h4L12 20z" />
+                    </svg>
+                  )}
+                  {tech.icon === "react" && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <circle cx="12" cy="12" r="2.5" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                      <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                    </svg>
+                  )}
+                  {tech.icon === "next" && (
+                    <span className="aa-tech-icon-text aa-tech-icon-text--next">N</span>
+                  )}
+                  {tech.icon === "supabase" && (
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M13 3l-1 10h7L11 21l1-10H5L13 3z" />
                     </svg>
                   )}
                   {tech.icon === "ai" && (
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
                       <circle cx="12" cy="12" r="3" />
                       <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                    </svg>
-                  )}
-                  {tech.icon === "db" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                      <ellipse cx="12" cy="5" rx="9" ry="3" />
-                      <path d="M21 12c0 1.66-4.03 3-9 3s-9-1.34-9-3" />
-                      <path d="M3 5v14c0 1.66 4.03 3 9 3s9-1.34 9-3V5" />
-                    </svg>
-                  )}
-                  {tech.icon === "aws" && (
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                      <path d="M6.5 17.5c-2.5-1-4.5-3.5-4.5-7C2 6.5 5.5 3 12 3s10 3.5 10 7.5c0 3.5-2 6-4.5 7" />
-                      <path d="M8 14l4 4 4-4" />
                     </svg>
                   )}
                 </div>
@@ -180,78 +223,89 @@ export default function AssessAlignPage() {
         </div>
       </section>
 
-      {/* Challenge vs Solution */}
-      <section className="aa-challenge-section">
+      {/* ═══════════════════════════════════════════
+          THE PROBLEM
+      ═══════════════════════════════════════════ */}
+      <section className="aa-problem-section">
         <div className="aa-container">
-          <div className="aa-challenge-grid">
-            {/* The Challenge */}
-            <div className="aa-challenge-card aa-challenge-card--problem">
-              <div className="aa-challenge-card-header">
-                <span className="aa-challenge-icon aa-challenge-icon--red">!</span>
-                <h3 className="aa-challenge-card-title">The Challenge</h3>
+          <div className="aa-problem-inner">
+            <p className="aa-section-label">The Problem</p>
+            <h2 className="aa-section-title">
+              Assessments Shouldn&apos;t Create More Work
+            </h2>
+            <div className="aa-problem-grid">
+              <div className="aa-problem-item">
+                <span className="aa-problem-x">&#10005;</span>
+                <p>Hours spent manually aligning questions to standards and building rubrics from scratch.</p>
               </div>
-              <ul className="aa-challenge-list">
-                {challenges.map((item, i) => (
-                  <li key={i} className="aa-challenge-list-item">
-                    <span className="aa-x-mark">✕</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Arrow */}
-            <div className="aa-challenge-arrow">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
-              </svg>
-            </div>
-
-            {/* The Solution */}
-            <div className="aa-challenge-card aa-challenge-card--solution">
-              <div className="aa-challenge-card-header">
-                <span className="aa-challenge-icon aa-challenge-icon--green">✓</span>
-                <h3 className="aa-challenge-card-title">The Solution</h3>
+              <div className="aa-problem-item">
+                <span className="aa-problem-x">&#10005;</span>
+                <p>Spreadsheet-based intervention grouping that takes an entire planning period to sort.</p>
               </div>
-              <ul className="aa-challenge-list">
-                {solutions.map((item, i) => (
-                  <li key={i} className="aa-challenge-list-item">
-                    <span className="aa-check-mark">✓</span>
-                    <span>{item}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="aa-problem-item">
+                <span className="aa-problem-x">&#10005;</span>
+                <p>Data scattered across platforms with no unified view of student mastery by standard.</p>
+              </div>
+              <div className="aa-problem-item">
+                <span className="aa-problem-x">&#10005;</span>
+                <p>Generic EdTech tools built by people who have never managed a classroom or MTSS cycle.</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Core Capabilities */}
-      <section id="capabilities" className="aa-capabilities-section">
+      {/* ═══════════════════════════════════════════
+          FEATURES
+      ═══════════════════════════════════════════ */}
+      <section id="features" className="aa-features-section">
         <div className="aa-container">
-          <h2 className="aa-capabilities-title">Core Capabilities</h2>
-          <div className="aa-capabilities-grid">
-            {capabilities.map((cap, i) => (
-              <div key={i} className="aa-capability-card">
-                <span className="aa-capability-emoji">{cap.emoji}</span>
-                <h3 className="aa-capability-card-title">{cap.title}</h3>
-                <p className="aa-capability-card-desc">{cap.desc}</p>
+          <p className="aa-section-label">What AssessAlign Does</p>
+          <h2 className="aa-section-title">
+            Every Feature Built Around Standards Mastery
+          </h2>
+          <p className="aa-section-subtitle">
+            Not another dashboard full of numbers. AssessAlign connects
+            assessment to action &mdash; from question creation to intervention
+            grouping, every feature is designed to move the needle on student
+            learning.
+          </p>
+
+          <div className="aa-features-grid">
+            {features.map((feat, i) => (
+              <div
+                key={i}
+                className={`aa-feature-card${feat.flagship ? " aa-feature-card--flagship" : ""}`}
+              >
+                {feat.flagship && (
+                  <span className="aa-flagship-badge">Flagship Feature</span>
+                )}
+                <div className={`aa-feature-icon aa-feature-icon--${feat.accent}`}>
+                  {feat.icon}
+                </div>
+                <h3 className="aa-feature-title">{feat.title}</h3>
+                <p className="aa-feature-desc">{feat.desc}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Development Roadmap */}
+      {/* ═══════════════════════════════════════════
+          DEVELOPMENT ROADMAP
+      ═══════════════════════════════════════════ */}
       <section className="aa-roadmap-section">
         <div className="aa-container">
-          <h2 className="aa-roadmap-title">Development Roadmap</h2>
+          <p className="aa-section-label">Where We Are</p>
+          <h2 className="aa-section-title">Development Roadmap</h2>
           <div className="aa-roadmap-grid">
             {roadmapPhases.map((phase, i) => (
               <div key={i} className={`aa-roadmap-card ${phase.statusClass}`}>
                 <div className="aa-roadmap-card-header">
                   <span className="aa-phase-label">PHASE {phase.phase}</span>
-                  <span className={`aa-phase-badge ${phase.statusClass}`}>{phase.status}</span>
+                  <span className={`aa-phase-badge ${phase.statusClass}`}>
+                    {phase.status}
+                  </span>
                 </div>
                 <h3 className="aa-roadmap-card-title">{phase.title}</h3>
                 <p className="aa-roadmap-card-desc">{phase.desc}</p>
@@ -259,10 +313,11 @@ export default function AssessAlignPage() {
             ))}
           </div>
 
-          {/* Velocity Card */}
           <div className="aa-velocity-card">
             <h3 className="aa-velocity-title">Current Project Velocity</h3>
-            <p className="aa-velocity-subtitle">Tracking towards Version 1.0 Release</p>
+            <p className="aa-velocity-subtitle">
+              Tracking towards Version 1.0 Release
+            </p>
 
             <div className="aa-progress-wrapper">
               <div className="aa-progress-header">
@@ -292,16 +347,23 @@ export default function AssessAlignPage() {
         </div>
       </section>
 
-      {/* CTA */}
+      {/* ═══════════════════════════════════════════
+          CTA
+      ═══════════════════════════════════════════ */}
       <section className="aa-status-section">
         <div className="aa-container">
           <div className="aa-status-inner">
-            <h2 className="aa-status-title">Interested in AssessAlign?</h2>
+            <h2 className="aa-status-title">
+              Interested in Early Access?
+            </h2>
             <p className="aa-status-desc">
-              AssessAlign is currently in active beta testing. Interested in early access or have feedback? Get in touch!
+              AssessAlign is currently in active development with beta testing
+              underway. If you&apos;re a school leader, coach, or
+              district administrator looking for a smarter approach to
+              standards-based assessment, get in touch.
             </p>
             <Link href="/contact" className="aa-status-btn">
-              Contact Me
+              Request Early Access
             </Link>
           </div>
         </div>

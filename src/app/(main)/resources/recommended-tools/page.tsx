@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import "./favorites.css";
 
 export const metadata: Metadata = {
@@ -38,6 +39,16 @@ export default function RecommendedToolsPage() {
       {/* Hero Section */}
       <section className="favs-hero">
         <div className="favs-container">
+          {/* Breadcrumb */}
+          <nav className="favs-breadcrumb" aria-label="Breadcrumb">
+            <Link href="/resources" className="favs-breadcrumb-link">
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back to Resources
+            </Link>
+          </nav>
+
           <div className="favs-hero-inner">
             <p className="favs-hero-label">Educator-Recommended</p>
             <h1 className="favs-hero-title">Recommended Tools</h1>
@@ -89,6 +100,67 @@ export default function RecommendedToolsPage() {
                 </a>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Cross-links for Internal Navigation */}
+      <section className="favs-crosslinks">
+        <div className="favs-container">
+          <div className="favs-crosslinks-grid">
+            <Link href="/resources" className="favs-crosslink-card">
+              <div className="favs-crosslink-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
+                </svg>
+              </div>
+              <h3 className="favs-crosslink-title">Free Resources</h3>
+              <p className="favs-crosslink-desc">
+                Lesson samples, downloadables, and teacher tools — all free.
+              </p>
+              <span className="favs-crosslink-cta">
+                Browse Resources
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link href="/products/teacher-tools" className="favs-crosslink-card">
+              <div className="favs-crosslink-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                </svg>
+              </div>
+              <h3 className="favs-crosslink-title">Teacher Tools & Tutorials</h3>
+              <p className="favs-crosslink-desc">
+                Step-by-step video tutorials and premium tools that save you time.
+              </p>
+              <span className="favs-crosslink-cta">
+                Explore Tools
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
+
+            <Link href="/products" className="favs-crosslink-card">
+              <div className="favs-crosslink-icon">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 7.5l-.625 10.632a2.25 2.25 0 01-2.247 2.118H6.622a2.25 2.25 0 01-2.247-2.118L3.75 7.5M10 11.25h4M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125z" />
+                </svg>
+              </div>
+              <h3 className="favs-crosslink-title">All Products</h3>
+              <p className="favs-crosslink-desc">
+                AssessAlign, lessons, and digital tools built for educators.
+              </p>
+              <span className="favs-crosslink-cta">
+                View Products
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </span>
+            </Link>
           </div>
         </div>
       </section>

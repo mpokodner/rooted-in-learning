@@ -19,6 +19,39 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
+   BREADCRUMB
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-breadcrumb {
+  padding-top: clamp(1.25rem, 3vw, 2rem);
+  margin-bottom: -1rem;
+}
+
+.favs-breadcrumb-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 500;
+  color: var(--text-muted, #6B6B6B);
+  text-decoration: none;
+  transition: color 200ms ease, gap 200ms ease;
+}
+
+.favs-breadcrumb-link:hover {
+  color: var(--earth, #5C6B4A);
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.favs-breadcrumb-link svg {
+  width: 0.875rem;
+  height: 0.875rem;
+  flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    FAVORITES HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 
@@ -256,6 +289,115 @@
 }
 
 .fav-card-link svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
+   CROSS-LINKS SECTION
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-crosslinks {
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+  background-color: var(--white, #FFFFFF);
+}
+
+.favs-crosslinks-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .favs-crosslinks-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.favs-crosslink-card {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  background-color: var(--neutral-bg, #FAF7F2);
+  border-radius: var(--radius-xl, 1.5rem);
+  border: 1px solid var(--border-beige, #E8DED0);
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 300ms ease,
+              box-shadow 300ms ease,
+              border-color 300ms ease;
+}
+
+.favs-crosslink-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -8px rgba(92, 107, 74, 0.12);
+  border-color: var(--earth-light, #8B9B7A);
+  text-decoration: none;
+}
+
+.favs-crosslink-icon {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-lg, 1rem);
+  background-color: var(--border-beige, #E8DED0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+  transition: transform 300ms cubic-bezier(0.34, 1.56, 0.64, 1),
+              background-color 200ms ease;
+}
+
+.favs-crosslink-card:hover .favs-crosslink-icon {
+  transform: scale(1.08);
+  background-color: rgba(92, 107, 74, 0.12);
+}
+
+.favs-crosslink-icon svg {
+  width: 1.25rem;
+  height: 1.25rem;
+  color: var(--earth, #5C6B4A);
+}
+
+.favs-crosslink-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg, 1.125rem);
+  font-weight: 700;
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 0.375rem;
+  transition: color 200ms ease;
+}
+
+.favs-crosslink-card:hover .favs-crosslink-title {
+  color: var(--earth, #5C6B4A);
+}
+
+.favs-crosslink-desc {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  line-height: var(--leading-relaxed, 1.65);
+  margin-bottom: 1rem;
+  flex-grow: 1;
+}
+
+.favs-crosslink-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm, 0.875rem);
+  font-weight: 600;
+  color: var(--terracotta, #B05931);
+  transition: gap 200ms ease, color 200ms ease;
+}
+
+.favs-crosslink-card:hover .favs-crosslink-cta {
+  gap: 0.75rem;
+  color: var(--terracotta-dark, #923C29);
+}
+
+.favs-crosslink-cta svg {
   width: 1rem;
   height: 1rem;
 }

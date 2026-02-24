@@ -148,7 +148,7 @@ const devProjects: DevProject[] = [
       "Vocabulary learning tool with categorized word collections (nouns, verbs, adjectives), supplemented with images to support acquisition.",
     skills: ["React.js", "Hooks", "Dynamic Rendering", "State Management"],
     status: "Published",
-    link: "https://www.shecodes.io/cohorts/2675/projects/2651626?_gl=1*1e7xlw1*_gcl_au*NDAxODI1MDY4LjE3NDczOTExNjAuMTU5NTA2MjEyMC4xNzQ4Njk2MzY0LjE3NDg2OTY5MDI.",
+    link: "https://www.shecodes.io/projects/2651626?_gl=1*15h5bjp*_gcl_au*MTg4OTQwNTg2LjE3NjUzODk1ODE.",
     image: reactDictionaryImg,
   },
   {
@@ -159,7 +159,7 @@ const devProjects: DevProject[] = [
       "Creative content generation app leveraging AI API integration with responsive design and modern UI/UX principles.",
     skills: ["AI Integration", "Prompt Engineering", "API Integration", "JavaScript DOM"],
     status: "Published",
-    link: "https://www.shecodes.io/cohorts/2521/projects/2603943",
+    link: "https://www.shecodes.io/projects/2603943?_gl=1*1v0bu1k*_gcl_au*MTg4OTQwNTg2LjE3NjUzODk1ODE.",
     image: aiPoetryImg,
   },
   {

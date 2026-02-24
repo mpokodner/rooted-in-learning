@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import "./products.css";
 
 export const metadata: Metadata = {
   title: "Products & Tools | The Rooted Learner",
@@ -18,6 +19,7 @@ const products = [
     href: "/products/assessalign",
     icon: "M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z",
     badge: "In Development",
+    color: "terracotta" as const,
   },
   {
     title: "Lessons",
@@ -26,6 +28,7 @@ const products = [
     href: "/products/lessons",
     icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
     badge: null,
+    color: "earth" as const,
   },
   {
     title: "Teacher Tools",
@@ -34,164 +37,128 @@ const products = [
     href: "/products/teacher-tools",
     icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
     badge: null,
+    color: "mist" as const,
   },
 ];
 
 export default function ProductsPage() {
   return (
-    <div style={{ minHeight: "100vh", backgroundColor: "var(--neutral-bg)" }}>
+    <div className="products-page">
       {/* Hero */}
-      <section
-        style={{
-          background: "linear-gradient(135deg, var(--earth) 0%, var(--earth-dark) 100%)",
-          color: "var(--text-on-dark)",
-          paddingBlock: "var(--space-hero)",
-          textAlign: "center",
-        }}
-      >
-        <div className="container" style={{ maxWidth: "var(--max-width-md)" }}>
-          <p
-            style={{
-              fontSize: "var(--text-xs)",
-              fontWeight: 700,
-              textTransform: "uppercase",
-              letterSpacing: "var(--tracking-widest)",
-              color: "var(--terracotta-light)",
-              marginBottom: "var(--space-md)",
-            }}
-          >
-            Products &amp; Tools
-          </p>
-          <h1
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "var(--text-4xl)",
-              lineHeight: "var(--leading-tight)",
-              color: "var(--white)",
-              marginBottom: "var(--space-lg)",
-            }}
-          >
-            Research-Based Tools for Educators, Schools &amp; Families
+      <section className="products-hero" aria-labelledby="products-heading">
+        <div className="products-hero-bg" aria-hidden="true">
+          <div className="products-hero-circle products-hero-circle--1" />
+          <div className="products-hero-circle products-hero-circle--2" />
+        </div>
+        <div className="container products-hero-container">
+          <div className="products-hero-badge">
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <span>Built by a 12+ year classroom educator</span>
+          </div>
+
+          <h1 id="products-heading" className="products-hero-title">
+            Research-Based Tools
+            <br />
+            <span className="products-hero-accent">
+              for Educators, Schools &amp; Families
+            </span>
           </h1>
-          <p
-            style={{
-              fontSize: "var(--text-lg)",
-              color: "rgba(255,255,255,0.8)",
-              maxWidth: "38rem",
-              marginInline: "auto",
-              lineHeight: "var(--leading-relaxed)",
-            }}
-          >
-            Digital solutions built by a 12+ year classroom teacher and reading
-            interventionist — designed for how modern classrooms actually work.
+
+          <p className="products-hero-desc">
+            Digital solutions designed for how modern classrooms actually work —
+            built by a reading interventionist, curriculum designer, and EdTech
+            developer.
           </p>
+
+          <div className="products-hero-trust">
+            <div className="products-hero-trust-item">
+              <span className="products-hero-trust-number">100+</span>
+              <span className="products-hero-trust-label">Resources Built</span>
+            </div>
+            <div className="products-hero-trust-divider" />
+            <div className="products-hero-trust-item">
+              <span className="products-hero-trust-number">K–8</span>
+              <span className="products-hero-trust-label">Grade Coverage</span>
+            </div>
+            <div className="products-hero-trust-divider" />
+            <div className="products-hero-trust-item">
+              <span className="products-hero-trust-number">SoR</span>
+              <span className="products-hero-trust-label">Aligned</span>
+            </div>
+          </div>
         </div>
       </section>
 
       {/* Product Cards */}
-      <section className="section">
+      <section
+        className="products-grid-section"
+        aria-labelledby="products-grid-heading"
+      >
         <div className="container">
-          <div
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(auto-fit, minmax(min(100%, 20rem), 1fr))",
-              gap: "var(--gap-cards)",
-            }}
-          >
+          <div className="products-grid-header">
+            <p className="products-grid-label">Our Products</p>
+            <h2 id="products-grid-heading" className="products-grid-title">
+              Everything You Need, Nothing You Don&apos;t
+            </h2>
+          </div>
+
+          <div className="products-grid">
             {products.map((product) => (
               <Link
                 key={product.title}
                 href={product.href}
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  backgroundColor: "var(--white)",
-                  borderRadius: "var(--radius-xl)",
-                  border: "1px solid var(--border-beige)",
-                  padding: "clamp(1.5rem, 3vw, 2.5rem)",
-                  textDecoration: "none",
-                  transition: "all var(--duration-base) var(--ease-default)",
-                  boxShadow: "var(--shadow-sm)",
-                }}
+                className="products-card"
               >
                 <div
-                  style={{
-                    width: "3rem",
-                    height: "3rem",
-                    borderRadius: "var(--radius-lg)",
-                    backgroundColor: "var(--beige-bg)",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    marginBottom: "var(--space-lg)",
-                    color: "var(--earth)",
-                  }}
+                  className={`products-card-icon products-card-icon--${product.color}`}
                 >
                   <svg
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={1.5}
-                    style={{ width: "1.5rem", height: "1.5rem" }}
+                    aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d={product.icon} />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={product.icon}
+                    />
                   </svg>
                 </div>
-                <div style={{ display: "flex", alignItems: "center", gap: "var(--space-sm)", marginBottom: "var(--space-sm)" }}>
-                  <h2
-                    style={{
-                      fontFamily: "var(--font-heading)",
-                      fontSize: "var(--text-2xl)",
-                      color: "var(--text-black)",
-                    }}
-                  >
-                    {product.title}
-                  </h2>
+                <div className="products-card-header">
+                  <h3 className="products-card-title">{product.title}</h3>
                   {product.badge && (
-                    <span
-                      style={{
-                        fontSize: "var(--text-xs)",
-                        fontWeight: 600,
-                        color: "var(--terracotta)",
-                        backgroundColor: "rgba(176,89,49,0.1)",
-                        padding: "0.2rem 0.6rem",
-                        borderRadius: "var(--radius-full)",
-                      }}
-                    >
-                      {product.badge}
-                    </span>
+                    <span className="products-card-badge">{product.badge}</span>
                   )}
                 </div>
-                <p
-                  style={{
-                    fontSize: "var(--text-base)",
-                    color: "var(--text-muted)",
-                    lineHeight: "var(--leading-relaxed)",
-                    flex: 1,
-                    marginBottom: "var(--space-lg)",
-                  }}
-                >
-                  {product.description}
-                </p>
-                <span
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    gap: "0.375rem",
-                    fontSize: "var(--text-sm)",
-                    fontWeight: 600,
-                    color: "var(--earth)",
-                  }}
-                >
+                <p className="products-card-desc">{product.description}</p>
+                <span className="products-card-link">
                   Learn More
                   <svg
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
                     strokeWidth={2}
-                    style={{ width: "1rem", height: "1rem" }}
+                    aria-hidden="true"
                   >
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
                   </svg>
                 </span>
               </Link>
@@ -201,43 +168,34 @@ export default function ProductsPage() {
       </section>
 
       {/* CTA */}
-      <section
-        style={{
-          backgroundColor: "var(--beige-bg)",
-          paddingBlock: "var(--space-section-lg)",
-          textAlign: "center",
-        }}
-      >
-        <div className="container" style={{ maxWidth: "var(--max-width-md)" }}>
-          <h2
-            style={{
-              fontFamily: "var(--font-heading)",
-              fontSize: "var(--text-3xl)",
-              color: "var(--text-black)",
-              marginBottom: "var(--space-md)",
-            }}
-          >
-            Need Customized Support?
-          </h2>
-          <p
-            style={{
-              fontSize: "var(--text-lg)",
-              color: "var(--text-muted)",
-              lineHeight: "var(--leading-relaxed)",
-              marginBottom: "var(--space-xl)",
-              maxWidth: "32rem",
-              marginInline: "auto",
-            }}
-          >
-            Beyond products, I offer strategic consulting for schools, districts,
-            and educators — from literacy systems to AI implementation.
-          </p>
-          <Link
-            href="/services/consulting"
-            className="btn btn-primary btn-lg"
-          >
-            Explore Consulting Services
-          </Link>
+      <section className="products-cta-section" aria-labelledby="products-cta-heading">
+        <div className="container">
+          <div className="products-cta-inner">
+            <h2 id="products-cta-heading" className="products-cta-title">
+              Need Customized Support?
+            </h2>
+            <p className="products-cta-desc">
+              Beyond products, I offer strategic consulting for schools,
+              districts, and educators — from literacy systems to assessment
+              alignment.
+            </p>
+            <Link href="/consulting" className="products-cta-btn">
+              Explore Consulting
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
     </div>

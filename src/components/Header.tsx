@@ -153,20 +153,27 @@ export default function Header() {
           {/* Actions */}
           <div className="header-actions">
             <Link
-              href="/consulting"
+              href="/blog"
               className="header-cta-btn"
               style={{
-                backgroundColor: "var(--terracotta)",
+                backgroundColor: "var(--earth)",
                 color: "#fff",
-                fontWeight: 700,
-                padding: "0.5rem 1.25rem",
-                borderRadius: "0.5rem",
+                fontWeight: 600,
+                padding: "0.375rem 0.875rem",
+                borderRadius: "var(--radius-full, 9999px)",
                 textDecoration: "none",
-                fontSize: "0.875rem",
+                fontSize: "0.75rem",
                 whiteSpace: "nowrap",
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.375rem",
+                letterSpacing: "0.01em",
               }}
             >
-              Book Consultation
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "0.875rem", height: "0.875rem" }} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              Subscribe
             </Link>
 
             <button
@@ -294,7 +301,7 @@ export default function Header() {
             ))}
 
             <Link
-              href="/consulting"
+              href="/blog"
               onClick={closeMobile}
               style={{
                 display: "flex",
@@ -302,16 +309,19 @@ export default function Header() {
                 justifyContent: "center",
                 gap: "0.5rem",
                 marginTop: "1.5rem",
-                padding: "0.875rem 1.5rem",
-                backgroundColor: "#C17B5C",
+                padding: "0.625rem 1.25rem",
+                backgroundColor: "#5C6B4A",
                 color: "#fff",
-                fontWeight: 700,
-                fontSize: "0.875rem",
-                borderRadius: "0.75rem",
+                fontWeight: 600,
+                fontSize: "0.8125rem",
+                borderRadius: "9999px",
                 textDecoration: "none",
               }}
             >
-              Book Consultation
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "1rem", height: "1rem" }} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+              </svg>
+              Subscribe for Tips
             </Link>
           </div>
         </>

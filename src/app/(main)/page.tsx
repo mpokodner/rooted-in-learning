@@ -35,7 +35,7 @@ export default function Home() {
           </div>
 
           <h1 className="hero-heading animate-fade-up animate-delay-1">
-            Research-Based Literacy Support,
+            Research-Based Learning Support,
             <br />
             <span className="hero-heading-accent">
               Teacher Tools, and Digital Solutions for Schools &amp; Families
@@ -68,10 +68,7 @@ export default function Home() {
           </div>
 
           <div className="hero-secondary-row animate-fade-up animate-delay-3">
-            <Link
-              href="/products/assessalign/"
-              className="hero-secondary-btn"
-            >
+            <Link href="/products/assessalign/" className="hero-secondary-btn">
               <svg
                 className="hero-secondary-icon"
                 fill="none"
@@ -459,10 +456,7 @@ export default function Home() {
                   </svg>
                   About Me
                 </Link>
-                <Link
-                  href="/consulting"
-                  className="consulting-cta-btn"
-                >
+                <Link href="/consulting" className="consulting-cta-btn">
                   <svg
                     className="consulting-cta-icon"
                     fill="none"

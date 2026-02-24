@@ -95,33 +95,6 @@ const downloadables = [
   },
 ];
 
-const frameworkGuides = [
-  {
-    title: "Structured Literacy Implementation",
-    description:
-      "A step-by-step guide for schools transitioning to a structured literacy approach, including timelines, training needs, and common pitfalls.",
-    icon: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25",
-  },
-  {
-    title: "Assessment Alignment Framework",
-    description:
-      "How to map your diagnostic, formative, and summative assessments to standards — and make sure they actually inform instruction.",
-    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
-  },
-  {
-    title: "EdTech Evaluation Rubric",
-    description:
-      "A practical rubric for evaluating educational technology tools — accessibility, pedagogy alignment, data privacy, and teacher workload impact.",
-    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-  },
-  {
-    title: "Multilingual Learner Support Guide",
-    description:
-      "Strategies for supporting multilingual learners across content areas, including language scaffolds, cultural responsiveness, and family engagement.",
-    icon: "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802",
-  },
-];
-
 const recommendedTools = [
   {
     title: "Canva for Education",
@@ -169,7 +142,6 @@ export default function ResourcesPage() {
             <a href="#lessons" className="resources-jump-link">Lesson Samples</a>
             <a href="#tools" className="resources-jump-link">Teacher Tools</a>
             <a href="#downloads" className="resources-jump-link">Downloadables</a>
-            <a href="#frameworks" className="resources-jump-link">Framework Guides</a>
             <a href="#recommended" className="resources-jump-link">Recommended Tools</a>
           </nav>
         </div>
@@ -278,42 +250,6 @@ export default function ResourcesPage() {
                   Download Free
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                </span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Framework Guides */}
-      <section id="frameworks" className="resources-section" aria-labelledby="frameworks-heading">
-        <div className="container">
-          <div className="resources-section-header">
-            <p className="resources-section-label">Framework Guides</p>
-            <h2 id="frameworks-heading" className="resources-section-title">
-              Big-Picture Thinking for Your School
-            </h2>
-            <p className="resources-section-desc">
-              Implementation guides and evaluation frameworks for schools and
-              districts working on systemic change.
-            </p>
-          </div>
-
-          <div className="resources-frameworks-grid">
-            {frameworkGuides.map((guide) => (
-              <div key={guide.title} className="resources-framework-card">
-                <div className="resources-framework-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={guide.icon} />
-                  </svg>
-                </div>
-                <h3 className="resources-framework-title">{guide.title}</h3>
-                <p className="resources-framework-desc">{guide.description}</p>
-                <span className="resources-card-link">
-                  Read Guide
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </span>
               </div>

@@ -27,6 +27,33 @@ export const metadata: Metadata = {
   },
 };
 
+const frameworkGuides = [
+  {
+    title: "Structured Literacy Implementation",
+    description:
+      "A step-by-step guide for schools transitioning to a structured literacy approach, including timelines, training needs, and common pitfalls.",
+    icon: "M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25",
+  },
+  {
+    title: "Assessment Alignment Framework",
+    description:
+      "How to map your diagnostic, formative, and summative assessments to standards — and make sure they actually inform instruction.",
+    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
+  },
+  {
+    title: "EdTech Evaluation Rubric",
+    description:
+      "A practical rubric for evaluating educational technology tools — accessibility, pedagogy alignment, data privacy, and teacher workload impact.",
+    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
+  },
+  {
+    title: "Multilingual Learner Support Guide",
+    description:
+      "Strategies for supporting multilingual learners across content areas, including language scaffolds, cultural responsiveness, and family engagement.",
+    icon: "M10.5 21l5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 016-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 01-3.827-5.802",
+  },
+];
+
 const helpAreas = [
   {
     title: "Literacy Systems Alignment",
@@ -216,6 +243,65 @@ export default function ConsultingPage() {
                 </div>
                 <h3 className="consult-domain-title">{area.title}</h3>
                 <p className="consult-domain-desc">{area.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* FRAMEWORK GUIDES */}
+      <section
+        className="consult-frameworks section"
+        aria-labelledby="frameworks-heading"
+      >
+        <div className="container">
+          <div className="consult-section-header">
+            <p className="consult-section-label">Framework Guides</p>
+            <h2 id="frameworks-heading" className="consult-section-title">
+              Big-Picture Thinking for Your School
+            </h2>
+            <p className="consult-section-subtitle">
+              Implementation guides and evaluation frameworks for schools and
+              districts working on systemic change.
+            </p>
+          </div>
+
+          <div className="consult-frameworks-grid">
+            {frameworkGuides.map((guide) => (
+              <div key={guide.title} className="consult-framework-card">
+                <div className="consult-framework-icon">
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={guide.icon}
+                    />
+                  </svg>
+                </div>
+                <h3 className="consult-framework-title">{guide.title}</h3>
+                <p className="consult-framework-desc">{guide.description}</p>
+                <span className="consult-framework-link">
+                  Read Guide
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </span>
               </div>
             ))}
           </div>

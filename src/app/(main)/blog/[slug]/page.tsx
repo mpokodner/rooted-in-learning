@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import NewsletterForm from "@/components/NewsletterForm";
 import "./blog-post.css";
 
 /* ─── Demo data — replace with Sanity CMS fetch ─── */
@@ -364,17 +365,14 @@ export default async function BlogPostPage({
               Join 5,000+ educators receiving research-backed teaching strategies,
               AI tips, and free resources every Tuesday.
             </p>
-            <form className="bp-newsletter-form">
-              <input
-                type="email"
-                className="bp-newsletter-input"
-                placeholder="your@email.com"
-                aria-label="Email address"
-              />
-              <button type="submit" className="bp-newsletter-btn">
-                Subscribe
-              </button>
-            </form>
+            <NewsletterForm
+              source="blog-post"
+              buttonText="Subscribe"
+              inputClassName="bp-newsletter-input"
+              buttonClassName="bp-newsletter-btn"
+              formClassName="bp-newsletter-form"
+              errorClassName="newsletter-error"
+            />
             <p className="bp-newsletter-note">No spam. Unsubscribe anytime.</p>
           </div>
         </div>

@@ -15,45 +15,10 @@ export default function Home() {
         </div>
 
         <div className="container hero-container">
-          <div className="hero-badge animate-fade-up">
-            <svg
-              className="hero-badge-icon"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M13 10V3L4 14h7v7l9-11h-7z"
-              />
-            </svg>
-            <span className="hero-badge-text">
-              Teaching is evolving &mdash; we build the tools that evolve with
-              it
-            </span>
-          </div>
-
-          <h1 className="hero-heading animate-fade-up animate-delay-1">
-            Research-Based Learning Support,
-            <br />
-            <span className="hero-heading-accent">
-              Teacher Tools, and Digital Solutions for Schools &amp; Families
-            </span>
-          </h1>
-
-          <p className="hero-subheadline animate-fade-up animate-delay-2">
-            Helping educators and parents support struggling learners using
-            science-of-reading practices, multilingual strategies, and modern
-            classroom technology.
-          </p>
-
-          <div className="hero-primary-cta animate-fade-up animate-delay-3">
-            <Link href="/products/" className="hero-cta-btn">
-              Explore Tools &amp; Lessons
+          <div className="hero-copy">
+            <div className="hero-badge animate-fade-up">
               <svg
-                className="hero-cta-arrow"
+                className="hero-badge-icon"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -62,61 +27,99 @@ export default function Home() {
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  d="M13 10V3L4 14h7v7l9-11h-7z"
                 />
               </svg>
-            </Link>
+              <span className="hero-badge-text">
+                Teaching is evolving &mdash; we build the tools that evolve with
+                it
+              </span>
+            </div>
+
+            <h1 className="hero-heading animate-fade-up animate-delay-1">
+              Research-Based Learning Support,{" "}
+              <span className="hero-heading-accent">
+                Teacher Tools, and Digital Solutions for Schools &amp; Families
+              </span>
+            </h1>
+
+            <p className="hero-subheadline animate-fade-up animate-delay-2">
+              Helping educators and parents support struggling learners using
+              science-of-reading practices, multilingual strategies, and modern
+              classroom technology.
+            </p>
+
+            <div className="hero-primary-cta animate-fade-up animate-delay-3">
+              <Link href="/products/" className="hero-cta-btn">
+                Explore Tools &amp; Lessons
+                <svg
+                  className="hero-cta-arrow"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
+                </svg>
+              </Link>
+            </div>
+
+            <div className="hero-secondary-row animate-fade-up animate-delay-3">
+              <Link href="/products/assessalign/" className="hero-secondary-btn">
+                <svg
+                  className="hero-secondary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
+                  />
+                </svg>
+                See AssessAlign
+              </Link>
+              <Link href="/consulting" className="hero-secondary-btn">
+                <svg
+                  className="hero-secondary-icon"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={1.5}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
+                  />
+                </svg>
+                Book Consultation
+              </Link>
+            </div>
           </div>
 
-          <div className="hero-secondary-row animate-fade-up animate-delay-3">
-            <Link href="/products/assessalign/" className="hero-secondary-btn">
-              <svg
-                className="hero-secondary-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                />
-              </svg>
-              See AssessAlign
-            </Link>
-            <Link href="/consulting" className="hero-secondary-btn">
-              <svg
-                className="hero-secondary-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={1.5}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              Book Consultation
-            </Link>
-          </div>
-
-          <div className="hero-trust-bar animate-fade-up animate-delay-4">
-            <div className="hero-trust-item">
-              <span className="hero-trust-number">100+</span>
-              <span className="hero-trust-label">Educators &amp; Families</span>
-            </div>
-            <div className="hero-trust-divider" />
-            <div className="hero-trust-item">
-              <span className="hero-trust-number">5+ hrs</span>
-              <span className="hero-trust-label">Saved Weekly</span>
-            </div>
-            <div className="hero-trust-divider" />
-            <div className="hero-trust-item">
-              <span className="hero-trust-number">12 yrs</span>
-              <span className="hero-trust-label">Classroom Experience</span>
+          <div className="hero-aside animate-fade-up animate-delay-4">
+            <div className="hero-trust-bar">
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">100+</span>
+                <span className="hero-trust-label">Educators &amp; Families</span>
+              </div>
+              <div className="hero-trust-divider" />
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">5+ hrs</span>
+                <span className="hero-trust-label">Saved Weekly</span>
+              </div>
+              <div className="hero-trust-divider" />
+              <div className="hero-trust-item">
+                <span className="hero-trust-number">12 yrs</span>
+                <span className="hero-trust-label">Classroom Experience</span>
+              </div>
             </div>
           </div>
         </div>

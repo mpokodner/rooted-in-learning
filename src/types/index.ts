@@ -47,6 +47,8 @@ export interface BlogPost {
 
 export type ProductType = "digital" | "physical" | "course" | "template";
 
+export type FocusArea = "ela" | "math" | "sel" | "multimedia" | "bundle";
+
 export interface Product {
   id: string;
   name: string;
@@ -61,6 +63,14 @@ export interface Product {
   file_url: string | null; // for digital downloads
   active: boolean;
   featured: boolean;
+  series: string | null;
+  series_week: number | null;
+  focus_area: FocusArea | null;
+  grade_min: number | null;
+  grade_max: number | null;
+  has_digital: boolean;
+  has_printable: boolean;
+  ml_support: boolean;
   created_at: string;
   updated_at: string;
 }

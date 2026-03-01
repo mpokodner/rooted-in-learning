@@ -179,7 +179,7 @@ export default function TermsOfUsePage() {
           <div className="legal-section">
             <h2 className="legal-section-title">11. Governing Law</h2>
             <p className="legal-text">
-              These Terms of Use are governed by and construed in accordance with the laws of the State of Maryland, United States, without regard to its conflict of law provisions. Any disputes arising from these terms shall be resolved in the courts located in Baltimore City, Maryland.
+              These Terms of Use are governed by and construed in accordance with the laws of the State of Maryland, United States, without regard to its conflict of law provisions. Any disputes arising from these terms shall be resolved in the courts located in Howard County, Maryland.
             </p>
           </div>
 

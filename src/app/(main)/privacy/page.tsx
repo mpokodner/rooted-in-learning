@@ -44,7 +44,7 @@ export default function PrivacyPolicyPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">1. Who We Are</h2>
             <p className="legal-text">
-              The Rooted Learner (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is an educational resource platform operated by Michelle Van Slyke, based in Baltimore, Maryland. Our website at therootedlearner.com provides teaching resources, teacher tools, consulting services, curated product recommendations, and educational blog content for K&ndash;8 educators, schools, and families.
+              The Rooted Learner (&ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is an educational resource platform operated by Michelle Van Slyke, based in Columbia, Maryland. Our website at therootedlearner.com provides teaching resources, teacher tools, consulting services, curated product recommendations, and educational blog content for K&ndash;8 educators, schools, and families.
             </p>
           </div>
 

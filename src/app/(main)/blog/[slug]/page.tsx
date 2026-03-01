@@ -1,63 +1,109 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { notFound } from "next/navigation";
+import { PortableText } from "@portabletext/react";
+import type { PortableTextReactComponents } from "@portabletext/react";
 import NewsletterForm from "@/components/NewsletterForm";
+import { client } from "@/sanity/lib/client";
+import { urlFor } from "@/sanity/lib/image";
 import "./blog-post.css";
 
-/* ─── Demo data — replace with Sanity CMS fetch ─── */
-const demoPost = {
-  title: "Why AI Won't Replace Teachers — But Teachers Who Use AI Will Replace Those Who Don't",
-  excerpt:
-    "The conversation around AI in education is missing the point. Here's what actually matters.",
-  category: "AI in Education",
-  categorySlug: "ai-in-education",
-  author: "Michelle Van Slyke",
-  authorRole: "Educator · Curriculum Designer · EdTech Developer",
-  date: "February 10, 2026",
-  readTime: "8 min read",
-  updatedDate: "February 14, 2026",
+interface SanityPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  excerpt?: string;
+  mainImage?: { asset: { _ref: string }; alt?: string };
+  publishedAt: string;
+  updatedAt?: string;
+  readTime?: string;
+  category?: { title: string; slug?: { current: string } };
+  author?: {
+    name: string;
+    role?: string;
+    bio?: string;
+    image?: { asset: { _ref: string } };
+  };
+  body?: Array<Record<string, unknown>>;
+  seoTitle?: string;
+  seoDescription?: string;
+}
+
+interface RelatedPost {
+  _id: string;
+  title: string;
+  slug: { current: string };
+  readTime?: string;
+  category?: string;
+}
+
+const POST_QUERY = `*[_type == "post" && slug.current == $slug][0] {
+  _id,
+  title,
+  slug,
+  excerpt,
+  mainImage,
+  publishedAt,
+  updatedAt,
+  readTime,
+  category->{ title, slug },
+  author->{ name, role, bio, image },
+  body,
+  seoTitle,
+  seoDescription
+}`;
+
+const RELATED_QUERY = `*[_type == "post" && slug.current != $slug] | order(publishedAt desc) [0...3] {
+  _id,
+  title,
+  slug,
+  readTime,
+  "category": category->title
+}`;
+
+const portableTextComponents: Partial<PortableTextReactComponents> = {
+  types: {
+    image: ({ value }: { value: { asset?: { _ref: string }; alt?: string; caption?: string } }) => {
+      if (!value?.asset?._ref) return null;
+      return (
+        <figure className="bp-body-figure">
+          <Image
+            src={urlFor(value).width(800).auto("format").url()}
+            alt={value.alt || ""}
+            width={800}
+            height={450}
+            className="bp-body-image"
+          />
+          {value.caption && (
+            <figcaption className="bp-body-caption">{value.caption}</figcaption>
+          )}
+        </figure>
+      );
+    },
+  },
 };
 
-const tableOfContents = [
-  { id: "the-real-question", label: "The Real Question" },
-  { id: "leverage-not-replacement", label: "Leverage, Not Replacement" },
-  { id: "practical-framework", label: "A Practical Framework" },
-  { id: "what-to-do-monday", label: "What to Do Monday" },
-  { id: "final-thoughts", label: "Final Thoughts" },
-];
+function formatDate(dateString: string) {
+  return new Date(dateString).toLocaleDateString("en-US", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+}
 
-const relatedPosts = [
-  {
-    title: "How I Use AI to Differentiate Instruction for 28 Students",
-    category: "AI in Education",
-    readTime: "9 min",
-    slug: "/blog/ai-differentiation-walkthrough",
-  },
-  {
-    title: "Building a Lesson Planning System That Survives Monday Morning",
-    category: "Teaching Systems Design",
-    readTime: "5 min",
-    slug: "/blog/lesson-planning-system",
-  },
-  {
-    title: "The Science of Reading in 2026: What's Changed and What Hasn't",
-    category: "Science of Reading",
-    readTime: "6 min",
-    slug: "/blog/science-of-reading-2026",
-  },
-];
+function toISODate(dateString: string) {
+  return new Date(dateString).toISOString().split("T")[0];
+}
 
-const relatedLessons = [
-  {
-    title: "AI-Powered Lesson Planning Template Pack",
-    price: "$12",
-    slug: "/products/ai-lesson-planning-templates",
-  },
-  {
-    title: "Differentiated Reading Intervention Kit",
-    price: "$18",
-    slug: "/products/reading-intervention-kit",
-  },
-];
+function getAuthorInitials(name: string) {
+  return name
+    .split(" ")
+    .map((w) => w[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
+}
 
 export async function generateMetadata({
   params,
@@ -65,17 +111,29 @@ export async function generateMetadata({
   params: Promise<{ slug: string }>;
 }): Promise<Metadata> {
   const { slug } = await params;
+  const post: SanityPost | null = await client.fetch(POST_QUERY, { slug });
+
+  if (!post) {
+    return { title: "Post Not Found | The Rooted Learner" };
+  }
+
+  const title = post.seoTitle || post.title;
+  const description = post.seoDescription || post.excerpt || "";
+
   return {
-    title: `${demoPost.title} | The Rooted Learner`,
-    description: demoPost.excerpt,
-    keywords: ["AI in education", "teaching with AI", "edtech", "classroom strategy"],
+    title: `${title} | The Rooted Learner`,
+    description,
+    keywords: post.category ? [post.category.title] : [],
     openGraph: {
-      title: demoPost.title,
-      description: demoPost.excerpt,
+      title,
+      description,
       type: "article",
-      publishedTime: "2026-02-10",
-      authors: [demoPost.author],
+      publishedTime: post.publishedAt,
+      authors: post.author ? [post.author.name] : [],
       url: `https://therootedlearner.com/blog/${slug}`,
+      ...(post.mainImage?.asset && {
+        images: [{ url: urlFor(post.mainImage).width(1200).height(630).url() }],
+      }),
     },
     alternates: {
       canonical: `https://therootedlearner.com/blog/${slug}`,
@@ -88,10 +146,25 @@ export default async function BlogPostPage({
 }: {
   params: Promise<{ slug: string }>;
 }) {
-  await params;
+  const { slug } = await params;
+
+  const [post, relatedPosts]: [SanityPost | null, RelatedPost[]] =
+    await Promise.all([
+      client.fetch(POST_QUERY, { slug }),
+      client.fetch(RELATED_QUERY, { slug }),
+    ]);
+
+  if (!post) notFound();
+
+  const authorName = post.author?.name ?? "The Rooted Learner";
+  const authorRole = post.author?.role ?? "";
 
   return (
-    <article className="bp-page" itemScope itemType="https://schema.org/Article">
+    <article
+      className="bp-page"
+      itemScope
+      itemType="https://schema.org/Article"
+    >
       {/* ─── Post Hero ─── */}
       <header className="bp-hero">
         <div className="bp-hero-bg" aria-hidden="true">
@@ -100,32 +173,77 @@ export default async function BlogPostPage({
         </div>
         <div className="bp-container bp-hero-content">
           <Link href="/blog" className="bp-back">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M7 16l-4-4m0 0l4-4m-4 4h18" />
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M7 16l-4-4m0 0l4-4m-4 4h18"
+              />
             </svg>
             All Articles
           </Link>
 
           <div className="bp-hero-meta">
-            <span className="bp-hero-category">{demoPost.category}</span>
-            <span className="bp-hero-dot">&middot;</span>
-            <span className="bp-hero-time">{demoPost.readTime}</span>
+            {post.category && (
+              <span className="bp-hero-category">{post.category.title}</span>
+            )}
+            {post.readTime && (
+              <>
+                <span className="bp-hero-dot">&middot;</span>
+                <span className="bp-hero-time">{post.readTime}</span>
+              </>
+            )}
           </div>
 
-          <h1 className="bp-hero-title" itemProp="headline">{demoPost.title}</h1>
+          <h1 className="bp-hero-title" itemProp="headline">
+            {post.title}
+          </h1>
 
-          <p className="bp-hero-excerpt" itemProp="description">{demoPost.excerpt}</p>
+          {post.excerpt && (
+            <p className="bp-hero-excerpt" itemProp="description">
+              {post.excerpt}
+            </p>
+          )}
 
           <div className="bp-hero-author">
-            <div className="bp-hero-avatar">
-              <span>MV</span>
-            </div>
+            {post.author?.image?.asset ? (
+              <Image
+                src={urlFor(post.author.image).width(88).height(88).url()}
+                alt={authorName}
+                width={44}
+                height={44}
+                className="bp-hero-avatar-img"
+              />
+            ) : (
+              <div className="bp-hero-avatar">
+                <span>{getAuthorInitials(authorName)}</span>
+              </div>
+            )}
             <div className="bp-hero-author-info">
-              <p className="bp-hero-author-name" itemProp="author">{demoPost.author}</p>
+              <p className="bp-hero-author-name" itemProp="author">
+                {authorName}
+              </p>
               <p className="bp-hero-author-role">
-                <time dateTime="2026-02-10" itemProp="datePublished">{demoPost.date}</time>
-                {demoPost.updatedDate && (
-                  <> &middot; Updated <time dateTime="2026-02-14">{demoPost.updatedDate}</time></>
+                <time
+                  dateTime={toISODate(post.publishedAt)}
+                  itemProp="datePublished"
+                >
+                  {formatDate(post.publishedAt)}
+                </time>
+                {post.updatedAt && (
+                  <>
+                    {" "}
+                    &middot; Updated{" "}
+                    <time dateTime={toISODate(post.updatedAt)}>
+                      {formatDate(post.updatedAt)}
+                    </time>
+                  </>
                 )}
               </p>
             </div>
@@ -133,26 +251,27 @@ export default async function BlogPostPage({
         </div>
       </header>
 
-      {/* ─── Content + Sidebar Layout ─── */}
+      {/* ─── Main Image (if present) ─── */}
+      {post.mainImage?.asset && (
+        <div className="bp-main-image-wrap">
+          <div className="bp-container">
+            <Image
+              src={urlFor(post.mainImage).width(1200).height(600).url()}
+              alt={post.mainImage.alt ?? post.title}
+              width={1200}
+              height={600}
+              priority
+              className="bp-main-image"
+            />
+          </div>
+        </div>
+      )}
+
+      {/* ─── Article Body ─── */}
       <div className="bp-main">
         <div className="bp-container">
           <div className="bp-layout">
-            {/* ─── Sidebar: TOC ─── */}
-            <aside className="bp-sidebar" aria-label="Table of contents">
-              <nav className="bp-toc">
-                <h2 className="bp-toc-title">In This Article</h2>
-                <ul className="bp-toc-list">
-                  {tableOfContents.map((item) => (
-                    <li key={item.id}>
-                      <a href={`#${item.id}`} className="bp-toc-link">
-                        {item.label}
-                      </a>
-                    </li>
-                  ))}
-                </ul>
-              </nav>
-
-              {/* Sidebar CTA */}
+            <aside className="bp-sidebar" aria-label="Sidebar">
               <div className="bp-sidebar-cta">
                 <p className="bp-sidebar-cta-label">Free Download</p>
                 <p className="bp-sidebar-cta-title">Weekly Planner Template</p>
@@ -162,89 +281,24 @@ export default async function BlogPostPage({
               </div>
             </aside>
 
-            {/* ─── Article Body ─── */}
             <div className="bp-article" itemProp="articleBody">
-              <section id="the-real-question">
-                <h2>The Real Question Nobody&apos;s Asking</h2>
-                <p>
-                  Every week I see another headline: <em>&quot;AI Will Replace Teachers by 2030.&quot;</em>
-                  Every week I roll my eyes. Not because AI isn&apos;t powerful — it is. But because
-                  the conversation is framed entirely wrong.
-                </p>
-                <p>
-                  The real question isn&apos;t whether AI can teach. It&apos;s whether you&apos;re
-                  building systems that give you leverage. Teachers who use AI effectively aren&apos;t
-                  being replaced — they&apos;re becoming irreplaceable.
-                </p>
-                <blockquote>
-                  <p>&ldquo;Technology is a tool. The teacher is the architect.&rdquo;</p>
-                </blockquote>
-              </section>
-
-              <section id="leverage-not-replacement">
-                <h2>Leverage, Not Replacement</h2>
-                <p>
-                  After 12 years in the classroom, I&apos;ve learned that the bottleneck is never
-                  knowledge — it&apos;s time. AI doesn&apos;t replace the teacher&apos;s judgment; it gives
-                  back the hours needed to exercise that judgment well.
-                </p>
-                <p>
-                  Here&apos;s what I mean in practice: I used to spend 45 minutes per week creating
-                  differentiated reading passages for my five guided reading groups. Now I use an AI
-                  workflow I built myself — and it takes 8 minutes. Same quality. Same alignment to
-                  standards. But I get 37 minutes back.
-                </p>
-                <p>
-                  That&apos;s 37 minutes I now spend in small groups, doing the work only a human can do.
-                </p>
-              </section>
-
-              <section id="practical-framework">
-                <h2>A Practical Framework for AI in Your Classroom</h2>
-                <p>Here&apos;s the framework I use when deciding where AI fits:</p>
-                <ol>
-                  <li><strong>Automate the predictable.</strong> If the task follows a clear pattern (rubric generation, passage leveling, data organization), let AI handle the first draft.</li>
-                  <li><strong>Augment the creative.</strong> Use AI to brainstorm, not to decide. It generates 10 discussion questions; you pick the 3 that match your students.</li>
-                  <li><strong>Protect the relational.</strong> AI should never touch the feedback that builds student-teacher trust. That conversation is yours.</li>
-                </ol>
-              </section>
-
-              <section id="what-to-do-monday">
-                <h2>What to Do Monday Morning</h2>
-                <p>
-                  You don&apos;t need a six-week AI training. You need one small win. Here are three
-                  things you can try this week:
-                </p>
-                <ul>
-                  <li>Use ChatGPT to generate a pre-assessment for your next unit (10 minutes).</li>
-                  <li>Have AI create three different versions of a reading passage at different Lexile levels.</li>
-                  <li>Ask it to turn your lesson objective into three different student-friendly &quot;I can&quot; statements.</li>
-                </ul>
-                <p>
-                  Each of these tasks used to take me 20-30 minutes. Now they take under 5.
-                  The quality stays the same because I&apos;m still the one reviewing, editing, and
-                  making the final call.
-                </p>
-              </section>
-
-              <section id="final-thoughts">
-                <h2>Final Thoughts</h2>
-                <p>
-                  The future of teaching isn&apos;t about choosing between humans and machines. It&apos;s
-                  about building infrastructure that lets great teachers do what only they can do —
-                  connect with kids, make in-the-moment decisions, and inspire curiosity.
-                </p>
-                <p>
-                  AI is infrastructure. Use it that way.
-                </p>
-              </section>
+              {post.body ? (
+                <PortableText
+                  value={post.body}
+                  components={portableTextComponents}
+                />
+              ) : (
+                <p>This post has no content yet.</p>
+              )}
 
               {/* ─── Share Bar ─── */}
               <div className="bp-share">
                 <p className="bp-share-label">Share this article</p>
                 <div className="bp-share-buttons">
                   <a
-                    href="#"
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=https://therootedlearner.com/blog/${slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bp-share-btn bp-share-btn--linkedin"
                     aria-label="Share on LinkedIn"
                   >
@@ -253,7 +307,9 @@ export default async function BlogPostPage({
                     </svg>
                   </a>
                   <a
-                    href="#"
+                    href={`https://twitter.com/intent/tweet?url=https://therootedlearner.com/blog/${slug}&text=${encodeURIComponent(post.title)}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="bp-share-btn bp-share-btn--x"
                     aria-label="Share on X"
                   >
@@ -261,32 +317,44 @@ export default async function BlogPostPage({
                       <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
                     </svg>
                   </a>
-                  <button
-                    className="bp-share-btn bp-share-btn--copy"
-                    aria-label="Copy link"
-                  >
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1" />
-                    </svg>
-                  </button>
                 </div>
               </div>
 
               {/* ─── Author Bio ─── */}
               <div className="bp-author-bio">
-                <div className="bp-author-avatar-lg">
-                  <span>MV</span>
-                </div>
+                {post.author?.image?.asset ? (
+                  <Image
+                    src={urlFor(post.author.image).width(128).height(128).url()}
+                    alt={authorName}
+                    width={64}
+                    height={64}
+                    className="bp-author-avatar-lg-img"
+                  />
+                ) : (
+                  <div className="bp-author-avatar-lg">
+                    <span>{getAuthorInitials(authorName)}</span>
+                  </div>
+                )}
                 <div className="bp-author-bio-content">
-                  <h3 className="bp-author-bio-name">Written by {demoPost.author}</h3>
-                  <p className="bp-author-bio-role">{demoPost.authorRole}</p>
-                  <p className="bp-author-bio-desc">
-                    12+ years in the classroom, Science of Reading certified, and building AI-powered
-                    education tools. I write about the systems behind sustainable teaching.
-                  </p>
+                  <h3 className="bp-author-bio-name">
+                    Written by {authorName}
+                  </h3>
+                  {authorRole && (
+                    <p className="bp-author-bio-role">{authorRole}</p>
+                  )}
+                  {post.author?.bio && (
+                    <p className="bp-author-bio-desc">{post.author.bio}</p>
+                  )}
                   <div className="bp-author-bio-links">
-                    <Link href="/about" className="bp-author-bio-link">About Me</Link>
-                    <Link href="/services/consulting" className="bp-author-bio-link">Work With Me</Link>
+                    <Link href="/about" className="bp-author-bio-link">
+                      About Me
+                    </Link>
+                    <Link
+                      href="/services/consulting"
+                      className="bp-author-bio-link"
+                    >
+                      Work With Me
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -295,75 +363,74 @@ export default async function BlogPostPage({
         </div>
       </div>
 
-      {/* ─── Related Lessons CTA ─── */}
-      <section className="bp-lessons" aria-labelledby="lessons-heading">
-        <div className="bp-container">
-          <div className="bp-lessons-header">
-            <h2 id="lessons-heading" className="bp-lessons-title">
-              Put This Into Practice
-            </h2>
-            <p className="bp-lessons-desc">
-              Ready-to-use resources that complement this article.
-            </p>
-          </div>
-          <div className="bp-lessons-grid">
-            {relatedLessons.map((lesson) => (
-              <Link key={lesson.title} href={lesson.slug} className="bp-lesson-card">
-                <div className="bp-lesson-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z" />
-                  </svg>
-                </div>
-                <div>
-                  <h3 className="bp-lesson-title">{lesson.title}</h3>
-                  <span className="bp-lesson-price">{lesson.price}</span>
-                </div>
-                <svg className="bp-lesson-arrow" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+      {/* ─── Related Posts ─── */}
+      {relatedPosts.length > 0 && (
+        <section
+          className="bp-related section"
+          aria-labelledby="related-heading"
+        >
+          <div className="bp-container">
+            <div className="bp-related-header">
+              <h2 id="related-heading" className="bp-related-title">
+                Keep Reading
+              </h2>
+              <Link href="/blog" className="bp-related-viewall">
+                View All Articles
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
-            ))}
+            </div>
+            <div className="bp-related-grid">
+              {relatedPosts.map((related) => (
+                <Link
+                  key={related._id}
+                  href={`/blog/${related.slug.current}`}
+                  className="bp-related-card"
+                >
+                  {related.category && (
+                    <span className="bp-related-category">
+                      {related.category}
+                    </span>
+                  )}
+                  <h3 className="bp-related-card-title">{related.title}</h3>
+                  <div className="bp-related-card-footer">
+                    {related.readTime && (
+                      <span className="bp-related-time">
+                        {related.readTime}
+                      </span>
+                    )}
+                    <span className="bp-related-read">Read &rarr;</span>
+                  </div>
+                </Link>
+              ))}
+            </div>
           </div>
-        </div>
-      </section>
-
-      {/* ─── Related Posts ─── */}
-      <section className="bp-related section" aria-labelledby="related-heading">
-        <div className="bp-container">
-          <div className="bp-related-header">
-            <h2 id="related-heading" className="bp-related-title">Keep Reading</h2>
-            <Link href="/blog" className="bp-related-viewall">
-              View All Articles
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-          <div className="bp-related-grid">
-            {relatedPosts.map((post) => (
-              <Link key={post.title} href={post.slug} className="bp-related-card">
-                <span className="bp-related-category">{post.category}</span>
-                <h3 className="bp-related-card-title">{post.title}</h3>
-                <div className="bp-related-card-footer">
-                  <span className="bp-related-time">{post.readTime}</span>
-                  <span className="bp-related-read">Read &rarr;</span>
-                </div>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
+        </section>
+      )}
 
       {/* ─── Newsletter CTA ─── */}
-      <section className="bp-newsletter" aria-labelledby="bp-newsletter-heading">
+      <section
+        className="bp-newsletter"
+        aria-labelledby="bp-newsletter-heading"
+      >
         <div className="bp-container">
           <div className="bp-newsletter-card">
             <h2 id="bp-newsletter-heading" className="bp-newsletter-title">
               Get Strategies Like This Every Week
             </h2>
             <p className="bp-newsletter-desc">
-              Join 5,000+ educators receiving research-backed teaching strategies,
-              AI tips, and free resources every Tuesday.
+              Join 5,000+ educators receiving research-backed teaching
+              strategies, AI tips, and free resources every Tuesday.
             </p>
             <NewsletterForm
               source="blog-post"

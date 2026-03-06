@@ -1,0 +1,17 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/(main)/layout,_N_T_/(main)/products/layout,_N_T_/(main)/products/teacher-tools/layout,_N_T_/(main)/products/teacher-tools/page,_N_T_/products/teacher-tools"
+  },
+  "segmentPaths": [
+    "/_tree",
+    "/_full",
+    "/!KG1haW4p/products/teacher-tools/__PAGE__",
+    "/!KG1haW4p/products/teacher-tools",
+    "/!KG1haW4p/products",
+    "/!KG1haW4p",
+    "/_index",
+    "/_head"
+  ]
+}

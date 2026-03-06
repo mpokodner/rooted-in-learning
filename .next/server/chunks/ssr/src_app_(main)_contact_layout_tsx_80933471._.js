@@ -1,0 +1,3 @@
+module.exports=[706655,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Contact | The Rooted Learner",description:"Get in touch with Michelle. Consulting inquiries, curriculum questions, collaboration opportunities — let's connect.",keywords:["contact","educator","consulting","speaking","collaboration","curriculum inquiry"],alternates:{canonical:"/contact"},openGraph:{title:"Contact | The Rooted Learner",description:"Questions, consulting inquiries, or collaborations — reach out and I'll respond within 48 hours.",type:"website"}}])}];
+
+//# sourceMappingURL=src_app_%28main%29_contact_layout_tsx_80933471._.js.map

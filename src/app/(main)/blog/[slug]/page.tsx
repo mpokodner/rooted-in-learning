@@ -4,6 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { PortableText } from "@portabletext/react";
 import type { PortableTextReactComponents } from "@portabletext/react";
+import type { PortableTextBlock } from "@portabletext/types";
 import NewsletterForm from "@/components/NewsletterForm";
 import { client } from "@/sanity/lib/client";
 import { urlFor } from "@/sanity/lib/image";
@@ -25,7 +26,7 @@ interface SanityPost {
     bio?: string;
     image?: { asset: { _ref: string } };
   };
-  body?: Array<Record<string, unknown>>;
+  body?: PortableTextBlock[];
   seoTitle?: string;
   seoDescription?: string;
 }

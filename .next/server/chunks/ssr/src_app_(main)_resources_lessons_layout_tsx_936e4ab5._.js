@@ -1,3 +1,0 @@
-module.exports=[486370,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Lessons | The Rooted Learner",description:"Standards-aligned, ready-to-use curriculum and activities for K-8 classrooms and homeschool families. Just download and teach.",keywords:["lesson plans","K-8 curriculum","teaching resources","classroom activities","homeschool lessons","reading intervention","ELA lessons","math lessons"],alternates:{canonical:"/products/lessons"},openGraph:{title:"Lessons | The Rooted Learner",description:"Standards-aligned, ready-to-use curriculum for K-8 educators and families.",type:"website"}}])}];
-
-//# sourceMappingURL=src_app_%28main%29_resources_lessons_layout_tsx_936e4ab5._.js.map

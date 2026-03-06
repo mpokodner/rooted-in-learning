@@ -1,6 +1,0 @@
-{
-  "version": 3,
-  "sources": [],
-  "sections": [
-    {"offset": {"line": 4, "column": 0}, "map": {"version":3,"sources":["file:///Users/michellevanslyke/Desktop/rootedinlearning%20folder2/github-rootedinlearning/rooted-in-learning/src/app/loading.tsx"],"sourcesContent":["export default function Loading() {\n  return (\n    <div className=\"min-h-screen bg-[var(--neutral-bg)] flex items-center justify-center\">\n      <div className=\"flex flex-col items-center gap-4\">\n        {/* Animated spinner */}\n        <div className=\"w-10 h-10 border-3 border-[var(--border-beige)] border-t-[var(--earth)] rounded-full animate-spin\" />\n        <p className=\"text-[var(--text-sm)] text-[var(--text-muted)] font-medium\">\n          Loading...\n        </p>\n      </div>\n    </div>\n  );\n}\n"],"names":[],"mappings":";;;;;;AAAe,SAAS;IACtB,qBACE,8OAAC;QAAI,WAAU;kBACb,cAAA,8OAAC;YAAI,WAAU;;8BAEb,8OAAC;oBAAI,WAAU;;;;;;8BACf,8OAAC;oBAAE,WAAU;8BAA6D;;;;;;;;;;;;;;;;;AAMlF"}}]
-}

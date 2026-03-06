@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   description: "Browse educator-curated lessons, templates, courses, and classroom gear.",
   keywords: ["teacher resources", "lesson plans", "educational materials", "classroom supplies"],
   alternates: {
-    canonical: "/shop",
+    canonical: "/products",
   },
 };
 
@@ -39,7 +39,7 @@ export default function ShopPage() {
             <p className="text-[var(--text-muted)] mb-6">
               We&apos;re stocking the shelves with amazing resources. Check back soon or browse our lessons in the meantime.
             </p>
-            <Link href="/resources/lessons" className="btn btn-md btn-primary rounded-[var(--radius-lg)]">
+            <Link href="/products/lessons" className="btn btn-md btn-primary rounded-[var(--radius-lg)]">
               Browse Lessons
             </Link>
           </div>

@@ -333,7 +333,7 @@ export default function TeacherToolsPage() {
                 Browse Lessons &rarr;
               </span>
             </Link>
-            <Link href="/consulting" className="tips-crosslink-card">
+            <Link href="/services/consulting" className="tips-crosslink-card">
               <h3 className="tips-crosslink-title">Want personalized tech training?</h3>
               <p className="tips-crosslink-desc">Get 1-on-1 consulting for school-wide technology integration.</p>
               <span className="tips-crosslink-cta">

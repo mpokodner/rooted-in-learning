@@ -86,10 +86,10 @@ export async function generateMetadata({
       title: demoProduct.title,
       description: demoProduct.subtitle,
       type: "website",
-      url: `https://therootedlearner.com/shop/${slug}`,
+      url: `https://www.therootedlearner.com/shop/${slug}`,
     },
     alternates: {
-      canonical: `https://therootedlearner.com/shop/${slug}`,
+      canonical: `https://www.therootedlearner.com/shop/${slug}`,
     },
   };
 }
@@ -110,7 +110,7 @@ export default async function ProductPage({
         <div className="pp-container">
           <ol className="pp-breadcrumb-list">
             <li><Link href="/">Home</Link></li>
-            <li><Link href="/shop">Shop</Link></li>
+            <li><Link href="/products">Shop</Link></li>
             <li aria-current="page">{demoProduct.title}</li>
           </ol>
         </div>
@@ -310,7 +310,7 @@ export default async function ProductPage({
         <div className="pp-container">
           <div className="pp-related-header">
             <h2 id="related-heading" className="pp-section-title">You Might Also Like</h2>
-            <Link href="/shop" className="pp-related-viewall">
+            <Link href="/products" className="pp-related-viewall">
               View All Products
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -345,7 +345,7 @@ export default async function ProductPage({
             <p className="pp-final-desc">
               I also offer consulting for curriculum design, technology integration, and AI implementation.
             </p>
-            <Link href="/consulting" className="pp-final-btn">
+            <Link href="/services/consulting" className="pp-final-btn">
               Explore Consulting
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

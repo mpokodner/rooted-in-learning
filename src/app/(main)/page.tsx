@@ -85,7 +85,7 @@ export default function Home() {
                 </svg>
                 See AssessAlign
               </Link>
-              <Link href="/consulting" className="hero-secondary-btn">
+              <Link href="/services/consulting" className="hero-secondary-btn">
                 <svg
                   className="hero-secondary-icon"
                   fill="none"
@@ -460,7 +460,7 @@ export default function Home() {
                   </svg>
                   About Me
                 </Link>
-                <Link href="/consulting" className="consulting-cta-btn">
+                <Link href="/services/consulting" className="consulting-cta-btn">
                   <svg
                     className="consulting-cta-icon"
                     fill="none"
@@ -673,7 +673,7 @@ export default function Home() {
                 />
               </svg>
             </Link>
-            <Link href="/consulting" className="consulting-cta-btn">
+            <Link href="/services/consulting" className="consulting-cta-btn">
               <svg
                 className="consulting-cta-icon"
                 fill="none"

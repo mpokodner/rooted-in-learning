@@ -129,7 +129,7 @@ export default function ProductsPage() {
               districts, and educators — from literacy systems to assessment
               alignment.
             </p>
-            <Link href="/consulting" className="products-cta-btn">
+            <Link href="/services/consulting" className="products-cta-btn">
               Explore Consulting
               <svg
                 fill="none"

@@ -28,7 +28,7 @@ const NAV_ITEMS: NavItem[] = [
     ],
   },
   { href: "/resources", label: "Resources" },
-  { href: "/consulting", label: "Consulting" },
+  { href: "/services/consulting", label: "Consulting" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
 ];

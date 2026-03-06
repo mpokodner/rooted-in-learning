@@ -226,14 +226,14 @@ export default function TeacherToolsPage() {
       <section className="tips-crosslinks">
         <div className="tips-container">
           <div className="tips-crosslinks-grid">
-            <Link href="/resources/lessons" className="tips-crosslink-card">
+            <Link href="/products/lessons" className="tips-crosslink-card">
               <h3 className="tips-crosslink-title">Need ready-to-teach curriculum?</h3>
               <p className="tips-crosslink-desc">Browse lessons designed to save you hours every week.</p>
               <span className="tips-crosslink-cta">
                 Browse Lessons &rarr;
               </span>
             </Link>
-            <Link href="/consulting" className="tips-crosslink-card">
+            <Link href="/services/consulting" className="tips-crosslink-card">
               <h3 className="tips-crosslink-title">Want personalized tech training?</h3>
               <p className="tips-crosslink-desc">Get 1-on-1 consulting for school-wide technology integration.</p>
               <span className="tips-crosslink-cta">

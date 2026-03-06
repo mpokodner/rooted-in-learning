@@ -130,13 +130,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime: post.publishedAt,
       authors: post.author ? [post.author.name] : [],
-      url: `https://therootedlearner.com/blog/${slug}`,
+      url: `https://www.therootedlearner.com/blog/${slug}`,
       ...(post.mainImage?.asset && {
         images: [{ url: urlFor(post.mainImage).width(1200).height(630).url() }],
       }),
     },
     alternates: {
-      canonical: `https://therootedlearner.com/blog/${slug}`,
+      canonical: `https://www.therootedlearner.com/blog/${slug}`,
     },
   };
 }
@@ -296,7 +296,7 @@ export default async function BlogPostPage({
                 <p className="bp-share-label">Share this article</p>
                 <div className="bp-share-buttons">
                   <a
-                    href={`https://www.linkedin.com/sharing/share-offsite/?url=https://therootedlearner.com/blog/${slug}`}
+                    href={`https://www.linkedin.com/sharing/share-offsite/?url=https://www.therootedlearner.com/blog/${slug}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bp-share-btn bp-share-btn--linkedin"
@@ -307,7 +307,7 @@ export default async function BlogPostPage({
                     </svg>
                   </a>
                   <a
-                    href={`https://twitter.com/intent/tweet?url=https://therootedlearner.com/blog/${slug}&text=${encodeURIComponent(post.title)}`}
+                    href={`https://twitter.com/intent/tweet?url=https://www.therootedlearner.com/blog/${slug}&text=${encodeURIComponent(post.title)}`}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="bp-share-btn bp-share-btn--x"

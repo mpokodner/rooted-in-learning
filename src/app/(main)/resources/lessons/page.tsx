@@ -304,7 +304,7 @@ export default function LessonsPage() {
       <section className="lp-crosslinks section" aria-label="Related pages">
         <div className="container">
           <div className="lp-crosslinks-grid">
-            <Link href="/consulting" className="lp-crosslink-card">
+            <Link href="/services/consulting" className="lp-crosslink-card">
               <h3 className="lp-crosslink-title">Need customized support?</h3>
               <p className="lp-crosslink-desc">Explore consulting for personalized curriculum design and coaching.</p>
               <span className="lp-crosslink-cta">

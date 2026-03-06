@@ -10,7 +10,7 @@ import { updateSession } from "@/lib/supabase-middleware";
  * 3. Protect /admin/* routes — redirect to / if not an admin
  * 4. Redirect /login and /register to /account if already authenticated
  */
-export async function middleware(request: NextRequest) {
+export async function proxy(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const { user, supabase, supabaseResponse } = await updateSession(request);
 

@@ -139,6 +139,20 @@ export default function RootLayout({
           }}
         />
 
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-YN9FTS3PL5"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-YN9FTS3PL5');
+          `}
+        </Script>
+
         {/* Google Tag Manager — Head Script */}
         {GTM_ID && (
           <Script

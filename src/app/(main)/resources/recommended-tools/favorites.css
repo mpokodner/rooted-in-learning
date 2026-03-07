@@ -105,6 +105,36 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
+   FTC AFFILIATE DISCLOSURE
+   ═══════════════════════════════════════════════════════════════ */
+
+.favs-disclosure {
+  padding-block: 1rem 1.25rem;
+  background-color: rgba(92, 107, 74, 0.08);
+  border-top: 1px solid var(--border-beige, #E8DED0);
+  border-bottom: 1px solid var(--border-beige, #E8DED0);
+}
+
+.favs-disclosure-text {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  line-height: var(--leading-relaxed, 1.65);
+  margin: 0;
+}
+
+.favs-disclosure-link {
+  color: var(--earth, #5C6B4A);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.favs-disclosure-link:hover {
+  color: var(--earth-dark, #4A5638);
+}
+
+
+/* ═══════════════════════════════════════════════════════════════
    FILTER BAR
    ═══════════════════════════════════════════════════════════════ */
 
@@ -235,7 +265,14 @@
   color: var(--white, #FFFFFF);
 }
 
-/* Badge */
+/* Badges */
+.fav-card-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 0.75rem;
+}
+
 .fav-card-badge {
   display: inline-block;
   padding: 0.25rem 0.625rem;
@@ -246,8 +283,14 @@
   color: var(--earth, #5C6B4A);
   text-transform: uppercase;
   letter-spacing: 0.04em;
-  margin-bottom: 0.75rem;
   align-self: flex-start;
+}
+
+.fav-card-badge--highlight {
+  background-color: var(--terracotta, #B05931);
+  color: var(--white, #FFFFFF);
+  text-transform: none;
+  letter-spacing: 0.02em;
 }
 
 .fav-card-title {

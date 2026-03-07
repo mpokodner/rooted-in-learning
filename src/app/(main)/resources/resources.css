@@ -49,6 +49,18 @@
   margin-bottom: clamp(2rem, 4vw, 3rem);
 }
 
+.resources-hero-link {
+  color: var(--terracotta-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+  transition: color 200ms ease;
+}
+
+.resources-hero-link:hover {
+  color: var(--white);
+}
+
 .resources-jump-nav {
   display: flex;
   flex-wrap: wrap;
@@ -390,6 +402,63 @@
 .resources-download-btn svg {
   width: 1rem;
   height: 1rem;
+}
+
+.resources-download-btn {
+  text-decoration: none;
+}
+
+.resources-download-btn:hover {
+  text-decoration: none;
+}
+
+.resources-download-actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem;
+  margin-top: auto;
+}
+
+.resources-download-count {
+  font-size: 0.6875rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  background-color: var(--border-beige);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius-full);
+}
+
+.resources-download-btn--disabled {
+  opacity: 0.7;
+  cursor: default;
+  color: var(--text-muted);
+}
+
+.resources-download-btn--disabled:hover {
+  gap: 0.5rem;
+  color: var(--text-muted);
+}
+
+.resources-downloads-note {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-top: 2rem;
+  line-height: var(--leading-relaxed);
+}
+
+.resources-downloads-note a {
+  color: var(--earth);
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.resources-downloads-note a:hover {
+  color: var(--earth-dark);
 }
 
 

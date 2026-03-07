@@ -336,6 +336,61 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Career Timeline ─── */}
+      <section className="about-timeline section" aria-labelledby="timeline-heading">
+        <div className="container">
+          <div className="about-timeline-header">
+            <p className="about-section-label">Career Path</p>
+            <h2 id="timeline-heading" className="about-section-title">
+              Professional Journey
+            </h2>
+          </div>
+
+          <div className="about-timeline-list">
+            <div className="about-timeline-item">
+              <div className="about-timeline-dot" aria-hidden="true" />
+              <div className="about-timeline-content">
+                <h3 className="about-timeline-title">Classroom Teacher</h3>
+                <p className="about-timeline-desc">K-8 educator focused on literacy and intervention</p>
+                <span className="about-timeline-date">2012-2020</span>
+              </div>
+            </div>
+            <div className="about-timeline-item">
+              <div className="about-timeline-dot" aria-hidden="true" />
+              <div className="about-timeline-content">
+                <h3 className="about-timeline-title">Reading Interventionist</h3>
+                <p className="about-timeline-desc">Specialized in diagnosing and closing literacy gaps</p>
+                <span className="about-timeline-date">2018-2024</span>
+              </div>
+            </div>
+            <div className="about-timeline-item">
+              <div className="about-timeline-dot" aria-hidden="true" />
+              <div className="about-timeline-content">
+                <h3 className="about-timeline-title">Curriculum Designer</h3>
+                <p className="about-timeline-desc">Standards-aligned lesson design and assessment</p>
+                <span className="about-timeline-date">2020-Present</span>
+              </div>
+            </div>
+            <div className="about-timeline-item">
+              <div className="about-timeline-dot" aria-hidden="true" />
+              <div className="about-timeline-content">
+                <h3 className="about-timeline-title">EdTech Developer</h3>
+                <p className="about-timeline-desc">Building AI-powered tools for educators</p>
+                <span className="about-timeline-date">2024-Present</span>
+              </div>
+            </div>
+            <div className="about-timeline-item">
+              <div className="about-timeline-dot" aria-hidden="true" />
+              <div className="about-timeline-content">
+                <h3 className="about-timeline-title">Founder, The Rooted Learner</h3>
+                <p className="about-timeline-desc">Education infrastructure company</p>
+                <span className="about-timeline-date">2025-Present</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Expertise Grid ─── */}
       <section className="about-expertise section" aria-labelledby="expertise-heading">
         <div className="container">
@@ -455,12 +510,12 @@ export default function AboutPage() {
       <section className="pf-dev section" aria-labelledby="dev-heading">
         <div className="portfolio-container">
           <div className="pf-section-header">
-            <p className="pf-section-label">Development Projects</p>
+            <p className="pf-section-label">Learning Projects</p>
             <h2 id="dev-heading" className="pf-section-title">
-              Code, Create, Ship
+              Learning Projects
             </h2>
             <p className="pf-section-desc">
-              From React applications to Python data science — hands-on projects that demonstrate technical range.
+              Technical learning projects from my development training — demonstrating coding fundamentals and growth.
             </p>
           </div>
 

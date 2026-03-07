@@ -185,7 +185,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/products/lessons/" className="audience-card group">
+            <Link href="/parents" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--family">
                 <svg
                   fill="none"
@@ -597,7 +597,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════
           SECTION 6 — LEAD MAGNET / NEWSLETTER
       ═══════════════════════════════════════════ */}
-      <section className="newsletter-section">
+      <section id="newsletter" className="newsletter-section">
         <div className="container">
           <div className="newsletter-card">
             <div className="newsletter-card-content">

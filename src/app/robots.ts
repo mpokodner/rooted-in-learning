@@ -2,10 +2,6 @@ import type { MetadataRoute } from "next";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.therootedlearner.com";
 
-/**
- * robots.txt configuration.
- * Next.js will serve this at /robots.txt automatically.
- */
 export default function robots(): MetadataRoute.Robots {
   return {
     rules: [
@@ -18,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           "/admin",
           "/admin/",
           "/api/",
-          "/studio",
           "/login",
           "/register",
           "/forgot-password",
@@ -26,7 +21,30 @@ export default function robots(): MetadataRoute.Robots {
           "/cart",
           "/checkout",
           "/confirmation",
+          "/studio",
+          "/_next/",
+          "/freebies/",
         ],
+      },
+      {
+        userAgent: "GPTBot",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "CCBot",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Google-Extended",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "anthropic-ai",
+        disallow: ["/"],
+      },
+      {
+        userAgent: "Bytespider",
+        disallow: ["/"],
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

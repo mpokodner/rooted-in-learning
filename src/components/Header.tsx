@@ -8,6 +8,7 @@ import { usePathname } from "next/navigation";
 interface DropdownItem {
   href: string;
   label: string;
+  desc?: string;
 }
 
 interface NavItem {
@@ -17,17 +18,24 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/", label: "Home" },
   {
     href: "/products",
     label: "Products",
     dropdown: [
-      { href: "/products/assessalign", label: "AssessAlign" },
-      { href: "/products/lessons", label: "Lessons" },
-      { href: "/products/teacher-tools", label: "Teacher Tools" },
+      { href: "/products/assessalign", label: "AssessAlign", desc: "AI-powered assessment" },
+      { href: "/products/lessons", label: "Lessons", desc: "K-8 curriculum packs" },
+      { href: "/products/teacher-tools", label: "Teacher Tools", desc: "Tech tutorials" },
     ],
   },
-  { href: "/resources", label: "Resources" },
+  {
+    href: "/resources",
+    label: "Resources",
+    dropdown: [
+      { href: "/resources", label: "Free Resources", desc: "Downloads & samples" },
+      { href: "/resources/recommended-tools", label: "Recommended Tools", desc: "Curated picks" },
+      { href: "/parents", label: "For Parents", desc: "Family learning support" },
+    ],
+  },
   { href: "/services/consulting", label: "Consulting" },
   { href: "/blog", label: "Blog" },
   { href: "/about", label: "About" },
@@ -98,7 +106,6 @@ export default function Header() {
         role="banner"
       >
         <nav className="container" aria-label="Primary navigation">
-          {/* Logo only — no text */}
           <Link href="/" className="header-logo" aria-label="The Rooted Learner — Home">
             <div className="header-logo-icon">
               <Image
@@ -132,10 +139,22 @@ export default function Header() {
                       </svg>
                     </button>
                     {openDropdown === item.label && (
-                      <div className="header-dropdown">
+                      <div className="header-dropdown" style={{ minWidth: "14rem" }}>
                         {item.dropdown.map((d) => (
-                          <Link key={d.href} href={d.href} className="header-dropdown-link"
-                            onClick={() => setOpenDropdown(null)}>{d.label}</Link>
+                          <Link
+                            key={d.href}
+                            href={d.href}
+                            className="header-dropdown-link"
+                            onClick={() => setOpenDropdown(null)}
+                            style={{ display: "flex", flexDirection: "column", gap: "0.125rem" }}
+                          >
+                            <span style={{ fontWeight: 500 }}>{d.label}</span>
+                            {d.desc && (
+                              <span style={{ fontSize: "0.7rem", color: "#888", fontWeight: 400 }}>
+                                {d.desc}
+                              </span>
+                            )}
+                          </Link>
                         ))}
                       </div>
                     )}
@@ -153,7 +172,7 @@ export default function Header() {
           {/* Actions */}
           <div className="header-actions">
             <Link
-              href="/blog"
+              href="/contact"
               className="header-cta-btn"
               style={{
                 backgroundColor: "var(--earth)",
@@ -171,9 +190,9 @@ export default function Header() {
               }}
             >
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "0.875rem", height: "0.875rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
               </svg>
-              Subscribe
+              Get in Touch
             </Link>
 
             <button
@@ -196,7 +215,7 @@ export default function Header() {
         </nav>
       </header>
 
-      {/* Mobile menu — rendered OUTSIDE header as a fixed overlay with inline styles */}
+      {/* Mobile menu */}
       {mobileMenuOpen && (
         <>
           <div
@@ -226,6 +245,23 @@ export default function Header() {
             aria-modal="true"
             aria-label="Navigation menu"
           >
+            {/* Home link for mobile (since it's not in NAV_ITEMS) */}
+            <Link
+              href="/"
+              onClick={closeMobile}
+              style={{
+                display: "block",
+                padding: "0.875rem 0",
+                fontSize: "1.125rem",
+                fontWeight: 500,
+                color: pathname === "/" ? "#5C6B4D" : "#2D2D2D",
+                textDecoration: "none",
+                borderBottom: "1px solid #E8DED0",
+              }}
+            >
+              Home
+            </Link>
+
             {NAV_ITEMS.map((item) => (
               <div key={item.label}>
                 {item.dropdown ? (
@@ -274,7 +310,12 @@ export default function Header() {
                               textDecoration: "none",
                             }}
                           >
-                            {d.label}
+                            <span>{d.label}</span>
+                            {d.desc && (
+                              <span style={{ display: "block", fontSize: "0.75rem", color: "#999", marginTop: "0.125rem" }}>
+                                {d.desc}
+                              </span>
+                            )}
                           </Link>
                         ))}
                       </div>
@@ -300,8 +341,9 @@ export default function Header() {
               </div>
             ))}
 
+            {/* Mobile CTA */}
             <Link
-              href="/blog"
+              href="/contact"
               onClick={closeMobile}
               style={{
                 display: "flex",
@@ -309,20 +351,51 @@ export default function Header() {
                 justifyContent: "center",
                 gap: "0.5rem",
                 marginTop: "1.5rem",
-                padding: "0.625rem 1.25rem",
+                padding: "0.75rem 1.25rem",
                 backgroundColor: "#5C6B4A",
                 color: "#fff",
                 fontWeight: 600,
-                fontSize: "0.8125rem",
+                fontSize: "0.875rem",
                 borderRadius: "9999px",
                 textDecoration: "none",
               }}
             >
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "1rem", height: "1rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
               </svg>
-              Subscribe for Tips
+              Get in Touch
             </Link>
+
+            {/* Secondary mobile links */}
+            <div style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #E8DED0" }}>
+              <p style={{ fontSize: "0.6875rem", fontWeight: 600, textTransform: "uppercase", letterSpacing: "0.08em", color: "#999", marginBottom: "0.5rem" }}>
+                Quick Links
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
+                {[
+                  { href: "/privacy", label: "Privacy" },
+                  { href: "/terms", label: "Terms" },
+                  { href: "/ai-ethics", label: "AI Ethics" },
+                  { href: "/accessibility", label: "Accessibility" },
+                ].map((link) => (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={closeMobile}
+                    style={{
+                      fontSize: "0.75rem",
+                      color: "#888",
+                      textDecoration: "none",
+                      padding: "0.25rem 0.5rem",
+                      borderRadius: "0.25rem",
+                      backgroundColor: "rgba(0,0,0,0.03)",
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </>
       )}

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import dashboardImg from "../../about/projects/images/assessalignpng.png";
 import "./assessalign.css";
 
@@ -373,18 +374,10 @@ export default function AssessAlignPage() {
       <section className="aa-status-section">
         <div className="aa-container">
           <div className="aa-status-inner">
-            <h2 className="aa-status-title">
-              Interested in Early Access?
-            </h2>
-            <p className="aa-status-desc">
-              AssessAlign is currently in active development with beta testing
-              underway. If you&apos;re a school leader, coach, or
-              district administrator looking for a smarter approach to
-              standards-based assessment, get in touch.
-            </p>
-            <Link href="/contact" className="aa-status-btn">
-              Request Early Access
-            </Link>
+            <EarlyAccessForm
+              heading="Interested in Early Access?"
+              description="AssessAlign is currently in active development with beta testing underway. If you're a school leader, coach, or district administrator looking for a smarter approach to standards-based assessment, join the list."
+            />
           </div>
         </div>
       </section>

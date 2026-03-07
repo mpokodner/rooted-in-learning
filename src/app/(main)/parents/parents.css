@@ -1,0 +1,46 @@
+/* Parents page — newsletter form styles (NewsletterForm component) */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.625rem;
+  width: 100%;
+  max-width: 18rem;
+  margin-inline: auto;
+}
+
+.newsletter-input {
+  border: 1px solid var(--border-beige);
+  border-radius: var(--radius-md);
+  padding: 0.75rem 1rem;
+  font-size: var(--text-sm);
+  background-color: var(--white);
+  color: var(--text-dark);
+  text-align: center;
+  transition: border-color var(--duration-fast) ease;
+}
+
+.newsletter-input::placeholder {
+  color: var(--text-muted);
+}
+
+.newsletter-input:focus {
+  outline: none;
+  border-color: var(--earth);
+}
+
+.newsletter-submit-btn {
+  width: 100%;
+  border-radius: var(--radius-md) !important;
+}
+
+.newsletter-error {
+  font-size: var(--text-sm);
+  color: var(--terracotta);
+  margin-top: 0.5rem;
+}
+
+.newsletter-success {
+  font-size: var(--text-sm);
+  color: var(--earth);
+  font-weight: 600;
+}

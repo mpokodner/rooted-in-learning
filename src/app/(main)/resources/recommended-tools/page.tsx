@@ -26,11 +26,20 @@ const categories = [
 
 const favorites = [
   { id: 1, title: "Rocketbook Smart Notebook", category: "Gear", description: "Reusable notebook that syncs to cloud. Perfect for quick notes and lesson ideas.", link: "#" },
-  { id: 2, title: "Notion for Teachers", category: "Tools", description: "The all-in-one workspace I use to plan lessons, track students, and organize my life.", link: "#" },
+  { id: 2, title: "Notion for Teachers", category: "Tools", description: "The all-in-one workspace I use to plan lessons, track students, and organize my life.", link: "#", badge: "My #1 Pick" },
   { id: 3, title: "The First Days of School", category: "Books", description: "A classic that every educator should read. Practical classroom management strategies.", link: "#" },
   { id: 4, title: "Blue Light Glasses", category: "Gear", description: "Essential for screen-heavy days. These have saved my eyes during virtual teaching.", link: "#" },
-  { id: 5, title: "Canva Pro for Education", category: "Tools", description: "Free for educators! Create stunning worksheets, presentations, and classroom decor.", link: "#" },
+  { id: 5, title: "Canva Pro for Education", category: "Tools", description: "Free for educators! Create stunning worksheets, presentations, and classroom decor.", link: "#", badge: "Best for Materials" },
   { id: 6, title: "Atomic Habits", category: "Books", description: "Game-changer for building routines — for yourself and your students.", link: "#" },
+  { id: 7, title: "Google Keep", category: "Tools", description: "My go-to for quick lesson ideas and to-do lists. Syncs everywhere and the color coding helps me organize by subject. Perfect for teachers who think in sticky notes.", link: "#" },
+  { id: 8, title: "Kami", category: "Tools", description: "The best PDF annotation tool for classrooms. Students can write directly on worksheets, and I can give real-time feedback. Free for educators.", link: "#", badge: "Best for Digital" },
+  { id: 9, title: "Flocabulary", category: "Tools", description: "Hip-hop based learning videos that my students actually ask to watch again. Vocabulary retention skyrockets when you add a beat.", link: "#" },
+  { id: 10, title: "Read Aloud by Google", category: "Tools", description: "Free Chrome extension that reads any webpage aloud. Game-changer for struggling readers and multilingual learners accessing content independently.", link: "#" },
+  { id: 11, title: "Teach Like a Champion", category: "Books", description: "Doug Lemov's techniques transformed my classroom management. The 'Cold Call' and 'No Opt Out' strategies alone are worth the read.", link: "#" },
+  { id: 12, title: "The Reading Strategies Book", category: "Books", description: "Jennifer Serravallo's book lives on my desk. Over 300 strategies organized by goal — I reference it daily during small group planning.", link: "#", badge: "Best for Literacy" },
+  { id: 13, title: "Wireless Presenter Clicker", category: "Gear", description: "Moving around the room while presenting changed everything. Students stay engaged when you're not anchored to a desk.", link: "#" },
+  { id: 14, title: "Noise-Canceling Headphones", category: "Gear", description: "Essential for grading and planning after school. Also great for students during independent work time.", link: "#" },
+  { id: 15, title: "Document Camera", category: "Gear", description: "I use mine daily for modeling writing, showing student work, and interactive read-alouds. Way more versatile than I expected.", link: "#" },
 ];
 
 export default function RecommendedToolsPage() {
@@ -56,6 +65,16 @@ export default function RecommendedToolsPage() {
               My personally curated collection of tools, books, and gear that I actually use and recommend to every educator.
             </p>
           </div>
+        </div>
+      </section>
+
+      {/* FTC Affiliate Disclosure */}
+      <section className="favs-disclosure" aria-label="Affiliate disclosure">
+        <div className="favs-container">
+          <p className="favs-disclosure-text">
+            <strong>Disclosure:</strong> Some links on this page are affiliate links. If you purchase through these links, I may earn a small commission at no extra cost to you. I only recommend tools I personally use and trust. See our full affiliate disclosure in our{" "}
+            <Link href="/terms" className="favs-disclosure-link">Terms of Use</Link>.
+          </p>
         </div>
       </section>
 
@@ -88,7 +107,12 @@ export default function RecommendedToolsPage() {
                   </svg>
                 </div>
 
-                <span className="fav-card-badge">{item.category}</span>
+                <div className="fav-card-badges">
+                  {item.badge && (
+                    <span className="fav-card-badge fav-card-badge--highlight">{item.badge}</span>
+                  )}
+                  <span className="fav-card-badge">{item.category}</span>
+                </div>
                 <h3 className="fav-card-title">{item.title}</h3>
                 <p className="fav-card-desc">{item.description}</p>
 

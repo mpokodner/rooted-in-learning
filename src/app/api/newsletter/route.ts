@@ -1,13 +1,28 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { resend, FROM_EMAIL } from "@/lib/resend";
+import { getRatelimit } from "@/lib/ratelimit";
 
-/**
- * POST /api/newsletter
- * Subscribe to the newsletter + optionally deliver a freebie.
- */
 export async function POST(request: NextRequest) {
   try {
+    const ip =
+      request.headers.get("x-forwarded-for")?.split(",")[0]?.trim() ||
+      request.headers.get("x-real-ip") ||
+      "anonymous";
+
+    try {
+      const limiter = getRatelimit();
+      const { success, remaining } = await limiter.limit(`newsletter:${ip}`);
+      if (!success) {
+        return NextResponse.json(
+          { success: false, error: "Too many requests. Please try again in a minute." },
+          { status: 429, headers: { "X-RateLimit-Remaining": String(remaining) } }
+        );
+      }
+    } catch {
+      // Rate limiting unavailable (missing env vars) — continue without it in dev
+    }
+
     const body = await request.json();
     const { email, name, source = "website", sendFreebie = false } = body;
 
@@ -18,9 +33,23 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    if (email.length > 320) {
+      return NextResponse.json(
+        { success: false, error: "Email exceeds maximum length." },
+        { status: 400 }
+      );
+    }
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { success: false, error: "Please provide a valid email address." },
+        { status: 400 }
+      );
+    }
+
     const supabase = createServerSupabaseClient();
 
-    // Check if already subscribed
     const { data: existing } = await supabase
       .from("newsletter_subscribers")
       .select("id, freebie_sent")
@@ -34,7 +63,6 @@ export async function POST(request: NextRequest) {
       });
     }
 
-    // Insert new subscriber
     const { error: insertError } = await supabase
       .from("newsletter_subscribers")
       .insert({
@@ -53,18 +81,17 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Send freebie email if requested
     if (sendFreebie) {
       try {
         await resend.emails.send({
           from: FROM_EMAIL,
           to: email.toLowerCase(),
-          subject: "Your Free Resource from The Rooted Learner 🌱",
+          subject: "Your Free Resource from The Rooted Learner",
           html: `
             <h1>Welcome to The Rooted Learner!</h1>
-            <p>Thank you for joining our community of 5,000+ educators.</p>
+            <p>Thank you for joining our community of educators.</p>
             <p>Here's your free resource:</p>
-            <p><a href="https://therootedlearner.com/freebies/weekly-planner.pdf">📥 Download Your Weekly Planner Template</a></p>
+            <p><a href="https://therootedlearner.com/freebies/weekly-planner.pdf">Download Your Weekly Planner Template</a></p>
             <p>Happy teaching!</p>
             <p>— Michelle</p>
           `,
@@ -76,7 +103,6 @@ export async function POST(request: NextRequest) {
           .eq("email", email.toLowerCase());
       } catch (emailError) {
         console.error("Freebie email error:", emailError);
-        // Don't fail the subscription if email fails
       }
     }
 

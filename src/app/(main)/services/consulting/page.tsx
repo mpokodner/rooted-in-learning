@@ -249,32 +249,69 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─── Results Statement ─── */}
+      {/* ─── Pricing Tiers ─── */}
+      <section className="consult-pricing section" aria-labelledby="pricing-heading">
+        <div className="container">
+          <div className="consult-pricing-header">
+            <p className="consult-section-label">Investment</p>
+            <h2 id="pricing-heading" className="consult-section-title">
+              Investment in Your Teaching Infrastructure
+            </h2>
+          </div>
+
+          <div className="consult-pricing-grid">
+            <div className="consult-pricing-card">
+              <h3 className="consult-pricing-tier">Discovery Session</h3>
+              <p className="consult-pricing-price">Free</p>
+              <p className="consult-pricing-desc">30-minute call to discuss your goals</p>
+              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--primary">
+                Book a Free Call
+              </a>
+            </div>
+            <div className="consult-pricing-card consult-pricing-card--featured">
+              <h3 className="consult-pricing-tier">Focused Engagement</h3>
+              <p className="consult-pricing-price">Starting at $500</p>
+              <p className="consult-pricing-desc">Single-topic consulting: curriculum audit, tech integration plan, or AI readiness assessment</p>
+              <p className="consult-pricing-includes">Includes written deliverables</p>
+              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--secondary">
+                Request a Proposal
+              </a>
+            </div>
+            <div className="consult-pricing-card">
+              <h3 className="consult-pricing-tier">Strategic Partnership</h3>
+              <p className="consult-pricing-price">Custom Pricing</p>
+              <p className="consult-pricing-desc">Multi-week engagement for schools and districts. Comprehensive systems design, training, and implementation support.</p>
+              <p className="consult-pricing-includes">Includes ongoing coaching</p>
+              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--outline">
+                Let&apos;s Talk
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Early Adopter Opportunity ─── */}
       <section className="consult-proof section" aria-labelledby="proof-heading">
         <div className="container">
           <div className="consult-proof-header">
-            <p className="consult-section-label">Real Results</p>
+            <p className="consult-section-label">Early Adopter Opportunity</p>
             <h2 id="proof-heading" className="consult-section-title">
-              From the Classroom to Consulting
+              Early Adopter Opportunity
             </h2>
           </div>
 
           <div className="consult-proof-grid" style={{ justifyContent: "center" }}>
             <div className="consult-proof-card" style={{ maxWidth: "40rem" }}>
-              <div className="consult-proof-stars" aria-label="Results statement">
+              <div className="consult-proof-stars" aria-label="Early adopter statement">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} style={{ width: "2rem", height: "2rem", color: "var(--earth, #5C6B4D)" }}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>
               </div>
               <p className="consult-proof-quote">
-                In my 12+ years as a reading interventionist, I&apos;ve built
-                literacy systems that moved 80% of struggling readers up at
-                least one level per semester. Now I help schools build these
-                systems at scale.
+                Currently accepting pilot clients at introductory rates. Be among the first schools and educators to experience our consulting framework — and help shape it.
               </p>
               <div className="consult-proof-meta">
-                <p className="consult-proof-author">Michelle Van Slyke</p>
-                <p className="consult-proof-org">Founder, The Rooted Learner</p>
+                <p className="consult-proof-author">Limited spots available — Spring 2026</p>
               </div>
             </div>
           </div>
@@ -358,6 +395,9 @@ export default function ConsultingPage() {
               Start with a free 30-minute discovery call. No pressure, no pitch —
               just a conversation about where you are and where you want to go.
             </p>
+            <div className="consult-booking-calendly-placeholder">
+              Schedule directly — booking calendar coming soon. In the meantime, use the contact form below.
+            </div>
             <div className="consult-booking-actions">
               <Link href="/contact" className="consult-booking-btn">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
@@ -377,6 +417,41 @@ export default function ConsultingPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
               </svg>
               <span>Free 30-min call &middot; No commitment &middot; Confidential</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── FAQ ─── */}
+      <section className="consult-faq section" aria-labelledby="faq-heading">
+        <div className="container">
+          <div className="consult-faq-header">
+            <p className="consult-section-label">Common Questions</p>
+            <h2 id="faq-heading" className="consult-section-title">
+              Frequently Asked Questions
+            </h2>
+          </div>
+
+          <div className="consult-faq-list">
+            <div className="consult-faq-item">
+              <h3 className="consult-faq-question">How does pricing work for school districts?</h3>
+              <p className="consult-faq-answer">We offer flexible pricing based on scope and district size. Every engagement starts with a free discovery call to understand your needs and provide a tailored proposal.</p>
+            </div>
+            <div className="consult-faq-item">
+              <h3 className="consult-faq-question">Do you work with individual teachers?</h3>
+              <p className="consult-faq-answer">Absolutely! I offer 1-on-1 coaching sessions for classroom strategy, tech integration, and professional growth.</p>
+            </div>
+            <div className="consult-faq-item">
+              <h3 className="consult-faq-question">What&apos;s the typical engagement timeline?</h3>
+              <p className="consult-faq-answer">A focused engagement is typically 2-4 weeks. Strategic partnerships run 1-3 months with ongoing support.</p>
+            </div>
+            <div className="consult-faq-item">
+              <h3 className="consult-faq-question">Can you provide a proposal for my administration?</h3>
+              <p className="consult-faq-answer">Yes — I can provide a downloadable consulting one-pager and custom proposal. Contact me to request one.</p>
+            </div>
+            <div className="consult-faq-item">
+              <h3 className="consult-faq-question">What about procurement and purchase orders?</h3>
+              <p className="consult-faq-answer">I work with standard school district procurement processes. PO-based billing is available for institutional clients.</p>
             </div>
           </div>
         </div>

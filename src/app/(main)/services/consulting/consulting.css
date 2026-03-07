@@ -543,6 +543,129 @@
 
 
 /* ═══════════════════════════════════
+   PRICING TIERS
+   ═══════════════════════════════════ */
+
+.consult-pricing {
+  background-color: var(--white);
+}
+
+.consult-pricing-header {
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.consult-pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .consult-pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+}
+
+.consult-pricing-card {
+  background-color: var(--neutral-bg);
+  border: 1px solid var(--border-beige);
+  border-radius: var(--radius-xl);
+  padding: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.consult-pricing-card--featured {
+  border-color: var(--terracotta);
+  background-color: var(--white);
+  box-shadow: 0 4px 20px -8px rgba(176, 89, 49, 0.2);
+}
+
+.consult-pricing-tier {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--earth);
+}
+
+.consult-pricing-price {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--text-black);
+}
+
+.consult-pricing-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  flex: 1;
+}
+
+.consult-pricing-includes {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--terracotta);
+}
+
+.consult-pricing-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  font-weight: 600;
+  font-size: var(--text-sm);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: all var(--duration-base) var(--ease-default);
+  margin-top: 0.5rem;
+}
+
+.consult-pricing-cta--primary {
+  background-color: var(--earth);
+  color: var(--text-on-dark);
+  border: 2px solid var(--earth);
+}
+
+.consult-pricing-cta--primary:hover {
+  background-color: var(--earth-dark);
+  border-color: var(--earth-dark);
+  color: var(--text-on-dark);
+  text-decoration: none;
+}
+
+.consult-pricing-cta--secondary {
+  background-color: var(--terracotta);
+  color: var(--text-on-dark);
+  border: 2px solid var(--terracotta);
+}
+
+.consult-pricing-cta--secondary:hover {
+  background-color: var(--terracotta-dark);
+  border-color: var(--terracotta-dark);
+  color: var(--text-on-dark);
+  text-decoration: none;
+}
+
+.consult-pricing-cta--outline {
+  background-color: transparent;
+  color: var(--earth);
+  border: 2px solid var(--earth);
+}
+
+.consult-pricing-cta--outline:hover {
+  background-color: var(--earth);
+  color: var(--text-on-dark);
+  text-decoration: none;
+}
+
+
+/* ═══════════════════════════════════
    SOCIAL PROOF / CASE SNAPSHOTS
    ═══════════════════════════════════ */
 
@@ -837,13 +960,24 @@
   font-size: var(--text-base);
   color: var(--text-muted);
   line-height: var(--leading-relaxed);
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 @media (min-width: 768px) {
   .consult-booking-desc {
     font-size: var(--text-lg);
   }
+}
+
+.consult-booking-calendly-placeholder {
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border: 2px dashed var(--border-beige);
+  border-radius: var(--radius-lg);
+  background-color: var(--neutral-bg);
+  color: var(--text-muted);
+  font-size: var(--text-sm);
+  text-align: center;
+  margin-bottom: 1.5rem;
 }
 
 .consult-booking-actions {
@@ -918,4 +1052,49 @@
   height: 1rem;
   color: var(--earth-light);
   flex-shrink: 0;
+}
+
+
+/* ═══════════════════════════════════
+   FAQ
+   ═══════════════════════════════════ */
+
+.consult-faq {
+  background-color: var(--white);
+}
+
+.consult-faq-header {
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.consult-faq-list {
+  max-width: 40rem;
+  margin-inline: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.consult-faq-item {
+  padding: 1.25rem 1.5rem;
+  background-color: var(--neutral-bg);
+  border: 1px solid var(--border-beige);
+  border-radius: var(--radius-lg);
+}
+
+.consult-faq-question {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--earth);
+  margin-bottom: 0.5rem;
+}
+
+.consult-faq-answer {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
 }

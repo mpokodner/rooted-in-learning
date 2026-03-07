@@ -303,6 +303,87 @@
 
 
 /* ═══════════════════════════════════
+   CAREER TIMELINE
+   ═══════════════════════════════════ */
+
+.about-timeline {
+  background-color: var(--white);
+}
+
+.about-timeline-header {
+  text-align: center;
+  max-width: 36rem;
+  margin-inline: auto;
+  margin-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.about-timeline-list {
+  max-width: 36rem;
+  margin-inline: auto;
+  position: relative;
+  padding-left: 2rem;
+}
+
+.about-timeline-list::before {
+  content: "";
+  position: absolute;
+  left: 0.375rem;
+  top: 0.5rem;
+  bottom: 0.5rem;
+  width: 2px;
+  background-color: var(--border-beige);
+}
+
+.about-timeline-item {
+  position: relative;
+  padding-bottom: 2rem;
+}
+
+.about-timeline-item:last-child {
+  padding-bottom: 0;
+}
+
+.about-timeline-dot {
+  position: absolute;
+  left: -2rem;
+  top: 0.25rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background-color: var(--earth);
+  border: 3px solid var(--white);
+  box-shadow: 0 0 0 1px var(--border-beige);
+}
+
+.about-timeline-content {
+  padding-left: 0.5rem;
+}
+
+.about-timeline-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--text-black);
+  margin-bottom: 0.25rem;
+}
+
+.about-timeline-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  margin-bottom: 0.25rem;
+}
+
+.about-timeline-date {
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--terracotta);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+
+/* ═══════════════════════════════════
    EXPERTISE GRID
    ═══════════════════════════════════ */
 

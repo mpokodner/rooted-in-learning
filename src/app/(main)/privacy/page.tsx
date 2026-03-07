@@ -26,7 +26,7 @@ export default function PrivacyPolicyPage() {
           <p className="legal-hero-subtitle">
             Your privacy matters to us. This policy explains how we collect, use, and protect your information when you use The Rooted Learner.
           </p>
-          <span className="legal-hero-date">Last updated: February 2026</span>
+          <span className="legal-hero-date">Last updated: March 2026</span>
         </div>
       </section>
 
@@ -172,6 +172,60 @@ export default function PrivacyPolicyPage() {
             <h2 className="legal-section-title">11. Changes to This Policy</h2>
             <p className="legal-text">
               We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we make significant changes, we will update the &ldquo;Last updated&rdquo; date at the top of this page. We encourage you to review this policy periodically.
+            </p>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">12. FERPA Compliance (Educational Records)</h2>
+            <p className="legal-text">
+              The Rooted Learner is committed to supporting schools in maintaining FERPA (Family Educational Rights and Privacy Act) compliance. When our products or services are used in school settings:
+            </p>
+            <ul className="legal-list">
+              <li>We do not collect, store, or process personally identifiable student education records unless explicitly authorized by the school or district under a signed agreement.</li>
+              <li>Any student data processed through AssessAlign or our consulting services is handled in accordance with the school&apos;s or district&apos;s FERPA obligations.</li>
+              <li>We act as a &ldquo;school official&rdquo; under FERPA only when a formal agreement (such as a Data Processing Agreement) is in place with the educational institution.</li>
+              <li>Schools and districts retain full ownership of their student data at all times.</li>
+              <li>Upon termination of services, all student data is deleted within 30 days unless otherwise agreed.</li>
+            </ul>
+            <p className="legal-text">
+              If your school or district requires a Data Processing Agreement (DPA), please contact us.
+            </p>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">13. International Users &amp; GDPR</h2>
+            <p className="legal-text">
+              If you are accessing The Rooted Learner from the European Economic Area (EEA) or United Kingdom, you have additional rights under the General Data Protection Regulation (GDPR):
+            </p>
+            <ul className="legal-list">
+              <li>Right to access, rectify, erase, or restrict processing of your personal data</li>
+              <li>Right to data portability</li>
+              <li>Right to object to processing based on legitimate interests</li>
+              <li>Right to withdraw consent at any time</li>
+            </ul>
+            <p className="legal-text">
+              Our legal basis for processing your data includes: consent (newsletter subscriptions), contract performance (purchases and account management), and legitimate interests (analytics and site improvement).
+            </p>
+            <p className="legal-text">
+              To exercise any GDPR rights, contact us at hello@therootedlearner.com. We will respond within 30 days.
+            </p>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">14. AI Data Processing &amp; Student Data</h2>
+            <p className="legal-text">
+              Some of our products, including AssessAlign, use artificial intelligence (AI) to generate educational content such as assessment questions, feedback, and instructional suggestions. Here is how we handle data in AI-powered features:
+            </p>
+            <ul className="legal-list">
+              <li><strong>AI Processing:</strong> When AI features are used, relevant educational content (such as standards, learning objectives, or anonymized student response patterns) may be sent to our AI provider for processing.</li>
+              <li><strong>Student Data Protection:</strong> We never send personally identifiable student information (names, IDs, grades, or demographic data) to AI providers. All data sent for AI processing is anonymized and aggregated.</li>
+              <li><strong>AI Provider:</strong> We currently use Anthropic&apos;s Claude as our primary AI provider. Anthropic does not use data sent through their API to train their models.</li>
+              <li><strong>Data Retention:</strong> AI-processed data is not stored by our AI providers beyond the immediate request-response cycle.</li>
+              <li><strong>Human Review:</strong> AI-generated content (such as assessment questions) is designed to be reviewed by educators before use with students.</li>
+              <li><strong>Opt-Out:</strong> Schools and educators can opt out of AI-powered features at any time without losing access to core functionality.</li>
+            </ul>
+            <p className="legal-text">
+              We are committed to transparency about our AI practices. For detailed technical information about our AI data handling, please see our AI Ethics page.
             </p>
           </div>
 

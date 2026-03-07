@@ -26,7 +26,7 @@ export default function TermsOfUsePage() {
           <p className="legal-hero-subtitle">
             These terms govern your use of The Rooted Learner website, resources, and services. By using our site, you agree to these terms.
           </p>
-          <span className="legal-hero-date">Last updated: February 2026</span>
+          <span className="legal-hero-date">Last updated: March 2026</span>
         </div>
       </section>
 
@@ -181,6 +181,48 @@ export default function TermsOfUsePage() {
             <p className="legal-text">
               These Terms of Use are governed by and construed in accordance with the laws of the State of Maryland, United States, without regard to its conflict of law provisions. Any disputes arising from these terms shall be resolved in the courts located in Howard County, Maryland.
             </p>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">12. AI-Generated Content</h2>
+            <p className="legal-text">
+              Some content and features on The Rooted Learner, including within AssessAlign, may be generated or assisted by artificial intelligence (AI). Regarding AI-generated content:
+            </p>
+            <ul className="legal-list">
+              <li>AI-assisted content (such as assessment questions, lesson suggestions, and instructional feedback) is provided as a starting point and should be reviewed by qualified educators before classroom use.</li>
+              <li>We do not guarantee the accuracy, completeness, or appropriateness of AI-generated content for every educational context.</li>
+              <li>The Rooted Learner retains intellectual property rights over AI-generated content created through our platform.</li>
+              <li>Users are responsible for reviewing and adapting AI-generated materials to meet their specific curriculum requirements, state standards, and student needs.</li>
+              <li>We continuously monitor and improve our AI systems to ensure quality and alignment with educational best practices.</li>
+            </ul>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">13. AssessAlign Platform Terms</h2>
+            <p className="legal-text">
+              If you use AssessAlign (our assessment orchestration platform), the following additional terms apply:
+            </p>
+            <ul className="legal-list">
+              <li><strong>Data Handling:</strong> Student assessment data entered into AssessAlign is stored securely and encrypted at rest and in transit. See our Privacy Policy for details on AI data processing.</li>
+              <li><strong>Availability:</strong> While we strive for high availability, AssessAlign is currently in beta and we do not guarantee a specific uptime SLA. We will notify users of planned maintenance windows.</li>
+              <li><strong>Account Management:</strong> School and district accounts may designate administrators who can manage user access, data visibility, and platform settings.</li>
+              <li><strong>Data Export:</strong> You may export your data from AssessAlign at any time in standard formats (CSV, PDF).</li>
+              <li><strong>Beta Terms:</strong> During the beta period, features may change, and we welcome feedback to improve the platform. Beta users receive priority access to new features and introductory pricing.</li>
+              <li><strong>Termination:</strong> Upon account termination, your data will be available for export for 30 days, after which it will be permanently deleted.</li>
+            </ul>
+          </div>
+
+          <div className="legal-section">
+            <h2 className="legal-section-title">14. Satisfaction Guarantee</h2>
+            <p className="legal-text">
+              For digital lesson packs and curriculum materials:
+            </p>
+            <ul className="legal-list">
+              <li>We offer a 7-day satisfaction guarantee from the date of purchase. If you are not satisfied with a lesson pack, contact us within 7 days for a full refund.</li>
+              <li>This guarantee applies to first-time purchases of each product only.</li>
+              <li>Refund requests should be submitted via our contact form or email at hello@therootedlearner.com.</li>
+              <li>This guarantee does not apply to consulting services, which are governed by individual service agreements.</li>
+            </ul>
           </div>
 
           <div className="legal-contact">

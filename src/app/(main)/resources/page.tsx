@@ -77,21 +77,37 @@ const downloadables = [
     title: "Science of Reading Quick Reference",
     description: "A one-page visual guide to the key components of structured literacy and the Science of Reading.",
     format: "PDF",
+    href: "/downloads/sor-quick-reference.pdf",
+    gated: false,
+    comingSoon: false,
+    downloads: "200+",
   },
   {
     title: "Assessment Calendar Template",
     description: "Plan your assessment windows, progress monitoring schedule, and data review cycles for the year.",
     format: "PDF",
+    href: "/downloads/assessment-calendar.pdf",
+    gated: false,
+    comingSoon: false,
+    downloads: "150+",
   },
   {
     title: "Parent Communication Templates",
     description: "Ready-to-use letter templates for communicating reading progress, intervention plans, and home practice tips.",
     format: "PDF",
+    href: "/downloads/parent-templates.pdf",
+    gated: false,
+    comingSoon: false,
+    downloads: "100+",
   },
   {
     title: "Classroom Library Audit Checklist",
     description: "Evaluate and organize your classroom library for diversity, reading levels, and student interest.",
     format: "PDF",
+    href: null,
+    gated: true,
+    comingSoon: true,
+    downloads: null,
   },
 ];
 
@@ -136,7 +152,12 @@ export default function ResourcesPage() {
           <p className="resources-hero-desc">
             Practical tools, lesson samples, and frameworks built from real
             classroom experience. No fluff, no gated upsells — just genuinely
-            useful resources for your teaching practice.
+            useful resources for your teaching practice. All resources on this
+            page are completely free. Looking for premium tools?{" "}
+            <Link href="/products" className="resources-hero-link">
+              Visit our Products page
+            </Link>
+            .
           </p>
           <nav className="resources-jump-nav" aria-label="Jump to section">
             <a href="#lessons" className="resources-jump-link">Lesson Samples</a>
@@ -246,15 +267,38 @@ export default function ResourcesPage() {
                   <h3 className="resources-download-title">{item.title}</h3>
                   <p className="resources-download-desc">{item.description}</p>
                 </div>
-                <span className="resources-download-btn">
-                  Download Free
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
-                  </svg>
-                </span>
+                <div className="resources-download-actions">
+                  {item.gated && item.comingSoon ? (
+                    <span className="resources-download-btn resources-download-btn--disabled">
+                      Coming Soon
+                    </span>
+                  ) : item.href ? (
+                    <>
+                      {item.downloads && (
+                        <span className="resources-download-count">{item.downloads} downloads</span>
+                      )}
+                      <a
+                        href={item.href}
+                        download
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="resources-download-btn"
+                      >
+                        Download Free
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3" />
+                        </svg>
+                      </a>
+                    </>
+                  ) : null}
+                </div>
               </div>
             ))}
           </div>
+          <p className="resources-downloads-note">
+            Looking for our premium Literacy Intervention Toolkit and Data Tracking Dashboard?{" "}
+            <Link href="/#newsletter">Subscribe to our newsletter</Link> below for free access.
+          </p>
         </div>
       </section>
 

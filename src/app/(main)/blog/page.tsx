@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
-import { client } from "@/sanity/lib/client";
-import { urlFor } from "@/sanity/lib/image";
 import "./blog.css";
 
 export const metadata: Metadata = {
@@ -62,44 +59,7 @@ const startHere = [
   },
 ];
 
-interface SanityPost {
-  _id: string;
-  title: string;
-  slug: { current: string };
-  excerpt?: string;
-  mainImage?: { asset: { _ref: string }; alt?: string };
-  publishedAt: string;
-  readTime?: string;
-  category?: string;
-  author?: string;
-}
-
-const POSTS_QUERY = `*[_type == "post"] | order(publishedAt desc) {
-  _id,
-  title,
-  slug,
-  excerpt,
-  mainImage,
-  publishedAt,
-  readTime,
-  "category": category->title,
-  "author": author->name
-}`;
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  });
-}
-
 export default async function BlogPage() {
-  const posts: SanityPost[] = await client.fetch(POSTS_QUERY);
-
-  const featuredPost = posts[0] ?? null;
-  const gridPosts = posts.slice(1);
-
   return (
     <div className="blog-page">
       {/* ─── Blog Hero ─── */}
@@ -155,94 +115,7 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* ─── Featured Post ─── */}
-      {featuredPost && (
-        <section
-          className="blog-featured section"
-          aria-labelledby="featured-heading"
-        >
-          <div className="container">
-            <h2 id="featured-heading" className="sr-only">
-              Featured Article
-            </h2>
-            <Link
-              href={`/blog/${featuredPost.slug.current}`}
-              className="blog-featured-card"
-            >
-              <div className="blog-featured-visual">
-                {featuredPost.mainImage?.asset ? (
-                  <Image
-                    src={urlFor(featuredPost.mainImage)
-                      .width(600)
-                      .height(400)
-                      .url()}
-                    alt={featuredPost.mainImage.alt ?? featuredPost.title}
-                    width={600}
-                    height={400}
-                    className="blog-featured-img"
-                  />
-                ) : (
-                  <div className="blog-featured-mockup">
-                    <div className="blog-featured-mockup-dots">
-                      <span />
-                      <span />
-                      <span />
-                    </div>
-                    <div className="blog-featured-mockup-lines">
-                      <span style={{ width: "100%" }} />
-                      <span style={{ width: "80%" }} />
-                      <span style={{ width: "60%" }} />
-                      <span style={{ width: "90%" }} />
-                      <span style={{ width: "70%" }} />
-                    </div>
-                  </div>
-                )}
-              </div>
-              <div className="blog-featured-content">
-                <div className="blog-featured-meta">
-                  {featuredPost.category && (
-                    <span className="blog-featured-category">
-                      {featuredPost.category}
-                    </span>
-                  )}
-                  {featuredPost.readTime && (
-                    <>
-                      <span>&middot;</span>
-                      <span>{featuredPost.readTime}</span>
-                    </>
-                  )}
-                  <span>&middot;</span>
-                  <span>{formatDate(featuredPost.publishedAt)}</span>
-                </div>
-                <h3 className="blog-featured-title">{featuredPost.title}</h3>
-                {featuredPost.excerpt && (
-                  <p className="blog-featured-excerpt">
-                    {featuredPost.excerpt}
-                  </p>
-                )}
-                <span className="blog-featured-link">
-                  Read Article
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </Link>
-          </div>
-        </section>
-      )}
-
-      {/* ─── Post Grid ─── */}
+      {/* ─── Empty State (posts will come from CMS) ─── */}
       <section
         className="blog-grid-section section"
         aria-labelledby="posts-heading"
@@ -258,87 +131,28 @@ export default async function BlogPage() {
             </p>
           </div>
 
-          {gridPosts.length > 0 ? (
-            <div className="blog-post-grid">
-              {gridPosts.map((post) => (
-                <Link
-                  key={post._id}
-                  href={`/blog/${post.slug.current}`}
-                  className="blog-post-card"
-                >
-                  <div className="blog-post-image">
-                    {post.mainImage?.asset ? (
-                      <Image
-                        src={urlFor(post.mainImage)
-                          .width(400)
-                          .height(240)
-                          .url()}
-                        alt={post.mainImage.alt ?? post.title}
-                        width={400}
-                        height={240}
-                        className="blog-post-img"
-                      />
-                    ) : null}
-                    {post.category && (
-                      <span className="blog-post-category-badge">
-                        {post.category}
-                      </span>
-                    )}
-                  </div>
-                  <div className="blog-post-body">
-                    <h3 className="blog-post-title">{post.title}</h3>
-                    {post.excerpt && (
-                      <p className="blog-post-excerpt">{post.excerpt}</p>
-                    )}
-                    <div className="blog-post-footer">
-                      <span className="blog-post-time">
-                        {post.readTime ?? formatDate(post.publishedAt)}
-                      </span>
-                      <span className="blog-post-read">
-                        Read
-                        <svg
-                          fill="none"
-                          viewBox="0 0 24 24"
-                          stroke="currentColor"
-                          strokeWidth={2}
-                          aria-hidden="true"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            d="M17 8l4 4m0 0l-4 4m4-4H3"
-                          />
-                        </svg>
-                      </span>
-                    </div>
-                  </div>
-                </Link>
-              ))}
+          <div className="blog-empty-state">
+            <div className="blog-empty-icon">
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={1.5}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+                />
+              </svg>
             </div>
-          ) : posts.length === 0 ? (
-            <div className="blog-empty-state">
-              <div className="blog-empty-icon">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
-                  />
-                </svg>
-              </div>
-              <h3 className="blog-empty-title">Articles Coming Soon</h3>
-              <p className="blog-empty-desc">
-                We&apos;re working on research-backed content for educators.
-                Subscribe below to be the first to know when new articles drop.
-              </p>
-            </div>
-          ) : null}
+            <h3 className="blog-empty-title">Articles Coming Soon</h3>
+            <p className="blog-empty-desc">
+              We&apos;re working on research-backed content for educators.
+              Subscribe below to be the first to know when new articles drop.
+            </p>
+          </div>
         </div>
       </section>
 

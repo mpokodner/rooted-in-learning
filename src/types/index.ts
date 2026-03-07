@@ -30,7 +30,7 @@ export interface BlogPost {
   title: string;
   slug: string;
   excerpt: string | null;
-  content: string; // HTML or Portable Text from Sanity
+  content: string;
   cover_image: string | null;
   category: string;
   tags: string[];

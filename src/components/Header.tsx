@@ -114,6 +114,7 @@ export default function Header() {
                 width={52}
                 height={52}
                 className="header-logo-img"
+                style={{ border: "2px solid #000", borderRadius: "0.5rem" }}
                 priority
               />
             </div>

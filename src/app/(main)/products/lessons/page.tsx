@@ -242,59 +242,39 @@ export default function LessonsPage() {
         </div>
       </section>
 
-      {/* ─── Testimonials ─── */}
+      {/* ─── Founding Launch ─── */}
       <section className="lp-testimonials section" aria-labelledby="testimonials-heading">
         <div className="container">
           <div className="lp-testimonials-header">
-            <p className="lp-section-label">What People Are Saying</p>
+            <p className="lp-section-label">Founding Launch</p>
             <h2 id="testimonials-heading" className="lp-testimonials-title">
-              Loved by Educators &amp; Families
+              Be One of Our First Customers
             </h2>
           </div>
-          <div className="lp-testimonials-grid">
-            <div className="lp-testimonial-card">
-              <div className="lp-testimonial-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="lp-testimonial-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
+          <div className="lp-testimonials-grid" style={{ justifyContent: "center" }}>
+            <div className="lp-testimonial-card" style={{ maxWidth: "36rem", textAlign: "center" }}>
+              <div className="lp-testimonial-stars" aria-label="Founding offer">
+                <svg viewBox="0 0 24 24" className="lp-testimonial-star" aria-hidden="true" style={{ width: "2rem", height: "2rem" }}>
+                  <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
+                </svg>
               </div>
               <p className="lp-testimonial-quote">
-                &ldquo;These lessons saved me hours every single week. They&apos;re
-                rigorous, engaging, and my students actually enjoy them.&rdquo;
+                We&apos;re in our founding launch. Be one of our first customers
+                and get 20% off + a chance to leave a founding review.
               </p>
-              <p className="lp-testimonial-author">— 3rd Grade Teacher, Texas</p>
-            </div>
-            <div className="lp-testimonial-card">
-              <div className="lp-testimonial-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="lp-testimonial-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="lp-testimonial-quote">
-                &ldquo;As a homeschool parent, I finally found resources that help my
-                daughter practice reading skills without frustrating either of us.
-                The materials are clear and easy to use.&rdquo;
+              <p className="lp-testimonial-author" style={{
+                display: "inline-block",
+                padding: "0.5rem 1.25rem",
+                backgroundColor: "var(--terracotta, #C4704B)",
+                color: "#fff",
+                borderRadius: "var(--radius-full, 9999px)",
+                fontWeight: 600,
+                fontSize: "0.875rem",
+                letterSpacing: "0.05em",
+                marginTop: "0.5rem",
+              }}>
+                Use code: FOUNDING20
               </p>
-              <p className="lp-testimonial-author">— Homeschool Mom, California</p>
-            </div>
-            <div className="lp-testimonial-card">
-              <div className="lp-testimonial-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="lp-testimonial-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="lp-testimonial-quote">
-                &ldquo;I use these as intervention materials and they&apos;re perfect.
-                Structured, scaffolded, and aligned to exactly what my students
-                need.&rdquo;
-              </p>
-              <p className="lp-testimonial-author">— Reading Specialist, Maryland</p>
             </div>
           </div>
         </div>

@@ -79,7 +79,7 @@ export default function RegisterPage() {
                 </svg>
               </div>
               <h1 className="auth-card-title">Create Your Account</h1>
-              <p className="auth-card-subtitle">Join 5,000+ educators growing with us</p>
+              <p className="auth-card-subtitle">Join our growing community of educators</p>
             </div>
 
             <RegisterForm />

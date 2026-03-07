@@ -197,7 +197,7 @@ export default async function BlogPage() {
               errorClassName="newsletter-error"
             />
             <p className="blog-capture-note">
-              Join 5,000+ educators. Unsubscribe anytime.
+              Join our community of educators. Unsubscribe anytime.
             </p>
           </div>
         </div>
@@ -219,14 +219,14 @@ export default async function BlogPage() {
 
           <div className="blog-start-grid">
             {startHere.map((item, index) => (
-              <Link key={index} href={item.link} className="blog-start-card">
+              <div key={index} className="blog-start-card" style={{ cursor: "default" }}>
                 <div className="blog-start-number">
                   {String(index + 1).padStart(2, "0")}
                 </div>
                 <h3 className="blog-start-card-title">{item.title}</h3>
                 <p className="blog-start-card-desc">{item.description}</p>
-                <span className="blog-start-card-link">
-                  {item.linkText}
+                <span className="blog-start-card-link" style={{ opacity: 0.6 }}>
+                  Coming Soon
                   <svg
                     fill="none"
                     viewBox="0 0 24 24"
@@ -237,11 +237,11 @@ export default async function BlogPage() {
                     <path
                       strokeLinecap="round"
                       strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                     />
                   </svg>
                 </span>
-              </Link>
+              </div>
             ))}
           </div>
 

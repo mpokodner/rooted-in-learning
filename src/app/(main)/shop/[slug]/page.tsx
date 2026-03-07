@@ -28,18 +28,7 @@ const demoProduct = {
     "Video walkthrough (12 min)",
     "Lifetime updates",
   ],
-  testimonials: [
-    {
-      quote: "This template pack literally changed my Sundays. I went from 3 hours of planning to 45 minutes.",
-      author: "Sarah K.",
-      role: "4th Grade Teacher, Virginia",
-    },
-    {
-      quote: "The AI prompts are genius. I was skeptical, but they actually produce usable first drafts I can refine in minutes.",
-      author: "James R.",
-      role: "Middle School ELA, Texas",
-    },
-  ],
+  testimonials: [] as { quote: string; author: string; role: string }[],
   faq: [
     { q: "What format are the templates?", a: "You get both PDF and Google Docs versions. The Google Docs are fully editable — just make a copy and customize." },
     { q: "Do these work for all grade levels?", a: "The templates are designed to be adaptable for K–8. Each includes guidance notes for modifying by grade band." },
@@ -261,29 +250,31 @@ export default async function ProductPage({
         </div>
       </section>
 
-      {/* ─── Testimonials ─── */}
+      {/* ─── Founding Launch ─── */}
       <section className="pp-testimonials section" aria-labelledby="reviews-heading">
         <div className="pp-container">
           <div className="pp-section-header">
-            <h2 id="reviews-heading" className="pp-section-title">What Educators Are Saying</h2>
+            <h2 id="reviews-heading" className="pp-section-title">Founding Launch</h2>
           </div>
-          <div className="pp-testimonials-grid">
-            {demoProduct.testimonials.map((t) => (
-              <div key={t.author} className="pp-testimonial">
-                <div className="pp-testimonial-stars" aria-label="5 out of 5 stars">
-                  {[...Array(5)].map((_, i) => (
-                    <svg key={i} viewBox="0 0 24 24" className="pp-star" aria-hidden="true">
-                      <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                    </svg>
-                  ))}
-                </div>
-                <p className="pp-testimonial-quote">&ldquo;{t.quote}&rdquo;</p>
-                <div className="pp-testimonial-meta">
-                  <p className="pp-testimonial-author">{t.author}</p>
-                  <p className="pp-testimonial-role">{t.role}</p>
-                </div>
+          <div className="pp-testimonials-grid" style={{ justifyContent: "center" }}>
+            <div className="pp-testimonial" style={{ maxWidth: "36rem", textAlign: "center" }}>
+              <p className="pp-testimonial-quote">
+                We&apos;re in our founding launch. Be one of our first customers
+                and get 20% off + a chance to leave a founding review.
+              </p>
+              <div className="pp-testimonial-meta">
+                <p className="pp-testimonial-author" style={{
+                  display: "inline-block",
+                  padding: "0.375rem 1rem",
+                  backgroundColor: "var(--terracotta, #C4704B)",
+                  color: "#fff",
+                  borderRadius: "9999px",
+                  fontWeight: 600,
+                  fontSize: "0.8125rem",
+                  letterSpacing: "0.05em",
+                }}>Use code: FOUNDING20</p>
               </div>
-            ))}
+            </div>
           </div>
         </div>
       </section>

@@ -139,11 +139,10 @@ export default function TeacherToolsPage() {
                     </svg>
                     {tip.duration}
                   </span>
-                  <span className="tip-card-cta">
-                    Watch
+                  <span className="tip-card-cta" style={{ opacity: 0.6, cursor: "default" }}>
+                    Coming Soon
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z" />
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                     </svg>
                   </span>
                 </div>
@@ -190,10 +189,10 @@ export default function TeacherToolsPage() {
                 </div>
                 <h3 className="tips-premium-card-title">{tool.title}</h3>
                 <p className="tips-premium-card-desc">{tool.description}</p>
-                <span className="tips-premium-card-cta">
-                  Get This Tool
+                <span className="tips-premium-card-cta" style={{ opacity: 0.6, cursor: "default" }}>
+                  Coming Soon
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </span>
               </div>
@@ -216,16 +215,16 @@ export default function TeacherToolsPage() {
 
           <div className="tips-blog-grid">
             {relatedBlogPosts.map((post, index) => (
-              <Link key={index} href={post.href} className="tips-blog-card">
+              <div key={index} className="tips-blog-card" style={{ cursor: "default" }}>
                 <span className="tips-blog-card-category">{post.category}</span>
                 <h3 className="tips-blog-card-title">{post.title}</h3>
-                <span className="tips-blog-card-link">
-                  Read Article
+                <span className="tips-blog-card-link" style={{ opacity: 0.6 }}>
+                  Coming Soon
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                 </span>
-              </Link>
+              </div>
             ))}
           </div>
 

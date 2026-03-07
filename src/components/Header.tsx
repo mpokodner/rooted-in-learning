@@ -104,8 +104,8 @@ export default function Header() {
               <Image
                 src="/logo.png"
                 alt="The Rooted Learner"
-                width={40}
-                height={40}
+                width={52}
+                height={52}
                 className="header-logo-img"
                 priority
               />

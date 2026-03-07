@@ -57,7 +57,7 @@ export default async function BlogPostPage({
               Get Strategies Like This Every Week
             </h2>
             <p className="bp-newsletter-desc">
-              Join 5,000+ educators receiving research-backed teaching
+              Join our community of educators receiving research-backed teaching
               strategies, AI tips, and free resources every Tuesday.
             </p>
             <NewsletterForm

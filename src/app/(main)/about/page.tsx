@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
+import fs from "fs";
+import path from "path";
 import "./about.css";
 import "./projects/portfolio.css";
 
@@ -212,6 +214,8 @@ const devProjects: DevProject[] = [
   },
 ];
 
+const headshotExists = fs.existsSync(path.join(process.cwd(), "public", "headshot.jpg"));
+
 export default function AboutPage() {
   return (
     <div className="about-page">
@@ -259,12 +263,24 @@ export default function AboutPage() {
             {/* Image / Visual */}
             <div className="about-narrative-visual">
               <div className="about-narrative-image">
-                <div className="about-narrative-placeholder">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                  </svg>
-                  <p>Photo Coming Soon</p>
-                </div>
+                {headshotExists ? (
+                  <Image
+                    src="/headshot.jpg"
+                    alt="Michelle Van Slyke — Educator, Reading Interventionist, and EdTech Developer"
+                    width={400}
+                    height={500}
+                    className="about-headshot"
+                    style={{ borderRadius: "var(--radius-lg, 1rem)", objectFit: "cover", width: "100%", height: "auto" }}
+                    priority
+                  />
+                ) : (
+                  <div className="about-narrative-placeholder">
+                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1} aria-hidden="true">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
+                    </svg>
+                    <p>Add headshot.jpg to /public</p>
+                  </div>
+                )}
               </div>
               <div className="about-narrative-accent" aria-hidden="true" />
             </div>
@@ -307,8 +323,8 @@ export default function AboutPage() {
                   <span className="about-stat-label">Years in Education</span>
                 </div>
                 <div className="about-stat">
-                  <span className="about-stat-number">5K+</span>
-                  <span className="about-stat-label">Educators Reached</span>
+                  <span className="about-stat-number">K–8</span>
+                  <span className="about-stat-label">Focused Practice</span>
                 </div>
                 <div className="about-stat">
                   <span className="about-stat-number">100+</span>
@@ -529,57 +545,31 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── Social Proof ─── */}
+      {/* ─── Results Statement ─── */}
       <section className="about-proof section" aria-labelledby="proof-heading">
         <div className="container">
           <div className="about-proof-header">
-            <p className="about-section-label">What Others Say</p>
+            <p className="about-section-label">Track Record</p>
             <h2 id="proof-heading" className="about-section-title">
               Results That Speak
             </h2>
           </div>
-          <div className="about-proof-grid">
-            <div className="about-proof-card">
-              <div className="about-proof-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="about-proof-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
+          <div className="about-proof-grid" style={{ justifyContent: "center" }}>
+            <div className="about-proof-card" style={{ maxWidth: "40rem", textAlign: "center" }}>
+              <div className="about-proof-stars" aria-label="Results statement">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} className="about-proof-star" style={{ width: "2rem", height: "2rem", color: "var(--earth, #5C6B4D)", fill: "none" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
               </div>
               <p className="about-proof-quote">
-                &ldquo;Michelle helped us implement a reading intervention program that
-                moved 80% of our students up a level in one semester.&rdquo;
+                In my 12+ years as a reading interventionist, I&apos;ve built
+                literacy systems that moved 80% of struggling readers up at
+                least one level per semester. Now I help schools build these
+                systems at scale.
               </p>
-              <p className="about-proof-author">— K-5 Literacy Coach, Maryland</p>
-            </div>
-            <div className="about-proof-card">
-              <div className="about-proof-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="about-proof-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="about-proof-quote">
-                &ldquo;Her lessons saved me 5+ hours per week. The materials are
-                thoughtful, rigorous, and my students love them.&rdquo;
+              <p className="about-proof-author">
+                Launching Spring 2026 &mdash; reviews from real customers coming soon.
               </p>
-              <p className="about-proof-author">— 3rd Grade Teacher, Texas</p>
-            </div>
-            <div className="about-proof-card">
-              <div className="about-proof-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="about-proof-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="about-proof-quote">
-                &ldquo;As a parent, I finally found resources that actually help my
-                child practice skills without frustrating either of us.&rdquo;
-              </p>
-              <p className="about-proof-author">— Homeschool Parent, California</p>
             </div>
           </div>
         </div>

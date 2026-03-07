@@ -152,8 +152,8 @@ export default function ConsultingPage() {
             </div>
             <div className="consult-trust-divider" />
             <div className="consult-trust-item">
-              <span className="consult-trust-number">5K+</span>
-              <span className="consult-trust-label">Educators Served</span>
+              <span className="consult-trust-number">K–8</span>
+              <span className="consult-trust-label">Focused Practice</span>
             </div>
           </div>
         </div>
@@ -249,52 +249,32 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─── Case Snapshots / Social Proof ─── */}
+      {/* ─── Results Statement ─── */}
       <section className="consult-proof section" aria-labelledby="proof-heading">
         <div className="container">
           <div className="consult-proof-header">
             <p className="consult-section-label">Real Results</p>
             <h2 id="proof-heading" className="consult-section-title">
-              What Clients Are Saying
+              From the Classroom to Consulting
             </h2>
           </div>
 
-          <div className="consult-proof-grid">
-            <div className="consult-proof-card">
-              <div className="consult-proof-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="consult-proof-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
+          <div className="consult-proof-grid" style={{ justifyContent: "center" }}>
+            <div className="consult-proof-card" style={{ maxWidth: "40rem" }}>
+              <div className="consult-proof-stars" aria-label="Results statement">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} style={{ width: "2rem", height: "2rem", color: "var(--earth, #5C6B4D)" }}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+                </svg>
               </div>
               <p className="consult-proof-quote">
-                &ldquo;Michelle didn&apos;t just give us a plan — she gave us a system
-                we could sustain. Our reading intervention program transformed
-                outcomes for 80% of our struggling readers in one semester.&rdquo;
+                In my 12+ years as a reading interventionist, I&apos;ve built
+                literacy systems that moved 80% of struggling readers up at
+                least one level per semester. Now I help schools build these
+                systems at scale.
               </p>
               <div className="consult-proof-meta">
-                <p className="consult-proof-author">K-5 Literacy Coach</p>
-                <p className="consult-proof-org">Maryland School District</p>
-              </div>
-            </div>
-
-            <div className="consult-proof-card">
-              <div className="consult-proof-stars" aria-label="5 out of 5 stars">
-                {[...Array(5)].map((_, i) => (
-                  <svg key={i} viewBox="0 0 24 24" className="consult-proof-star" aria-hidden="true">
-                    <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                  </svg>
-                ))}
-              </div>
-              <p className="consult-proof-quote">
-                &ldquo;The AI integration training was exactly what our staff needed.
-                Practical, no jargon, and immediately applicable. Teachers left
-                feeling confident instead of overwhelmed.&rdquo;
-              </p>
-              <div className="consult-proof-meta">
-                <p className="consult-proof-author">Assistant Superintendent</p>
-                <p className="consult-proof-org">Texas ISD</p>
+                <p className="consult-proof-author">Michelle Van Slyke</p>
+                <p className="consult-proof-org">Founder, The Rooted Learner</p>
               </div>
             </div>
           </div>

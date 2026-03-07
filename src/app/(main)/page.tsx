@@ -107,8 +107,8 @@ export default function Home() {
           <div className="hero-aside animate-fade-up animate-delay-4">
             <div className="hero-trust-bar">
               <div className="hero-trust-item">
-                <span className="hero-trust-number">100+</span>
-                <span className="hero-trust-label">Educators &amp; Families</span>
+                <span className="hero-trust-number">K–8</span>
+                <span className="hero-trust-label">Focused Resources</span>
               </div>
               <div className="hero-trust-divider" />
               <div className="hero-trust-item">
@@ -117,7 +117,7 @@ export default function Home() {
               </div>
               <div className="hero-trust-divider" />
               <div className="hero-trust-item">
-                <span className="hero-trust-number">12 yrs</span>
+                <span className="hero-trust-number">12+ yrs</span>
                 <span className="hero-trust-label">Classroom Experience</span>
               </div>
             </div>
@@ -276,7 +276,7 @@ export default function Home() {
             </h2>
             <p className="resources-header-desc">
               Assessment tools, tech training, and ready-to-teach curriculum
-              &mdash; all in one place. Built by a 12-year veteran educator who
+              &mdash; all in one place. Built by a 12+ year veteran educator who
               gets it.
             </p>
           </div>
@@ -483,27 +483,28 @@ export default function Home() {
               <div className="testimonial-card">
                 <div className="testimonial-stars">
                   <div className="testimonial-stars-icons">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        className="testimonial-star"
-                        viewBox="0 0 24 24"
-                      >
-                        <path d="M12 2L15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2z" />
-                      </svg>
-                    ))}
+                    <svg
+                      className="testimonial-star"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={1.5}
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
+                      />
+                    </svg>
                   </div>
-                  <span className="testimonial-rating">5.0 average</span>
+                  <span className="testimonial-rating">Spring 2026</span>
                 </div>
                 <p className="testimonial-quote">
-                  &ldquo;Consulting with The Rooted Learner is being developed
-                  alongside lessons and teacher tools. Stay tuned for
-                  testimonials as we continue to grow our services and our
-                  brand!&rdquo;
+                  Trusted by educators across Maryland and beyond. Launching
+                  Spring 2026.
                 </p>
-                <p className="testimonial-author">— K-5 Literacy Coach, MD</p>
+                <p className="testimonial-author">— The Rooted Learner</p>
               </div>
-              {/* Future: expand testimonials section here */}
             </div>
           </div>
         </div>
@@ -560,20 +561,20 @@ export default function Home() {
             </div>
             <div className="featured-article-content">
               <div className="featured-article-meta">
-                <span className="featured-article-category">Teacher Tools</span>
+                <span className="featured-article-category">Coming Soon</span>
                 <span>&bull;</span>
-                <span>Latest</span>
+                <span>Spring 2026</span>
               </div>
               <h3 className="featured-article-title">
-                5 Free Tools That Will Transform Your Lesson Planning
+                Research-Backed Articles for Modern Educators
               </h3>
               <p className="featured-article-excerpt">
-                Stop spending your weekends on prep. These five tools automate
-                the busywork so you can focus on what matters &mdash; your
-                students.
+                Practical strategies grounded in research. Science of Reading,
+                multilingual learner support, AI in education, and the systems
+                that make great teaching sustainable. Articles launching soon.
               </p>
               <Link href="/blog" className="featured-article-link">
-                Read Article
+                Visit the Blog
                 <svg
                   className="featured-article-link-arrow"
                   fill="none"
@@ -626,7 +627,7 @@ export default function Home() {
               </p>
               <NewsletterForm />
               <p className="newsletter-disclaimer">
-                Join 100+ educators. Unsubscribe anytime.
+                Join our community of educators. Unsubscribe anytime.
               </p>
             </div>
           </div>

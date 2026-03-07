@@ -9,6 +9,12 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/products",
   },
+  openGraph: {
+    title: "Products & Tools | The Rooted Learner",
+    description:
+      "Research-based literacy tools, standards-aligned lessons, and assessment solutions built by a 12+ year veteran educator.",
+    type: "website",
+  },
 };
 
 const products = [

@@ -55,6 +55,7 @@
 .et-hero-title {
   font-family: var(--font-heading);
   font-size: var(--text-5xl);
+  font-weight: 800;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--white);
@@ -286,6 +287,7 @@
 .et-featured-title {
   font-family: var(--font-heading);
   font-size: var(--text-5xl);
+  font-weight: 800;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--text-dark);
@@ -361,6 +363,7 @@
 .et-feature-card-title {
   font-family: var(--font-heading);
   font-size: var(--text-xl);
+  font-weight: 700;
   line-height: var(--leading-tight);
   color: var(--text-dark);
   margin-bottom: var(--space-sm);
@@ -423,6 +426,7 @@
 .et-tool-card-title {
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
+  font-weight: 700;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--text-dark);
@@ -512,6 +516,7 @@
 .et-how-title {
   font-family: var(--font-heading);
   font-size: var(--text-3xl);
+  font-weight: 700;
   line-height: var(--leading-tight);
   letter-spacing: var(--tracking-tight);
   color: var(--text-dark);

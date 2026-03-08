@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
+import ParentResourcesAffiliateSection from "@/components/ParentResourcesAffiliateSection";
 import "./parent-resources.css";
 
 export const metadata: Metadata = {
@@ -267,6 +268,9 @@ export default function ParentResourcesPage() {
           </div>
         </div>
       </section>
+
+      {/* Amazon Affiliate Products */}
+      <ParentResourcesAffiliateSection />
 
       {/* What Families Get */}
       <section style={{ paddingBlock: "var(--space-section)" }} aria-labelledby="what-heading">

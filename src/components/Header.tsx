@@ -5,50 +5,26 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 
-interface DropdownItem {
-  href: string;
-  label: string;
-  desc?: string;
-}
-
 interface NavItem {
   href: string;
   label: string;
-  dropdown?: DropdownItem[];
 }
 
 const NAV_ITEMS: NavItem[] = [
-  {
-    href: "/products",
-    label: "Products",
-    dropdown: [
-      { href: "/products/assessalign", label: "AssessAlign", desc: "AI-powered assessment" },
-      { href: "/products/lessons", label: "Lessons", desc: "K-8 curriculum packs" },
-      { href: "/products/teacher-tools", label: "Teacher Tools", desc: "Tech tutorials" },
-    ],
-  },
-  {
-    href: "/resources",
-    label: "Resources",
-    dropdown: [
-      { href: "/resources", label: "Free Resources", desc: "Downloads & samples" },
-      { href: "/resources/recommended-tools", label: "Recommended Tools", desc: "Curated picks" },
-      { href: "/parents", label: "For Parents", desc: "Family learning support" },
-    ],
-  },
-  { href: "/services/consulting", label: "Consulting" },
+  { href: "/teacher-shop", label: "Teacher Shop" },
+  { href: "/family-hub", label: "Family Hub" },
+  { href: "/edtech-tools", label: "EdTech Tools" },
+  { href: "/work-with-me", label: "Work With Me" },
+  { href: "/recommended-tools", label: "Recommended Tools" },
   { href: "/blog", label: "Blog" },
-  { href: "/about", label: "About" },
 ];
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
   const [isScrolled, setIsScrolled] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(56);
   const pathname = usePathname();
   const headerRef = useRef<HTMLElement>(null);
-  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const isActive = (href: string) => {
     if (href === "/") return pathname === "/";
@@ -69,33 +45,16 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuOpen) return;
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setOpenDropdown(null);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, [mobileMenuOpen]);
-
-  useEffect(() => {
     document.body.style.overflow = mobileMenuOpen ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [mobileMenuOpen]);
 
   useEffect(() => {
     setMobileMenuOpen(false);
-    setOpenDropdown(null);
   }, [pathname]);
-
-  const toggleDropdown = useCallback((label: string) => {
-    setOpenDropdown((prev) => (prev === label ? null : label));
-  }, []);
 
   const closeMobile = useCallback(() => {
     setMobileMenuOpen(false);
-    setOpenDropdown(null);
   }, []);
 
   return (
@@ -121,59 +80,22 @@ export default function Header() {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="header-nav" ref={dropdownRef}>
+          <div className="header-nav">
             {NAV_ITEMS.map((item) => (
-              <div key={item.label} style={{ position: "relative" }}>
-                {item.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleDropdown(item.label)}
-                      className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}
-                    >
-                      {item.label}
-                      <svg
-                        className={`header-chevron${openDropdown === item.label ? " header-chevron--open" : ""}`}
-                        fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}
-                        aria-hidden="true"
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {openDropdown === item.label && (
-                      <div className="header-dropdown" style={{ minWidth: "14rem" }}>
-                        {item.dropdown.map((d) => (
-                          <Link
-                            key={d.href}
-                            href={d.href}
-                            className="header-dropdown-link"
-                            onClick={() => setOpenDropdown(null)}
-                            style={{ display: "flex", flexDirection: "column", gap: "0.125rem" }}
-                          >
-                            <span style={{ fontWeight: 500 }}>{d.label}</span>
-                            {d.desc && (
-                              <span style={{ fontSize: "0.7rem", color: "#888", fontWeight: 400 }}>
-                                {d.desc}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link href={item.href}
-                    className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}>
-                    {item.label}
-                  </Link>
-                )}
-              </div>
+              <Link
+                key={item.label}
+                href={item.href}
+                className={`header-nav-link${isActive(item.href) ? " header-nav-link--active" : ""}`}
+              >
+                {item.label}
+              </Link>
             ))}
           </div>
 
           {/* Actions */}
           <div className="header-actions">
             <Link
-              href="/contact"
+              href="/work-with-me#discovery"
               className="header-cta-btn"
               style={{
                 backgroundColor: "var(--earth)",
@@ -191,9 +113,9 @@ export default function Header() {
               }}
             >
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "0.875rem", height: "0.875rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Get in Touch
+              Book a Call
             </Link>
 
             <button
@@ -246,7 +168,6 @@ export default function Header() {
             aria-modal="true"
             aria-label="Navigation menu"
           >
-            {/* Home link for mobile (since it's not in NAV_ITEMS) */}
             <Link
               href="/"
               onClick={closeMobile}
@@ -264,87 +185,27 @@ export default function Header() {
             </Link>
 
             {NAV_ITEMS.map((item) => (
-              <div key={item.label}>
-                {item.dropdown ? (
-                  <>
-                    <button
-                      onClick={() => toggleDropdown(item.label)}
-                      style={{
-                        display: "flex",
-                        alignItems: "center",
-                        justifyContent: "space-between",
-                        width: "100%",
-                        padding: "0.875rem 0",
-                        fontSize: "1.125rem",
-                        fontWeight: 500,
-                        color: isActive(item.href) ? "#5C6B4D" : "#2D2D2D",
-                        background: "none",
-                        border: "none",
-                        borderBottom: "1px solid #E8DED0",
-                        cursor: "pointer",
-                      }}
-                    >
-                      {item.label}
-                      <svg
-                        width="20" height="20" viewBox="0 0 24 24" fill="none"
-                        stroke="currentColor" strokeWidth={2}
-                        style={{
-                          transform: openDropdown === item.label ? "rotate(180deg)" : "none",
-                          transition: "transform 0.2s",
-                        }}
-                      >
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
-                      </svg>
-                    </button>
-                    {openDropdown === item.label && (
-                      <div style={{ paddingLeft: "1rem", borderLeft: "2px solid #E8DED0", margin: "0.25rem 0 0.5rem" }}>
-                        {item.dropdown.map((d) => (
-                          <Link
-                            key={d.href}
-                            href={d.href}
-                            onClick={closeMobile}
-                            style={{
-                              display: "block",
-                              padding: "0.625rem 0",
-                              fontSize: "1rem",
-                              color: "#666",
-                              textDecoration: "none",
-                            }}
-                          >
-                            <span>{d.label}</span>
-                            {d.desc && (
-                              <span style={{ display: "block", fontSize: "0.75rem", color: "#999", marginTop: "0.125rem" }}>
-                                {d.desc}
-                              </span>
-                            )}
-                          </Link>
-                        ))}
-                      </div>
-                    )}
-                  </>
-                ) : (
-                  <Link
-                    href={item.href}
-                    onClick={closeMobile}
-                    style={{
-                      display: "block",
-                      padding: "0.875rem 0",
-                      fontSize: "1.125rem",
-                      fontWeight: 500,
-                      color: isActive(item.href) ? "#5C6B4D" : "#2D2D2D",
-                      textDecoration: "none",
-                      borderBottom: "1px solid #E8DED0",
-                    }}
-                  >
-                    {item.label}
-                  </Link>
-                )}
-              </div>
+              <Link
+                key={item.label}
+                href={item.href}
+                onClick={closeMobile}
+                style={{
+                  display: "block",
+                  padding: "0.875rem 0",
+                  fontSize: "1.125rem",
+                  fontWeight: 500,
+                  color: isActive(item.href) ? "#5C6B4D" : "#2D2D2D",
+                  textDecoration: "none",
+                  borderBottom: "1px solid #E8DED0",
+                }}
+              >
+                {item.label}
+              </Link>
             ))}
 
             {/* Mobile CTA */}
             <Link
-              href="/contact"
+              href="/work-with-me#discovery"
               onClick={closeMobile}
               style={{
                 display: "flex",
@@ -362,9 +223,9 @@ export default function Header() {
               }}
             >
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "1rem", height: "1rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Get in Touch
+              Book a Call
             </Link>
 
             {/* Secondary mobile links */}
@@ -374,6 +235,8 @@ export default function Header() {
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.5rem" }}>
                 {[
+                  { href: "/about", label: "About" },
+                  { href: "/contact", label: "Contact" },
                   { href: "/privacy", label: "Privacy" },
                   { href: "/terms", label: "Terms" },
                   { href: "/ai-ethics", label: "AI Ethics" },

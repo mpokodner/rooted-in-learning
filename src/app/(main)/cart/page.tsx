@@ -9,24 +9,24 @@ export const metadata: Metadata = {
 
 export default function CartPage() {
   return (
-    <div className="min-h-screen bg-[var(--neutral-bg)]">
+    <div className="min-h-screen bg-(--neutral-bg)">
       <section className="section">
         <div className="container">
           <div className="max-w-3xl mx-auto">
-            <h1 className="text-h2 text-[var(--text-dark)] mb-8">Your Cart</h1>
+            <h1 className="text-h2 text-(--text-dark) mb-8">Your Cart</h1>
 
             {/* Empty state */}
-            <div className="bg-white rounded-[var(--radius-xl)] border border-[var(--border-beige)] p-12 text-center">
-              <div className="w-16 h-16 bg-[var(--beige-bg)] rounded-full flex items-center justify-center mx-auto mb-6">
-                <svg className="w-8 h-8 text-[var(--earth-light)]" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <div className="bg-white rounded-xl border border-(--border-beige) p-12 text-center">
+              <div className="w-16 h-16 bg-(--beige-bg) rounded-full flex items-center justify-center mx-auto mb-6">
+                <svg className="w-8 h-8 text-(--earth-light)" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 100 4 2 2 0 000-4z" />
                 </svg>
               </div>
-              <h2 className="text-h3 text-[var(--text-dark)] mb-3">Your cart is empty</h2>
-              <p className="text-[var(--text-muted)] mb-6">
+              <h2 className="text-h3 text-(--text-dark) mb-3">Your cart is empty</h2>
+              <p className="text-(--text-muted) mb-6">
                 Looks like you haven&apos;t added any resources yet. Start browsing to find what you need!
               </p>
-              <Link href="/products" className="btn btn-md btn-primary rounded-[var(--radius-lg)]">
+              <Link href="/teacher-shop" className="btn btn-md btn-primary rounded-lg">
                 Start Shopping
               </Link>
             </div>

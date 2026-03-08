@@ -1,14 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
-import "./parents.css";
+import "./family-hub.css";
 
 export const metadata: Metadata = {
-  title: "Parents | Supporting Your Child's Learning Journey | The Rooted Learner",
+  title: "Family Hub | Support Your Child's Learning at Home | The Rooted Learner",
   description:
-    "Research-based resources for parents: phonics foundations, vocabulary building, study skills, and at-home practice ideas for K-8 learners. Science of Reading tips and family-friendly support.",
+    "Research-based resources for families: phonics foundations, vocabulary building, study skills, and at-home practice ideas for K-8 learners. Science of Reading tips and family-friendly support.",
   keywords: [
-    "parent resources reading",
+    "family resources reading",
     "help child learn to read",
     "science of reading for parents",
     "homework help tips",
@@ -17,14 +17,15 @@ export const metadata: Metadata = {
     "study skills elementary",
     "K-8 learning support",
     "at-home reading practice",
+    "family learning activities",
   ],
   alternates: {
-    canonical: "/parents",
+    canonical: "/family-hub",
   },
   openGraph: {
-    title: "Parents | Supporting Your Child's Learning Journey | The Rooted Learner",
+    title: "Family Hub | Support Your Child's Learning at Home | The Rooted Learner",
     description:
-      "Research-based resources for parents: phonics, vocabulary, study skills, and at-home practice ideas for K-8 learners.",
+      "Research-based resources for families: phonics, vocabulary, study skills, and at-home practice ideas for K-8 learners.",
     type: "website",
   },
 };
@@ -68,10 +69,28 @@ const ageGroups = [
   },
 ];
 
-const whatParentsGet = [
+const whatFamiliesGet = [
   "Research-based activities aligned with Science of Reading",
   "Progress tips and how to celebrate small wins",
   "Weekly practice ideas that fit busy family life",
+];
+
+const featuredResources = [
+  {
+    title: "Homework Helper Guide",
+    price: "$9.99",
+    description: "Activities to support learning at home",
+  },
+  {
+    title: "Summer Reading Activity Pack",
+    price: "$12.99",
+    description: "Keep skills sharp over break",
+  },
+  {
+    title: "Family Reading Nights Kit",
+    price: "$7.99",
+    description: "Fun literacy activities for the whole family",
+  },
 ];
 
 const faqs = [
@@ -89,7 +108,7 @@ const faqs = [
   },
 ];
 
-export default function ParentsPage() {
+export default function FamilyHubPage() {
   return (
     <div style={{ backgroundColor: "var(--neutral-bg)" }}>
       {/* Hero */}
@@ -124,7 +143,7 @@ export default function ParentsPage() {
               marginBottom: "var(--space-lg)",
             }}
           >
-            Supporting Your Child&apos;s Learning Journey
+            Support Your Child&apos;s Learning at Home
           </h1>
           <p
             style={{
@@ -149,7 +168,7 @@ export default function ParentsPage() {
             }}
           >
             <Link
-              href="/products/lessons"
+              href="/teacher-shop"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -181,7 +200,7 @@ export default function ParentsPage() {
               </svg>
             </Link>
             <Link
-              href="/contact"
+              href="/work-with-me"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -197,7 +216,7 @@ export default function ParentsPage() {
                 transition: "all 0.25s ease",
               }}
             >
-              Get in Touch
+              Book a Family Consultation
               <svg
                 width="20"
                 height="20"
@@ -329,11 +348,158 @@ export default function ParentsPage() {
         </div>
       </section>
 
-      {/* What Parents Get */}
+      {/* Featured Resources */}
       <section
         style={{
           paddingBlock: "var(--space-section)",
           backgroundColor: "var(--beige-bg)",
+        }}
+        aria-labelledby="featured-heading"
+      >
+        <div className="container">
+          <div style={{ textAlign: "center", marginBottom: "clamp(2rem, 4vw, 3rem)" }}>
+            <p
+              style={{
+                fontSize: "var(--text-xs)",
+                fontWeight: 700,
+                textTransform: "uppercase",
+                letterSpacing: "var(--tracking-widest)",
+                color: "var(--terracotta)",
+                marginBottom: "var(--space-sm)",
+              }}
+            >
+              Curated for You
+            </p>
+            <h2
+              id="featured-heading"
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: "var(--text-3xl)",
+                fontWeight: 700,
+                color: "var(--text-dark)",
+                marginBottom: "var(--space-md)",
+              }}
+            >
+              Featured Resources for Families
+            </h2>
+            <p
+              style={{
+                fontSize: "var(--text-base)",
+                color: "var(--text-muted)",
+                maxWidth: "36rem",
+                marginInline: "auto",
+              }}
+            >
+              Parent-facing materials designed to make learning at home easy and enjoyable.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              gap: "clamp(1.25rem, 2vw, 2rem)",
+            }}
+          >
+            {featuredResources.map((resource) => (
+              <div
+                key={resource.title}
+                style={{
+                  backgroundColor: "var(--white)",
+                  border: "1px solid var(--border-beige)",
+                  borderRadius: "var(--radius-lg)",
+                  padding: "clamp(1.5rem, 3vw, 2rem)",
+                  boxShadow: "var(--shadow-sm)",
+                  display: "flex",
+                  flexDirection: "column",
+                }}
+              >
+                <div
+                  style={{
+                    width: "3rem",
+                    height: "3rem",
+                    borderRadius: "var(--radius-md)",
+                    backgroundColor: "var(--beige-bg)",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    marginBottom: "1rem",
+                  }}
+                >
+                  <svg
+                    width="24"
+                    height="24"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="var(--earth)"
+                    strokeWidth={1.5}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"
+                    />
+                  </svg>
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "var(--text-xl)",
+                    fontWeight: 600,
+                    color: "var(--text-dark)",
+                    marginBottom: "0.25rem",
+                  }}
+                >
+                  {resource.title}
+                </h3>
+                <p
+                  style={{
+                    fontSize: "var(--text-lg)",
+                    fontWeight: 700,
+                    color: "var(--terracotta)",
+                    marginBottom: "0.5rem",
+                  }}
+                >
+                  {resource.price}
+                </p>
+                <p
+                  style={{
+                    fontSize: "var(--text-base)",
+                    color: "var(--text-muted)",
+                    lineHeight: "var(--leading-relaxed)",
+                    marginBottom: "1.25rem",
+                    flex: 1,
+                  }}
+                >
+                  {resource.description}
+                </p>
+                <span
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    padding: "0.625rem 1.25rem",
+                    backgroundColor: "var(--beige-bg)",
+                    color: "var(--text-muted)",
+                    fontWeight: 600,
+                    fontSize: "var(--text-sm)",
+                    borderRadius: "var(--radius-md)",
+                    border: "1px solid var(--border-beige)",
+                    cursor: "default",
+                  }}
+                >
+                  Coming Soon
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* What Families Get */}
+      <section
+        style={{
+          paddingBlock: "var(--space-section)",
         }}
         aria-labelledby="what-heading"
       >
@@ -361,7 +527,7 @@ export default function ParentsPage() {
                 marginBottom: "var(--space-md)",
               }}
             >
-              What Parents Get
+              What Families Get
             </h2>
             <p
               style={{
@@ -387,7 +553,7 @@ export default function ParentsPage() {
               marginInline: "auto",
             }}
           >
-            {whatParentsGet.map((item) => (
+            {whatFamiliesGet.map((item) => (
               <li
                 key={item}
                 style={{
@@ -421,6 +587,113 @@ export default function ParentsPage() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* Cross-sell Callout */}
+      <section
+        style={{
+          paddingBlock: "var(--space-section)",
+          backgroundColor: "var(--beige-bg)",
+        }}
+      >
+        <div className="container">
+          <div
+            style={{
+              maxWidth: "36rem",
+              marginInline: "auto",
+              padding: "clamp(2rem, 4vw, 3rem)",
+              backgroundColor: "var(--white)",
+              border: "1px solid var(--border-beige)",
+              borderRadius: "var(--radius-xl)",
+              textAlign: "center",
+              boxShadow: "var(--shadow-md)",
+            }}
+          >
+            <div
+              style={{
+                width: "3rem",
+                height: "3rem",
+                marginInline: "auto",
+                marginBottom: "1rem",
+                borderRadius: "var(--radius-md)",
+                backgroundColor: "var(--beige-bg)",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+              }}
+            >
+              <svg
+                width="24"
+                height="24"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="var(--earth)"
+                strokeWidth={1.5}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                />
+              </svg>
+            </div>
+            <h3
+              style={{
+                fontFamily: "var(--font-heading)",
+                fontSize: "var(--text-2xl)",
+                fontWeight: 700,
+                color: "var(--text-dark)",
+                marginBottom: "0.5rem",
+              }}
+            >
+              Need Personalized Support?
+            </h3>
+            <p
+              style={{
+                fontSize: "var(--text-base)",
+                color: "var(--text-muted)",
+                marginBottom: "1.5rem",
+                lineHeight: "var(--leading-relaxed)",
+              }}
+            >
+              Every family&apos;s learning journey is different. Book a one-on-one
+              family consultation to get tailored strategies, personalized
+              recommendations, and a clear action plan for your child.
+            </p>
+            <Link
+              href="/work-with-me"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "0.8rem 2rem",
+                backgroundColor: "var(--terracotta)",
+                color: "var(--white)",
+                fontWeight: 600,
+                fontSize: "var(--text-base)",
+                borderRadius: "var(--radius-lg)",
+                textDecoration: "none",
+                transition: "all 0.25s ease",
+              }}
+            >
+              Book a Consultation
+              <svg
+                width="20"
+                height="20"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -560,7 +833,7 @@ export default function ParentsPage() {
                 marginBottom: "0.5rem",
               }}
             >
-              Tips for Busy Families
+              Tips for Families
             </h3>
             <p
               style={{
@@ -574,7 +847,7 @@ export default function ParentsPage() {
               delivered to your inbox. Join our community of families supporting
               young learners.
             </p>
-            <NewsletterForm source="parents" buttonText="Get Family Tips" />
+            <NewsletterForm source="family-hub" buttonText="Get Family Tips" />
             <p
               style={{
                 fontSize: "var(--text-xs)",
@@ -618,7 +891,7 @@ export default function ParentsPage() {
             }}
           >
             <Link
-              href="/products/lessons"
+              href="/teacher-shop"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -638,7 +911,7 @@ export default function ParentsPage() {
               </svg>
             </Link>
             <Link
-              href="/resources"
+              href="/recommended-tools"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -653,13 +926,13 @@ export default function ParentsPage() {
                 textDecoration: "none",
               }}
             >
-              Free Resources
+              Recommended Tools
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
             <Link
-              href="/services/consulting"
+              href="/work-with-me"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -674,7 +947,7 @@ export default function ParentsPage() {
                 textDecoration: "none",
               }}
             >
-              Consulting
+              Work With Me
               <svg width="16" height="16" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

@@ -243,13 +243,13 @@ export default function AboutPage() {
             teachers leverage and give families confidence.
           </p>
           <div className="about-hero-actions">
-            <Link href="/services/consulting" className="about-hero-cta-primary">
+            <Link href="/work-with-me" className="about-hero-cta-primary">
               Work With Me
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href="/products/lessons" className="about-hero-cta-secondary">
+            <Link href="/teacher-shop" className="about-hero-cta-secondary">
               Browse Lessons
             </Link>
           </div>
@@ -495,7 +495,7 @@ export default function AboutPage() {
                     </a>
                   )}
                   {index === 0 && (
-                    <Link href="/services/consulting" className="pf-flagship-secondary">
+                    <Link href="/work-with-me" className="pf-flagship-secondary">
                       Learn about my consulting practice
                     </Link>
                   )}
@@ -647,7 +647,7 @@ export default function AboutPage() {
                 Whether you&apos;re a school implementing new systems, or an educator
                 building a plan — let&apos;s talk strategy.
               </p>
-              <Link href="/services/consulting" className="about-fork-btn about-fork-btn--primary">
+              <Link href="/work-with-me" className="about-fork-btn about-fork-btn--primary">
                 Explore Consulting
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -667,7 +667,7 @@ export default function AboutPage() {
                 Standards-aligned curriculum for educators and families. Download,
                 teach, and reclaim your time.
               </p>
-              <Link href="/products/lessons" className="about-fork-btn about-fork-btn--secondary">
+              <Link href="/teacher-shop" className="about-fork-btn about-fork-btn--secondary">
                 Browse Lesson Library
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />

@@ -1,5 +1,5 @@
 /* ═══════════════════════════════════════════════════════════════
-   FAVORITES PAGE — Component & Layout Styles
+   RECOMMENDED TOOLS PAGE — Component & Layout Styles
    Import in page.tsx: import "./favorites.css"
    
    Uses design tokens from globals.css
@@ -19,40 +19,7 @@
 
 
 /* ═══════════════════════════════════════════════════════════════
-   BREADCRUMB
-   ═══════════════════════════════════════════════════════════════ */
-
-.favs-breadcrumb {
-  padding-top: clamp(1.25rem, 3vw, 2rem);
-  margin-bottom: -1rem;
-}
-
-.favs-breadcrumb-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.375rem;
-  font-size: var(--text-sm, 0.875rem);
-  font-weight: 500;
-  color: var(--text-muted, #6B6B6B);
-  text-decoration: none;
-  transition: color 200ms ease, gap 200ms ease;
-}
-
-.favs-breadcrumb-link:hover {
-  color: var(--earth, #5C6B4A);
-  gap: 0.5rem;
-  text-decoration: none;
-}
-
-.favs-breadcrumb-link svg {
-  width: 0.875rem;
-  height: 0.875rem;
-  flex-shrink: 0;
-}
-
-
-/* ═══════════════════════════════════════════════════════════════
-   FAVORITES HERO SECTION
+   HERO SECTION
    ═══════════════════════════════════════════════════════════════ */
 
 .favs-hero {
@@ -214,7 +181,6 @@
 
 /* ═══════════════════════════════════════════════════════════════
    FAVORITE CARD
-   Recommendation card with icon, badge, and external link
    ═══════════════════════════════════════════════════════════════ */
 
 .fav-card {
@@ -235,7 +201,6 @@
   border-color: var(--earth-light, #8B9B7A);
 }
 
-/* Icon */
 .fav-card-icon {
   width: 3.5rem;
   height: 3.5rem;
@@ -265,7 +230,6 @@
   color: var(--white, #FFFFFF);
 }
 
-/* Badges */
 .fav-card-badges {
   display: flex;
   flex-wrap: wrap;
@@ -314,7 +278,6 @@
   flex: 1;
 }
 
-/* External Link CTA */
 .fav-card-link {
   display: inline-flex;
   align-items: center;

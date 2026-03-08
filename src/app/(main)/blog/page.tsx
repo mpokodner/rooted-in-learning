@@ -247,10 +247,10 @@ export default async function BlogPage() {
 
           {/* Cross-links */}
           <div className="blog-crosslinks">
-            <Link href="/products/lessons" className="blog-crosslink">
+            <Link href="/teacher-shop" className="blog-crosslink">
               Browse Lesson Library &rarr;
             </Link>
-            <Link href="/services/consulting" className="blog-crosslink">
+            <Link href="/work-with-me" className="blog-crosslink">
               Explore Consulting &rarr;
             </Link>
           </div>

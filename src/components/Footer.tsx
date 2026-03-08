@@ -218,50 +218,45 @@ export default function Footer() {
 
             {/* Links Columns */}
             <div className="footer-links-grid">
-              {/* Products */}
+              {/* Shop */}
               <div>
-                <h5 className="footer-heading">Products</h5>
+                <h5 className="footer-heading">Shop</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/products/assessalign" className="footer-link">
-                      AssessAlign
+                    <Link href="/teacher-shop" className="footer-link">
+                      Teacher Shop
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/lessons" className="footer-link">
-                      Lessons
+                    <Link href="/family-hub" className="footer-link">
+                      Family Hub
                     </Link>
                   </li>
                   <li>
-                    <Link href="/products/teacher-tools" className="footer-link">
-                      Teacher Tools
+                    <Link href="/edtech-tools" className="footer-link">
+                      EdTech Tools
                     </Link>
                   </li>
                 </ul>
               </div>
 
-              {/* Resources & Learn */}
+              {/* Learn */}
               <div>
                 <h5 className="footer-heading">Learn</h5>
                 <ul className="footer-link-list">
-                  <li>
-                    <Link href="/resources" className="footer-link">
-                      Free Resources
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/resources/recommended-tools" className="footer-link">
-                      Recommended Tools
-                    </Link>
-                  </li>
                   <li>
                     <Link href="/blog" className="footer-link">
                       Blog
                     </Link>
                   </li>
                   <li>
-                    <Link href="/parents" className="footer-link">
-                      For Parents
+                    <Link href="/recommended-tools" className="footer-link">
+                      Recommended Tools
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/#newsletter" className="footer-link">
+                      Free Resources
                     </Link>
                   </li>
                 </ul>
@@ -272,10 +267,32 @@ export default function Footer() {
                 <h5 className="footer-heading">Services</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/services/consulting" className="footer-link">
-                      Consulting
+                    <Link href="/work-with-me" className="footer-link">
+                      Work With Me
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/work-with-me#discovery" className="footer-link">
+                      Book a Discovery Call
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/edtech-tools" className="footer-link">
+                      AI Integration
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/work-with-me" className="footer-link">
+                      Custom Solutions
+                    </Link>
+                  </li>
+                </ul>
+              </div>
+
+              {/* Company */}
+              <div>
+                <h5 className="footer-heading">Company</h5>
+                <ul className="footer-link-list">
                   <li>
                     <Link href="/about" className="footer-link">
                       About
@@ -286,31 +303,24 @@ export default function Footer() {
                       Contact
                     </Link>
                   </li>
-                </ul>
-              </div>
-
-              {/* Trust & Legal */}
-              <div>
-                <h5 className="footer-heading">Trust</h5>
-                <ul className="footer-link-list">
-                  <li>
-                    <Link href="/ai-ethics" className="footer-link">
-                      AI Ethics
-                    </Link>
-                  </li>
                   <li>
                     <Link href="/privacy" className="footer-link">
-                      Privacy Policy
+                      Privacy
                     </Link>
                   </li>
                   <li>
                     <Link href="/terms" className="footer-link">
-                      Terms of Use
+                      Terms
                     </Link>
                   </li>
                   <li>
                     <Link href="/accessibility" className="footer-link">
                       Accessibility
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/ai-ethics" className="footer-link">
+                      AI Ethics
                     </Link>
                   </li>
                 </ul>

@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./consulting.css";
 
 export const metadata: Metadata = {
-  title: "Consulting | The Rooted Learner",
+  title: "Work With Me | The Rooted Learner",
   description:
     "Strategic consulting for schools, districts, and educators. Literacy systems, EdTech integration, AI implementation, and curriculum design from a 12+ year practitioner.",
   keywords: [
@@ -16,15 +16,39 @@ export const metadata: Metadata = {
     "school consulting",
   ],
   alternates: {
-    canonical: "/services/consulting",
+    canonical: "/work-with-me",
   },
   openGraph: {
-    title: "Consulting | The Rooted Learner",
+    title: "Work With Me | The Rooted Learner",
     description:
       "Strategic consulting for schools, districts, and educators from a practitioner who builds.",
     type: "website",
   },
 };
+
+const audiences = [
+  {
+    title: "Schools & Districts",
+    description:
+      "AI tools integration and training (including Claude, ChatGPT, and other platforms), custom tech solutions, curriculum development, PD workshops, and teacher training.",
+    icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21",
+    cta: "Request a Proposal",
+  },
+  {
+    title: "Individual Educators",
+    description:
+      "AI tools coaching, curriculum support, career transition guidance, and instructional strategy development.",
+    icon: "M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342",
+    cta: "Book a Call",
+  },
+  {
+    title: "Families & Homeschool",
+    description:
+      "Personalized learning plans, curriculum selection, reading intervention, and literacy support for your child.",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+    cta: "Schedule a Session",
+  },
+];
 
 const domains = [
   {
@@ -57,27 +81,6 @@ const domains = [
   },
 ];
 
-const audiences = [
-  {
-    title: "Schools & Districts",
-    description: "System-level consulting for literacy programs, tech rollouts, and AI implementation.",
-    icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21",
-    cta: "Request a Proposal",
-  },
-  {
-    title: "Individual Educators",
-    description: "1-on-1 coaching for classroom strategy, tech integration, and professional growth.",
-    icon: "M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342",
-    cta: "Book a Call",
-  },
-  {
-    title: "Families & Homeschoolers",
-    description: "Personalized curriculum planning, learning assessments, and skill-gap support for your child.",
-    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
-    cta: "Schedule a Session",
-  },
-];
-
 const processSteps = [
   {
     step: "01",
@@ -101,10 +104,10 @@ const processSteps = [
   },
 ];
 
-export default function ConsultingPage() {
+export default function WorkWithMePage() {
   return (
     <div className="consulting-page">
-      {/* ─── Problem-Aware Hero ─── */}
+      {/* ─── Hero ─── */}
       <section className="consult-hero" aria-labelledby="consult-heading">
         <div className="consult-hero-bg" aria-hidden="true">
           <div className="consult-hero-circle consult-hero-circle--1" />
@@ -118,9 +121,9 @@ export default function ConsultingPage() {
             <span>Strategic Consulting</span>
           </div>
           <h1 id="consult-heading" className="consult-hero-title">
-            Great Teaching Needs
+            Let&apos;s Build Something Better
             <br />
-            <span className="consult-hero-accent">Great Systems Behind It</span>
+            <span className="consult-hero-accent">for Your School</span>
           </h1>
           <p className="consult-hero-desc">
             You don&apos;t have a talent problem. You have an infrastructure problem.
@@ -128,7 +131,7 @@ export default function ConsultingPage() {
             strategies that make exceptional teaching sustainable.
           </p>
           <div className="consult-hero-actions">
-            <a href="#booking" className="consult-hero-cta-primary">
+            <a href="#discovery" className="consult-hero-cta-primary">
               Book a Free Discovery Call
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -139,7 +142,6 @@ export default function ConsultingPage() {
             </Link>
           </div>
 
-          {/* Trust bar */}
           <div className="consult-trust-bar">
             <div className="consult-trust-item">
               <span className="consult-trust-number">12+</span>
@@ -155,6 +157,41 @@ export default function ConsultingPage() {
               <span className="consult-trust-number">K–8</span>
               <span className="consult-trust-label">Focused Practice</span>
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Audience Track Selector ─── */}
+      <section className="consult-audience section" aria-labelledby="audience-heading">
+        <div className="container">
+          <div className="consult-audience-header">
+            <p className="consult-section-label">Who I Work With</p>
+            <h2 id="audience-heading" className="consult-section-title consult-section-title--light">
+              Find Your Path
+            </h2>
+            <p className="consult-audience-desc">
+              Every engagement starts with understanding your specific context and goals.
+            </p>
+          </div>
+
+          <div className="consult-audience-grid">
+            {audiences.map((audience) => (
+              <div key={audience.title} className="consult-audience-card">
+                <div className="consult-audience-icon">
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d={audience.icon} />
+                  </svg>
+                </div>
+                <h3 className="consult-audience-card-title">{audience.title}</h3>
+                <p className="consult-audience-card-desc">{audience.description}</p>
+                <a href="#discovery" className="consult-audience-cta">
+                  {audience.cta}
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </a>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -185,41 +222,6 @@ export default function ConsultingPage() {
                   </svg>
                   <span>{domain.results}</span>
                 </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Audience Qualifier ─── */}
-      <section className="consult-audience section" aria-labelledby="audience-heading">
-        <div className="container">
-          <div className="consult-audience-header">
-            <p className="consult-section-label">Who I Work With</p>
-            <h2 id="audience-heading" className="consult-section-title consult-section-title--light">
-              Find Your Path
-            </h2>
-            <p className="consult-audience-desc">
-              Every engagement starts with understanding your specific context and goals.
-            </p>
-          </div>
-
-          <div className="consult-audience-grid">
-            {audiences.map((audience) => (
-              <div key={audience.title} className="consult-audience-card">
-                <div className="consult-audience-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={audience.icon} />
-                  </svg>
-                </div>
-                <h3 className="consult-audience-card-title">{audience.title}</h3>
-                <p className="consult-audience-card-desc">{audience.description}</p>
-                <a href="#booking" className="consult-audience-cta">
-                  {audience.cta}
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </a>
               </div>
             ))}
           </div>
@@ -264,7 +266,7 @@ export default function ConsultingPage() {
               <h3 className="consult-pricing-tier">Discovery Session</h3>
               <p className="consult-pricing-price">Free</p>
               <p className="consult-pricing-desc">30-minute call to discuss your goals</p>
-              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--primary">
+              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--primary">
                 Book a Free Call
               </a>
             </div>
@@ -273,7 +275,7 @@ export default function ConsultingPage() {
               <p className="consult-pricing-price">Starting at $500</p>
               <p className="consult-pricing-desc">Single-topic consulting: curriculum audit, tech integration plan, or AI readiness assessment</p>
               <p className="consult-pricing-includes">Includes written deliverables</p>
-              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--secondary">
+              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--secondary">
                 Request a Proposal
               </a>
             </div>
@@ -282,7 +284,7 @@ export default function ConsultingPage() {
               <p className="consult-pricing-price">Custom Pricing</p>
               <p className="consult-pricing-desc">Multi-week engagement for schools and districts. Comprehensive systems design, training, and implementation support.</p>
               <p className="consult-pricing-includes">Includes ongoing coaching</p>
-              <a href="#booking" className="consult-pricing-cta consult-pricing-cta--outline">
+              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--outline">
                 Let&apos;s Talk
               </a>
             </div>
@@ -368,7 +370,7 @@ export default function ConsultingPage() {
                 ))}
               </div>
               <div className="consult-showcase-actions">
-                <Link href="/products/assessalign" className="consult-showcase-btn-primary">
+                <Link href="/edtech-tools" className="consult-showcase-btn-primary">
                   <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
                     <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
@@ -384,11 +386,11 @@ export default function ConsultingPage() {
         </div>
       </section>
 
-      {/* ─── Booking CTA ─── */}
-      <section id="booking" className="consult-booking section-lg" aria-labelledby="booking-heading">
+      {/* ─── Discovery CTA ─── */}
+      <section id="discovery" className="consult-booking section-lg" aria-labelledby="discovery-heading">
         <div className="container">
           <div className="consult-booking-inner">
-            <h2 id="booking-heading" className="consult-booking-title">
+            <h2 id="discovery-heading" className="consult-booking-title">
               Ready to Build Something Better?
             </h2>
             <p className="consult-booking-desc">

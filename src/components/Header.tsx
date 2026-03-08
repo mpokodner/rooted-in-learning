@@ -94,30 +94,6 @@ export default function Header() {
 
           {/* Actions */}
           <div className="header-actions">
-            <Link
-              href="/work-with-me#discovery"
-              className="header-cta-btn"
-              style={{
-                backgroundColor: "var(--earth)",
-                color: "#fff",
-                fontWeight: 600,
-                padding: "0.375rem 0.875rem",
-                borderRadius: "var(--radius-full, 9999px)",
-                textDecoration: "none",
-                fontSize: "0.75rem",
-                whiteSpace: "nowrap",
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.375rem",
-                letterSpacing: "0.01em",
-              }}
-            >
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "0.875rem", height: "0.875rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Book a Call
-            </Link>
-
             <button
               className="header-mobile-toggle"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -202,31 +178,6 @@ export default function Header() {
                 {item.label}
               </Link>
             ))}
-
-            {/* Mobile CTA */}
-            <Link
-              href="/work-with-me#discovery"
-              onClick={closeMobile}
-              style={{
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                gap: "0.5rem",
-                marginTop: "1.5rem",
-                padding: "0.75rem 1.25rem",
-                backgroundColor: "#5C6B4A",
-                color: "#fff",
-                fontWeight: 600,
-                fontSize: "0.875rem",
-                borderRadius: "9999px",
-                textDecoration: "none",
-              }}
-            >
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} style={{ width: "1rem", height: "1rem" }} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-              </svg>
-              Book a Call
-            </Link>
 
             {/* Secondary mobile links */}
             <div style={{ marginTop: "1.5rem", paddingTop: "1rem", borderTop: "1px solid #E8DED0" }}>

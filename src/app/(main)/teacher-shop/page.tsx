@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import TeacherShopAffiliateSection from "@/components/TeacherShopAffiliateSection";
 import "./teacher-shop.css";
 
 const lessons = [
@@ -181,9 +180,6 @@ export default function TeacherShopPage() {
           </div>
         </div>
       </section>
-
-      {/* ─── Amazon Affiliate Products ─── */}
-      <TeacherShopAffiliateSection />
 
       {/* ─── Teacher Tools ─── */}
       <section className="ts-tools-section section" aria-labelledby="ts-tools-heading">

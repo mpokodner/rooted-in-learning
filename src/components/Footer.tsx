@@ -228,8 +228,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/family-hub" className="footer-link">
-                      Family Hub
+                    <Link href="/parent-resources" className="footer-link">
+                      Parent Resources
                     </Link>
                   </li>
                   <li>
@@ -250,8 +250,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/recommended-tools" className="footer-link">
-                      Recommended Tools
+                    <Link href="/my-picks" className="footer-link">
+                      My Picks
                     </Link>
                   </li>
                   <li>

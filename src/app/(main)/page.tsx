@@ -184,7 +184,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/family-hub" className="audience-card group">
+            <Link href="/parent-resources" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--family">
                 <svg
                   fill="none"
@@ -205,7 +205,7 @@ export default function Home() {
                 extra practice beyond homework.
               </p>
               <span className="audience-card-cta">
-                Visit the Family Hub
+                Parent Resources
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"

@@ -3,7 +3,7 @@ import Link from "next/link";
 import "./favorites.css";
 
 export const metadata: Metadata = {
-  title: "Recommended Tools | The Rooted Learner",
+  title: "My Picks | The Rooted Learner",
   description:
     "Curated list of must-have tools, books, and gear for educators. Personally tested and recommended by a veteran teacher.",
   keywords: [
@@ -15,10 +15,10 @@ export const metadata: Metadata = {
     "AI tools for teachers",
   ],
   alternates: {
-    canonical: "/recommended-tools",
+    canonical: "/my-picks",
   },
   openGraph: {
-    title: "Tools I Trust | The Rooted Learner",
+    title: "My Picks | The Rooted Learner",
     description:
       "Educator-recommended must-haves, personally tested and recommended.",
     type: "website",
@@ -51,7 +51,7 @@ const favorites = [
   { id: 15, title: "Document Camera", category: "Gear", description: "I use mine daily for modeling writing, showing student work, and interactive read-alouds. Way more versatile than I expected.", link: "#" },
 ];
 
-export default function RecommendedToolsPage() {
+export default function MyPicksPage() {
   return (
     <div className="min-h-screen bg-(--neutral-bg)">
       {/* Hero Section */}
@@ -59,7 +59,7 @@ export default function RecommendedToolsPage() {
         <div className="favs-container">
           <div className="favs-hero-inner">
             <p className="favs-hero-label">Educator-Recommended</p>
-            <h1 className="favs-hero-title">Tools I Trust</h1>
+            <h1 className="favs-hero-title">My Picks</h1>
             <p className="favs-hero-desc">
               Every tool here is something I&apos;ve personally used or
               thoroughly vetted. I earn a small commission on some purchases —

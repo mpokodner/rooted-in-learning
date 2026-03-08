@@ -12,10 +12,10 @@ interface NavItem {
 
 const NAV_ITEMS: NavItem[] = [
   { href: "/teacher-shop", label: "Teacher Shop" },
-  { href: "/family-hub", label: "Family Hub" },
+  { href: "/parent-resources", label: "Parent Resources" },
   { href: "/edtech-tools", label: "EdTech Tools" },
   { href: "/work-with-me", label: "Work With Me" },
-  { href: "/recommended-tools", label: "Recommended Tools" },
+  { href: "/my-picks", label: "My Picks" },
   { href: "/blog", label: "Blog" },
 ];
 

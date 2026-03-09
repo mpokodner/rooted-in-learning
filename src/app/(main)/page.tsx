@@ -304,39 +304,6 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SECTION 3B — TECH STACK
-      ═══════════════════════════════════════════ */}
-      <section className="techstack-section" aria-labelledby="tech-heading">
-        <div className="container">
-          <p className="techstack-eyebrow">Technology</p>
-          <h2 id="tech-heading" className="techstack-heading">
-            Modern Stack, Educator Soul
-          </h2>
-
-          <div className="techstack-badges">
-            {[
-              "Next.js",
-              "React",
-              "Tailwind CSS",
-              "Supabase",
-              "Stripe",
-              "Sanity CMS",
-              "Vercel",
-              "LangChain",
-              "ChromaDB",
-              "Pinecone",
-              "Python",
-              "Resend",
-            ].map((tech) => (
-              <span key={tech} className="techstack-badge">
-                {tech}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
           SECTION 3C — WHY US / CREDENTIALS
       ═══════════════════════════════════════════ */}
       <section className="whyus-section" aria-labelledby="whyus-heading">

@@ -39,16 +39,7 @@ export default function LearnPage() {
           priority
           sizes="100vw"
         />
-        <div className="learn-hero-overlay" aria-hidden="true" />
-        <div className="learn-hero-content">
-          <h1 id="learn-heading" className="learn-hero-title">
-            Rooted in Learning
-          </h1>
-          <p className="learn-hero-desc">
-            Grow your skills with AI tutorials, tech guides, and
-            research-backed articles — all created for K-8 educators.
-          </p>
-        </div>
+        <span className="sr-only" id="learn-heading">Learn</span>
       </section>
 
       {/* ─── Pathway Cards ─── */}

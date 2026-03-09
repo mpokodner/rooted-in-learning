@@ -35,29 +35,6 @@ const contentPillars = [
   { id: "teaching-systems", label: "Teaching Systems Design" },
 ];
 
-const startHere = [
-  {
-    title: "New to Science of Reading?",
-    description:
-      "Start with the evidence base that's changing literacy instruction nationwide.",
-    link: "/learn/blog",
-    linkText: "Read the SoR Primer",
-  },
-  {
-    title: "Exploring AI for Teaching?",
-    description:
-      "A practical, no-hype guide to AI tools that actually help in the classroom.",
-    link: "/learn/blog",
-    linkText: "Get Started with AI",
-  },
-  {
-    title: "Building Better Systems?",
-    description:
-      "Learn how to create teaching infrastructure that scales your impact.",
-    link: "/learn/blog",
-    linkText: "Read Systems Design",
-  },
-];
 
 export default async function BlogPage() {
   return (
@@ -203,59 +180,6 @@ export default async function BlogPage() {
         </div>
       </section>
 
-      {/* ─── Start Here Section ─── */}
-      <section className="blog-start section" aria-labelledby="start-heading">
-        <div className="container">
-          <div className="blog-start-header">
-            <p className="blog-section-label">New Here?</p>
-            <h2 id="start-heading" className="blog-start-title">
-              Start Here
-            </h2>
-            <p className="blog-start-desc">
-              Not sure where to begin? Pick the topic that speaks to your
-              biggest challenge right now.
-            </p>
-          </div>
-
-          <div className="blog-start-grid">
-            {startHere.map((item, index) => (
-              <div key={index} className="blog-start-card" style={{ cursor: "default" }}>
-                <div className="blog-start-number">
-                  {String(index + 1).padStart(2, "0")}
-                </div>
-                <h3 className="blog-start-card-title">{item.title}</h3>
-                <p className="blog-start-card-desc">{item.description}</p>
-                <span className="blog-start-card-link" style={{ opacity: 0.6 }}>
-                  Coming Soon
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            ))}
-          </div>
-
-          {/* Cross-links */}
-          <div className="blog-crosslinks">
-            <Link href="/shop" className="blog-crosslink">
-              Browse Lesson Library &rarr;
-            </Link>
-            <Link href="/services" className="blog-crosslink">
-              Explore Consulting &rarr;
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

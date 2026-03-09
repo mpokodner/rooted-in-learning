@@ -106,7 +106,7 @@
 @media (min-width: 960px) {
   .hero-container {
     display: grid;
-    grid-template-columns: 1fr 20rem;
+    grid-template-columns: 1fr 1fr;
     align-items: center;
     gap: 3rem;
     text-align: left;
@@ -370,96 +370,39 @@
 }
 
 
-/* ─── Hero Aside (right column) ─── */
+/* ─── Hero Aside (right column — image) ─── */
 
 .hero-aside {
   margin-top: clamp(1.5rem, 3vw, 2rem);
+  display: flex;
+  justify-content: center;
 }
 
 @media (min-width: 960px) {
   .hero-aside {
     margin-top: 0;
+    justify-content: flex-end;
   }
 }
 
-
-/* ─── Hero Trust Bar ─── */
-
-.hero-trust-bar {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: clamp(1rem, 2.5vw, 2rem);
-  flex-wrap: wrap;
-  padding: clamp(1rem, 2vw, 1.5rem) clamp(1.25rem, 3vw, 2rem);
-  background-color: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg, 1rem);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+.hero-side-image {
+  width: 100%;
+  max-width: 28rem;
+  height: auto;
+  border-radius: var(--radius-xl, 1.5rem);
+  object-fit: contain;
+  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
 }
 
-@media (min-width: 960px) {
-  .hero-trust-bar {
-    flex-direction: column;
-    gap: 1.5rem;
-    padding: 2rem 1.5rem;
-  }
-
-  .hero-trust-divider {
-    width: 100%;
-    height: 1px;
-  }
-
-  .hero-trust-number {
-    font-size: var(--text-3xl, 1.875rem);
+@media (max-width: 959px) {
+  .hero-side-image {
+    max-width: 20rem;
   }
 }
 
-.hero-trust-item {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.125rem;
-}
-
-.hero-trust-number {
-  font-family: var(--font-heading, "Cal Sans", "Inter", system-ui, sans-serif);
-  font-size: var(--text-xl, 1.25rem);
-  font-weight: 800;
-  color: var(--white, #FFFFFF);
-  line-height: 1;
-}
-
-.hero-trust-label {
-  font-size: 0.6875rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.6);
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-}
-
-.hero-trust-divider {
-  width: 1px;
-  height: 2rem;
-  background-color: rgba(255, 255, 255, 0.15);
-  flex-shrink: 0;
-}
-
-/* Hide dividers on very small screens, stack stats */
 @media (max-width: 479px) {
-  .hero-trust-bar {
-    gap: 1.25rem 2rem;
-  }
-
-  .hero-trust-divider {
-    display: none;
-  }
-}
-
-@media (min-width: 768px) and (max-width: 959px) {
-  .hero-trust-number {
-    font-size: var(--text-2xl, 1.5rem);
+  .hero-side-image {
+    max-width: 16rem;
   }
 }
 

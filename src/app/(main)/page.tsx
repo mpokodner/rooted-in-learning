@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 import "./home.css";
@@ -76,24 +77,14 @@ export default function Home() {
           </div>
 
           <div className="hero-aside animate-fade-up animate-delay-4">
-            <div className="hero-trust-bar">
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">12+</span>
-                <span className="hero-trust-label">Years K-8 Experience</span>
-              </div>
-              <div className="hero-trust-divider" />
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">MA</span>
-                <span className="hero-trust-label">
-                  Curriculum &amp; Instruction
-                </span>
-              </div>
-              <div className="hero-trust-divider" />
-              <div className="hero-trust-item">
-                <span className="hero-trust-number">SoR</span>
-                <span className="hero-trust-label">Certified Practitioner</span>
-              </div>
-            </div>
+            <Image
+              src="/hero-side.png"
+              alt="Education meets technology — classroom scenes, EdTech icons, and a laptop displaying The Rooted Learner"
+              width={600}
+              height={700}
+              className="hero-side-image"
+              priority
+            />
           </div>
         </div>
       </section>

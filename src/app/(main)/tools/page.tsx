@@ -4,11 +4,11 @@ import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import "./edtech-tools.css";
 
 export const metadata: Metadata = {
-  title: "EdTech Tools | The Rooted Learner",
+  title: "Tools | The Rooted Learner",
   description:
     "AI-powered tools for educators — built by a teacher who codes. Standards-based assessment, Science of Reading chatbot, text leveling, and more.",
   alternates: {
-    canonical: "/edtech-tools",
+    canonical: "/tools",
   },
 };
 
@@ -101,7 +101,7 @@ export default function EdTechToolsPage() {
               <a href="#assessalign" className="et-btn et-btn--primary">
                 Explore AssessAlign
               </a>
-              <Link href="/work-with-me" className="et-btn et-btn--outline">
+              <Link href="/services" className="et-btn et-btn--outline">
                 Work With Me
               </Link>
             </div>
@@ -236,7 +236,7 @@ export default function EdTechToolsPage() {
             </div>
             <p className="et-tool-card-callout">
               Need a custom tool for your school or district?{" "}
-              <Link href="/work-with-me">Let&apos;s talk.</Link>
+              <Link href="/services">Let&apos;s talk.</Link>
             </p>
           </div>
         </div>
@@ -283,7 +283,7 @@ export default function EdTechToolsPage() {
             </div>
             <p className="et-tool-card-callout">
               Need a custom tool for your school or district?{" "}
-              <Link href="/work-with-me">Let&apos;s talk.</Link>
+              <Link href="/services">Let&apos;s talk.</Link>
             </p>
           </div>
         </div>

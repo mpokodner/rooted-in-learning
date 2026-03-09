@@ -162,7 +162,7 @@ export default function MyPicksPage() {
       <section className="favs-crosslinks">
         <div className="favs-container">
           <div className="favs-crosslinks-grid">
-            <Link href="/teacher-shop" className="favs-crosslink-card">
+            <Link href="/shop" className="favs-crosslink-card">
               <div className="favs-crosslink-icon">
                 <svg
                   fill="none"
@@ -200,7 +200,7 @@ export default function MyPicksPage() {
               </span>
             </Link>
 
-            <Link href="/edtech-tools" className="favs-crosslink-card">
+            <Link href="/tools" className="favs-crosslink-card">
               <div className="favs-crosslink-icon">
                 <svg
                   fill="none"
@@ -238,7 +238,7 @@ export default function MyPicksPage() {
               </span>
             </Link>
 
-            <Link href="/work-with-me" className="favs-crosslink-card">
+            <Link href="/services" className="favs-crosslink-card">
               <div className="favs-crosslink-icon">
                 <svg
                   fill="none"

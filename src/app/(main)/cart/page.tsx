@@ -26,7 +26,7 @@ export default function CartPage() {
               <p className="text-(--text-muted) mb-6">
                 Looks like you haven&apos;t added any resources yet. Start browsing to find what you need!
               </p>
-              <Link href="/teacher-shop" className="btn btn-md btn-primary rounded-lg">
+              <Link href="/shop" className="btn btn-md btn-primary rounded-lg">
                 Start Shopping
               </Link>
             </div>

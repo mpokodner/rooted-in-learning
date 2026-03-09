@@ -223,8 +223,8 @@ export default function Footer() {
                 <h5 className="footer-heading">Shop</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/teacher-shop" className="footer-link">
-                      Teacher Shop
+                    <Link href="/shop" className="footer-link">
+                      Browse Resources
                     </Link>
                   </li>
                   <li>
@@ -233,7 +233,7 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/edtech-tools" className="footer-link">
+                    <Link href="/tools" className="footer-link">
                       EdTech Tools
                     </Link>
                   </li>
@@ -245,13 +245,13 @@ export default function Footer() {
                 <h5 className="footer-heading">Learn</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/blog" className="footer-link">
-                      Blog
+                    <Link href="/learn/teacher-toolkit" className="footer-link">
+                      Teacher Toolkit
                     </Link>
                   </li>
                   <li>
-                    <Link href="/my-picks" className="footer-link">
-                      My Picks
+                    <Link href="/learn/blog" className="footer-link">
+                      Blog
                     </Link>
                   </li>
                   <li>
@@ -267,22 +267,22 @@ export default function Footer() {
                 <h5 className="footer-heading">Services</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/work-with-me" className="footer-link">
-                      Work With Me
+                    <Link href="/services" className="footer-link">
+                      Consulting
                     </Link>
                   </li>
                   <li>
-                    <Link href="/work-with-me#discovery" className="footer-link">
+                    <Link href="/services#discovery" className="footer-link">
                       Book a Discovery Call
                     </Link>
                   </li>
                   <li>
-                    <Link href="/edtech-tools" className="footer-link">
+                    <Link href="/tools" className="footer-link">
                       AI Integration
                     </Link>
                   </li>
                   <li>
-                    <Link href="/work-with-me" className="footer-link">
+                    <Link href="/services" className="footer-link">
                       Custom Solutions
                     </Link>
                   </li>

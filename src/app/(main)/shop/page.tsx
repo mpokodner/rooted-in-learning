@@ -312,7 +312,7 @@ export default function TeacherShopPage() {
       <section className="ts-crosslinks section" aria-label="Related pages">
         <div className="container">
           <div className="ts-crosslinks-grid">
-            <Link href="/work-with-me" className="ts-crosslink-card">
+            <Link href="/services" className="ts-crosslink-card">
               <h3 className="ts-crosslink-title">Need customized support?</h3>
               <p className="ts-crosslink-desc">Explore consulting for personalized curriculum design and coaching.</p>
               <span className="ts-crosslink-cta">
@@ -322,7 +322,7 @@ export default function TeacherShopPage() {
                 </svg>
               </span>
             </Link>
-            <Link href="/blog" className="ts-crosslink-card">
+            <Link href="/learn/blog" className="ts-crosslink-card">
               <h3 className="ts-crosslink-title">Want teaching strategies?</h3>
               <p className="ts-crosslink-desc">Read research-backed articles on reading, AI, and classroom systems.</p>
               <span className="ts-crosslink-cta">

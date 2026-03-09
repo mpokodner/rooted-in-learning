@@ -27,7 +27,7 @@ export default async function BlogPostPage({
           <div className="bp-hero-orb bp-hero-orb--2" />
         </div>
         <div className="bp-container bp-hero-content">
-          <Link href="/blog" className="bp-back">
+          <Link href="/learn/blog" className="bp-back">
             <svg
               fill="none"
               viewBox="0 0 24 24"

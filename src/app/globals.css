@@ -471,7 +471,7 @@ a:hover {
   padding: 0.5rem clamp(0.625rem, 1vw, 1rem);
   font-size: var(--text-xs);
   font-weight: 600;
-  text-transform: uppercase;
+  text-transform: none;
   letter-spacing: var(--tracking-widest);
   color: var(--text-muted);
   text-decoration: none;
@@ -563,6 +563,16 @@ a:hover {
 
 .header-chevron--open {
   transform: rotate(180deg);
+}
+
+/* ─── Dropdown Wrapper (relative anchor for absolute dropdown) ─── */
+
+.header-nav-dropdown-wrapper {
+  position: relative;
+}
+
+.header-dropdown-link--bordered {
+  border-bottom: 1px solid var(--border-beige);
 }
 
 /* ─── Header Actions Group ─── */

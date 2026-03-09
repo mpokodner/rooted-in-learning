@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "education blog",
   ],
   alternates: {
-    canonical: "/blog",
+    canonical: "/learn/blog",
   },
   openGraph: {
     title: "Blog | The Rooted Learner",
@@ -40,21 +40,21 @@ const startHere = [
     title: "New to Science of Reading?",
     description:
       "Start with the evidence base that's changing literacy instruction nationwide.",
-    link: "/blog",
+    link: "/learn/blog",
     linkText: "Read the SoR Primer",
   },
   {
     title: "Exploring AI for Teaching?",
     description:
       "A practical, no-hype guide to AI tools that actually help in the classroom.",
-    link: "/blog",
+    link: "/learn/blog",
     linkText: "Get Started with AI",
   },
   {
     title: "Building Better Systems?",
     description:
       "Learn how to create teaching infrastructure that scales your impact.",
-    link: "/blog",
+    link: "/learn/blog",
     linkText: "Read Systems Design",
   },
 ];
@@ -247,10 +247,10 @@ export default async function BlogPage() {
 
           {/* Cross-links */}
           <div className="blog-crosslinks">
-            <Link href="/teacher-shop" className="blog-crosslink">
+            <Link href="/shop" className="blog-crosslink">
               Browse Lesson Library &rarr;
             </Link>
-            <Link href="/work-with-me" className="blog-crosslink">
+            <Link href="/services" className="blog-crosslink">
               Explore Consulting &rarr;
             </Link>
           </div>

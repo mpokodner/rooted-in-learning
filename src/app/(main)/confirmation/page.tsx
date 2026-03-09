@@ -110,7 +110,7 @@ export default function ConfirmationPage() {
                 View My Orders
               </Link>
               <Link
-                href="/teacher-shop"
+                href="/shop"
                 className="btn btn-md btn-primary rounded-lg"
               >
                 Continue Shopping

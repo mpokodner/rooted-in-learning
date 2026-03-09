@@ -37,68 +37,22 @@ export default function Home() {
             </div>
 
             <h1 className="hero-heading animate-fade-up animate-delay-1">
-              Research-Backed Resources &amp; AI-Powered Tools{" "}
-              <span className="hero-heading-accent">
-                for Educators, Families, and Schools
-              </span>
+              Making Teaching Easier,{" "}
+              <span className="hero-heading-accent">Not Harder</span>
             </h1>
 
             <p className="hero-subheadline animate-fade-up animate-delay-2">
-              Practical tools, ready-to-teach curriculum, and strategic
-              consulting — built by a 12+ year veteran educator who codes.
+              Discover AI-powered tools and curriculum solutions designed
+              specifically for the K-8 classroom. Empower your students and
+              reclaim your time.
             </p>
 
-            <div className="hero-primary-cta animate-fade-up animate-delay-3">
-              <Link href="/teacher-shop" className="hero-cta-btn">
-                Browse the Teacher Shop
-                <svg
-                  className="hero-cta-arrow"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+            <div className="hero-cta-row animate-fade-up animate-delay-3">
+              <Link href="/shop" className="hero-cta-btn hero-cta-btn--earth">
+                Explore the Shop
               </Link>
-            </div>
-
-            <div className="hero-secondary-row animate-fade-up animate-delay-3">
-              <Link href="/edtech-tools" className="hero-secondary-btn">
-                <svg
-                  className="hero-secondary-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
-                </svg>
-                See AssessAlign
-              </Link>
-              <Link href="/work-with-me#discovery" className="hero-secondary-btn">
-                <svg
-                  className="hero-secondary-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                  />
-                </svg>
-                Book a Call
+              <Link href="/services" className="hero-cta-btn hero-cta-btn--dark">
+                Work With Me
               </Link>
             </div>
           </div>
@@ -147,7 +101,7 @@ export default function Home() {
           </div>
 
           <div className="audience-pathway-grid">
-            <Link href="/teacher-shop" className="audience-card group">
+            <Link href="/shop" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--educator">
                 <svg
                   fill="none"
@@ -158,17 +112,17 @@ export default function Home() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342"
+                    d="M15.75 10.5V6a3.75 3.75 0 10-7.5 0v4.5m11.356-1.993l1.263 12c.07.665-.45 1.243-1.119 1.243H4.25a1.125 1.125 0 01-1.12-1.243l1.264-12A1.125 1.125 0 015.513 7.5h12.974c.576 0 1.059.435 1.119 1.007zM8.625 10.5a.375.375 0 11-.75 0 .375.375 0 01.75 0zm7.5 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
                   />
                 </svg>
               </div>
-              <h3 className="audience-card-title">I&apos;m a Teacher</h3>
+              <h3 className="audience-card-title">Shop</h3>
               <p className="audience-card-desc">
-                Ready-to-teach lessons, time-saving tools, and strategies that
-                actually work in the classroom.
+                Digital Curriculum &amp; Toolkits designed to simplify your
+                lesson planning and engage every learner.
               </p>
               <span className="audience-card-cta">
-                Browse the Teacher Shop
+                Browse Resources
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -184,7 +138,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/parent-resources" className="audience-card group">
+            <Link href="/learn" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--family">
                 <svg
                   fill="none"
@@ -195,17 +149,17 @@ export default function Home() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z"
+                    d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
                   />
                 </svg>
               </div>
-              <h3 className="audience-card-title">I&apos;m a Parent or Family</h3>
+              <h3 className="audience-card-title">Learn</h3>
               <p className="audience-card-desc">
-                Help your child build confidence, close skill gaps, and get
-                extra practice beyond homework.
+                AI for Educators. Master the latest technology to automate
+                administrative tasks and enhance creativity.
               </p>
               <span className="audience-card-cta">
-                Parent Resources
+                Start Learning
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -221,7 +175,7 @@ export default function Home() {
               </span>
             </Link>
 
-            <Link href="/work-with-me" className="audience-card group">
+            <Link href="/services" className="audience-card group">
               <div className="audience-card-icon audience-card-icon--school">
                 <svg
                   fill="none"
@@ -232,19 +186,17 @@ export default function Home() {
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
-                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
+                    d="M9 12h3.75M9 15h3.75M9 18h3.75m3 .75H18a2.25 2.25 0 002.25-2.25V6.108c0-1.135-.845-2.098-1.976-2.192a48.424 48.424 0 00-6.274-.243c-2.17 0-4.318.119-6.274.243-1.131.094-1.976 1.057-1.976 2.192V16.5A2.25 2.25 0 006 18.75h.75m6-12h3.75m-3.75 3h3.75m-3.75 3h3.75M6.75 6.75h.008v.008H6.75V6.75zm0 3h.008v.008H6.75V9.75zm0 3h.008v.008H6.75v-.008zm0 3h.008v.008H6.75v-.008z"
                   />
                 </svg>
               </div>
-              <h3 className="audience-card-title">
-                I&apos;m a School or District Leader
-              </h3>
+              <h3 className="audience-card-title">Services</h3>
               <p className="audience-card-desc">
-                Strategic consulting for literacy programs, EdTech integration,
-                AI implementation, and curriculum design.
+                Professional Development tailored for schools and districts
+                seeking modern pedagogical strategies.
               </p>
               <span className="audience-card-cta audience-card-cta--school">
-                Work With Me
+                View Services
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -302,7 +254,7 @@ export default function Home() {
                 Standards-based assessment tools that align to your curriculum
                 and give you actionable data on student progress.
               </p>
-              <Link href="/edtech-tools" className="resource-link">
+              <Link href="/tools" className="resource-link">
                 AI-Powered Assessment
                 <svg
                   className="resource-link-icon"
@@ -336,12 +288,12 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="resource-title">Teacher Shop</h3>
+              <h3 className="resource-title">Shop</h3>
               <p className="resource-desc">
                 Standards-aligned, ready-to-use curriculum, lesson packs, and
                 classroom tools. Just download and teach.
               </p>
-              <Link href="/teacher-shop" className="resource-link">
+              <Link href="/shop" className="resource-link">
                 Browse Lessons &amp; Tools
                 <svg
                   className="resource-link-icon"
@@ -375,12 +327,12 @@ export default function Home() {
                   />
                 </svg>
               </div>
-              <h3 className="resource-title">Work With Me</h3>
+              <h3 className="resource-title">Services</h3>
               <p className="resource-desc">
                 Strategic consulting for schools, districts, and educators.
                 Literacy systems, EdTech integration, and AI implementation.
               </p>
-              <Link href="/work-with-me" className="resource-link">
+              <Link href="/services" className="resource-link">
                 Book a Discovery Call
                 <svg
                   className="resource-link-icon"
@@ -459,7 +411,7 @@ export default function Home() {
                   </svg>
                   About Me
                 </Link>
-                <Link href="/work-with-me" className="consulting-cta-btn">
+                <Link href="/services" className="consulting-cta-btn">
                   <svg
                     className="consulting-cta-icon"
                     fill="none"
@@ -473,7 +425,7 @@ export default function Home() {
                       d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
                     />
                   </svg>
-                  Work With Me
+                  Services
                 </Link>
               </div>
             </div>
@@ -525,7 +477,7 @@ export default function Home() {
                 modern educators.
               </p>
             </div>
-            <Link href="/blog" className="blog-view-all">
+            <Link href="/learn/blog" className="blog-view-all">
               View all articles
               <svg
                 className="blog-view-all-icon"
@@ -572,7 +524,7 @@ export default function Home() {
                 multilingual learner support, AI in education, and the systems
                 that make great teaching sustainable. Articles launching soon.
               </p>
-              <Link href="/blog" className="featured-article-link">
+              <Link href="/learn/blog" className="featured-article-link">
                 Visit the Blog
                 <svg
                   className="featured-article-link-arrow"
@@ -657,7 +609,7 @@ export default function Home() {
               gap: "1rem",
             }}
           >
-            <Link href="/edtech-tools" className="hero-cta-btn">
+            <Link href="/tools" className="hero-cta-btn">
               View AssessAlign
               <svg
                 className="hero-cta-arrow"
@@ -673,7 +625,7 @@ export default function Home() {
                 />
               </svg>
             </Link>
-            <Link href="/work-with-me#discovery" className="consulting-cta-btn">
+            <Link href="/services#discovery" className="consulting-cta-btn">
               <svg
                 className="consulting-cta-icon"
                 fill="none"

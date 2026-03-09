@@ -357,7 +357,7 @@ export default function ParentResourcesPage() {
               personalized recommendations, and a clear action plan for your
               child.
             </p>
-            <Link href="/work-with-me" className="pr-consult-cta">
+            <Link href="/services" className="pr-consult-cta">
               Book a Consultation
               <svg
                 width="20"
@@ -439,7 +439,7 @@ export default function ParentResourcesPage() {
       <section className="pr-crosslinks section" aria-label="Related pages">
         <div className="container">
           <div className="pr-crosslinks-grid">
-            <Link href="/teacher-shop" className="pr-crosslink-card">
+            <Link href="/shop" className="pr-crosslink-card">
               <h3 className="pr-crosslink-title">Looking for lesson packs?</h3>
               <p className="pr-crosslink-desc">
                 Browse classroom-tested resources for educators and families.
@@ -461,7 +461,7 @@ export default function ParentResourcesPage() {
                 </svg>
               </span>
             </Link>
-            <Link href="/work-with-me" className="pr-crosslink-card">
+            <Link href="/services" className="pr-crosslink-card">
               <h3 className="pr-crosslink-title">
                 Need customized support?
               </h3>

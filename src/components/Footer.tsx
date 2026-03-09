@@ -218,7 +218,7 @@ export default function Footer() {
 
             {/* Links Columns */}
             <div className="footer-links-grid">
-              {/* Shop */}
+              {/* Shop & Tools */}
               <div>
                 <h5 className="footer-heading">Shop</h5>
                 <ul className="footer-link-list">
@@ -228,13 +228,13 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/parent-resources" className="footer-link">
-                      Parent Resources
+                    <Link href="/tools" className="footer-link">
+                      Tools
                     </Link>
                   </li>
                   <li>
-                    <Link href="/tools" className="footer-link">
-                      EdTech Tools
+                    <Link href="/parent-resources" className="footer-link">
+                      Parent Resources
                     </Link>
                   </li>
                 </ul>
@@ -274,16 +274,6 @@ export default function Footer() {
                   <li>
                     <Link href="/services#discovery" className="footer-link">
                       Book a Discovery Call
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools" className="footer-link">
-                      AI Integration
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services" className="footer-link">
-                      Custom Solutions
                     </Link>
                   </li>
                 </ul>

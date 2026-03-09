@@ -200,22 +200,6 @@ export default function ToolsPage() {
                   A complete library of ready-to-teach lessons designed using
                   Science of Reading principles and UDL.
                 </p>
-                <Link href="/shop" className="tools-btn tools-btn--primary tools-btn--sm">
-                  Browse Lessons
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </Link>
               </div>
               <div className="tools-other-card-bottom">
                 <h4 className="tools-other-col-heading">Core Focus</h4>
@@ -278,22 +262,6 @@ export default function ToolsPage() {
                   A chatbot grounded in Science of Reading research. Ask
                   questions, get evidence-based answers with source citations.
                 </p>
-                <a href="#early-access" className="tools-btn tools-btn--primary tools-btn--sm">
-                  Get Notified When This Launches
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
-                  </svg>
-                </a>
               </div>
               <div className="tools-other-card-bottom">
                 <h4 className="tools-other-col-heading">Key Features</h4>
@@ -328,74 +296,71 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      {/* ─── How I Build ─── */}
-      <section className="tools-how section" aria-labelledby="tools-how-heading">
+      {/* ─── How I Build + Early Access (side by side) ─── */}
+      <section id="early-access" className="tools-how section" aria-labelledby="tools-how-heading">
         <div className="container">
-          <div className="tools-how-inner">
-            <p className="tools-section-label">How I Build</p>
-            <h2 id="tools-how-heading" className="tools-how-title">
-              Teacher Expertise Meets Modern Development
-            </h2>
-            <p className="tools-how-desc">
-              Every tool starts with a real classroom problem. I prototype
-              quickly, test with real educators, and iterate based on feedback
-              — not assumptions. The stack is modern, but the priorities are
-              grounded: does it actually save a teacher time? If not, it
-              doesn&apos;t ship.
-            </p>
-            <p className="tools-how-desc">
-              If you&apos;re a school, district, or EdTech company looking for
-              someone who can bridge the gap between pedagogy and production
-              code, these tools are my proof of concept.
-            </p>
-            <div className="tools-tech-row">
-              {techStack.map((tech) => (
-                <div key={tech.name} className="tools-tech-item">
-                  <div className={`tools-tech-icon tools-tech-icon--${tech.icon}`}>
-                    {tech.icon === "vue" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M12 20L2 4h4l6 10 6-10h4L12 20z" />
-                      </svg>
-                    )}
-                    {tech.icon === "react" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                        <circle cx="12" cy="12" r="2.5" />
-                        <ellipse cx="12" cy="12" rx="10" ry="4" />
-                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
-                        <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
-                      </svg>
-                    )}
-                    {tech.icon === "next" && (
-                      <span className="tools-tech-letter">N</span>
-                    )}
-                    {tech.icon === "supabase" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M13 3l-1 10h7L11 21l1-10H5L13 3z" />
-                      </svg>
-                    )}
-                    {tech.icon === "ai" && (
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                      </svg>
-                    )}
+          <div className="tools-how-split">
+            <div className="tools-how-col">
+              <p className="tools-section-label">How I Build</p>
+              <h2 id="tools-how-heading" className="tools-how-title">
+                Teacher Expertise Meets Modern Development
+              </h2>
+              <p className="tools-how-desc">
+                Every tool starts with a real classroom problem. I prototype
+                quickly, test with real educators, and iterate based on feedback
+                — not assumptions. The stack is modern, but the priorities are
+                grounded: does it actually save a teacher time? If not, it
+                doesn&apos;t ship.
+              </p>
+              <p className="tools-how-desc">
+                If you&apos;re a school, district, or EdTech company looking for
+                someone who can bridge the gap between pedagogy and production
+                code, these tools are my proof of concept.
+              </p>
+              <div className="tools-tech-row">
+                {techStack.map((tech) => (
+                  <div key={tech.name} className="tools-tech-item">
+                    <div className={`tools-tech-icon tools-tech-icon--${tech.icon}`}>
+                      {tech.icon === "vue" && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 20L2 4h4l6 10 6-10h4L12 20z" />
+                        </svg>
+                      )}
+                      {tech.icon === "react" && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                          <circle cx="12" cy="12" r="2.5" />
+                          <ellipse cx="12" cy="12" rx="10" ry="4" />
+                          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
+                          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
+                        </svg>
+                      )}
+                      {tech.icon === "next" && (
+                        <span className="tools-tech-letter">N</span>
+                      )}
+                      {tech.icon === "supabase" && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 3l-1 10h7L11 21l1-10H5L13 3z" />
+                        </svg>
+                      )}
+                      {tech.icon === "ai" && (
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
+                          <circle cx="12" cy="12" r="3" />
+                          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+                        </svg>
+                      )}
+                    </div>
+                    <span className="tools-tech-label">{tech.name}</span>
                   </div>
-                  <span className="tools-tech-label">{tech.name}</span>
-                </div>
-              ))}
+                ))}
+              </div>
             </div>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Early Access ─── */}
-      <section id="early-access" className="tools-early section">
-        <div className="container">
-          <div className="tools-early-inner">
-            <EarlyAccessForm
-              heading="Get Early Access to AssessAlign"
-              description="Be the first to try AssessAlign. Join the waitlist and we'll notify you when beta spots open up."
-            />
+            <div className="tools-how-form-col">
+              <EarlyAccessForm
+                heading="Get Early Access to AssessAlign"
+                description="Be the first to try AssessAlign. Join the waitlist and we'll notify you when beta spots open up."
+              />
+            </div>
           </div>
         </div>
       </section>

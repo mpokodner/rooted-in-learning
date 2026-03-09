@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { EarlyAccessForm } from "@/components/EarlyAccessForm";
+import assessAlignImg from "../about/projects/images/assessalignpng.png";
 import "./edtech-tools.css";
 
 export const metadata: Metadata = {
@@ -108,34 +110,14 @@ export default function ToolsPage() {
                 </div>
               </div>
 
-              <div className="tools-aa-mockup" aria-hidden="true">
-                <div className="tools-mockup-frame">
-                  <div className="tools-mockup-toolbar">
-                    <span className="tools-mockup-dot tools-mockup-dot--red" />
-                    <span className="tools-mockup-dot tools-mockup-dot--yellow" />
-                    <span className="tools-mockup-dot tools-mockup-dot--green" />
-                    <span className="tools-mockup-url">AssessAlign Dashboard Preview</span>
-                  </div>
-                  <div className="tools-mockup-body">
-                    <div className="tools-mockup-sidebar">
-                      <div className="tools-mockup-nav tools-mockup-nav--active" />
-                      <div className="tools-mockup-nav" />
-                      <div className="tools-mockup-nav" />
-                    </div>
-                    <div className="tools-mockup-content">
-                      <div className="tools-mockup-line tools-mockup-line--heading" />
-                      <div className="tools-mockup-line tools-mockup-line--full" />
-                      <div className="tools-mockup-line tools-mockup-line--80" />
-                      <div className="tools-mockup-chart">
-                        <div className="tools-mockup-bar" style={{ height: "55%" }} />
-                        <div className="tools-mockup-bar" style={{ height: "80%" }} />
-                        <div className="tools-mockup-bar" style={{ height: "40%" }} />
-                        <div className="tools-mockup-bar" style={{ height: "65%" }} />
-                        <div className="tools-mockup-bar" style={{ height: "90%" }} />
-                      </div>
-                    </div>
-                  </div>
-                </div>
+              <div className="tools-aa-image-wrap">
+                <Image
+                  src={assessAlignImg}
+                  alt="AssessAlign Dashboard — showing teacher dashboard with assessment creation, class management, and standards alignment"
+                  className="tools-aa-image"
+                  placeholder="blur"
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                />
               </div>
             </div>
 
@@ -188,7 +170,7 @@ export default function ToolsPage() {
           </h2>
           <div className="tools-other-grid">
             {/* Microlearning Lesson System */}
-            <div className="tools-other-card">
+            <div className="tools-other-card tools-other-card--earth">
               <div className="tools-other-card-top">
                 <div className="tools-other-badges">
                   <span className="tools-badge tools-badge--earth">
@@ -266,11 +248,11 @@ export default function ToolsPage() {
             </div>
 
             {/* Dynamic Curriculum Planner */}
-            <div className="tools-other-card">
+            <div className="tools-other-card tools-other-card--terracotta">
               <div className="tools-other-card-top">
                 <div className="tools-other-badges">
                   <span className="tools-badge tools-badge--earth">
-                    Teacher Productivity
+                    AI / Research Tool
                   </span>
                   <span className="tools-badge tools-badge--construction">
                     <svg
@@ -286,46 +268,59 @@ export default function ToolsPage() {
                         d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
                       />
                     </svg>
-                    Under Construction
+                    Coming Soon
                   </span>
                 </div>
                 <h3 className="tools-other-title">
-                  Dynamic Curriculum Planner — Smart Scheduling
+                  Science of Reading RAG
                 </h3>
                 <p className="tools-other-desc">
-                  Visualizing the school year with drag-and-drop units and
-                  automatic pacing adjustments for holidays and testing.
+                  A chatbot grounded in Science of Reading research. Ask
+                  questions, get evidence-based answers with source citations.
                 </p>
-                <span className="tools-btn tools-btn--muted tools-btn--sm">
-                  Coming Soon
-                </span>
+                <a href="#early-access" className="tools-btn tools-btn--primary tools-btn--sm">
+                  Get Notified When This Launches
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </a>
               </div>
               <div className="tools-other-card-bottom">
-                <h4 className="tools-other-col-heading">Planned Features</h4>
+                <h4 className="tools-other-col-heading">Key Features</h4>
                 <ul className="tools-other-list">
                   <li>
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    Drag-and-drop pacing
+                    Research-grounded responses
                   </li>
                   <li>
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    Collaborative planning
+                    Source citations
                   </li>
                   <li>
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                     </svg>
-                    State standard auto-tagging
+                    Teacher-friendly language
                   </li>
                 </ul>
                 <div className="tools-other-tags">
-                  <span className="tools-method-tag">Next.js</span>
-                  <span className="tools-method-tag">Supabase</span>
-                  <span className="tools-method-tag">Drag-n-Drop API</span>
+                  <span className="tools-method-tag">LangChain</span>
+                  <span className="tools-method-tag">Pinecone</span>
+                  <span className="tools-method-tag">Python</span>
                 </div>
               </div>
             </div>

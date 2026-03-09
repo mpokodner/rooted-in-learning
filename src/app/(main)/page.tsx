@@ -38,17 +38,22 @@ export default function Home() {
 
             <h1 className="hero-heading animate-fade-up animate-delay-1">
               Making Teaching Easier,{" "}
-              <span className="hero-heading-accent">Not Harder</span>
+              <span className="hero-heading-accent">
+                Through Rooted Innovation
+              </span>
             </h1>
 
             <p className="hero-subheadline animate-fade-up animate-delay-2">
               Discover AI-powered tools and curriculum solutions designed
-              specifically for the K-8 classroom. Empower your students and
+              specifically for the K-8 classroom. Empower your instruction and
               reclaim your time.
             </p>
 
             <div className="hero-cta-row animate-fade-up animate-delay-3">
-              <Link href="/services" className="hero-cta-btn hero-cta-btn--terracotta">
+              <Link
+                href="/services"
+                className="hero-cta-btn hero-cta-btn--terracotta"
+              >
                 Work With Me
                 <svg
                   fill="none"
@@ -79,7 +84,9 @@ export default function Home() {
               <div className="hero-trust-divider" />
               <div className="hero-trust-item">
                 <span className="hero-trust-number">MA</span>
-                <span className="hero-trust-label">Curriculum &amp; Instruction</span>
+                <span className="hero-trust-label">
+                  Curriculum &amp; Instruction
+                </span>
               </div>
               <div className="hero-trust-divider" />
               <div className="hero-trust-item">
@@ -229,67 +236,208 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SECTION 3 — AUTHORITY / TRUST
+          SECTION 3A — THE PROBLEM (Stats)
       ═══════════════════════════════════════════ */}
-      <section className="trust-section">
+      <section className="problem-section" aria-labelledby="problem-heading">
         <div className="container">
-          <div className="trust-inner">
-            <p className="trust-eyebrow">Built by an Educator Who Codes</p>
-            <h2 className="text-h2 trust-title">
-              12+ Years of Classroom Experience
-            </h2>
-            <p className="trust-desc">
-              As a reading interventionist, curriculum designer, and EdTech
-              developer, I&apos;ve spent over a decade bridging the gap between
-              research-based literacy instruction and modern technology. Every
-              tool, lesson, and resource on this site is built from real
-              classroom experience &mdash; not theory.
-            </p>
+          <h2 id="problem-heading" className="problem-heading">
+            Teachers Are Overwhelmed.
+            <br />
+            Students Are Underserved.
+          </h2>
 
-            <div className="trust-credentials">
-              <div className="trust-credential">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
-                </svg>
-                <div>
-                  <span className="trust-credential-value">MA</span>
-                  <span className="trust-credential-label">Curriculum &amp; Instruction</span>
-                </div>
-              </div>
-              <div className="trust-credential">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
-                </svg>
-                <div>
-                  <span className="trust-credential-value">SoR</span>
-                  <span className="trust-credential-label">Certified Practitioner</span>
-                </div>
-              </div>
-              <div className="trust-credential">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
-                </svg>
-                <div>
-                  <span className="trust-credential-value">Full-Stack</span>
-                  <span className="trust-credential-label">EdTech Developer</span>
-                </div>
-              </div>
+          <div className="problem-stats-grid">
+            <div className="problem-stat-card">
+              <span className="problem-stat-number">44%</span>
+              <span className="problem-stat-label">
+                Teacher Turnover Within 5 Years
+              </span>
             </div>
+            <div className="problem-stat-card">
+              <span className="problem-stat-number">65%</span>
+              <span className="problem-stat-label">
+                Students Below Reading Proficiency
+              </span>
+            </div>
+            <div className="problem-stat-card">
+              <span className="problem-stat-number">11hr</span>
+              <span className="problem-stat-label">
+                Avg. Weekly Unpaid Teacher Overtime
+              </span>
+            </div>
+            <div className="problem-stat-card">
+              <span className="problem-stat-number">$479</span>
+              <span className="problem-stat-label">
+                Spent Out-of-Pocket Per Teacher/Yr
+              </span>
+            </div>
+          </div>
 
-            <div className="trust-actions">
-              <Link href="/about" className="trust-btn trust-btn--primary">
-                About Me
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                </svg>
-              </Link>
-              <Link href="/about#projects" className="trust-btn trust-btn--outline">
-                View Portfolio
-              </Link>
-              <Link href="/services" className="trust-btn trust-btn--outline">
-                Services
-              </Link>
+          <p className="problem-paragraph">
+            Current EdTech solutions are built by technologists who&apos;ve
+            never stood in front of a classroom. They add complexity instead of
+            reducing it. Teachers need{" "}
+            <Link href="/tools" className="problem-inline-link">
+              tools
+            </Link>{" "}
+            designed <em>by</em> educators, <em>for</em> educators &mdash;
+            grounded in the{" "}
+            <Link href="/shop" className="problem-inline-link">
+              Science of Reading
+            </Link>{" "}
+            and proven pedagogy.
+          </p>
+
+          <div className="problem-cta-row">
+            <Link href="/services" className="trust-btn trust-btn--primary">
+              See How We Help
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+            <Link href="/shop" className="trust-btn trust-btn--outline">
+              Browse Resources
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 3B — TECH STACK
+      ═══════════════════════════════════════════ */}
+      <section className="techstack-section" aria-labelledby="tech-heading">
+        <div className="container">
+          <p className="techstack-eyebrow">Technology</p>
+          <h2 id="tech-heading" className="techstack-heading">
+            Modern Stack, Educator Soul
+          </h2>
+
+          <div className="techstack-badges">
+            {[
+              "Next.js",
+              "React",
+              "Tailwind CSS",
+              "Supabase",
+              "Stripe",
+              "Sanity CMS",
+              "Vercel",
+              "LangChain",
+              "ChromaDB",
+              "Pinecone",
+              "Python",
+              "Resend",
+            ].map((tech) => (
+              <span key={tech} className="techstack-badge">
+                {tech}
+              </span>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
+          SECTION 3C — WHY US / CREDENTIALS
+      ═══════════════════════════════════════════ */}
+      <section className="whyus-section" aria-labelledby="whyus-heading">
+        <div className="container">
+          <p className="whyus-eyebrow">Why Us</p>
+          <h2 id="whyus-heading" className="whyus-heading">
+            Built by a Teacher Who Codes
+          </h2>
+
+          <div className="whyus-grid">
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                🏫
+              </span>
+              <p className="whyus-credential-text">
+                12+ Years K&ndash;8 Classroom Experience
+              </p>
             </div>
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                📖
+              </span>
+              <p className="whyus-credential-text">
+                Science of Reading &amp; SIPPS Certified
+              </p>
+            </div>
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                🌍
+              </span>
+              <p className="whyus-credential-text">
+                WIDA &amp; Multilingual Learner Expert
+              </p>
+            </div>
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                💻
+              </span>
+              <p className="whyus-credential-text">
+                Full-Stack Developer (React, Next.js, Supabase)
+              </p>
+            </div>
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                🤖
+              </span>
+              <p className="whyus-credential-text">
+                AI/ML &mdash; RAG Pipelines, LangChain, Vector DBs
+              </p>
+            </div>
+            <div className="whyus-credential">
+              <span className="whyus-credential-icon" aria-hidden="true">
+                🎓
+              </span>
+              <p className="whyus-credential-text">
+                MA Curriculum &amp; Instruction + Digital Marketing Certificate
+              </p>
+            </div>
+          </div>
+
+          <blockquote className="whyus-quote">
+            &ldquo;Most EdTech is built for teachers. We build from inside the
+            profession &mdash; because the best tools come from those
+            who&apos;ve lived the work.&rdquo;
+          </blockquote>
+
+          <div className="whyus-cta-row">
+            <Link href="/about" className="trust-btn trust-btn--primary">
+              Meet the Founder
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
+              </svg>
+            </Link>
+            <Link href="/tools" className="trust-btn trust-btn--outline-light">
+              Try AssessAlign
+            </Link>
+            <Link
+              href="/services"
+              className="trust-btn trust-btn--outline-light"
+            >
+              View Services
+            </Link>
           </div>
         </div>
       </section>

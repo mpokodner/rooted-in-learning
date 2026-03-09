@@ -218,13 +218,28 @@ export default function Footer() {
 
             {/* Links Columns */}
             <div className="footer-links-grid">
-              {/* Shop & Tools */}
+              {/* Pages — mirrors the navbar */}
               <div>
-                <h5 className="footer-heading">Shop</h5>
+                <h5 className="footer-heading">Pages</h5>
                 <ul className="footer-link-list">
                   <li>
+                    <Link href="/about" className="footer-link">
+                      About
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/shop" className="footer-link">
-                      Browse Resources
+                      Shop
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/learn" className="footer-link">
+                      Learn
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services" className="footer-link">
+                      Services
                     </Link>
                   </li>
                   <li>
@@ -232,17 +247,12 @@ export default function Footer() {
                       Tools
                     </Link>
                   </li>
-                  <li>
-                    <Link href="/parent-resources" className="footer-link">
-                      Parent Resources
-                    </Link>
-                  </li>
                 </ul>
               </div>
 
-              {/* Learn */}
+              {/* Resources */}
               <div>
-                <h5 className="footer-heading">Learn</h5>
+                <h5 className="footer-heading">Resources</h5>
                 <ul className="footer-link-list">
                   <li>
                     <Link href="/learn/teacher-toolkit" className="footer-link">
@@ -255,37 +265,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/#newsletter" className="footer-link">
-                      Free Resources
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Services */}
-              <div>
-                <h5 className="footer-heading">Services</h5>
-                <ul className="footer-link-list">
-                  <li>
-                    <Link href="/services" className="footer-link">
-                      Consulting
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/services#discovery" className="footer-link">
-                      Book a Discovery Call
-                    </Link>
-                  </li>
-                </ul>
-              </div>
-
-              {/* Company */}
-              <div>
-                <h5 className="footer-heading">Company</h5>
-                <ul className="footer-link-list">
-                  <li>
-                    <Link href="/about" className="footer-link">
-                      About
+                    <Link href="/parent-resources" className="footer-link">
+                      Parent Resources
                     </Link>
                   </li>
                   <li>
@@ -293,14 +274,21 @@ export default function Footer() {
                       Contact
                     </Link>
                   </li>
+                </ul>
+              </div>
+
+              {/* Legal */}
+              <div>
+                <h5 className="footer-heading">Legal</h5>
+                <ul className="footer-link-list">
                   <li>
-                    <Link href="/privacy" className="footer-link">
-                      Privacy
+                    <Link href="/terms" className="footer-link">
+                      Terms of Use
                     </Link>
                   </li>
                   <li>
-                    <Link href="/terms" className="footer-link">
-                      Terms
+                    <Link href="/privacy" className="footer-link">
+                      Privacy
                     </Link>
                   </li>
                   <li>

@@ -265,11 +265,6 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/parent-resources" className="footer-link">
-                      Parent Resources
-                    </Link>
-                  </li>
-                  <li>
                     <Link href="/contact" className="footer-link">
                       Contact
                     </Link>

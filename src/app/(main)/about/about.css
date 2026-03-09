@@ -39,7 +39,7 @@
 .about-hero {
   position: relative;
   background-color: var(--earth);
-  padding: clamp(3.5rem, 8vw, 6rem) 0 clamp(3rem, 6vw, 5rem);
+  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
   overflow: hidden;
 }
 
@@ -299,6 +299,79 @@
   color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.06em;
+}
+
+
+/* ═══════════════════════════════════
+   GUIDING PRINCIPLES (inline under narrative)
+   ═══════════════════════════════════ */
+
+.about-principles {
+  margin-top: clamp(3rem, 6vw, 4.5rem);
+  padding-top: clamp(2.5rem, 5vw, 3.5rem);
+  border-top: 1px solid var(--border-beige, #E8DED0);
+}
+
+.about-principles-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 700;
+  color: var(--text-black, #1A1A1A);
+  text-align: center;
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.about-principles-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+}
+
+@media (min-width: 768px) {
+  .about-principles-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+}
+
+.about-principles-card {
+  background-color: var(--neutral-bg, #FAF7F2);
+  border: 1px solid var(--border-beige, #E8DED0);
+  border-radius: var(--radius-xl, 1.5rem);
+  padding: clamp(1.25rem, 2.5vw, 1.75rem);
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.about-principles-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px -8px rgba(0, 0, 0, 0.08);
+}
+
+.about-principles-number {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl);
+  font-weight: 800;
+  color: var(--border-beige, #E8DED0);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.about-principles-statement {
+  font-family: var(--font-heading);
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--text-dark, #2C2C2C);
+  line-height: var(--leading-tight, 1.2);
+  margin-bottom: 0.625rem;
+  border: none;
+  padding: 0;
+}
+
+.about-principles-detail {
+  font-size: var(--text-sm, 0.875rem);
+  color: var(--text-muted, #6B6B6B);
+  line-height: var(--leading-relaxed, 1.65);
 }
 
 

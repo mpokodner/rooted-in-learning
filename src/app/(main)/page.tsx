@@ -229,246 +229,66 @@ export default function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
-          SECTION 3 — FEATURED SOLUTIONS
+          SECTION 3 — AUTHORITY / TRUST
       ═══════════════════════════════════════════ */}
-      <section className="resources-section">
+      <section className="trust-section">
         <div className="container">
-          <div className="resources-header">
-            <p className="resources-header-label">Featured Solutions</p>
-            <h2 className="text-h2 resources-header-title">
-              Everything You Need, Nothing You Don&apos;t
+          <div className="trust-inner">
+            <p className="trust-eyebrow">Built by an Educator Who Codes</p>
+            <h2 className="text-h2 trust-title">
+              12+ Years of Classroom Experience
             </h2>
-            <p className="resources-header-desc">
-              Assessment tools, tech training, and ready-to-teach curriculum
-              &mdash; all in one place. Built by a 12+ year veteran educator who
-              gets it.
+            <p className="trust-desc">
+              As a reading interventionist, curriculum designer, and EdTech
+              developer, I&apos;ve spent over a decade bridging the gap between
+              research-based literacy instruction and modern technology. Every
+              tool, lesson, and resource on this site is built from real
+              classroom experience &mdash; not theory.
             </p>
-          </div>
 
-          <div className="resources-grid">
-            <div className="resource-card group">
-              <div className="resource-icon-wrapper">
-                <svg
-                  className="resource-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"
-                  />
+            <div className="trust-credentials">
+              <div className="trust-credential">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5" />
                 </svg>
-              </div>
-              <h3 className="resource-title">AssessAlign</h3>
-              <p className="resource-desc">
-                Standards-based assessment tools that align to your curriculum
-                and give you actionable data on student progress.
-              </p>
-              <Link href="/tools" className="resource-link">
-                AI-Powered Assessment
-                <svg
-                  className="resource-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-
-            <div className="resource-card group">
-              <div className="resource-icon-wrapper">
-                <svg
-                  className="resource-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-              </div>
-              <h3 className="resource-title">Shop</h3>
-              <p className="resource-desc">
-                Standards-aligned, ready-to-use curriculum, lesson packs, and
-                classroom tools. Just download and teach.
-              </p>
-              <Link href="/shop" className="resource-link">
-                Browse Lessons &amp; Tools
-                <svg
-                  className="resource-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-
-            <div className="resource-card group">
-              <div className="resource-icon-wrapper">
-                <svg
-                  className="resource-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
-                  />
-                </svg>
-              </div>
-              <h3 className="resource-title">Services</h3>
-              <p className="resource-desc">
-                Strategic consulting for schools, districts, and educators.
-                Literacy systems, EdTech integration, and AI implementation.
-              </p>
-              <Link href="/services" className="resource-link">
-                Book a Discovery Call
-                <svg
-                  className="resource-link-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 4 — AUTHORITY / TRUST
-      ═══════════════════════════════════════════ */}
-      <section className="consulting-section">
-        <div className="container">
-          <div className="consulting-grid">
-            <div className="consulting-content">
-              <p className="consulting-label">Built by an Educator Who Codes</p>
-              <h2 className="text-h2 consulting-title">
-                12+ Years of Classroom Experience
-              </h2>
-              <p className="consulting-desc">
-                As a reading interventionist, curriculum designer, and EdTech
-                developer, I&apos;ve spent over a decade bridging the gap
-                between research-based literacy instruction and modern
-                technology. Every tool, lesson, and resource on this site is
-                built from real classroom experience &mdash; not theory.
-              </p>
-              <div
-                style={{
-                  display: "flex",
-                  flexWrap: "wrap",
-                  gap: "0.75rem",
-                  marginTop: "1.5rem",
-                }}
-              >
-                <Link href="/about#projects" className="consulting-cta-btn">
-                  <svg
-                    className="consulting-cta-icon"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-                    />
-                  </svg>
-                  View Portfolio
-                </Link>
-                <Link href="/about" className="consulting-cta-btn">
-                  <svg
-                    className="consulting-cta-icon"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
-                    />
-                  </svg>
-                  About Me
-                </Link>
-                <Link href="/services" className="consulting-cta-btn">
-                  <svg
-                    className="consulting-cta-icon"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                    />
-                  </svg>
-                  Services
-                </Link>
-              </div>
-            </div>
-
-            <div className="consulting-cta-area">
-              <div className="testimonial-card">
-                <div className="testimonial-stars">
-                  <div className="testimonial-stars-icons">
-                    <svg
-                      className="testimonial-star"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={1.5}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z"
-                      />
-                    </svg>
-                  </div>
-                  <span className="testimonial-rating">Spring 2026</span>
+                <div>
+                  <span className="trust-credential-value">MA</span>
+                  <span className="trust-credential-label">Curriculum &amp; Instruction</span>
                 </div>
-                <p className="testimonial-quote">
-                  Trusted by educators across Maryland and beyond. Launching
-                  Spring 2026.
-                </p>
-                <p className="testimonial-author">— The Rooted Learner</p>
               </div>
+              <div className="trust-credential">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
+                </svg>
+                <div>
+                  <span className="trust-credential-value">SoR</span>
+                  <span className="trust-credential-label">Certified Practitioner</span>
+                </div>
+              </div>
+              <div className="trust-credential">
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5" />
+                </svg>
+                <div>
+                  <span className="trust-credential-value">Full-Stack</span>
+                  <span className="trust-credential-label">EdTech Developer</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="trust-actions">
+              <Link href="/about" className="trust-btn trust-btn--primary">
+                About Me
+                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                </svg>
+              </Link>
+              <Link href="/about#projects" className="trust-btn trust-btn--outline">
+                View Portfolio
+              </Link>
+              <Link href="/services" className="trust-btn trust-btn--outline">
+                Services
+              </Link>
             </div>
           </div>
         </div>
@@ -508,7 +328,7 @@ export default function Home() {
             </Link>
           </div>
 
-          <div className="featured-article">
+          <Link href="/learn/blog" className="featured-article">
             <div className="featured-article-visual">
               <div className="featured-article-mockup">
                 <div className="mockup-dots">
@@ -537,7 +357,7 @@ export default function Home() {
                 multilingual learner support, AI in education, and the systems
                 that make great teaching sustainable. Articles launching soon.
               </p>
-              <Link href="/learn/blog" className="featured-article-link">
+              <span className="featured-article-link">
                 Visit the Blog
                 <svg
                   className="featured-article-link-arrow"
@@ -552,9 +372,9 @@ export default function Home() {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </Link>
+              </span>
             </div>
-          </div>
+          </Link>
         </div>
       </section>
 

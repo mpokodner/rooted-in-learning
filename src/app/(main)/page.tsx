@@ -565,66 +565,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 7 — FINAL CTA
-      ═══════════════════════════════════════════ */}
-      <section className="social-section">
-        <div className="container">
-          <div className="social-section-header">
-            <p className="social-section-label">Take the Next Step</p>
-            <h2 className="text-h2 social-section-title">
-              Ready to Support Your Learners?
-            </h2>
-            <p className="social-section-desc">
-              Whether you&apos;re a teacher, parent, or school leader &mdash; we
-              have tools built for you.
-            </p>
-          </div>
-
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              justifyContent: "center",
-              gap: "1rem",
-            }}
-          >
-            <Link href="/tools" className="hero-cta-btn">
-              View AssessAlign
-              <svg
-                className="hero-cta-arrow"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-            <Link href="/services#discovery" className="consulting-cta-btn">
-              <svg
-                className="consulting-cta-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"
-                />
-              </svg>
-              Book a Call
-            </Link>
-          </div>
-        </div>
-      </section>
     </div>
   );
 }

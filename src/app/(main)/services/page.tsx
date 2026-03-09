@@ -1,460 +1,508 @@
-import type { Metadata } from "next";
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
 import "./consulting.css";
 
-export const metadata: Metadata = {
-  title: "Services | The Rooted Learner",
-  description:
-    "Strategic consulting for schools, districts, and educators. Literacy systems, EdTech integration, AI implementation, and curriculum design from a 12+ year practitioner.",
-  keywords: [
-    "education consulting",
-    "literacy consulting",
-    "edtech integration",
-    "AI in education",
-    "curriculum consulting",
-    "reading intervention",
-    "school consulting",
-  ],
-  alternates: {
-    canonical: "/services",
-  },
-  openGraph: {
-    title: "Services | The Rooted Learner",
-    description:
-      "Strategic consulting for schools, districts, and educators from a practitioner who builds.",
-    type: "website",
-  },
-};
-
-const audiences = [
+const services = [
   {
-    title: "Schools & Districts",
+    title: "AI Integration Professional Development",
     description:
-      "AI tools integration and training (including Claude, ChatGPT, and other platforms), custom tech solutions, curriculum development, PD workshops, and teacher training.",
-    icon: "M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21",
-    cta: "Request a Proposal",
-  },
-  {
-    title: "Individual Educators",
-    description:
-      "AI tools coaching, curriculum support, career transition guidance, and instructional strategy development.",
-    icon: "M4.26 10.147a60.436 60.436 0 00-.491 6.347A48.627 48.627 0 0112 20.904a48.627 48.627 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.57 50.57 0 00-2.658-.813A59.905 59.905 0 0112 3.493a59.902 59.902 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.697 50.697 0 0112 13.489a50.702 50.702 0 017.74-3.342",
-    cta: "Book a Call",
-  },
-  {
-    title: "Families & Homeschool",
-    description:
-      "Personalized learning plans, curriculum selection, reading intervention, and literacy support for your child.",
-    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
-    cta: "Schedule a Session",
-  },
-];
-
-const domains = [
-  {
-    title: "Literacy & Reading Systems",
-    description:
-      "Design and implement structured literacy programs, reading intervention frameworks, and Science of Reading-aligned curriculum.",
-    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
-    results: "80% of students moved up a reading level in one semester",
-  },
-  {
-    title: "EdTech Integration",
-    description:
-      "Strategic technology adoption for classrooms and schools. Tool selection, training, and sustainable integration that sticks.",
-    icon: "M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z",
-    results: "Schools report 40% faster teacher technology adoption",
-  },
-  {
-    title: "AI-Powered Instruction",
-    description:
-      "Help your team understand and implement AI tools for lesson planning, assessment, differentiation, and administrative workflows.",
+      "Equip your staff with the skills to leverage cutting-edge AI tools responsibly. We focus on ethical usage, prompt engineering for educators, and workflow automation to reclaim teacher time.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
-    results: "Educators save 5+ hours per week with AI workflows",
   },
   {
-    title: "Curriculum & Assessment Design",
+    title: "Curriculum Development & Mapping",
     description:
-      "Custom curriculum development, assessment alignment, and instructional system design for schools, districts, and homeschool families.",
-    icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4",
-    results: "100+ standards-aligned resources designed and delivered",
+      "Custom curriculum overlays and standards alignment tailored to your district and/or school's individual needs. I specialize in designing rigorous, engaging instructional frameworks that bridge the gap between policy and practice.",
+    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+  },
+  {
+    title: "Multilingual Learner & Equity Consulting",
+    description:
+      "WIDA-aligned ELD support and culturally responsive teaching practices. We analyze data and instructional routines to ensure equitable access and success for every learner in your community.",
+    icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
+  },
+  {
+    title: "Custom Technology Solutions",
+    description:
+      "Developing custom technology to solve specific school and district problems for personalized solutions. Teaching is not a one-size-fits-all — your technology shouldn't be either.",
+    icon: "M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5",
+    featured: true,
   },
 ];
 
 const processSteps = [
   {
-    step: "01",
+    step: 1,
     title: "Discovery Call",
-    description: "Free 30-minute call to understand your challenges, goals, and timeline.",
+    description:
+      "A 30-minute deep dive into your district's current goals and friction points.",
   },
   {
-    step: "02",
-    title: "Needs Assessment",
-    description: "A structured audit of your current systems, tools, and instructional approach.",
+    step: 2,
+    title: "Custom Proposal",
+    description:
+      "A tailored roadmap with clear deliverables, timelines, and measurable outcomes.",
   },
   {
-    step: "03",
-    title: "Strategy & Plan",
-    description: "Custom action plan with clear milestones, deliverables, and implementation steps.",
+    step: 3,
+    title: "Delivery",
+    description:
+      "Interactive workshops, direct consulting, or curriculum builds in close partnership.",
   },
   {
-    step: "04",
-    title: "Implementation & Support",
-    description: "Hands-on guidance through execution, with ongoing coaching and progress checks.",
+    step: 4,
+    title: "Ongoing Support",
+    description:
+      "Continued office hours and data reviews to ensure sustainable growth.",
   },
 ];
 
-export default function WorkWithMePage() {
+const faqItems = [
+  {
+    question: "How does pricing work for school districts?",
+    answer:
+      "We offer flexible pricing based on scope and district size. Every engagement starts with a free discovery call to understand your needs and provide a tailored proposal.",
+  },
+  {
+    question: "Do you work with individual teachers?",
+    answer:
+      "Absolutely! I offer 1-on-1 coaching sessions for classroom strategy, tech integration, and professional growth.",
+  },
+  {
+    question: "What's the typical engagement timeline?",
+    answer:
+      "A focused engagement is typically 2-4 weeks. Strategic partnerships run 1-3 months with ongoing support.",
+  },
+  {
+    question: "Can you provide a proposal for my administration?",
+    answer:
+      "Yes — I can provide a downloadable consulting one-pager and custom proposal. Contact me to request one.",
+  },
+  {
+    question: "What about procurement and purchase orders?",
+    answer:
+      "I work with standard school district procurement processes. PO-based billing is available for institutional clients.",
+  },
+];
+
+export default function ServicesPage() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    organization: "",
+    message: "",
+  });
+  const [formStatus, setFormStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    setFormStatus("loading");
+    try {
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name: `${formData.firstName} ${formData.lastName}`,
+          email: "",
+          organization: formData.organization,
+          message: formData.message,
+          source: "services",
+        }),
+      });
+      if (res.ok) {
+        setFormStatus("success");
+        setFormData({ firstName: "", lastName: "", organization: "", message: "" });
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
+  };
+
   return (
-    <div className="consulting-page">
+    <div className="svc-page">
       {/* ─── Hero ─── */}
-      <section className="consult-hero" aria-labelledby="consult-heading">
-        <div className="consult-hero-bg" aria-hidden="true">
-          <div className="consult-hero-circle consult-hero-circle--1" />
-          <div className="consult-hero-circle consult-hero-circle--2" />
+      <section className="svc-hero" aria-labelledby="svc-heading">
+        <div className="svc-hero-bg" aria-hidden="true">
+          <div className="svc-hero-circle svc-hero-circle--1" />
+          <div className="svc-hero-circle svc-hero-circle--2" />
         </div>
-        <div className="container consult-hero-container">
-          <div className="consult-hero-badge">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155" />
+        <div className="container svc-hero-container">
+          <div className="svc-hero-badge">
+            <svg
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+              aria-hidden="true"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
+              />
             </svg>
             <span>Strategic Consulting</span>
           </div>
-          <h1 id="consult-heading" className="consult-hero-title">
-            Let&apos;s Build Something Better
-            <br />
-            <span className="consult-hero-accent">for Your School</span>
+          <h1 id="svc-heading" className="svc-hero-title">
+            Partner With Me
           </h1>
-          <p className="consult-hero-desc">
-            You don&apos;t have a talent problem. You have an infrastructure problem.
-            I help schools, districts, and educators build the systems, tools, and
-            strategies that make exceptional teaching sustainable.
+          <p className="svc-hero-desc">
+            Empowering schools and districts with custom-tailored solutions.
+            From AI integration to equity-centered curriculum, I help educators
+            navigate the future of learning.
           </p>
-          <div className="consult-hero-actions">
-            <a href="#discovery" className="consult-hero-cta-primary">
-              Book a Free Discovery Call
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+          <div className="svc-hero-actions">
+            <a href="#services-grid" className="svc-hero-cta-primary">
+              Explore Services
+              <svg
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+                aria-hidden="true"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
+                />
               </svg>
             </a>
-            <Link href="/about" className="consult-hero-cta-secondary">
-              Learn About My Background
-            </Link>
-          </div>
-
-          <div className="consult-trust-bar">
-            <div className="consult-trust-item">
-              <span className="consult-trust-number">12+</span>
-              <span className="consult-trust-label">Years Experience</span>
-            </div>
-            <div className="consult-trust-divider" />
-            <div className="consult-trust-item">
-              <span className="consult-trust-number">SoR</span>
-              <span className="consult-trust-label">Certified</span>
-            </div>
-            <div className="consult-trust-divider" />
-            <div className="consult-trust-item">
-              <span className="consult-trust-number">K–8</span>
-              <span className="consult-trust-label">Focused Practice</span>
-            </div>
+            <a href="#contact-form" className="svc-hero-cta-secondary">
+              Book a Discovery Call
+            </a>
           </div>
         </div>
       </section>
 
-      {/* ─── Audience Track Selector ─── */}
-      <section className="consult-audience section" aria-labelledby="audience-heading">
+      {/* ─── Service Cards ─── */}
+      <section
+        id="services-grid"
+        className="svc-cards section"
+        aria-labelledby="svc-cards-heading"
+      >
         <div className="container">
-          <div className="consult-audience-header">
-            <p className="consult-section-label">Who I Work With</p>
-            <h2 id="audience-heading" className="consult-section-title consult-section-title--light">
-              Find Your Path
+          <h2 id="svc-cards-heading" className="sr-only">
+            Our Services
+          </h2>
+          <div className="svc-cards-grid">
+            {services.map((svc) => (
+              <div
+                key={svc.title}
+                className={`svc-card${(svc as { featured?: boolean }).featured ? " svc-card--featured" : ""}`}
+              >
+                {(svc as { featured?: boolean }).featured && (
+                  <span className="svc-card-featured-tag">Custom</span>
+                )}
+                <div className="svc-card-icon">
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d={svc.icon}
+                    />
+                  </svg>
+                </div>
+                <h3 className="svc-card-title">{svc.title}</h3>
+                <p className="svc-card-desc">{svc.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── How We Work Together ─── */}
+      <section
+        className="svc-process section"
+        aria-labelledby="svc-process-heading"
+      >
+        <div className="container">
+          <div className="svc-process-header">
+            <h2 id="svc-process-heading" className="svc-section-title">
+              How We Work Together
             </h2>
-            <p className="consult-audience-desc">
-              Every engagement starts with understanding your specific context and goals.
+            <p className="svc-process-subtitle">
+              A streamlined process from initial inquiry to long-term impact.
             </p>
           </div>
 
-          <div className="consult-audience-grid">
-            {audiences.map((audience) => (
-              <div key={audience.title} className="consult-audience-card">
-                <div className="consult-audience-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={audience.icon} />
-                  </svg>
+          <div className="svc-process-grid">
+            {processSteps.map((step, idx) => (
+              <div key={step.step} className="svc-process-step">
+                <div className="svc-process-number-row">
+                  <div className="svc-process-number">{step.step}</div>
+                  {idx < processSteps.length - 1 && (
+                    <div
+                      className="svc-process-connector"
+                      aria-hidden="true"
+                    />
+                  )}
                 </div>
-                <h3 className="consult-audience-card-title">{audience.title}</h3>
-                <p className="consult-audience-card-desc">{audience.description}</p>
-                <a href="#discovery" className="consult-audience-cta">
-                  {audience.cta}
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <h3 className="svc-process-step-title">{step.title}</h3>
+                <p className="svc-process-step-desc">{step.description}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ─── Contact Form ─── */}
+      <section
+        id="contact-form"
+        className="svc-contact section"
+        aria-labelledby="svc-contact-heading"
+      >
+        <div className="container">
+          <div className="svc-contact-card">
+            <div className="svc-contact-info">
+              <h2 id="svc-contact-heading" className="svc-contact-title">
+                Ready to transform your school?
+              </h2>
+              <p className="svc-contact-desc">
+                Schedule a consultation or send an inquiry. I&apos;m excited to
+                hear about the work you&apos;re doing.
+              </p>
+              <div className="svc-contact-details">
+                <div className="svc-contact-detail">
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
+                    />
                   </svg>
+                  <span>hello@therootedlearner.com</span>
+                </div>
+                <div className="svc-contact-detail">
+                  <svg
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={1.5}
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
+                    />
+                  </svg>
+                  <span>Available Nationwide (Remote &amp; On-site)</span>
+                </div>
+              </div>
+            </div>
+
+            <form className="svc-contact-form" onSubmit={handleSubmit}>
+              <div className="svc-form-row">
+                <div className="svc-form-field">
+                  <label htmlFor="svc-first" className="svc-form-label">
+                    First Name
+                  </label>
+                  <input
+                    id="svc-first"
+                    type="text"
+                    className="svc-form-input"
+                    placeholder="Jane"
+                    value={formData.firstName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, firstName: e.target.value })
+                    }
+                    required
+                  />
+                </div>
+                <div className="svc-form-field">
+                  <label htmlFor="svc-last" className="svc-form-label">
+                    Last Name
+                  </label>
+                  <input
+                    id="svc-last"
+                    type="text"
+                    className="svc-form-input"
+                    placeholder="Doe"
+                    value={formData.lastName}
+                    onChange={(e) =>
+                      setFormData({ ...formData, lastName: e.target.value })
+                    }
+                    required
+                  />
+                </div>
+              </div>
+              <div className="svc-form-field">
+                <label htmlFor="svc-org" className="svc-form-label">
+                  School/Organization
+                </label>
+                <input
+                  id="svc-org"
+                  type="text"
+                  className="svc-form-input"
+                  placeholder="Lincoln Public Schools"
+                  value={formData.organization}
+                  onChange={(e) =>
+                    setFormData({ ...formData, organization: e.target.value })
+                  }
+                />
+              </div>
+              <div className="svc-form-field">
+                <label htmlFor="svc-msg" className="svc-form-label">
+                  How can I help?
+                </label>
+                <textarea
+                  id="svc-msg"
+                  className="svc-form-textarea"
+                  placeholder="Tell me about your project..."
+                  rows={4}
+                  value={formData.message}
+                  onChange={(e) =>
+                    setFormData({ ...formData, message: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <button
+                type="submit"
+                className="svc-form-submit"
+                disabled={formStatus === "loading"}
+              >
+                {formStatus === "loading" ? "Sending..." : "Send Message"}
+              </button>
+              {formStatus === "success" && (
+                <p className="svc-form-success">
+                  Message sent! I&apos;ll be in touch soon.
+                </p>
+              )}
+              {formStatus === "error" && (
+                <p className="svc-form-error">
+                  Something went wrong. Please try again.
+                </p>
+              )}
+              <p className="svc-form-calendly">
+                Or{" "}
+                <a
+                  href="https://calendly.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  book directly on Calendly
                 </a>
-              </div>
-            ))}
+              </p>
+            </form>
           </div>
         </div>
       </section>
 
-      {/* ─── Domain Cards ─── */}
-      <section className="consult-domains section" aria-labelledby="domains-heading">
+      {/* ─── AssessAlign Proof of Concept ─── */}
+      <section
+        className="svc-showcase section"
+        aria-labelledby="svc-showcase-heading"
+      >
         <div className="container">
-          <div className="consult-domains-header">
-            <p className="consult-section-label">What I Consult On</p>
-            <h2 id="domains-heading" className="consult-section-title">
-              Deep Expertise, Delivered Practically
-            </h2>
-          </div>
-
-          <div className="consult-domains-grid">
-            {domains.map((domain) => (
-              <div key={domain.title} className="consult-domain-card">
-                <div className="consult-domain-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={domain.icon} />
-                  </svg>
-                </div>
-                <h3 className="consult-domain-title">{domain.title}</h3>
-                <p className="consult-domain-desc">{domain.description}</p>
-                <div className="consult-domain-result">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4" />
-                  </svg>
-                  <span>{domain.results}</span>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Process Timeline ─── */}
-      <section className="consult-process section" aria-labelledby="process-heading">
-        <div className="container">
-          <div className="consult-process-header">
-            <p className="consult-section-label">How It Works</p>
-            <h2 id="process-heading" className="consult-section-title">
-              A Clear Path From Challenge to Solution
-            </h2>
-          </div>
-
-          <div className="consult-process-grid">
-            {processSteps.map((step) => (
-              <div key={step.step} className="consult-process-step">
-                <div className="consult-process-number">{step.step}</div>
-                <div className="consult-process-connector" aria-hidden="true" />
-                <h3 className="consult-process-step-title">{step.title}</h3>
-                <p className="consult-process-step-desc">{step.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Pricing Tiers ─── */}
-      <section className="consult-pricing section" aria-labelledby="pricing-heading">
-        <div className="container">
-          <div className="consult-pricing-header">
-            <p className="consult-section-label">Investment</p>
-            <h2 id="pricing-heading" className="consult-section-title">
-              Investment in Your Teaching Infrastructure
-            </h2>
-          </div>
-
-          <div className="consult-pricing-grid">
-            <div className="consult-pricing-card">
-              <h3 className="consult-pricing-tier">Discovery Session</h3>
-              <p className="consult-pricing-price">Free</p>
-              <p className="consult-pricing-desc">30-minute call to discuss your goals</p>
-              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--primary">
-                Book a Free Call
-              </a>
-            </div>
-            <div className="consult-pricing-card consult-pricing-card--featured">
-              <h3 className="consult-pricing-tier">Focused Engagement</h3>
-              <p className="consult-pricing-price">Starting at $500</p>
-              <p className="consult-pricing-desc">Single-topic consulting: curriculum audit, tech integration plan, or AI readiness assessment</p>
-              <p className="consult-pricing-includes">Includes written deliverables</p>
-              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--secondary">
-                Request a Proposal
-              </a>
-            </div>
-            <div className="consult-pricing-card">
-              <h3 className="consult-pricing-tier">Strategic Partnership</h3>
-              <p className="consult-pricing-price">Custom Pricing</p>
-              <p className="consult-pricing-desc">Multi-week engagement for schools and districts. Comprehensive systems design, training, and implementation support.</p>
-              <p className="consult-pricing-includes">Includes ongoing coaching</p>
-              <a href="#discovery" className="consult-pricing-cta consult-pricing-cta--outline">
-                Let&apos;s Talk
-              </a>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Early Adopter Opportunity ─── */}
-      <section className="consult-proof section" aria-labelledby="proof-heading">
-        <div className="container">
-          <div className="consult-proof-header">
-            <p className="consult-section-label">Early Adopter Opportunity</p>
-            <h2 id="proof-heading" className="consult-section-title">
-              Early Adopter Opportunity
-            </h2>
-          </div>
-
-          <div className="consult-proof-grid" style={{ justifyContent: "center" }}>
-            <div className="consult-proof-card" style={{ maxWidth: "40rem" }}>
-              <div className="consult-proof-stars" aria-label="Early adopter statement">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} style={{ width: "2rem", height: "2rem", color: "var(--earth, #5C6B4D)" }}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
+          <div className="svc-showcase-card">
+            <div className="svc-showcase-banner">
+              <div className="svc-showcase-badge">
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M13 10V3L4 14h7v7l9-11h-7z"
+                  />
                 </svg>
+                <span>Proof of Concept</span>
               </div>
-              <p className="consult-proof-quote">
-                Currently accepting pilot clients at introductory rates. Be among the first schools and educators to experience our consulting framework — and help shape it.
-              </p>
-              <div className="consult-proof-meta">
-                <p className="consult-proof-author">Limited spots available — Spring 2026</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── AssessAlign Showcase ─── */}
-      <section className="consult-showcase section" aria-labelledby="showcase-heading">
-        <div className="container">
-          <div className="consult-showcase-header">
-            <p className="consult-section-label">See It In Action</p>
-            <h2 id="showcase-heading" className="consult-section-title">
-              From Strategy to Product: AssessAlign
-            </h2>
-            <p className="consult-showcase-desc">
-              AssessAlign is a real example of what my consulting practice produces — a tool
-              I designed and built to solve an assessment alignment problem I saw repeatedly
-              across schools and districts.
-            </p>
-          </div>
-
-          <div className="consult-showcase-card">
-            <div className="consult-showcase-banner">
-              <div className="consult-showcase-badge">
-                <div className="consult-showcase-badge-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-                  </svg>
-                </div>
-                <span>Live Project</span>
-              </div>
-              <h3 className="consult-showcase-name">AssessAlign</h3>
-              <p className="consult-showcase-tagline">
-                Intelligent assessment orchestration that helps educators and administrators
-                map assessments to standards for truly data-driven instruction.
+              <h2 id="svc-showcase-heading" className="svc-showcase-name">
+                AssessAlign
+              </h2>
+              <p className="svc-showcase-tagline">
+                Intelligent assessment orchestration that helps educators and
+                administrators map assessments to standards for truly
+                data-driven instruction.
               </p>
             </div>
-            <div className="consult-showcase-body">
-              <div className="consult-showcase-features">
+            <div className="svc-showcase-body">
+              <div className="svc-showcase-features">
                 {[
-                  { label: "Standards Mapping", icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" },
-                  { label: "Gap Analysis", icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" },
-                  { label: "Report Generation", icon: "M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" },
-                  { label: "AI-Powered Feedback", icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z" },
-                ].map((feature, i) => (
-                  <div key={i} className="consult-showcase-feature">
-                    <div className="consult-showcase-feature-icon">
-                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                        <path strokeLinecap="round" strokeLinejoin="round" d={feature.icon} />
-                      </svg>
-                    </div>
-                    <p>{feature.label}</p>
+                  "Standards Mapping",
+                  "Gap Analysis",
+                  "Report Generation",
+                  "AI-Powered Feedback",
+                ].map((f) => (
+                  <div key={f} className="svc-showcase-feature">
+                    <svg
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                      strokeWidth={2}
+                      aria-hidden="true"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        d="M9 12l2 2 4-4"
+                      />
+                    </svg>
+                    <span>{f}</span>
                   </div>
                 ))}
               </div>
-              <div className="consult-showcase-actions">
-                <Link href="/tools" className="consult-showcase-btn-primary">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                  </svg>
-                  Explore AssessAlign
-                </Link>
-                <Link href="/contact" className="consult-showcase-btn-secondary">
-                  Request a Demo
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Discovery CTA ─── */}
-      <section id="discovery" className="consult-booking section-lg" aria-labelledby="discovery-heading">
-        <div className="container">
-          <div className="consult-booking-inner">
-            <h2 id="discovery-heading" className="consult-booking-title">
-              Ready to Build Something Better?
-            </h2>
-            <p className="consult-booking-desc">
-              Start with a free 30-minute discovery call. No pressure, no pitch —
-              just a conversation about where you are and where you want to go.
-            </p>
-            <div className="consult-booking-calendly-placeholder">
-              Schedule directly — booking calendar coming soon. In the meantime, use the contact form below.
-            </div>
-            <div className="consult-booking-actions">
-              <Link href="/contact" className="consult-booking-btn">
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Book a Free Discovery Call
-              </Link>
-              <Link href="/about" className="consult-booking-link">
-                Or learn more about my background
-                <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              <Link href="/tools" className="svc-showcase-btn">
+                Explore AssessAlign
+                <svg
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  strokeWidth={2}
+                  aria-hidden="true"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
-            </div>
-            <div className="consult-booking-trust">
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-              </svg>
-              <span>Free 30-min call &middot; No commitment &middot; Confidential</span>
             </div>
           </div>
         </div>
       </section>
 
       {/* ─── FAQ ─── */}
-      <section className="consult-faq section" aria-labelledby="faq-heading">
+      <section className="svc-faq section" aria-labelledby="svc-faq-heading">
         <div className="container">
-          <div className="consult-faq-header">
-            <p className="consult-section-label">Common Questions</p>
-            <h2 id="faq-heading" className="consult-section-title">
+          <div className="svc-faq-header">
+            <h2 id="svc-faq-heading" className="svc-section-title">
               Frequently Asked Questions
             </h2>
           </div>
-
-          <div className="consult-faq-list">
-            <div className="consult-faq-item">
-              <h3 className="consult-faq-question">How does pricing work for school districts?</h3>
-              <p className="consult-faq-answer">We offer flexible pricing based on scope and district size. Every engagement starts with a free discovery call to understand your needs and provide a tailored proposal.</p>
-            </div>
-            <div className="consult-faq-item">
-              <h3 className="consult-faq-question">Do you work with individual teachers?</h3>
-              <p className="consult-faq-answer">Absolutely! I offer 1-on-1 coaching sessions for classroom strategy, tech integration, and professional growth.</p>
-            </div>
-            <div className="consult-faq-item">
-              <h3 className="consult-faq-question">What&apos;s the typical engagement timeline?</h3>
-              <p className="consult-faq-answer">A focused engagement is typically 2-4 weeks. Strategic partnerships run 1-3 months with ongoing support.</p>
-            </div>
-            <div className="consult-faq-item">
-              <h3 className="consult-faq-question">Can you provide a proposal for my administration?</h3>
-              <p className="consult-faq-answer">Yes — I can provide a downloadable consulting one-pager and custom proposal. Contact me to request one.</p>
-            </div>
-            <div className="consult-faq-item">
-              <h3 className="consult-faq-question">What about procurement and purchase orders?</h3>
-              <p className="consult-faq-answer">I work with standard school district procurement processes. PO-based billing is available for institutional clients.</p>
-            </div>
+          <div className="svc-faq-list">
+            {faqItems.map((item) => (
+              <div key={item.question} className="svc-faq-item">
+                <h3 className="svc-faq-question">{item.question}</h3>
+                <p className="svc-faq-answer">{item.answer}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>

@@ -478,7 +478,7 @@ export default async function ToolkitResourcePage({
               gap: '1.5rem',
               gridTemplateColumns: 'repeat(1, 1fr)',
             }}
-            className="sm:!grid-cols-2 lg:!grid-cols-3"
+            className="sm:grid-cols-2! lg:grid-cols-3!"
           >
             {resource.relatedResources.map((related) => (
               <ToolkitCard key={related._id} resource={related} />

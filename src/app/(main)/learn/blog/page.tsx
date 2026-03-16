@@ -78,7 +78,7 @@ export default async function BlogPage({
             gap: '2rem',
             gridTemplateColumns: 'repeat(1, 1fr)',
           }}
-          className="sm:!grid-cols-2 lg:!grid-cols-3"
+          className="sm:grid-cols-2! lg:grid-cols-3!"
         >
           {posts.map((post) => (
             <BlogCard key={post._id} post={post} />

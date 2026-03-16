@@ -83,7 +83,7 @@ export default function BlogCard({ post }: { post: BlogPostCard }) {
             marginBottom: '0.5rem',
             transition: 'color 0.2s ease',
           }}
-          className="group-hover:!text-[var(--earth)]"
+          className="group-hover:text-(--earth)!"
         >
           {post.title}
         </h3>

@@ -1145,3 +1145,31 @@ a:hover {
   color: rgba(255, 255, 255, 0.8);
   text-decoration: none;
 }
+
+/* ─── Sanity content page utilities ─── */
+
+.blog-breadcrumb-link {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.blog-breadcrumb-link:hover {
+  color: var(--earth);
+}
+
+.toolkit-download-btn {
+  display: inline-block;
+  background-color: var(--earth);
+  color: var(--white);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.toolkit-download-btn:hover {
+  background-color: var(--earth-dark);
+}

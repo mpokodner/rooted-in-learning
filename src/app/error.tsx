@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 
 export default function Error({
   error,
@@ -10,16 +11,15 @@ export default function Error({
   reset: () => void;
 }) {
   useEffect(() => {
-    // Log the error (Sentry integration point)
     console.error(error);
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-[var(--neutral-bg)] flex items-center justify-center">
+    <div className="min-h-screen bg-(--neutral-bg) flex items-center justify-center">
       <div className="text-center px-6">
-        <div className="w-20 h-20 bg-[var(--beige-bg)] rounded-full flex items-center justify-center mx-auto mb-6">
+        <div className="w-20 h-20 bg-(--beige-bg) rounded-full flex items-center justify-center mx-auto mb-6">
           <svg
-            className="w-10 h-10 text-[var(--terracotta)]"
+            className="w-10 h-10 text-(--terracotta)"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -32,28 +32,27 @@ export default function Error({
             />
           </svg>
         </div>
-        <p className="text-[var(--text-xs)] font-bold text-[var(--terracotta)] uppercase tracking-[var(--tracking-widest)] mb-3">
+        <p className="text-(--text-xs) font-bold uppercase tracking-widest mb-3" style={{ color: 'var(--terracotta)' }}>
           Something Went Wrong
         </p>
-        <h1 className="text-h1 text-[var(--text-dark)] mb-3">
-          Oops!
-        </h1>
-        <p className="text-[var(--text-muted)] text-[var(--text-base)] max-w-md mx-auto mb-8 leading-[var(--leading-relaxed)]">
-          We hit an unexpected bump. Don&apos;t worry — your data is safe. Try refreshing or head back home.
+        <h1 className="text-h1 text-(--text-dark) mb-3">Oops!</h1>
+        <p className="text-(--text-muted) max-w-md mx-auto mb-8 leading-relaxed">
+          We hit an unexpected bump. Don&apos;t worry — your data is safe. Try
+          refreshing or head back home.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">
           <button
             onClick={reset}
-            className="btn btn-lg btn-primary rounded-[var(--radius-lg)]"
+            className="btn btn-lg btn-primary rounded-lg"
           >
             Try Again
           </button>
-          <a
+          <Link
             href="/"
-            className="btn btn-lg btn-secondary rounded-[var(--radius-lg)]"
+            className="btn btn-lg btn-secondary rounded-lg"
           >
             Back to Home
-          </a>
+          </Link>
         </div>
       </div>
     </div>

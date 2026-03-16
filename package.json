@@ -9,6 +9,10 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "@portabletext/react": "^6.0.3",
+    "@sanity/icons": "^3.7.4",
+    "@sanity/image-url": "^2.0.3",
+    "@sanity/vision": "^5.16.0",
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.91.1",
     "@upstash/ratelimit": "^2.0.8",
@@ -16,9 +20,11 @@
     "@vercel/speed-insights": "^1.3.1",
     "nanoid": "^5.1.6",
     "next": "^16.1.6",
+    "next-sanity": "^12.1.1",
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "resend": "^6.9.2",
+    "sanity": "^5.16.0",
     "stripe": "^20.2.0"
   },
   "devDependencies": {

@@ -1,5 +1,4 @@
 import type { PortableTextBlock } from '@portabletext/types'
-import type { SanityImageSource } from '@sanity/image-url/lib/types/types'
 
 export interface ContentPillar {
   _id: string
@@ -25,7 +24,7 @@ export interface Tag {
 export interface Author {
   name: string
   slug: { current: string }
-  image?: SanityImageSource
+  image?: any
   role?: string
   bio?: string
   social?: {
@@ -61,7 +60,7 @@ export interface BlogPost extends BlogPostCard {
   seo?: {
     metaTitle?: string
     metaDescription?: string
-    ogImage?: SanityImageSource
+    ogImage?: any
   }
   relatedPosts?: BlogPostCard[]
 }

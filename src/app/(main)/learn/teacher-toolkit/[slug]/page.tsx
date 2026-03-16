@@ -91,7 +91,7 @@ export async function generateMetadata({
     title:
       resource.seo?.metaTitle || `${resource.title} | The Rooted Learner`,
     description: resource.seo?.metaDescription || resource.excerpt,
-    alternates: { canonical: `/learn/toolkit/${slug}` },
+    alternates: { canonical: `/learn/teacher-toolkit/${slug}` },
     openGraph: {
       title: resource.seo?.metaTitle || resource.title,
       description: resource.seo?.metaDescription || resource.excerpt || '',
@@ -135,7 +135,7 @@ export default async function ToolkitResourcePage({
         }}
       >
         <Link
-          href="/learn/toolkit"
+          href="/learn/teacher-toolkit"
           className="blog-breadcrumb-link"
         >
           Teacher Toolkit

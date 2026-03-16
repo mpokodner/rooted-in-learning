@@ -58,7 +58,7 @@ export default function ToolkitCard({
 
   return (
     <Link
-      href={`/learn/toolkit/${resource.slug.current}`}
+      href={`/learn/teacher-toolkit/${resource.slug.current}`}
       className="group"
       style={{
         display: "block",

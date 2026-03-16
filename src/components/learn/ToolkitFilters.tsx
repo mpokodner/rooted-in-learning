@@ -29,7 +29,7 @@ export default function ToolkitFilters({
       params.delete(key)
     }
     const query = params.toString()
-    router.push(query ? `?${query}` : '/learn/toolkit', { scroll: false })
+    router.push(query ? `?${query}` : '/learn/teacher-toolkit', { scroll: false })
   }
 
   const btnBase: React.CSSProperties = {

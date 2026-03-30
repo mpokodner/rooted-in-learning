@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://www.therootedlearner.com";
+const SITE_URL = "https://www.therootedlearner.com";
 
 export default function robots(): MetadataRoute.Robots {
   return {
@@ -9,9 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         userAgent: "*",
         allow: "/",
         disallow: [
-          "/account",
           "/account/",
-          "/admin",
           "/admin/",
           "/api/",
           "/login",
@@ -22,8 +20,8 @@ export default function robots(): MetadataRoute.Robots {
           "/checkout",
           "/confirmation",
           "/studio",
+          "/studio/",
           "/_next/",
-          "/freebies/",
         ],
       },
       {

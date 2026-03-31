@@ -223,6 +223,11 @@ export default function Footer() {
                 <h5 className="footer-heading">Pages</h5>
                 <ul className="footer-link-list">
                   <li>
+                    <Link href="/" className="footer-link">
+                      Home
+                    </Link>
+                  </li>
+                  <li>
                     <Link href="/about" className="footer-link">
                       About
                     </Link>

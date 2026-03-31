@@ -12,6 +12,7 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
+  { href: "/", label: "Home" },
   { href: "/about", label: "About" },
   { href: "/shop", label: "Shop" },
   {
@@ -211,22 +212,6 @@ export default function Header() {
             aria-modal="true"
             aria-label="Navigation menu"
           >
-            <Link
-              href="/"
-              onClick={closeMobile}
-              style={{
-                display: "block",
-                padding: "0.875rem 0",
-                fontSize: "1.125rem",
-                fontWeight: 500,
-                color: pathname === "/" ? "#5C6B4D" : "#2D2D2D",
-                textDecoration: "none",
-                borderBottom: "1px solid #E8DED0",
-              }}
-            >
-              Home
-            </Link>
-
             {NAV_ITEMS.map((item) =>
               item.children ? (
                 <div key={item.label}>

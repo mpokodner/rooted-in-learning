@@ -32,6 +32,8 @@ const nextConfig: NextConfig = {
       { source: "/consulting", destination: "/services", permanent: true },
       { source: "/consulting/assessalign", destination: "/tools", permanent: true },
       { source: "/about/projects", destination: "/about#projects", permanent: true },
+      { source: "/learn/toolkit", destination: "/learn/teacher-toolkit", permanent: true },
+      { source: "/learn/toolkit/:slug", destination: "/learn/teacher-toolkit/:slug", permanent: true },
     ];
   },
 };

@@ -15,19 +15,19 @@ export const metadata: Metadata = {
 };
 
 const assessAlignFeatures = [
-  "AI-powered feedback loops",
-  "Standards mapping engine",
-  "Real-time analytics dashboard",
-  "LMS Integration (Canvas, Blackboard, Moodle)",
+  "Standards-based reading assessments (Grades 2–8)",
+  "Real-time analytics for teachers & administrators",
+  "Team-based houses & gamification leaderboards",
+  "Multi-school support with district-wide deployment",
 ];
 
 const assessAlignTech = [
-  "React + TypeScript",
-  "Node.js",
-  "OpenAI API",
-  "PostgreSQL",
-  "AWS",
-  "LTI 1.3 Integration",
+  "React 18 + Vite",
+  "Node.js + GraphQL",
+  "Supabase (Auth + RLS)",
+  "TailwindCSS",
+  "Recharts",
+  "Vercel",
 ];
 
 const techStack = [
@@ -79,13 +79,14 @@ export default function ToolsPage() {
                   </span>
                 </div>
                 <h2 id="assessalign-heading" className="tools-aa-title">
-                  AssessAlign — Intelligent Assessment Orchestration
+                  AssessAlign — Standards-Based Reading Assessment Platform
                 </h2>
                 <p className="tools-aa-desc">
-                  A full-stack EdTech platform built to solve inconsistent
-                  assessment-to-standards alignment. Uses AI-driven
-                  standardization and real-time analytics to help educators make
-                  data-driven instructional decisions.
+                  A comprehensive assessment platform for grades 2–8 with
+                  Common Core ELA alignment, real-time data collection, analytics
+                  dashboards, and team-based gamification to drive student
+                  engagement. Built with role-based access for students, teachers,
+                  and administrators.
                 </p>
                 <div className="tools-aa-actions">
                   <a href="#early-access" className="tools-btn tools-btn--primary">
@@ -113,7 +114,7 @@ export default function ToolsPage() {
               <div className="tools-aa-image-wrap">
                 <Image
                   src={assessAlignImg}
-                  alt="AssessAlign Dashboard — showing teacher dashboard with assessment creation, class management, and standards alignment"
+                  alt="AssessAlign Dashboard — standards-based reading assessment platform with real-time analytics, class management, and house leaderboards"
                   className="tools-aa-image"
                   placeholder="blur"
                   sizes="(max-width: 768px) 100vw, 50vw"

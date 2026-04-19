@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | The Rooted Learner",
   },
   description:
-    "Bridging pedagogy and technology with 12+ years of classroom experience. Discover educational resources, tools, and professional development designed by a certified educator and full-stack developer.",
+    "EdTech consulting, AI-powered teacher tools, and standards-aligned curriculum resources for grades 1–8. Built by Michelle Pokodner — a 12+ year classroom veteran and full-stack developer.",
   keywords: [
     "education technology",
     "edtech",
@@ -40,8 +40,8 @@ export const metadata: Metadata = {
     "reading intervention",
     "literacy tools",
   ],
-  authors: [{ name: "The Rooted Learner" }],
-  creator: "The Rooted Learner",
+  authors: [{ name: "Michelle Pokodner", url: "https://www.therootedlearner.com" }],
+  creator: "Michelle Pokodner",
   publisher: "The Rooted Learner",
   robots: {
     index: true,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     siteName: "The Rooted Learner",
     title: "The Rooted Learner | EdTech Solutions for Modern Educators",
     description:
-      "Bridging pedagogy and technology with 12+ years of classroom experience. Discover educational resources, tools, and professional development.",
+      "EdTech consulting, AI-powered teacher tools, and standards-aligned curriculum resources for grades 1–8. Built by a classroom veteran and full-stack developer.",
     images: [
       {
         url: "/og-image.png",
@@ -123,7 +123,13 @@ export default function RootLayout({
               "name": "The Rooted Learner",
               "url": "https://www.therootedlearner.com",
               "logo": "https://www.therootedlearner.com/logo.png",
-              "description": "Research-based literacy support, teacher tools, and digital solutions for schools and families.",
+              "description": "EdTech consulting, AI-powered teacher tools, and standards-aligned resources for grades 1–8 educators — built by a 12+ year classroom veteran.",
+              "founder": {
+                "@type": "Person",
+                "name": "Michelle Pokodner",
+                "jobTitle": "Founder & Educator",
+                "url": "https://www.therootedlearner.com/about"
+              },
               "sameAs": [
                 "https://www.youtube.com/@TheRootedLearner",
                 "https://www.tiktok.com/@therootedlearner",

@@ -5,7 +5,7 @@ import "../legal.css";
 export const metadata: Metadata = {
   title: "AI Ethics & Data Transparency | The Rooted Learner",
   description:
-    "How The Rooted Learner uses AI responsibly in education. Our commitment to student data privacy, transparency, and ethical AI practices.",
+    "How The Rooted Learner uses AI responsibly in education. My commitment to student data privacy, transparency, and ethical AI practices.",
   alternates: { canonical: "/ai-ethics" },
 };
 
@@ -17,7 +17,7 @@ export default function AIEthicsPage() {
         <div className="legal-hero-inner">
           <h1 className="legal-hero-title">AI Ethics &amp; Data Transparency</h1>
           <p className="legal-hero-subtitle">
-            Our commitment to responsible AI use in education. We believe
+            My commitment to responsible AI use in education. I believe
             transparency isn&apos;t optional — it&apos;s foundational.
           </p>
         </div>
@@ -28,17 +28,17 @@ export default function AIEthicsPage() {
         <div className="legal-container">
           <div className="legal-callout">
             <p>
-              <strong>Our AI Philosophy:</strong> We use AI to amplify great
-              teaching, never to replace it. Every AI feature we build is
+              <strong>My AI Philosophy:</strong> I use AI to amplify great
+              teaching, never to replace it. Every AI feature I build is
               designed to save educators time while keeping them in control of
               instruction.
             </p>
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">How We Use AI</h2>
+            <h2 className="legal-section-title">How I Use AI</h2>
             <p className="legal-text">
-              AI is used in the following ways across our platform:
+              AI is used in the following ways across the platform:
             </p>
             <ul className="legal-list">
               <li>
@@ -56,9 +56,9 @@ export default function AIEthicsPage() {
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">Our AI Provider</h2>
+            <h2 className="legal-section-title">AI Provider</h2>
             <p className="legal-text">
-              We use Anthropic&apos;s Claude as our primary AI engine. We chose
+              I use Anthropic&apos;s Claude as the primary AI engine. I chose
               Claude specifically because:
             </p>
             <ul className="legal-list">
@@ -77,7 +77,7 @@ export default function AIEthicsPage() {
               </li>
             </ul>
             <p className="legal-text">
-              As a Claude ambassador candidate, we are deeply invested in
+              As a Claude ambassador candidate, I am deeply invested in
               demonstrating how responsible AI can transform education while
               protecting students.
             </p>
@@ -87,7 +87,7 @@ export default function AIEthicsPage() {
             <h2 className="legal-section-title">Student Data Protection</h2>
             <ul className="legal-list">
               <li>
-                We never send personally identifiable student information to AI
+                I never send personally identifiable student information to AI
                 providers
               </li>
               <li>
@@ -123,26 +123,26 @@ export default function AIEthicsPage() {
                 functionality
               </li>
               <li>
-                We provide transparency into how AI suggestions are generated
+                Full transparency is provided into how AI suggestions are generated
               </li>
             </ul>
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">What We Don&apos;t Do</h2>
+            <h2 className="legal-section-title">What I Don&apos;t Do</h2>
             <ul className="legal-list">
-              <li>We don&apos;t use AI to make decisions about individual students</li>
+              <li>I don&apos;t use AI to make decisions about individual students</li>
               <li>
-                We don&apos;t share student data with AI providers for model training
+                I don&apos;t share student data with AI providers for model training
               </li>
               <li>
-                We don&apos;t use AI for student surveillance or behavioral monitoring
+                I don&apos;t use AI for student surveillance or behavioral monitoring
               </li>
               <li>
-                We don&apos;t replace educator expertise with AI recommendations
+                I don&apos;t replace educator expertise with AI recommendations
               </li>
               <li>
-                We don&apos;t collect biometric or sensitive personal data
+                I don&apos;t collect biometric or sensitive personal data
               </li>
             </ul>
           </div>
@@ -150,7 +150,7 @@ export default function AIEthicsPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">Compliance &amp; Frameworks</h2>
             <p className="legal-text">
-              Our AI practices are designed to align with:
+              These AI practices are designed to align with:
             </p>
             <ul className="legal-list">
               <li>FERPA (Family Educational Rights and Privacy Act)</li>
@@ -164,28 +164,28 @@ export default function AIEthicsPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">Continuous Improvement</h2>
             <p className="legal-text">
-              AI in education is evolving rapidly. We commit to:
+              AI in education is evolving rapidly. I commit to:
             </p>
             <ul className="legal-list">
               <li>
-                Regular audits of our AI systems for bias and accuracy
+                Regular audits of all AI systems for bias and accuracy
               </li>
-              <li>Updating our practices as best practices evolve</li>
+              <li>Updating practices as best practices evolve</li>
               <li>Engaging with educator feedback on AI features</li>
               <li>
-                Publishing updates to this page as our AI capabilities change
+                Publishing updates to this page as AI capabilities change
               </li>
             </ul>
           </div>
 
           <div className="legal-contact">
-            <h3 className="legal-contact-title">Questions About Our AI Practices?</h3>
+            <h3 className="legal-contact-title">Questions About These AI Practices?</h3>
             <p>
-              We welcome dialogue. Email:{" "}
+              I welcome dialogue. Email:{" "}
               <a href="mailto:hello@therootedlearner.com">
                 hello@therootedlearner.com
               </a>{" "}
-              or use our <Link href="/contact">contact form</Link>.
+              or use the <Link href="/contact">contact form</Link>.
             </p>
           </div>
         </div>

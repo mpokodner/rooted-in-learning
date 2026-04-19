@@ -358,6 +358,10 @@ a:hover {
   padding-block: var(--space-section-lg, clamp(4rem, 8vw, 6rem));
 }
 
+.section--alt {
+  background-color: var(--beige-bg);
+}
+
 /* ═══════════════════════════════════════════════════════════════
    SITE HEADER
    Sticky, neutral-white background with blur on scroll
@@ -639,6 +643,48 @@ a:hover {
 @media (min-width: 900px) {
   .header-newsletter-text {
     display: inline;
+  }
+}
+
+/* ─── Book a Call CTA ─── */
+
+.header-cta-btn {
+  display: none;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.4rem 0.875rem;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+  transition:
+    background-color var(--duration-base) var(--ease-default),
+    box-shadow var(--duration-base) var(--ease-default),
+    transform var(--duration-fast) var(--ease-default);
+}
+
+.header-cta-btn:hover {
+  background-color: var(--terracotta-dark);
+  box-shadow: var(--shadow-md);
+  color: var(--white);
+  text-decoration: none;
+}
+
+.header-cta-btn:active {
+  transform: translateY(1px);
+}
+
+.header-cta-btn svg {
+  width: 0.875rem;
+  height: 0.875rem;
+}
+
+@media (min-width: 768px) {
+  .header-cta-btn {
+    display: inline-flex;
   }
 }
 

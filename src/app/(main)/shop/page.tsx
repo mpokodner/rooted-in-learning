@@ -140,12 +140,32 @@ export default function ShopPage() {
     <div className="shop-page">
       <section className="shop-header" aria-labelledby="shop-heading">
         <div className="container">
+          <p className="shop-eyebrow">Resources</p>
           <h1 id="shop-heading" className="shop-title">
-            Shop
+            Curriculum Tools Built for the Classrooms That Need Them Most.
           </h1>
           <p className="shop-subtitle">
-            Ready-to-use lessons, tools, and resources to save you time.
+            WIDA-aligned ELD overlays, formative assessment kits for
+            multilingual learners, AI prompt libraries for educators, and
+            Science of Reading intervention guides &mdash; designed at the
+            district level, usable at the classroom level. Launching soon.
           </p>
+          <div className="shop-hero-actions">
+            <a href="#early-access" className="shop-hero-cta-primary">
+              Get Early Access
+            </a>
+            <a
+              href="https://www.teacherspayteachers.com/store/rootedinlearninged"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="shop-hero-cta-secondary"
+            >
+              Browse what&apos;s available now on TPT
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true" style={{ width: '1rem', height: '1rem', display: 'inline-block', marginLeft: '0.25rem', verticalAlign: 'middle' }}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
         </div>
       </section>
 
@@ -288,6 +308,77 @@ export default function ShopPage() {
               </p>
             )}
           </div>
+        </div>
+      </section>
+
+      {/* ─── Early Access Email Capture ─── */}
+      <section id="early-access" className="shop-early-access section--alt" aria-labelledby="early-access-heading">
+        <div className="container" style={{ maxWidth: '36rem', textAlign: 'center', padding: '3rem 1rem' }}>
+          <h2
+            id="early-access-heading"
+            style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-black)', fontSize: 'var(--text-2xl)', fontWeight: 700, marginBottom: '0.75rem' }}
+          >
+            Get Early Access
+          </h2>
+          <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 'var(--leading-relaxed)' }}>
+            Be the first to know when new WIDA-aligned resources, assessment kits,
+            and curriculum tools are available. No spam &mdash; just launch
+            announcements and free educator downloads.
+          </p>
+          <form
+            onSubmit={async (e) => {
+              e.preventDefault();
+              const form = e.currentTarget;
+              const email = (form.elements.namedItem("email") as HTMLInputElement).value;
+              if (!email) return;
+              try {
+                const res = await fetch("/api/early-access", {
+                  method: "POST",
+                  headers: { "Content-Type": "application/json" },
+                  body: JSON.stringify({ email, source: "shop" }),
+                });
+                if (res.ok) {
+                  form.reset();
+                  alert("You're on the list! Check your inbox.");
+                }
+              } catch {
+                alert("Something went wrong. Please try again.");
+              }
+            }}
+            style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
+          >
+            <input
+              type="email"
+              name="email"
+              required
+              placeholder="you@school.edu"
+              aria-label="Email address"
+              style={{
+                flex: '1 1 14rem',
+                maxWidth: '20rem',
+                padding: '0.75rem 1rem',
+                borderRadius: '0.5rem',
+                border: '1px solid var(--border-beige)',
+                fontSize: 'var(--text-base)',
+                outline: 'none',
+              }}
+            />
+            <button
+              type="submit"
+              style={{
+                padding: '0.75rem 1.5rem',
+                borderRadius: '0.5rem',
+                backgroundColor: 'var(--terracotta)',
+                color: 'var(--white)',
+                fontWeight: 600,
+                fontSize: 'var(--text-base)',
+                border: 'none',
+                cursor: 'pointer',
+              }}
+            >
+              Notify Me
+            </button>
+          </form>
         </div>
       </section>
     </div>

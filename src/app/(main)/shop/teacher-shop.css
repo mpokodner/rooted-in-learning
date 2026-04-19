@@ -14,27 +14,86 @@
    ═══════════════════════════════════ */
 
 .shop-header {
-  padding-top: clamp(2.5rem, 5vw, 4rem);
-  padding-bottom: clamp(1.5rem, 3vw, 2.5rem);
+  padding-top: clamp(3rem, 6vw, 5rem);
+  padding-bottom: clamp(2rem, 4vw, 3rem);
   text-align: center;
+  background: linear-gradient(135deg, var(--earth-mist) 0%, var(--neutral-bg) 100%);
+}
+
+.shop-eyebrow {
+  display: inline-block;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--earth);
+  margin-bottom: 0.75rem;
 }
 
 .shop-title {
   font-family: var(--font-heading);
-  font-size: var(--text-5xl);
+  font-size: var(--text-4xl);
   font-weight: 800;
-  color: var(--text-dark);
+  color: var(--text-black);
   letter-spacing: var(--tracking-tight);
-  line-height: 1.1;
-  margin-bottom: 0.75rem;
+  line-height: 1.15;
+  margin-bottom: 1rem;
+  max-width: 38rem;
+  margin-inline: auto;
 }
 
 .shop-subtitle {
   font-size: var(--text-lg);
   color: var(--text-muted);
   line-height: var(--leading-relaxed);
-  max-width: 32rem;
+  max-width: 36rem;
   margin-inline: auto;
+  margin-bottom: 1.5rem;
+}
+
+.shop-hero-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 1.25rem;
+}
+
+.shop-hero-cta-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1.5rem;
+  background-color: var(--terracotta);
+  color: var(--white);
+  font-weight: 600;
+  font-size: var(--text-base);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s;
+}
+
+.shop-hero-cta-primary:hover {
+  background-color: var(--terracotta-dark);
+}
+
+.shop-hero-cta-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
+  padding: 0.75rem 1.5rem;
+  border: 1.5px solid var(--earth);
+  color: var(--earth-dark);
+  font-weight: 600;
+  font-size: var(--text-base);
+  border-radius: 0.5rem;
+  text-decoration: none;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.shop-hero-cta-secondary:hover {
+  background-color: var(--earth);
+  color: var(--white);
 }
 
 /* ═══════════════════════════════════

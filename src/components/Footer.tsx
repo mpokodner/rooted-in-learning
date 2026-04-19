@@ -43,8 +43,8 @@ export default function Footer() {
                 Get weekly teaching strategies &amp; free resources
               </h3>
               <p className="footer-capture-desc">
-                Join our community of educators. Research-backed insights
-                delivered every Tuesday.
+                Join a growing community of educators. Research-backed
+                insights delivered every Tuesday.
               </p>
             </div>
             <form className="footer-capture-form" onSubmit={handleSubscribe}>
@@ -138,7 +138,7 @@ export default function Footer() {
                   <span className="footer-trust-label">Years in Education</span>
                 </div>
                 <div className="footer-trust-metric">
-                  <span className="footer-trust-number">K–8</span>
+                  <span className="footer-trust-number">1–8</span>
                   <span className="footer-trust-label">Built for Educators</span>
                 </div>
                 <div className="footer-trust-metric">

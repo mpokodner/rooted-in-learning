@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 const assessAlignFeatures = [
-  "Standards-based reading assessments (Grades 2–8)",
+  "Standards-based reading assessments (Grades 3–8)",
   "Real-time analytics for teachers & administrators",
   "Team-based houses & gamification leaderboards",
   "Multi-school support with district-wide deployment",
@@ -82,14 +82,14 @@ export default function ToolsPage() {
                   AssessAlign — Standards-Based Reading Assessment Platform
                 </h2>
                 <p className="tools-aa-desc">
-                  A comprehensive assessment platform for grades 2–8 with
+                  A comprehensive assessment platform for grades 3–8 with
                   Common Core ELA alignment, real-time data collection, analytics
                   dashboards, and team-based gamification to drive student
                   engagement. Built with role-based access for students, teachers,
                   and administrators.
                 </p>
                 <div className="tools-aa-actions">
-                  <a href="#early-access" className="tools-btn tools-btn--primary">
+                  <Link href="/tools/assessalign" className="tools-btn tools-btn--primary">
                     Explore AssessAlign
                     <svg
                       fill="none"
@@ -104,7 +104,7 @@ export default function ToolsPage() {
                         d="M17 8l4 4m0 0l-4 4m4-4H3"
                       />
                     </svg>
-                  </a>
+                  </Link>
                   <Link href="/services" className="tools-aa-link">
                     Learn about my consulting practice
                   </Link>

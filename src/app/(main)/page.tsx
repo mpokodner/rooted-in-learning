@@ -1,7 +1,21 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
 import "./home.css";
+
+export const metadata: Metadata = {
+  title: "The Rooted Learner | Curriculum Systems Consulting for K–12 Districts",
+  description:
+    "Curriculum systems consulting, AI integration, and standards-aligned resources for K–12 districts. Built by Michelle Pokodner — a 12+ year classroom veteran, curriculum specialist, and full-stack developer.",
+  alternates: { canonical: "/" },
+  openGraph: {
+    title: "The Rooted Learner | Curriculum Systems Consulting for K–12",
+    description:
+      "I diagnose the gaps in your curriculum systems and build the personalized solutions that close them. Not just recommendations — actual deliverables.",
+    type: "website",
+  },
+};
 
 export default function Home() {
   return (
@@ -32,22 +46,22 @@ export default function Home() {
                 />
               </svg>
               <span className="hero-badge-text">
-                Teaching is evolving &mdash; we build the tools that evolve with
-                it
+                Curriculum Systems Consulting for K&ndash;12 Districts
               </span>
             </div>
 
             <h1 className="hero-heading animate-fade-up animate-delay-1">
-              Making Teaching Easier,{" "}
+              Your district is already paying for the tools.{" "}
               <span className="hero-heading-accent">
-                Through Rooted Innovation
+                I help you make them work together for every student.
               </span>
             </h1>
 
             <p className="hero-subheadline animate-fade-up animate-delay-2">
-              Discover AI-powered tools and curriculum solutions designed
-              specifically for the K-8 classroom. Empower your instruction and
-              reclaim your time.
+              I&apos;m a current 1&ndash;8 educator, curriculum specialist, and
+              full-stack developer. I diagnose the gaps in your curriculum
+              systems and build the personalized solutions that close them. Not
+              just recommendations &mdash; actual deliverables.
             </p>
 
             <div className="hero-cta-row animate-fade-up animate-delay-3">
@@ -55,7 +69,7 @@ export default function Home() {
                 href="/services"
                 className="hero-cta-btn hero-cta-btn--terracotta"
               >
-                Work With Me
+                Start with an Audit
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -71,7 +85,7 @@ export default function Home() {
                 </svg>
               </Link>
               <Link href="/shop" className="hero-cta-btn hero-cta-btn--outline">
-                Browse Lessons
+                Browse Resources
               </Link>
             </div>
           </div>
@@ -103,10 +117,10 @@ export default function Home() {
               id="audience-heading"
               className="text-h2 audience-pathway-title"
             >
-              How Can We Help You Today?
+              How Can I Help You Today?
             </h2>
             <p className="audience-pathway-desc">
-              We serve educators, schools, and families. Select your path to
+              I serve educators, schools, and families. Select your path to
               find the right resources.
             </p>
           </div>
@@ -281,7 +295,7 @@ export default function Home() {
 
           <div className="problem-cta-row">
             <Link href="/services" className="trust-btn trust-btn--primary">
-              See How We Help
+              See How I Help
               <svg
                 fill="none"
                 viewBox="0 0 24 24"
@@ -365,9 +379,15 @@ export default function Home() {
           </div>
 
           <blockquote className="whyus-quote">
-            &ldquo;Most EdTech is built for teachers. We build from inside the
-            profession &mdash; because the best tools come from those
-            who&apos;ve lived the work.&rdquo;
+            &ldquo;The Rooted Learner is built on a simple premise: when a
+            district&apos;s curriculum systems are aligned, equitable, and
+            designed for its actual students &mdash; especially its multilingual
+            learners &mdash; something changes all the way down the chain.
+            Teachers have what they need to teach. Students have what they need
+            to learn. The work I do starts at the systems level, but it ends
+            with a child who is finally seen by the curriculum in front of them.
+            That child is the rooted learner. And they are the reason all of
+            this exists.&rdquo;
           </blockquote>
 
           <div className="whyus-cta-row">

@@ -6,14 +6,15 @@ import "./learn.css";
 export const metadata: Metadata = {
   title: "Learn | The Rooted Learner",
   description:
-    "AI tutorials, tech tips, how-to guides, and research-backed articles for K-8 educators. Explore the Teacher Toolkit and Blog.",
+    "Practical strategies grounded in Science of Reading, WIDA alignment, and AI integration — written for curriculum designers, district leaders, and the teachers who deliver instruction.",
   keywords: [
-    "teacher training",
+    "Science of Reading",
+    "WIDA alignment",
     "AI for educators",
-    "edtech tutorials",
-    "teaching tips",
-    "education blog",
+    "curriculum design",
+    "district leadership",
     "professional development",
+    "multilingual learner support",
   ],
   alternates: {
     canonical: "/learn",
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Learn | The Rooted Learner",
     description:
-      "AI tutorials, tech tips, how-to guides, and research-backed articles for K-8 educators.",
+      "Research that reaches classrooms. Insights that reach systems. Practical strategies for educators and district leaders.",
     type: "website",
   },
 };
@@ -39,7 +40,27 @@ export default function LearnPage() {
           priority
           sizes="100vw"
         />
-        <span className="sr-only" id="learn-heading">Learn</span>
+        <div className="learn-hero-overlay">
+          <p className="learn-hero-eyebrow">For Educators and District Leaders</p>
+          <h1 id="learn-heading" className="learn-hero-title">
+            Research That Reaches Classrooms.
+            <br />
+            Insights That Reach Systems.
+          </h1>
+          <p className="learn-hero-desc">
+            Practical strategies grounded in Science of Reading, WIDA
+            alignment, and AI integration &mdash; written for the people who
+            design curriculum and the teachers who deliver it.
+          </p>
+          <div className="learn-hero-actions">
+            <Link href="/learn/blog" className="learn-hero-cta-primary">
+              Read the Blog
+            </Link>
+            <Link href="/learn/teacher-toolkit" className="learn-hero-cta-secondary">
+              Get the Free Toolkit
+            </Link>
+          </div>
+        </div>
       </section>
 
       {/* ─── Pathway Cards ─── */}
@@ -52,7 +73,7 @@ export default function LearnPage() {
             </h2>
             <p className="learn-cards-desc">
               Whether you want hands-on tech training or research-backed
-              reading, we have a path for you.
+              reading, there&apos;s a path for you.
             </p>
           </div>
 
@@ -180,7 +201,7 @@ export default function LearnPage() {
               Ready to Teach Smarter?
             </h2>
             <p className="learn-motivation-desc">
-              Explore our full library of tools, lessons, and services
+              Explore the full library of tools, lessons, and services
               designed to give educators leverage.
             </p>
             <Link href="/shop" className="learn-motivation-cta">

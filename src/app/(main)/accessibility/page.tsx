@@ -5,7 +5,7 @@ import "../legal.css";
 export const metadata: Metadata = {
   title: "Accessibility | The Rooted Learner",
   description:
-    "Our commitment to making The Rooted Learner accessible to all educators, regardless of ability.",
+    "My commitment to making The Rooted Learner accessible to all educators, regardless of ability.",
   alternates: {
     canonical: "/accessibility",
   },
@@ -25,7 +25,7 @@ export default function AccessibilityPage() {
           </div>
           <h1 className="legal-hero-title">Accessibility</h1>
           <p className="legal-hero-subtitle">
-            As educators, we believe everyone deserves equal access to learning resources. We&apos;re committed to making our site usable for all.
+            As an educator, I believe everyone deserves equal access to learning resources. I&apos;m committed to making this site usable for all.
           </p>
           <span className="legal-hero-date">Last updated: February 2026</span>
         </div>
@@ -37,17 +37,17 @@ export default function AccessibilityPage() {
 
           <div className="legal-callout">
             <p>
-              <strong>Our commitment:</strong> The Rooted Learner is built with accessibility as a core principle, not an afterthought. We continuously work to ensure our website and resources meet or exceed accessibility standards so that every educator can benefit from our content.
+              <strong>My commitment:</strong> The Rooted Learner is built with accessibility as a core principle, not an afterthought. I continuously work to ensure this website and its resources meet or exceed accessibility standards so that every educator can benefit from the content.
             </p>
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">Our Standards</h2>
+            <h2 className="legal-section-title">Standards</h2>
             <p className="legal-text">
-              We strive to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> standards. These internationally recognized guidelines ensure that web content is perceivable, operable, understandable, and robust for all users, including those with disabilities.
+              I strive to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> standards. These internationally recognized guidelines ensure that web content is perceivable, operable, understandable, and robust for all users, including those with disabilities.
             </p>
             <p className="legal-text">
-              Accessibility is an ongoing effort, and we regularly review and improve our site to maintain and enhance compliance.
+              Accessibility is an ongoing effort, and I regularly review and improve the site to maintain and enhance compliance.
             </p>
           </div>
 
@@ -110,7 +110,7 @@ export default function AccessibilityPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">Downloadable Resources</h2>
             <p className="legal-text">
-              We make every effort to ensure our downloadable lesson plans, templates, and other educational materials are accessible. This includes:
+              I make every effort to ensure downloadable lesson plans, templates, and other educational materials are accessible. This includes:
             </p>
             <ul className="legal-list">
               <li>Using proper heading structures in documents</li>
@@ -119,29 +119,29 @@ export default function AccessibilityPage() {
               <li>Providing content in commonly accessible formats (PDF, Google Docs)</li>
             </ul>
             <p className="legal-text">
-              If you need a resource in an alternative format, please <Link href="/contact">contact us</Link> and we will do our best to accommodate your request.
+              If you need a resource in an alternative format, please <Link href="/contact">reach out</Link> and I will do my best to accommodate your request.
             </p>
           </div>
 
           <div className="legal-section">
             <h2 className="legal-section-title">Known Limitations</h2>
             <p className="legal-text">
-              While we work hard to ensure accessibility across our entire site, we acknowledge that some areas may still need improvement. Known limitations include:
+              While I work hard to ensure accessibility across the entire site, I acknowledge that some areas may still need improvement. Known limitations include:
             </p>
             <ul className="legal-list">
-              <li>Some older downloadable resources may not have full accessibility markup &mdash; we are updating these on an ongoing basis</li>
-              <li>Third-party embedded content (such as social media feeds or external video players) may not fully meet our accessibility standards</li>
+              <li>Some older downloadable resources may not have full accessibility markup &mdash; these are being updated on an ongoing basis</li>
+              <li>Third-party embedded content (such as social media feeds or external video players) may not fully meet accessibility standards</li>
               <li>User-generated content (such as blog comments, if enabled) may not always follow accessibility best practices</li>
             </ul>
             <p className="legal-text">
-              We are actively working to address these limitations and welcome your feedback to help prioritize improvements.
+              I am actively working to address these limitations and welcome your feedback to help prioritize improvements.
             </p>
           </div>
 
           <div className="legal-section">
             <h2 className="legal-section-title">Feedback &amp; Reporting Barriers</h2>
             <p className="legal-text">
-              Accessibility is a journey, not a destination. If you encounter any barriers while using The Rooted Learner, we genuinely want to know. Your feedback helps us improve the experience for everyone.
+              Accessibility is a journey, not a destination. If you encounter any barriers while using The Rooted Learner, I genuinely want to know. Your feedback helps improve the experience for everyone.
             </p>
             <p className="legal-text">
               When reporting an accessibility issue, it&apos;s helpful to include:
@@ -150,25 +150,25 @@ export default function AccessibilityPage() {
               <li>The page URL where the issue occurred</li>
               <li>A description of the problem you encountered</li>
               <li>The assistive technology or browser you were using</li>
-              <li>Any suggestions for how we could improve</li>
+              <li>Any suggestions for how the experience could improve</li>
             </ul>
             <p className="legal-text">
-              We aim to respond to all accessibility feedback within 5 business days.
+              I aim to respond to all accessibility feedback within 5 business days.
             </p>
           </div>
 
           <div className="legal-contact">
             <h3 className="legal-contact-title">Report an Accessibility Issue</h3>
             <p>
-              We take every report seriously and are committed to resolving accessibility barriers as quickly as possible.
+              I take every report seriously and am committed to resolving accessibility barriers as quickly as possible.
             </p>
             <p>
               Email: <a href="mailto:hello@therootedlearner.com">hello@therootedlearner.com</a>
               <br />
-              Or use our <Link href="/contact">contact form</Link>
+              Or use the <Link href="/contact">contact form</Link>
             </p>
             <p style={{ fontSize: "0.75rem", color: "#8A8A8A", marginBottom: 0 }}>
-              Please include &ldquo;Accessibility&rdquo; in the subject line so we can prioritize your message.
+              Please include &ldquo;Accessibility&rdquo; in the subject line so I can prioritize your message.
             </p>
           </div>
 

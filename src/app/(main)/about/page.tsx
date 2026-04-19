@@ -149,9 +149,41 @@ const devProjects: DevProject[] = [
 
 const headshotExists = fs.existsSync(path.join(process.cwd(), "public", "headshot.jpg"));
 
+const personJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  name: "Michelle Pokodner",
+  jobTitle: "Educator, Reading Interventionist & EdTech Developer",
+  url: "https://www.therootedlearner.com/about",
+  worksFor: {
+    "@type": "Organization",
+    name: "The Rooted Learner",
+    url: "https://www.therootedlearner.com",
+  },
+  description:
+    "12+ year classroom veteran, Science of Reading certified, curriculum designer, and full-stack developer building AI-powered tools for grades 1–8 educators.",
+  sameAs: [
+    "https://www.linkedin.com/in/michelle-pokodner-edtech/",
+    "https://www.instagram.com/rootedinlearninged/",
+    "https://www.youtube.com/@TheRootedLearner",
+  ],
+  knowsAbout: [
+    "Reading Intervention",
+    "Science of Reading",
+    "Curriculum Design",
+    "Multilingual Learner Support",
+    "EdTech Development",
+    "AI in Education",
+  ],
+};
+
 export default function AboutPage() {
   return (
     <div className="about-page">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       {/* ─── Identity Hero ─── */}
       <section className="about-hero" aria-labelledby="about-heading">
         <div className="about-hero-bg" aria-hidden="true">
@@ -163,17 +195,18 @@ export default function AboutPage() {
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
               <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
             </svg>
-            <span>Practitioner &rarr; Builder &rarr; Strategist</span>
+            <span>Curricular Solutions Architect</span>
           </div>
           <h1 id="about-heading" className="about-hero-title">
             I Build the Infrastructure
             <br />
-            <span className="about-hero-title-accent">That Makes Teaching Sustainable</span>
+            <span className="about-hero-title-accent">That Makes Teaching Sustainable.</span>
           </h1>
           <p className="about-hero-desc">
-            12+ years as an educator, reading interventionist, and curriculum designer.
-            Now building AI-powered tools and research-backed resources that give
-            teachers leverage and give families confidence.
+            12+ years in 1&ndash;8 classrooms across Maryland and Minnesota as a
+            reading interventionist and multi-grade classroom teacher. Now
+            building the curriculum systems and AI-supported tools that address
+            the root causes &mdash; not just the symptoms.
           </p>
           <div className="about-hero-actions">
             <Link href="/services" className="about-hero-cta-primary">
@@ -182,8 +215,8 @@ export default function AboutPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </Link>
-            <Link href="/shop" className="about-hero-cta-secondary">
-              Browse Lessons
+            <Link href="/tools" className="about-hero-cta-secondary">
+              See AssessAlign
             </Link>
           </div>
         </div>
@@ -199,7 +232,7 @@ export default function AboutPage() {
                 {headshotExists ? (
                   <Image
                     src="/headshot.jpg"
-                    alt="Michelle Van Slyke — Educator, Reading Interventionist, and EdTech Developer"
+                    alt="Michelle Pokodner — Educator, Reading Interventionist, and EdTech Developer"
                     width={400}
                     height={500}
                     className="about-headshot"
@@ -207,11 +240,31 @@ export default function AboutPage() {
                     priority
                   />
                 ) : (
-                  <div className="about-narrative-placeholder">
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
-                    </svg>
-                    <p>Add headshot.jpg to /public</p>
+                  <div
+                    className="about-narrative-placeholder"
+                    style={{
+                      display: "flex",
+                      alignItems: "center",
+                      justifyContent: "center",
+                      width: "100%",
+                      aspectRatio: "4 / 5",
+                      borderRadius: "var(--radius-lg, 1rem)",
+                      background: "linear-gradient(135deg, var(--earth) 0%, var(--earth-dark) 100%)",
+                    }}
+                  >
+                    <span
+                      style={{
+                        fontFamily: "var(--font-heading)",
+                        fontSize: "clamp(4rem, 8vw, 6rem)",
+                        fontWeight: 800,
+                        color: "rgba(255,255,255,0.25)",
+                        letterSpacing: "-0.03em",
+                        userSelect: "none",
+                      }}
+                      aria-hidden="true"
+                    >
+                      MP
+                    </span>
                   </div>
                 )}
               </div>
@@ -256,7 +309,7 @@ export default function AboutPage() {
                   <span className="about-stat-label">Years in Education</span>
                 </div>
                 <div className="about-stat">
-                  <span className="about-stat-number">K–8</span>
+                  <span className="about-stat-number">1–8</span>
                   <span className="about-stat-label">Focused Practice</span>
                 </div>
                 <div className="about-stat">
@@ -300,7 +353,7 @@ export default function AboutPage() {
               <div className="about-timeline-dot" aria-hidden="true" />
               <div className="about-timeline-content">
                 <h3 className="about-timeline-title">Classroom Teacher</h3>
-                <p className="about-timeline-desc">K-8 educator focused on literacy and intervention</p>
+                <p className="about-timeline-desc">Grades 1–8 educator focused on literacy and intervention</p>
                 <span className="about-timeline-date">2012-2020</span>
               </div>
             </div>

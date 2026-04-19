@@ -81,11 +81,11 @@ export async function POST(request: NextRequest) {
     await resend.emails.send({
       from: FROM_EMAIL,
       to: email,
-      subject: "We received your message!",
+      subject: "Thanks for reaching out!",
       html: `
         <h1>Thanks for reaching out, ${safeName}!</h1>
         <p>I received your message and will get back to you within 48 hours.</p>
-        <p>In the meantime, check out our latest resources at <a href="https://therootedlearner.com">therootedlearner.com</a>.</p>
+        <p>In the meantime, check out the latest resources at <a href="https://www.therootedlearner.com">therootedlearner.com</a>.</p>
         <p>— Michelle</p>
       `,
     });

@@ -8,7 +8,7 @@ const services = [
   {
     title: "AI Integration Professional Development",
     description:
-      "Equip your staff with the skills to leverage cutting-edge AI tools responsibly. We focus on ethical usage, prompt engineering for educators, and workflow automation to reclaim teacher time.",
+      "Equip your staff with the skills to leverage cutting-edge AI tools responsibly. I focus on ethical usage, prompt engineering for educators, and workflow automation to reclaim teacher time.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
   },
   {
@@ -20,7 +20,7 @@ const services = [
   {
     title: "Multilingual Learner & Equity Consulting",
     description:
-      "WIDA-aligned ELD support and culturally responsive teaching practices. We analyze data and instructional routines to ensure equitable access and success for every learner in your community.",
+      "WIDA-aligned ELD support and culturally responsive teaching practices. I analyze data and instructional routines to ensure equitable access and success for every learner in your community.",
     icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
   },
   {
@@ -63,7 +63,7 @@ const faqItems = [
   {
     question: "How does pricing work for school districts?",
     answer:
-      "We offer flexible pricing based on scope and district size. Every engagement starts with a free discovery call to understand your needs and provide a tailored proposal.",
+      "I offer flexible pricing based on scope and district size. Every engagement starts with a free discovery call to understand your needs and provide a tailored proposal.",
   },
   {
     question: "Do you work with individual teachers?",
@@ -91,6 +91,7 @@ export default function ServicesPage() {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
+    email: "",
     organization: "",
     message: "",
   });
@@ -107,15 +108,16 @@ export default function ServicesPage() {
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           name: `${formData.firstName} ${formData.lastName}`,
-          email: "",
+          email: formData.email,
           organization: formData.organization,
           message: formData.message,
+          subject: "consulting",
           source: "services",
         }),
       });
       if (res.ok) {
         setFormStatus("success");
-        setFormData({ firstName: "", lastName: "", organization: "", message: "" });
+        setFormData({ firstName: "", lastName: "", email: "", organization: "", message: "" });
       } else {
         setFormStatus("error");
       }
@@ -147,19 +149,23 @@ export default function ServicesPage() {
                 d="M20.25 8.511c.884.284 1.5 1.128 1.5 2.097v4.286c0 1.136-.847 2.1-1.98 2.193-.34.027-.68.052-1.02.072v3.091l-3-3c-1.354 0-2.694-.055-4.02-.163a2.115 2.115 0 01-.825-.242m9.345-8.334a2.126 2.126 0 00-.476-.095 48.64 48.64 0 00-8.048 0c-1.131.094-1.976 1.057-1.976 2.192v4.286c0 .837.46 1.58 1.155 1.951m9.345-8.334V6.637c0-1.621-1.152-3.026-2.76-3.235A48.455 48.455 0 0011.25 3c-2.115 0-4.198.137-6.24.402-1.608.209-2.76 1.614-2.76 3.235v6.226c0 1.621 1.152 3.026 2.76 3.235.577.075 1.157.14 1.74.194V21l4.155-4.155"
               />
             </svg>
-            <span>Strategic Consulting</span>
+            <span>Strategic Consulting for K&ndash;12 Districts</span>
           </div>
           <h1 id="svc-heading" className="svc-hero-title">
-            Partner With Me
+            I Diagnose the System.
+            <br />
+            Then I Build What Fixes It.
           </h1>
           <p className="svc-hero-desc">
-            Empowering schools and districts with custom-tailored solutions.
-            From AI integration to equity-centered curriculum, I help educators
-            navigate the future of learning.
+            Most districts aren&apos;t struggling because of a lack of tools
+            &mdash; they&apos;re struggling because those tools don&apos;t work
+            together. I specialize in seeing how the entire instructional system
+            functions, or doesn&apos;t, and building the specific solution that
+            closes the gap. Not recommendations. Deliverables.
           </p>
           <div className="svc-hero-actions">
             <a href="#services-grid" className="svc-hero-cta-primary">
-              Explore Services
+              Start with the Audit
               <svg
                 fill="none"
                 viewBox="0 0 24 24"
@@ -189,7 +195,7 @@ export default function ServicesPage() {
       >
         <div className="container">
           <h2 id="svc-cards-heading" className="sr-only">
-            Our Services
+            Services
           </h2>
           <div className="svc-cards-grid">
             {services.map((svc) => (
@@ -231,7 +237,7 @@ export default function ServicesPage() {
         <div className="container">
           <div className="svc-process-header">
             <h2 id="svc-process-heading" className="svc-section-title">
-              How We Work Together
+              How We&apos;ll Work Together
             </h2>
             <p className="svc-process-subtitle">
               A streamlined process from initial inquiry to long-term impact.
@@ -346,6 +352,22 @@ export default function ServicesPage() {
                 </div>
               </div>
               <div className="svc-form-field">
+                <label htmlFor="svc-email" className="svc-form-label">
+                  Email
+                </label>
+                <input
+                  id="svc-email"
+                  type="email"
+                  className="svc-form-input"
+                  placeholder="you@school.edu"
+                  value={formData.email}
+                  onChange={(e) =>
+                    setFormData({ ...formData, email: e.target.value })
+                  }
+                  required
+                />
+              </div>
+              <div className="svc-form-field">
                 <label htmlFor="svc-org" className="svc-form-label">
                   School/Organization
                 </label>
@@ -394,13 +416,9 @@ export default function ServicesPage() {
                 </p>
               )}
               <p className="svc-form-calendly">
-                Or{" "}
-                <a
-                  href="https://calendly.com"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  book directly on Calendly
+                Or email me directly at{" "}
+                <a href="mailto:hello@therootedlearner.com">
+                  hello@therootedlearner.com
                 </a>
               </p>
             </form>
@@ -444,10 +462,10 @@ export default function ServicesPage() {
             <div className="svc-showcase-body">
               <div className="svc-showcase-features">
                 {[
-                  "Standards Mapping",
-                  "Gap Analysis",
-                  "Report Generation",
-                  "AI-Powered Feedback",
+                  "Standards-Based Assessments",
+                  "Real-Time Analytics",
+                  "Auto Skill Groups",
+                  "Teacher-Driven Creation",
                 ].map((f) => (
                   <div key={f} className="svc-showcase-feature">
                     <svg
@@ -467,7 +485,7 @@ export default function ServicesPage() {
                   </div>
                 ))}
               </div>
-              <Link href="/tools" className="svc-showcase-btn">
+              <Link href="/tools/assessalign" className="svc-showcase-btn">
                 Explore AssessAlign
                 <svg
                   fill="none"

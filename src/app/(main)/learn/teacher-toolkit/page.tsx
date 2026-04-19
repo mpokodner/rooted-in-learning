@@ -13,7 +13,7 @@ import ToolkitFilters from '@/components/learn/ToolkitFilters'
 export const metadata: Metadata = {
   title: 'Teacher Toolkit | The Rooted Learner',
   description:
-    'Video tutorials, how-to guides, downloadable resources, and tool reviews built for K-8 educators. Practical, research-backed, and ready to use.',
+    'Video tutorials, how-to guides, downloadable resources, and tool reviews built for grades 1–8 educators. Practical, research-backed, and ready to use.',
   alternates: { canonical: '/learn/teacher-toolkit' },
   openGraph: {
     title: 'Teacher Toolkit | The Rooted Learner',

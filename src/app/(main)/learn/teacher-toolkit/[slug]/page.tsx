@@ -11,6 +11,7 @@ import { urlFor } from '@/sanity/lib/image'
 import type { ToolkitResource } from '@/sanity/lib/types'
 import RichText from '@/components/shared/RichText'
 import ToolkitCard from '@/components/learn/ToolkitCard'
+import GatedDownload from '@/components/learn/GatedDownload'
 
 export const revalidate = 60
 
@@ -304,52 +305,19 @@ export default async function ToolkitResourcePage({
         )
       })()}
 
-      {/* Download card */}
-      {resource.resourceType === 'download' &&
-        resource.downloadableFile?.asset && (
-          <div
-            style={{
-              border: '2px dashed rgba(92, 107, 74, 0.3)',
-              backgroundColor: 'rgba(92, 107, 74, 0.05)',
-              borderRadius: '0.75rem',
-              padding: '1.5rem',
-              textAlign: 'center',
-              marginBottom: '2rem',
-            }}
-          >
-            <a
-              href={resource.downloadableFile.asset.url}
-              download
-              className="toolkit-download-btn"
-            >
-              📥 Download Resource
-            </a>
-            <p
-              style={{
-                color: 'var(--text-muted)',
-                fontSize: '0.875rem',
-                marginTop: '0.75rem',
-                marginBottom: 0,
-              }}
-            >
-              {resource.downloadableFile.asset.originalFilename}
-              {resource.downloadableFile.asset.size &&
-                ` · ${formatFileSize(resource.downloadableFile.asset.size)}`}
-            </p>
-            {resource.fileDescription && (
-              <p
-                style={{
-                  color: 'var(--text-light)',
-                  fontSize: '0.8125rem',
-                  marginTop: '0.25rem',
-                  marginBottom: 0,
-                }}
-              >
-                {resource.fileDescription}
-              </p>
-            )}
-          </div>
-        )}
+      {/* Gated download — email required */}
+      {resource.resourceType === 'download' && (
+        <GatedDownload
+          fileName={resource.downloadableFile?.asset?.originalFilename}
+          fileSize={
+            resource.downloadableFile?.asset?.size
+              ? formatFileSize(resource.downloadableFile.asset.size)
+              : undefined
+          }
+          fileDescription={resource.fileDescription}
+          source={`toolkit-${resource.slug?.current || 'download'}`}
+        />
+      )}
 
       {/* Review info card */}
       {resource.resourceType === 'review' && resource.toolName && (

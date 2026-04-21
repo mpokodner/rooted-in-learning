@@ -37,81 +37,70 @@ export default async function Home() {
           SECTION 1 — HERO
       ═══════════════════════════════════════════ */}
       <section className="hero-section">
-        <div className="hero-bg-decor" aria-hidden="true">
-          <div className="hero-bg-circle hero-bg-circle--1" />
-          <div className="hero-bg-circle hero-bg-circle--2" />
-        </div>
+        <Image
+          src="/images/homepage-hero.png"
+          alt="Sunlight filtering through tree branches"
+          fill
+          priority
+          className="hero-bg-image"
+        />
+        <div className="hero-overlay">
+          <div className="hero-badge animate-fade-up">
+            <svg
+              className="hero-badge-icon"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="M13 10V3L4 14h7v7l9-11h-7z"
+              />
+            </svg>
+            <span className="hero-badge-text">
+              Curriculum Systems Consulting for K&ndash;12 Districts
+            </span>
+          </div>
 
-        <div className="container hero-container">
-          <div className="hero-copy">
-            <div className="hero-badge animate-fade-up">
+          <h1 className="hero-heading animate-fade-up animate-delay-1">
+            Your district is already paying for the tools.{" "}
+            <span className="hero-heading-accent">
+              I help you make them work together for every student.
+            </span>
+          </h1>
+
+          <p className="hero-subheadline animate-fade-up animate-delay-2">
+            I&apos;m a current 1&ndash;8 educator, curriculum specialist, and
+            full-stack developer. I diagnose the gaps in your curriculum
+            systems and build the personalized solutions that close them. Not
+            just recommendations &mdash; actual deliverables.
+          </p>
+
+          <div className="hero-cta-row animate-fade-up animate-delay-3">
+            <Link
+              href="/services"
+              className="hero-cta-btn hero-cta-btn--terracotta"
+            >
+              Start with an Audit
               <svg
-                className="hero-badge-icon"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
+                aria-hidden="true"
               >
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
-                  d="M13 10V3L4 14h7v7l9-11h-7z"
+                  d="M17 8l4 4m0 0l-4 4m4-4H3"
                 />
               </svg>
-              <span className="hero-badge-text">
-                Curriculum Systems Consulting for K&ndash;12 Districts
-              </span>
-            </div>
-
-            <h1 className="hero-heading animate-fade-up animate-delay-1">
-              Your district is already paying for the tools.{" "}
-              <span className="hero-heading-accent">
-                I help you make them work together for every student.
-              </span>
-            </h1>
-
-            <p className="hero-subheadline animate-fade-up animate-delay-2">
-              I&apos;m a current 1&ndash;8 educator, curriculum specialist, and
-              full-stack developer. I diagnose the gaps in your curriculum
-              systems and build the personalized solutions that close them. Not
-              just recommendations &mdash; actual deliverables.
-            </p>
-
-            <div className="hero-cta-row animate-fade-up animate-delay-3">
-              <Link
-                href="/services"
-                className="hero-cta-btn hero-cta-btn--terracotta"
-              >
-                Start with an Audit
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-              <Link href="/shop" className="hero-cta-btn hero-cta-btn--outline">
-                Browse Resources
-              </Link>
-            </div>
-          </div>
-
-          <div className="hero-aside animate-fade-up animate-delay-4">
-            <Image
-              src="/hero-side.png"
-              alt="Education meets technology — classroom scenes, EdTech icons, and a laptop displaying The Rooted Learner"
-              width={600}
-              height={700}
-              className="hero-side-image"
-              priority
-            />
+            </Link>
+            <Link href="/shop" className="hero-cta-btn hero-cta-btn--outline">
+              Browse Resources
+            </Link>
           </div>
         </div>
       </section>
@@ -526,16 +515,20 @@ export default async function Home() {
               </div>
               <span className="newsletter-free-badge">Free Download</span>
               <h3 className="newsletter-card-title">
-                Free Literacy Intervention Toolkit
+                Free Claude AI Guide for Educators
               </h3>
               <p className="newsletter-card-desc">
-                Download our free literacy intervention toolkit &mdash; packed
-                with strategies, templates, and progress monitoring tools. Plus
-                get weekly teaching tips delivered to your inbox.
+                A practical, step-by-step guide to using Claude AI in your
+                classroom &mdash; prompt templates, lesson planning workflows,
+                and real examples from a current 1&ndash;8 educator. Enter your
+                email and I&apos;ll send it straight to your inbox.
               </p>
-              <NewsletterForm />
+              <NewsletterForm
+                source="homepage-claude-guide"
+                buttonText="Get My Free Guide"
+              />
               <p className="newsletter-disclaimer">
-                Join our community of educators. Unsubscribe anytime.
+                Join a growing community of educators. Unsubscribe anytime.
               </p>
             </div>
           </div>

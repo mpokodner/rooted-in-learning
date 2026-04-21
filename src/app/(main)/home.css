@@ -53,78 +53,69 @@
 
 /* ═══════════════════════════════════════════════════════════════
    HERO SECTION
-   Two-column on desktop, stacked on mobile
+   Full-bleed background image, centered content
    ═══════════════════════════════════════════════════════════════ */
 
 .hero-section {
   position: relative;
-  background-color: var(--earth, #5C6B4A);
-  padding: clamp(2.5rem, 5vw, 4rem) 0 clamp(2rem, 4vw, 3rem);
   overflow: hidden;
+  min-height: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-/* Decorative background circles */
-.hero-bg-decor {
+.hero-bg-image {
+  object-fit: cover;
+  object-position: center 35%;
+}
+
+.hero-section::before {
+  content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-.hero-bg-circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.07;
-}
-
-.hero-bg-circle--1 {
-  width: clamp(20rem, 40vw, 40rem);
-  height: clamp(20rem, 40vw, 40rem);
-  background: var(--earth-light, #8B9B7A);
-  top: -10%;
-  right: -8%;
-}
-
-.hero-bg-circle--2 {
-  width: clamp(14rem, 28vw, 28rem);
-  height: clamp(14rem, 28vw, 28rem);
-  background: var(--terracotta, #B05931);
-  bottom: -8%;
-  left: -5%;
-}
-
-/* Container — stacked mobile, two-col desktop */
-.hero-container {
-  position: relative;
   z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 70% 60% at 35% 30%,
+      rgba(213, 163, 114, 0.1) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(26, 26, 26, 0.4) 0%,
+      rgba(45, 45, 35, 0.55) 40%,
+      rgba(26, 26, 26, 0.6) 100%
+    );
+}
+
+.hero-overlay {
+  position: relative;
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
+  padding: clamp(3rem, 6vw, 5rem) clamp(1.25rem, 4vw, 2.5rem);
+  max-width: 46rem;
   margin-inline: auto;
 }
 
-@media (min-width: 960px) {
-  .hero-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 3rem;
-    text-align: left;
-    max-width: 72rem;
+@media (min-width: 480px) {
+  .hero-section {
+    min-height: 26rem;
   }
 }
 
-/* ─── Hero Copy (left column) ─── */
-
-.hero-copy {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+@media (min-width: 768px) {
+  .hero-section {
+    min-height: 30rem;
+  }
 }
 
-@media (min-width: 960px) {
-  .hero-copy {
-    align-items: flex-start;
+@media (min-width: 1024px) {
+  .hero-section {
+    min-height: 34rem;
   }
 }
 
@@ -163,12 +154,13 @@
 
 .hero-heading {
   font-family: var(--font-heading, "Cal Sans", "Inter", system-ui, sans-serif);
-  font-size: var(--text-5xl, clamp(2rem, 1.6rem + 2vw, 3rem));
+  font-size: clamp(1.75rem, 4vw + 0.5rem, 3rem);
   font-weight: 800;
   line-height: var(--leading-tight, 1.2);
   letter-spacing: var(--tracking-tight, -0.02em);
   color: var(--white, #FFFFFF);
   margin-bottom: clamp(0.75rem, 1.5vw, 1.25rem);
+  text-shadow: 0 2px 12px rgba(0, 0, 0, 0.3);
 }
 
 .hero-heading-accent {
@@ -179,17 +171,12 @@
 /* ─── Hero Subheadline ─── */
 
 .hero-subheadline {
-  color: rgba(255, 255, 255, 0.75);
-  font-size: var(--text-base, 1rem);
+  color: rgba(255, 255, 255, 0.85);
+  font-size: clamp(0.9375rem, 1.5vw + 0.25rem, 1.125rem);
   line-height: var(--leading-relaxed, 1.65);
   margin-bottom: clamp(1.25rem, 2.5vw, 1.75rem);
   max-width: 36rem;
-}
-
-@media (min-width: 768px) {
-  .hero-subheadline {
-    font-size: var(--text-lg, 1.125rem);
-  }
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
 }
 
 
@@ -200,12 +187,6 @@
   flex-wrap: wrap;
   gap: 0.875rem;
   justify-content: center;
-}
-
-@media (min-width: 960px) {
-  .hero-cta-row {
-    justify-content: flex-start;
-  }
 }
 
 .hero-cta-btn {
@@ -323,12 +304,6 @@
   gap: 0.625rem;
 }
 
-@media (min-width: 960px) {
-  .hero-secondary-row {
-    justify-content: flex-start;
-  }
-}
-
 .hero-secondary-btn {
   display: inline-flex;
   align-items: center;
@@ -366,43 +341,6 @@
 @media (min-width: 768px) {
   .hero-secondary-btn {
     padding: 0.625rem 1.25rem;
-  }
-}
-
-
-/* ─── Hero Aside (right column — image) ─── */
-
-.hero-aside {
-  margin-top: clamp(1.5rem, 3vw, 2rem);
-  display: flex;
-  justify-content: center;
-}
-
-@media (min-width: 960px) {
-  .hero-aside {
-    margin-top: 0;
-    justify-content: flex-end;
-  }
-}
-
-.hero-side-image {
-  width: 100%;
-  max-width: 28rem;
-  height: auto;
-  border-radius: var(--radius-xl, 1.5rem);
-  object-fit: contain;
-  filter: drop-shadow(0 20px 40px rgba(0, 0, 0, 0.25));
-}
-
-@media (max-width: 959px) {
-  .hero-side-image {
-    max-width: 20rem;
-  }
-}
-
-@media (max-width: 479px) {
-  .hero-side-image {
-    max-width: 16rem;
   }
 }
 

@@ -86,14 +86,31 @@ export async function POST(request: NextRequest) {
         await resend.emails.send({
           from: FROM_EMAIL,
           to: email.toLowerCase(),
-          subject: "Your Free Resource from The Rooted Learner",
+          subject: "Your Free Claude AI Guide for Educators",
           html: `
-            <h1>Welcome to The Rooted Learner!</h1>
-            <p>Thank you for joining our community of educators.</p>
-            <p>Here's your free resource:</p>
-            <p><a href="https://therootedlearner.com/freebies/weekly-planner.pdf">Download Your Weekly Planner Template</a></p>
-            <p>Happy teaching!</p>
-            <p>— Michelle</p>
+            <div style="font-family: 'Inter', Arial, sans-serif; max-width: 560px; margin: 0 auto; color: #2d2d2d;">
+              <h1 style="color: #1a1a1a; font-size: 24px;">Your Claude AI Guide Is Here</h1>
+              <p>Thanks for joining The Rooted Learner community! Here's the guide you requested:</p>
+              <p style="margin: 24px 0;">
+                <a href="https://www.therootedlearner.com/freebies/claude-ai-guide.pdf"
+                   style="display: inline-block; background-color: #5C6B4A; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+                  📥 Download the Claude AI Guide
+                </a>
+              </p>
+              <p>Inside you'll find:</p>
+              <ul style="color: #6b6b6b; line-height: 1.8;">
+                <li>Ready-to-use prompt templates for lesson planning</li>
+                <li>Step-by-step workflows for differentiation</li>
+                <li>Real classroom examples from a current 1–8 educator</li>
+              </ul>
+              <p>If you find it helpful, reply to this email — I read every response.</p>
+              <p style="margin-top: 24px;">— Michelle</p>
+              <hr style="border: none; border-top: 1px solid #e8ded0; margin: 24px 0;" />
+              <p style="font-size: 12px; color: #8a8a8a;">
+                You're receiving this because you signed up at therootedlearner.com.
+                <a href="https://www.therootedlearner.com" style="color: #5C6B4A;">Visit the site</a>
+              </p>
+            </div>
           `,
         });
 
@@ -109,7 +126,7 @@ export async function POST(request: NextRequest) {
     return NextResponse.json({
       success: true,
       message: sendFreebie
-        ? "Success! Check your inbox for your freebie."
+        ? "Success! Check your inbox for your free guide."
         : "You're subscribed! Welcome to the community.",
     });
   } catch (error) {

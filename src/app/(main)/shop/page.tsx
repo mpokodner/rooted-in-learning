@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useMemo } from "react";
+import Image from "next/image";
 import "./teacher-shop.css";
 
 interface Product {
@@ -138,8 +139,15 @@ export default function ShopPage() {
 
   return (
     <div className="shop-page">
-      <section className="shop-header" aria-labelledby="shop-heading">
-        <div className="container">
+      <section className="shop-hero" aria-labelledby="shop-heading">
+        <Image
+          src="/images/shop-hero.png"
+          alt="Sunlight filtering through a forest canopy"
+          fill
+          priority
+          className="shop-hero-image"
+        />
+        <div className="shop-hero-overlay">
           <p className="shop-eyebrow">Resources</p>
           <h1 id="shop-heading" className="shop-title">
             Curriculum Tools Built for the Classrooms That Need Them Most.

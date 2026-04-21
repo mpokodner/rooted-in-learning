@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services | The Rooted Learner",
+  title: "District Work | The Rooted Learner",
   description:
-    "Curriculum systems consulting for K–12 districts. I diagnose why your tools aren't working together and build the deliverables that close the gap — AI integration, curriculum mapping, equity consulting, and custom EdTech.",
+    "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them — assessment alignment, multilingual learner access, technology integrations, and custom instructional tools.",
   keywords: [
     "education consulting",
     "AI professional development",
@@ -16,9 +16,9 @@ export const metadata: Metadata = {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services | The Rooted Learner",
+    title: "District Work | The Rooted Learner",
     description:
-      "I diagnose why your curriculum tools aren't working together and build the deliverables that close the gap. AI integration, curriculum mapping, equity consulting.",
+      "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them.",
     type: "website",
   },
 };
@@ -30,17 +30,18 @@ const jsonLd = {
   provider: {
     "@type": "Person",
     name: "Michelle Pokodner",
-    jobTitle: "EdTech Consultant & Developer",
+    jobTitle: "Curricular Solutions Architect",
   },
   url: "https://www.therootedlearner.com/services",
   description:
-    "Strategic consulting for schools and districts — AI integration PD, curriculum mapping, multilingual learner support, and custom technology solutions.",
+    "System audits, curriculum and assessment alignment, multilingual learner access, and custom instructional tools — built for K–12 districts.",
   areaServed: "US",
   serviceType: [
-    "AI Integration Professional Development",
-    "Curriculum Development & Mapping",
-    "Multilingual Learner & Equity Consulting",
-    "Custom Technology Solutions",
+    "System Audit",
+    "Curriculum & Assessment Alignment",
+    "Multilingual Learner Access Systems",
+    "Technology Integrations",
+    "Custom Instructional Tools",
   ],
 };
 

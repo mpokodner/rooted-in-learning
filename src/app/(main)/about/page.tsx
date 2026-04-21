@@ -12,9 +12,9 @@ import dataVizImg from "./projects/images/pythonadvanced.png";
 import weatherAppImg from "./projects/images/react-weather-app.png";
 
 export const metadata: Metadata = {
-  title: "About Michelle | The Rooted Learner",
+  title: "About Michelle Pokodner | The Rooted Learner",
   description:
-    "12+ year educator, reading interventionist, curriculum designer, and EdTech developer. Building the infrastructure that makes great teaching sustainable.",
+    "12+ year educator, reading interventionist, curriculum designer, and full-stack developer. I diagnose where district systems break and build what fixes them.",
   keywords: [
     "education consultant",
     "reading interventionist",
@@ -33,9 +33,9 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Michelle | The Rooted Learner",
+    title: "About Michelle Pokodner | The Rooted Learner",
     description:
-      "From classroom practitioner to education infrastructure builder. 12+ years shaping how teaching works — plus a portfolio of EdTech projects and curriculum design.",
+      "I started as a classroom teacher trying to make disconnected systems work. Over time, I realized the problem wasn't effort — it was infrastructure. So I started building what didn't exist.",
     type: "website",
   },
 };
@@ -153,7 +153,7 @@ const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Michelle Pokodner",
-  jobTitle: "Educator, Reading Interventionist & EdTech Developer",
+  jobTitle: "Curricular Solutions Architect",
   url: "https://www.therootedlearner.com/about",
   worksFor: {
     "@type": "Organization",
@@ -161,7 +161,7 @@ const personJsonLd = {
     url: "https://www.therootedlearner.com",
   },
   description:
-    "12+ year classroom veteran, Science of Reading certified, curriculum designer, and full-stack developer building AI-powered tools for grades 1–8 educators.",
+    "12+ year classroom veteran, reading interventionist, curriculum designer, and full-stack developer. I diagnose where district curriculum systems break and build what fixes them.",
   sameAs: [
     "https://www.linkedin.com/in/michelle-pokodner-edtech/",
     "https://www.instagram.com/rootedinlearninged/",
@@ -198,25 +198,20 @@ export default function AboutPage() {
             <span>Curricular Solutions Architect</span>
           </div>
           <h1 id="about-heading" className="about-hero-title">
-            I Build the Infrastructure
+            I Started as a Classroom Teacher
             <br />
-            <span className="about-hero-title-accent">That Makes Teaching Sustainable.</span>
+            <span className="about-hero-title-accent">Trying to Make Disconnected Systems Work.</span>
           </h1>
           <p className="about-hero-desc">
-            12+ years in 1&ndash;8 classrooms across Maryland and Minnesota as a
-            reading interventionist and multi-grade classroom teacher. Now
-            building the curriculum systems and AI-supported tools that address
-            the root causes &mdash; not just the symptoms.
+            Over time, I realized the problem wasn&apos;t effort &mdash; it was
+            infrastructure. So I started building what didn&apos;t exist.
           </p>
           <div className="about-hero-actions">
             <Link href="/services" className="about-hero-cta-primary">
-              Work With Me
+              See How I Work with Districts
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
-            </Link>
-            <Link href="/tools" className="about-hero-cta-secondary">
-              See AssessAlign
             </Link>
           </div>
         </div>
@@ -232,7 +227,7 @@ export default function AboutPage() {
                 {headshotExists ? (
                   <Image
                     src="/headshot.jpg"
-                    alt="Michelle Pokodner — Educator, Reading Interventionist, and EdTech Developer"
+                    alt="Michelle Pokodner — Curricular Solutions Architect and Full-Stack Developer"
                     width={400}
                     height={500}
                     className="about-headshot"
@@ -279,27 +274,35 @@ export default function AboutPage() {
               </h2>
               <div className="about-narrative-text">
                 <p>
-                  I started where most educators start — overwhelmed, under-resourced,
-                  and running on passion. Over 12 years in the classroom, I became a
-                  reading interventionist, a curriculum designer, and the person
-                  colleagues called when something needed to actually work.
+                  I started as a classroom teacher trying to make disconnected
+                  systems work. Over 12 years in K&ndash;8 classrooms, I became
+                  a reading interventionist, a curriculum designer, and the
+                  person colleagues called when something needed to actually
+                  function.
                 </p>
                 <p>
-                  Along the way, I earned Science of Reading certification, developed
-                  expertise supporting multilingual learners, and realized that the
-                  biggest problem in education isn&apos;t a lack of talent — it&apos;s
-                  a lack of infrastructure.
+                  Over time, I realized the problem wasn&apos;t effort &mdash;
+                  it was infrastructure. Curriculum and assessments weren&apos;t
+                  aligned. Multilingual learners couldn&apos;t access core
+                  instruction. Tools operated in isolation. Teachers were
+                  carrying the burden manually.
                 </p>
                 <p>
-                  So I started building. First came ready-to-teach lessons. Then came
-                  consulting. Now I&apos;m developing AI-powered instructional tools
-                  that give educators the leverage they&apos;ve always deserved.
+                  So I started building what didn&apos;t exist. First came
+                  curriculum overlays. Then standards-aligned assessments. Then
+                  full-stack instructional tools like AssessAlign. Now I
+                  diagnose where district systems break and build what fixes
+                  them.
                 </p>
-                <p>
-                  <strong>The Rooted Learner</strong> is the ecosystem I wish I&apos;d
-                  had: lessons that save time, strategies backed by research, tools
-                  that actually work, and a community that understands the job.
-                </p>
+              </div>
+
+              <div style={{ display: "flex", justifyContent: "center", margin: "2rem 0 1rem" }}>
+                <Link href="/services" className="about-hero-cta-primary" style={{ fontSize: "0.875rem", padding: "0.625rem 1.5rem" }}>
+                  See How I Work with Districts
+                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true" style={{ width: "1rem", height: "1rem" }}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </Link>
               </div>
 
               {/* Impact Stats */}
@@ -491,6 +494,18 @@ export default function AboutPage() {
               </article>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* ─── End CTA ─── */}
+      <section className="about-end-cta section" style={{ paddingBlock: "clamp(3rem, 6vw, 5rem)", backgroundColor: "var(--earth, #5C6B4A)", textAlign: "center" }}>
+        <div className="container">
+          <Link href="/contact" className="about-hero-cta-primary" style={{ fontSize: "var(--text-lg, 1.125rem)", padding: "1rem 2.5rem" }}>
+            Start with a System Audit
+            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true" style={{ width: "1.25rem", height: "1.25rem" }}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </Link>
         </div>
       </section>
 

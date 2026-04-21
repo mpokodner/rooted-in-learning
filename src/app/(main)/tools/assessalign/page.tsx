@@ -153,7 +153,7 @@ export default function AssessAlignPage() {
             </p>
             <div className="aa-hero-actions">
               <a href="#waitlist" className="aa-cta aa-cta--primary">
-                Join the Waitlist
+                Join Pilot / Waitlist
                 <svg
                   fill="none"
                   viewBox="0 0 24 24"
@@ -168,6 +168,9 @@ export default function AssessAlignPage() {
                   />
                 </svg>
               </a>
+              <Link href="/services" className="aa-cta aa-cta--secondary">
+                See How This Applies to Your District
+              </Link>
             </div>
           </div>
           <div className="aa-hero-image">
@@ -356,11 +359,11 @@ export default function AssessAlignPage() {
           </h2>
           <p className="aa-cta-banner-subtitle">We build it ourselves.</p>
           <div className="aa-cta-banner-actions">
-            <a href="#waitlist" className="aa-cta aa-cta--primary aa-cta--light">
-              Join the Waitlist
-            </a>
-            <Link href="/learn/blog" className="aa-cta aa-cta--ghost">
-              Read the Blog
+            <Link href="/contact" className="aa-cta aa-cta--primary aa-cta--light">
+              Discuss Implementation
+            </Link>
+            <Link href="/services#audit" className="aa-cta aa-cta--ghost">
+              Start with a System Audit
             </Link>
           </div>
         </div>

@@ -193,19 +193,37 @@ export default function LearnPage() {
         </div>
       </section>
 
+      {/* ─── District Cross-link ─── */}
+      <section className="learn-crosslink">
+        <div className="container">
+          <div className="learn-crosslink-inner">
+            <p className="learn-crosslink-text">
+              If you&apos;re a school or district trying to solve this at a
+              systems level&hellip;
+            </p>
+            <Link href="/services" className="learn-motivation-cta">
+              Explore District Work
+              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Bottom CTA ─── */}
       <section className="learn-motivation">
         <div className="container">
           <div className="learn-motivation-inner">
             <h2 className="learn-motivation-title">
-              Ready to Teach Smarter?
+              Get the Free Toolkit
             </h2>
             <p className="learn-motivation-desc">
-              Explore the full library of tools, lessons, and services
-              designed to give educators leverage.
+              Practical classroom tools and AI guides — free, no strings
+              attached.
             </p>
-            <Link href="/shop" className="learn-motivation-cta">
-              Explore Lessons
+            <Link href="/#newsletter" className="learn-motivation-cta">
+              Get Free Toolkit
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>

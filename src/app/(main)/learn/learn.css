@@ -493,3 +493,27 @@
 .learn-motivation-cta:hover svg {
   transform: translateX(3px);
 }
+
+
+/* ─── District Cross-link ─── */
+
+.learn-crosslink {
+  padding-block: clamp(2.5rem, 5vw, 3.5rem);
+  background-color: var(--neutral-bg, #FAF7F2);
+  border-top: 1px solid var(--border-beige, #E8DED0);
+  border-bottom: 1px solid var(--border-beige, #E8DED0);
+}
+
+.learn-crosslink-inner {
+  text-align: center;
+  max-width: 32rem;
+  margin-inline: auto;
+}
+
+.learn-crosslink-text {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg, 1.125rem);
+  color: var(--text-dark, #2D2D2D);
+  margin-bottom: 1.25rem;
+  font-style: italic;
+}

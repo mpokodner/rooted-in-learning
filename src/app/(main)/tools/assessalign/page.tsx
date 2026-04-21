@@ -168,9 +168,6 @@ export default function AssessAlignPage() {
                   />
                 </svg>
               </a>
-              <Link href="/contact" className="aa-cta aa-cta--secondary">
-                Book a Demo
-              </Link>
             </div>
           </div>
           <div className="aa-hero-image">

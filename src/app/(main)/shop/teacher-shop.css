@@ -102,6 +102,7 @@
 
 .shop-toolbar {
   border-bottom: 1px solid var(--border-beige);
+  padding-top: clamp(1.5rem, 3vw, 2.5rem);
   padding-bottom: 1rem;
   margin-bottom: 0;
 }

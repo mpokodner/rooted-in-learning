@@ -2,6 +2,10 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import NewsletterForm from "@/components/NewsletterForm";
+import { client } from "@/sanity/lib/client";
+import { blogPostsQuery } from "@/sanity/lib/queries";
+import type { BlogPostCard } from "@/sanity/lib/types";
+import BlogCard from "@/components/blog/BlogCard";
 import "./home.css";
 
 export const metadata: Metadata = {
@@ -17,7 +21,16 @@ export const metadata: Metadata = {
   },
 };
 
-export default function Home() {
+export const revalidate = 60;
+
+export default async function Home() {
+  let latestPosts: BlogPostCard[] = [];
+  try {
+    const allPosts = await client.fetch<BlogPostCard[]>(blogPostsQuery);
+    latestPosts = allPosts.slice(0, 3);
+  } catch {
+    // Sanity fetch failed — show fallback
+  }
   return (
     <div className="home-page">
       {/* ═══════════════════════════════════════════
@@ -454,43 +467,28 @@ export default function Home() {
             </Link>
           </div>
 
-          <Link href="/learn/blog" className="featured-article">
-            <div className="featured-article-visual">
-              <div className="featured-article-mockup">
-                <div className="mockup-dots">
-                  <div className="mockup-dot mockup-dot--1" />
-                  <div className="mockup-dot mockup-dot--2" />
-                  <div className="mockup-dot mockup-dot--3" />
-                </div>
-                <div className="mockup-lines">
-                  <div className="mockup-line mockup-line--full" />
-                  <div className="mockup-line mockup-line--80" />
-                  <div className="mockup-line mockup-line--60" />
-                </div>
-              </div>
+          {latestPosts.length > 0 ? (
+            <div className="blog-cards-grid">
+              {latestPosts.map((post) => (
+                <BlogCard key={post._id} post={post} />
+              ))}
             </div>
-            <div className="featured-article-content">
-              <div className="featured-article-meta">
-                <span className="featured-article-category">Coming Soon</span>
-                <span>&bull;</span>
-                <span>Spring 2026</span>
-              </div>
-              <h3 className="featured-article-title">
-                Research-Backed Articles for Modern Educators
-              </h3>
-              <p className="featured-article-excerpt">
-                Practical strategies grounded in research. Science of Reading,
-                multilingual learner support, AI in education, and the systems
-                that make great teaching sustainable. Articles launching soon.
+          ) : (
+            <div className="blog-empty-state">
+              <p className="blog-empty-text">
+                Articles coming soon &mdash; practical strategies grounded in
+                Science of Reading, multilingual learner support, and AI in
+                education.
               </p>
-              <span className="featured-article-link">
+              <Link href="/learn/blog" className="blog-empty-link">
                 Visit the Blog
                 <svg
-                  className="featured-article-link-arrow"
                   fill="none"
                   viewBox="0 0 24 24"
                   stroke="currentColor"
                   strokeWidth={2}
+                  aria-hidden="true"
+                  style={{ width: "1rem", height: "1rem" }}
                 >
                   <path
                     strokeLinecap="round"
@@ -498,9 +496,9 @@ export default function Home() {
                     d="M17 8l4 4m0 0l-4 4m4-4H3"
                   />
                 </svg>
-              </span>
+              </Link>
             </div>
-          </Link>
+          )}
         </div>
       </section>
 

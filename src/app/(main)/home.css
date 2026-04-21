@@ -1570,6 +1570,59 @@
   height: 1rem;
 }
 
+/* ─── Blog Cards Grid (dynamic Sanity posts) ─── */
+
+.blog-cards-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+}
+
+@media (min-width: 640px) {
+  .blog-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .blog-cards-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+.blog-empty-state {
+  text-align: center;
+  padding: 3rem 1.5rem;
+  background-color: var(--white);
+  border-radius: var(--radius-xl, 1rem);
+  border: 1px solid var(--border-beige);
+}
+
+.blog-empty-text {
+  color: var(--text-muted);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  max-width: 32rem;
+  margin-inline: auto;
+  margin-bottom: 1.25rem;
+}
+
+.blog-empty-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--earth);
+  font-weight: 600;
+  font-size: var(--text-sm);
+  text-decoration: none;
+  transition: gap 0.2s ease;
+}
+
+.blog-empty-link:hover {
+  gap: 0.75rem;
+  color: var(--earth-dark);
+}
+
 
 /* ═══════════════════════════════════════════════════════════════
    SOCIAL CONNECTIONS SECTION

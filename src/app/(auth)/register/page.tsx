@@ -34,7 +34,7 @@ export default function RegisterPage() {
                 </svg>
               </div>
               <p className="auth-feature-text">
-                <strong>Download resources</strong> instantly &mdash; lessons, templates &amp; guides
+                <strong>Download resources</strong> instantly: lessons, templates &amp; guides
               </p>
             </div>
             <div className="auth-feature">

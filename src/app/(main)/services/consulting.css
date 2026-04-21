@@ -24,39 +24,39 @@
   background-color: var(--earth);
   padding: clamp(4rem, 10vw, 7rem) 0 clamp(3.5rem, 8vw, 6rem);
   overflow: hidden;
+  min-height: 24rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-.svc-hero-bg {
+.svc-hero-bg-image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.svc-hero::before {
+  content: "";
   position: absolute;
   inset: 0;
-  pointer-events: none;
-}
-
-.svc-hero-circle {
-  position: absolute;
-  border-radius: 50%;
-  opacity: 0.06;
-}
-
-.svc-hero-circle--1 {
-  width: clamp(20rem, 40vw, 40rem);
-  height: clamp(20rem, 40vw, 40rem);
-  background: var(--earth-light);
-  top: -15%;
-  right: -12%;
-}
-
-.svc-hero-circle--2 {
-  width: clamp(14rem, 28vw, 28rem);
-  height: clamp(14rem, 28vw, 28rem);
-  background: var(--terracotta);
-  bottom: -10%;
-  left: -8%;
+  z-index: 1;
+  background:
+    radial-gradient(
+      ellipse 60% 50% at 50% 40%,
+      rgba(92, 107, 74, 0.15) 0%,
+      transparent 70%
+    ),
+    linear-gradient(
+      170deg,
+      rgba(74, 86, 56, 0.75) 0%,
+      rgba(92, 107, 74, 0.8) 40%,
+      rgba(45, 52, 34, 0.85) 100%
+    );
 }
 
 .svc-hero-container {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   max-width: 48rem;
   margin-inline: auto;
   text-align: center;
@@ -91,15 +91,17 @@
   letter-spacing: var(--tracking-tight);
   color: var(--white);
   margin-bottom: clamp(1rem, 2vw, 1.5rem);
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.35);
 }
 
 .svc-hero-desc {
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.85);
   font-size: var(--text-base);
   line-height: var(--leading-relaxed);
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
   max-width: 38rem;
   margin-inline: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
 }
 
 @media (min-width: 768px) {

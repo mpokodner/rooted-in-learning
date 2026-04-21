@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import Link from "next/link";
 import "./consulting.css";
 
@@ -18,7 +19,7 @@ const faqItems = [
   {
     question: "What's the typical engagement timeline?",
     answer:
-      "The audit phase is typically 2–3 weeks. Build and implementation timelines depend on scope — ranging from 4 weeks to 3 months.",
+      "The audit phase is typically 2–3 weeks. Build and implementation timelines depend on scope, ranging from 4 weeks to 3 months.",
   },
   {
     question: "Can you provide a proposal for my administration?",
@@ -77,10 +78,13 @@ export default function ServicesPage() {
     <div className="svc-page">
       {/* ─── Hero ─── */}
       <section className="svc-hero" aria-labelledby="svc-heading">
-        <div className="svc-hero-bg" aria-hidden="true">
-          <div className="svc-hero-circle svc-hero-circle--1" />
-          <div className="svc-hero-circle svc-hero-circle--2" />
-        </div>
+        <Image
+          src="/images/services-hero.png"
+          alt="Interconnected technology and data systems network"
+          fill
+          priority
+          className="svc-hero-bg-image"
+        />
         <div className="container svc-hero-container">
           <div className="svc-hero-badge">
             <svg
@@ -106,7 +110,7 @@ export default function ServicesPage() {
           <p className="svc-hero-desc">
             Most districts don&apos;t need another service offering. They need
             someone to diagnose where the system breaks and build what fixes
-            it. Every engagement starts with an audit &mdash; because the
+            it. Every engagement starts with an audit, because the
             solution depends on what&apos;s actually broken.
           </p>
           <div className="svc-hero-actions">
@@ -196,7 +200,7 @@ export default function ServicesPage() {
               <h3 className="svc-process-step-title">Implement</h3>
               <p className="svc-process-step-desc">
                 I support the solution until it works in real classrooms.
-                Training, iteration, and ongoing refinement &mdash; because
+                Training, iteration, and ongoing refinement, because
                 building it isn&apos;t enough if it doesn&apos;t function for
                 the people using it.
               </p>

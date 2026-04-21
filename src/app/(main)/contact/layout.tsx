@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Contact | The Rooted Learner",
   description:
-    "Get in touch with Michelle. Consulting inquiries, curriculum questions, collaboration opportunities — let's connect.",
+    "Get in touch with Michelle. Consulting inquiries, curriculum questions, collaboration opportunities. Let's connect.",
   keywords: [
     "contact",
     "educator",
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Contact | The Rooted Learner",
-    description: "Questions, consulting inquiries, or collaborations — reach out and I'll respond within 48 hours.",
+    description: "Questions, consulting inquiries, or collaborations? Reach out and I'll respond within 48 hours.",
     type: "website",
   },
 };

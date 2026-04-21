@@ -69,7 +69,7 @@ export default function AccessibilityPage() {
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", marginTop: "1rem", color: "#2D2D2D" }}>Visual Design</h3>
             <ul className="legal-list">
               <li>Sufficient color contrast ratios that meet or exceed WCAG AA requirements</li>
-              <li>Information is never conveyed by color alone &mdash; text labels and icons are used alongside color cues</li>
+              <li>Information is never conveyed by color alone. Text labels and icons are used alongside color cues</li>
               <li>Responsive design that adapts to different screen sizes, zoom levels, and orientations</li>
               <li>Legible font sizes with scalable typography using relative units</li>
               <li>Reduced motion for users who prefer minimal animation</li>
@@ -89,7 +89,7 @@ export default function AccessibilityPage() {
               <li>Full keyboard navigation support across all interactive elements</li>
               <li>Dropdown menus and mobile navigation are operable via keyboard</li>
               <li>Tested with common screen readers (VoiceOver, NVDA)</li>
-              <li>No keyboard traps &mdash; users can navigate freely through all content</li>
+              <li>No keyboard traps. Users can navigate freely through all content</li>
             </ul>
           </div>
 
@@ -129,7 +129,7 @@ export default function AccessibilityPage() {
               While I work hard to ensure accessibility across the entire site, I acknowledge that some areas may still need improvement. Known limitations include:
             </p>
             <ul className="legal-list">
-              <li>Some older downloadable resources may not have full accessibility markup &mdash; these are being updated on an ongoing basis</li>
+              <li>Some older downloadable resources may not have full accessibility markup. These are being updated on an ongoing basis</li>
               <li>Third-party embedded content (such as social media feeds or external video players) may not fully meet accessibility standards</li>
               <li>User-generated content (such as blog comments, if enabled) may not always follow accessibility best practices</li>
             </ul>

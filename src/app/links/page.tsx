@@ -5,10 +5,10 @@ import "./links.css";
 export const metadata: Metadata = {
   title: "Links | The Rooted Learner",
   description:
-    "Quick links to everything from The Rooted Learner — educator resources, blog, teacher toolkit, tools, and social channels.",
+    "Quick links to everything from The Rooted Learner: educator resources, blog, teacher toolkit, tools, and social channels.",
   robots: "noindex, nofollow",
   openGraph: {
-    title: "The Rooted Learner — Links",
+    title: "The Rooted Learner: Links",
     description:
       "Educator. Builder. EdTech Founder. Explore teacher resources, blog posts, and tools built by a 12+ year classroom veteran.",
     type: "website",

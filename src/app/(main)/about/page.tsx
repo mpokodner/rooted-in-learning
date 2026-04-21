@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "About Michelle Pokodner | The Rooted Learner",
     description:
-      "I started as a classroom teacher trying to make disconnected systems work. Over time, I realized the problem wasn't effort — it was infrastructure. So I started building what didn't exist.",
+      "I started as a classroom teacher trying to make disconnected systems work. Over time, I realized the problem wasn't effort. It was infrastructure. So I started building what didn't exist.",
     type: "website",
   },
 };
@@ -48,7 +48,7 @@ const expertise = [
   },
   {
     title: "Science of Reading Certified",
-    description: "Trained in the evidence base behind how children learn to read — phonics, fluency, comprehension, and beyond.",
+    description: "Trained in the evidence base behind how children learn to read: phonics, fluency, comprehension, and beyond.",
     icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
   },
   {
@@ -68,7 +68,7 @@ const expertise = [
   },
   {
     title: "Digital Marketing Trained",
-    description: "Understands content strategy, SEO, and conversion — bridging education expertise with reach.",
+    description: "Understands content strategy, SEO, and conversion, bridging education expertise with reach.",
     icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
   },
 ];
@@ -83,7 +83,7 @@ const philosophy = [
     detail: "Evidence-based practice only matters if it reaches classrooms. I translate research into ready-to-use resources.",
   },
   {
-    statement: "Every learner deserves access — regardless of language or starting point.",
+    statement: "Every learner deserves access, regardless of language or starting point.",
     detail: "Multilingual learners and students with skill gaps deserve tools designed for their reality, not adapted as an afterthought.",
   },
 ];
@@ -203,7 +203,7 @@ export default function AboutPage() {
             <span className="about-hero-title-accent">Trying to Make Disconnected Systems Work.</span>
           </h1>
           <p className="about-hero-desc">
-            Over time, I realized the problem wasn&apos;t effort &mdash; it was
+            Over time, I realized the problem wasn&apos;t effort. It was
             infrastructure. So I started building what didn&apos;t exist.
           </p>
           <div className="about-hero-actions">
@@ -227,7 +227,7 @@ export default function AboutPage() {
                 {headshotExists ? (
                   <Image
                     src="/headshot.jpg"
-                    alt="Michelle Pokodner — Curricular Solutions Architect and Full-Stack Developer"
+                    alt="Michelle Pokodner, Curricular Solutions Architect and Full-Stack Developer"
                     width={400}
                     height={500}
                     className="about-headshot"
@@ -281,8 +281,8 @@ export default function AboutPage() {
                   function.
                 </p>
                 <p>
-                  Over time, I realized the problem wasn&apos;t effort &mdash;
-                  it was infrastructure. Curriculum and assessments weren&apos;t
+                  Over time, I realized the problem wasn&apos;t effort. It
+                  was infrastructure. Curriculum and assessments weren&apos;t
                   aligned. Multilingual learners couldn&apos;t access core
                   instruction. Tools operated in isolation. Teachers were
                   carrying the burden manually.

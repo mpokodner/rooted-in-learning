@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Teacher Toolkit | The Rooted Learner',
     description:
-      'Practical resources for modern educators — videos, guides, downloads, and reviews.',
+      'Practical resources for modern educators: videos, guides, downloads, and reviews.',
     type: 'website',
   },
 }

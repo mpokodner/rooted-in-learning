@@ -37,7 +37,7 @@ export default function Error({
         </p>
         <h1 className="text-h1 text-(--text-dark) mb-3">Oops!</h1>
         <p className="text-(--text-muted) max-w-md mx-auto mb-8 leading-relaxed">
-          We hit an unexpected bump. Don&apos;t worry — your data is safe. Try
+          We hit an unexpected bump. Don&apos;t worry, your data is safe. Try
           refreshing or head back home.
         </p>
         <div className="flex flex-col sm:flex-row gap-3 justify-center">

@@ -6,7 +6,7 @@ import assessAlignImg from "../../about/projects/images/assessalignpng.png";
 import "./assessalign.css";
 
 export const metadata: Metadata = {
-  title: "AssessAlign — Standards-Based Reading Assessment Platform",
+  title: "AssessAlign: Standards-Based Reading Assessment Platform",
   description:
     "A standards-aligned reading assessment platform for grades 3–8. Real-time analytics, auto-generated skill groups, and teacher-driven assessment creation. Built by educators, for educators.",
   keywords: [
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/tools/assessalign" },
   openGraph: {
-    title: "AssessAlign — Standards-Based Reading Assessment",
+    title: "AssessAlign: Standards-Based Reading Assessment",
     description:
       "Real-time analytics, auto-generated skill groups, and formative assessments designed for the 15–20 minute instructional window.",
     type: "website",
@@ -39,7 +39,7 @@ const problems = [
     icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
     problem: "Questions disconnected from standards",
     detail:
-      "Three snapshots a year isn't a feedback loop — it's a highlight reel.",
+      "Three snapshots a year isn't a feedback loop. It's a highlight reel.",
   },
   {
     icon: "M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z",
@@ -51,7 +51,7 @@ const problems = [
     icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
     problem: "Too much analysis overhead",
     detail:
-      "Expecting educators to analyze data, form groups, and plan sessions — on top of daily teaching.",
+      "Expecting educators to analyze data, form groups, and plan sessions on top of daily teaching.",
   },
 ];
 
@@ -69,7 +69,7 @@ const features = [
   {
     emoji: "📊",
     title: "Actionable Analytics",
-    desc: "Not just scores — insight into which standards students are struggling with.",
+    desc: "Not just scores. Insight into which standards students are struggling with.",
   },
   {
     emoji: "👩‍🏫",
@@ -113,7 +113,7 @@ const jsonLd = {
     "@type": "Offer",
     price: "0",
     priceCurrency: "USD",
-    description: "Beta access — currently free for early adopters",
+    description: "Beta access, currently free for early adopters",
   },
 };
 
@@ -149,7 +149,7 @@ export default function AssessAlignPage() {
             <p className="aa-hero-desc">
               A low-maintenance, high-impact progress-monitoring system that
               delivers actionable insights for educators and surfaces student
-              groups by standards mastery — without the extra analysis overhead.
+              groups by standards mastery, without the extra analysis overhead.
             </p>
             <div className="aa-hero-actions">
               <a href="#waitlist" className="aa-cta aa-cta--primary">
@@ -270,7 +270,7 @@ export default function AssessAlignPage() {
               {
                 step: 2,
                 title: "Build the Assessment",
-                desc: "Create a targeted assessment with standards-aligned passages and questions — designed for 15–20 minutes.",
+                desc: "Create a targeted assessment with standards-aligned passages and questions, designed for 15–20 minutes.",
               },
               {
                 step: 3,
@@ -335,7 +335,7 @@ export default function AssessAlignPage() {
                   >
                     Chris Carlozzi
                   </a>{" "}
-                  — combining 12+ years of classroom expertise with full-stack
+                  , combining 12+ years of classroom expertise with full-stack
                   engineering.
                 </p>
               </div>

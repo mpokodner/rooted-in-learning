@@ -8,7 +8,7 @@ import "./edtech-tools.css";
 export const metadata: Metadata = {
   title: "Tools | The Rooted Learner",
   description:
-    "AI-powered tools for educators — built by a teacher who codes. Standards-based assessment, curriculum planning, and more.",
+    "AI-powered tools for educators, built by a teacher who codes. Standards-based assessment, curriculum planning, and more.",
   alternates: {
     canonical: "/tools",
   },
@@ -49,7 +49,7 @@ export default function ToolsPage() {
             Current Projects
           </h1>
           <p className="tools-hero-desc">
-            Practical, research-backed software designed in the classroom — not
+            Practical, research-backed software designed in the classroom, not
             a boardroom. Bridging the gap between pedagogy and production code
             to solve real problems teachers face daily.
           </p>
@@ -79,7 +79,7 @@ export default function ToolsPage() {
                   </span>
                 </div>
                 <h2 id="assessalign-heading" className="tools-aa-title">
-                  AssessAlign — Standards-Based Reading Assessment Platform
+                  AssessAlign: Standards-Based Reading Assessment Platform
                 </h2>
                 <p className="tools-aa-desc">
                   A comprehensive assessment platform for grades 3–8 with
@@ -114,7 +114,7 @@ export default function ToolsPage() {
               <div className="tools-aa-image-wrap">
                 <Image
                   src={assessAlignImg}
-                  alt="AssessAlign Dashboard — standards-based reading assessment platform with real-time analytics, class management, and house leaderboards"
+                  alt="AssessAlign Dashboard, a standards-based reading assessment platform with real-time analytics, class management, and house leaderboards"
                   className="tools-aa-image"
                   placeholder="blur"
                   sizes="(max-width: 768px) 100vw, 50vw"
@@ -195,7 +195,7 @@ export default function ToolsPage() {
                   </span>
                 </div>
                 <h3 className="tools-other-title">
-                  Microlearning Lesson System — Standards-Aligned
+                  Microlearning Lesson System: Standards-Aligned
                 </h3>
                 <p className="tools-other-desc">
                   A complete library of ready-to-teach lessons designed using
@@ -309,7 +309,7 @@ export default function ToolsPage() {
               <p className="tools-how-desc">
                 Every tool starts with a real classroom problem. I prototype
                 quickly, test with real educators, and iterate based on feedback
-                — not assumptions. The stack is modern, but the priorities are
+                , not assumptions. The stack is modern, but the priorities are
                 grounded: does it actually save a teacher time? If not, it
                 doesn&apos;t ship.
               </p>

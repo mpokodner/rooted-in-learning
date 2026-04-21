@@ -94,7 +94,7 @@ export default function Header() {
         role="banner"
       >
         <nav className="container" aria-label="Primary navigation">
-          <Link href="/" className="header-logo" aria-label="The Rooted Learner — Home">
+          <Link href="/" className="header-logo" aria-label="The Rooted Learner, Home">
             <div className="header-logo-icon">
               <Image
                 src="/logo.png"

@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | The Rooted Learner",
   },
   description:
-    "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by Michelle Pokodner — a 12+ year classroom veteran and full-stack developer.",
+    "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by Michelle Pokodner, a 12+ year classroom veteran and full-stack developer.",
   keywords: [
     "education technology",
     "edtech",
@@ -123,7 +123,7 @@ export default function RootLayout({
               "name": "The Rooted Learner",
               "url": "https://www.therootedlearner.com",
               "logo": "https://www.therootedlearner.com/logo.png",
-              "description": "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts — built by a 12+ year classroom veteran.",
+              "description": "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by a 12+ year classroom veteran.",
               "founder": {
                 "@type": "Person",
                 "name": "Michelle Pokodner",

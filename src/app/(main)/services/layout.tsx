@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Services | The Rooted Learner",
   description:
-    "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them — assessment alignment, multilingual learner access, technology integrations, and custom instructional tools.",
+    "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them: assessment alignment, multilingual learner access, technology integrations, and custom instructional tools.",
   keywords: [
     "education consulting",
     "AI professional development",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
 const jsonLd = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
-  name: "The Rooted Learner — Consulting Services",
+  name: "The Rooted Learner: Consulting Services",
   provider: {
     "@type": "Person",
     name: "Michelle Pokodner",
@@ -34,7 +34,7 @@ const jsonLd = {
   },
   url: "https://www.therootedlearner.com/services",
   description:
-    "System audits, curriculum and assessment alignment, multilingual learner access, and custom instructional tools — built for K–12 districts.",
+    "System audits, curriculum and assessment alignment, multilingual learner access, and custom instructional tools. Built for K–12 districts.",
   areaServed: "US",
   serviceType: [
     "System Audit",

@@ -6,7 +6,7 @@ import "./contact.css";
 
 const subjectOptions = [
   { value: "", label: "What can I help you with?" },
-  { value: "consulting", label: "Consulting — Schools & Districts" },
+  { value: "consulting", label: "Consulting: Schools & Districts" },
   { value: "coaching", label: "1-on-1 Educator Coaching" },
   { value: "curriculum", label: "Curriculum & Lesson Inquiry" },
   { value: "speaking", label: "Speaking Engagement" },
@@ -82,7 +82,7 @@ export default function ContactPage() {
           </h1>
           <p className="ct-hero-desc">
             Whether you&apos;re exploring consulting, looking for curriculum support,
-            or want to collaborate — I&apos;d love to hear from you.
+            or want to collaborate, I&apos;d love to hear from you.
           </p>
         </div>
       </section>

@@ -113,7 +113,7 @@ export default function GatedDownload({
         }}
       >
         Enter your email and I&apos;ll send the download link straight to your
-        inbox — plus occasional educator tips.
+        inbox, plus occasional educator tips.
       </p>
 
       <form

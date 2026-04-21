@@ -60,7 +60,7 @@ export default async function LoginPage({
                 </svg>
               </div>
               <p className="auth-feature-text">
-                <strong>Curated favorites</strong> &mdash; educator-tested gear, books &amp; resources
+                <strong>Curated favorites</strong>: educator-tested gear, books &amp; resources
               </p>
             </div>
           </div>

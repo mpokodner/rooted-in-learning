@@ -18,7 +18,7 @@ export default function AIEthicsPage() {
           <h1 className="legal-hero-title">AI Ethics &amp; Data Transparency</h1>
           <p className="legal-hero-subtitle">
             My commitment to responsible AI use in education. I believe
-            transparency isn&apos;t optional — it&apos;s foundational.
+            transparency isn&apos;t optional. It&apos;s foundational.
           </p>
         </div>
       </section>
@@ -42,11 +42,11 @@ export default function AIEthicsPage() {
             </p>
             <ul className="legal-list">
               <li>
-                <strong>AssessAlign</strong> — for question generation, standards
+                <strong>AssessAlign</strong>, for question generation, standards
                 alignment, and feedback suggestions
               </li>
               <li>
-                <strong>Content creation assistance</strong> — for lesson plans
+                <strong>Content creation assistance</strong>, for lesson plans
                 (always human-reviewed)
               </li>
               <li>

@@ -6,7 +6,7 @@ import "./learn.css";
 export const metadata: Metadata = {
   title: "Learn | The Rooted Learner",
   description:
-    "Practical strategies grounded in Science of Reading, WIDA alignment, and AI integration — written for curriculum designers, district leaders, and the teachers who deliver instruction.",
+    "Practical strategies grounded in Science of Reading, WIDA alignment, and AI integration. Written for curriculum designers, district leaders, and the teachers who deliver instruction.",
   keywords: [
     "Science of Reading",
     "WIDA alignment",
@@ -34,7 +34,7 @@ export default function LearnPage() {
       <section className="learn-hero" aria-labelledby="learn-heading">
         <Image
           src="/learn-banner.png"
-          alt="Rooted in Learning — tree roots spreading across the ground"
+          alt="Rooted in Learning, tree roots spreading across the ground"
           fill
           className="learn-hero-image"
           priority
@@ -49,7 +49,7 @@ export default function LearnPage() {
           </h1>
           <p className="learn-hero-desc">
             Practical strategies grounded in Science of Reading, WIDA
-            alignment, and AI integration &mdash; written for the people who
+            alignment, and AI integration. Written for the people who
             design curriculum and the teachers who deliver it.
           </p>
           <div className="learn-hero-actions">
@@ -100,7 +100,7 @@ export default function LearnPage() {
                 <h3 className="learn-card-title">Teacher Toolkit</h3>
                 <p className="learn-card-desc">
                   Your go-to hub for AI tutorials, tech tips, how-to guides,
-                  and training content — built to help educators work smarter,
+                  and training content. Built to help educators work smarter,
                   not harder.
                 </p>
                 <ul className="learn-card-features">
@@ -219,7 +219,7 @@ export default function LearnPage() {
               Get the Free Toolkit
             </h2>
             <p className="learn-motivation-desc">
-              Practical classroom tools and AI guides — free, no strings
+              Practical classroom tools and AI guides. Free, no strings
               attached.
             </p>
             <Link href="/#newsletter" className="learn-motivation-cta">

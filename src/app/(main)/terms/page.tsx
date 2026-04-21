@@ -80,7 +80,7 @@ export default function TermsOfUsePage() {
             <h2 className="legal-section-title">4. Intellectual Property &amp; Content Ownership</h2>
             <div className="legal-callout">
               <p>
-                <strong>Important:</strong> All original content on The Rooted Learner &mdash; including lessons, tutorials, blog posts, graphics, logos, and website design &mdash; is owned by Michelle Pokodner / The Rooted Learner and is protected by copyright law.
+                <strong>Important:</strong> All original content on The Rooted Learner, including lessons, tutorials, blog posts, graphics, logos, and website design, is owned by Michelle Pokodner / The Rooted Learner and is protected by copyright law.
               </p>
             </div>
             <p className="legal-text">

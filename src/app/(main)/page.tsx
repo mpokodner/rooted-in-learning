@@ -11,12 +11,12 @@ import "./home.css";
 export const metadata: Metadata = {
   title: "The Rooted Learner | Curricular Solutions Architect for K–12 Districts",
   description:
-    "I diagnose where your system breaks — curriculum, assessment, multilingual learner access, and technology — and build what fixes it. Michelle Pokodner, Curricular Solutions Architect.",
+    "I diagnose where your system breaks: curriculum, assessment, multilingual learner access, and technology. Then I build what fixes it. Michelle Pokodner, Curricular Solutions Architect.",
   alternates: { canonical: "/" },
   openGraph: {
     title: "The Rooted Learner | Curricular Solutions Architect",
     description:
-      "I diagnose where your district's curriculum systems break and build what fixes them. Not recommendations — infrastructure.",
+      "I diagnose where your district's curriculum systems break and build what fixes them. Not recommendations. Infrastructure.",
     type: "website",
   },
 };
@@ -53,14 +53,14 @@ export default async function Home() {
           </h1>
 
           <p className="hero-subheadline animate-fade-up animate-delay-1">
-            I diagnose where your system breaks &mdash; curriculum, assessment,
-            multilingual learner access, and technology &mdash; and build what
+            I diagnose where your system breaks: curriculum, assessment,
+            multilingual learner access, and technology. Then I build what
             fixes it.
           </p>
 
           <p className="hero-identity animate-fade-up animate-delay-2">
             I&apos;m Michelle Pokodner, a Curricular Solutions Architect.
-            I&apos;m currently in the classroom &mdash; and I build the systems
+            I&apos;m currently in the classroom, and I build the systems
             I wish we had.
           </p>
 
@@ -163,7 +163,7 @@ export default async function Home() {
             </h2>
             <p className="diagnose-desc">
               Most consulting stops at recommendations. I stay through the
-              build &mdash; designing curriculum, aligning assessments, and
+              build, designing curriculum, aligning assessments, and
               creating the tools that make the system function.
             </p>
           </div>
@@ -306,7 +306,7 @@ export default async function Home() {
             </p>
             <p className="realproblem-body">
               When curriculum, assessment, and access are misaligned, the burden
-              shifts to the classroom. That&apos;s where burnout starts &mdash;
+              shifts to the classroom. That&apos;s where burnout starts, and
               and where students get missed.
             </p>
           </div>
@@ -468,7 +468,7 @@ export default async function Home() {
           ) : (
             <div className="blog-empty-state">
               <p className="blog-empty-text">
-                Articles coming soon &mdash; practical strategies grounded in
+                Articles coming soon. Practical strategies grounded in
                 Science of Reading, multilingual learner support, and AI in
                 education.
               </p>
@@ -522,7 +522,7 @@ export default async function Home() {
               </h3>
               <p className="newsletter-card-desc">
                 A practical, step-by-step guide to using Claude AI in your
-                classroom &mdash; prompt templates, lesson planning workflows,
+                classroom: prompt templates, lesson planning workflows,
                 and real examples from a current 1&ndash;8 educator. Enter your
                 email and I&apos;ll send it straight to your inbox.
               </p>

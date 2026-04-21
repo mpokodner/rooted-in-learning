@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 export const metadata: Metadata = {
   title: "Resources | The Rooted Learner",
   description:
-    "WIDA-aligned ELD overlays, formative assessment kits, AI prompt libraries, and Science of Reading intervention guides — designed at the district level, usable at the classroom level.",
+    "WIDA-aligned ELD overlays, formative assessment kits, AI prompt libraries, and Science of Reading intervention guides. Designed at the district level, usable at the classroom level.",
   keywords: [
     "ELD resources",
     "WIDA-aligned curriculum",

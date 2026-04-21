@@ -142,7 +142,7 @@ export default function PrivacyPolicyPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">8. Children&apos;s Privacy</h2>
             <p className="legal-text">
-              The Rooted Learner is designed for adult educators, school administrators, and parents/caregivers &mdash; not for children. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please <Link href="/contact">contact us</Link> immediately and we will promptly delete it.
+              The Rooted Learner is designed for adult educators, school administrators, and parents/caregivers, not for children. We do not knowingly collect personal information from children under 13. If you believe a child under 13 has provided us with personal information, please <Link href="/contact">contact us</Link> immediately and we will promptly delete it.
             </p>
           </div>
 

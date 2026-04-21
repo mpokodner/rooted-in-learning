@@ -94,6 +94,7 @@ export default function ServicesPage() {
     email: "",
     organization: "",
     message: "",
+    subscribeNewsletter: false,
   });
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
@@ -112,12 +113,13 @@ export default function ServicesPage() {
           organization: formData.organization,
           message: formData.message,
           subject: "consulting",
-          source: "services",
+          source: "services-page",
+          subscribeNewsletter: formData.subscribeNewsletter,
         }),
       });
       if (res.ok) {
         setFormStatus("success");
-        setFormData({ firstName: "", lastName: "", email: "", organization: "", message: "" });
+        setFormData({ firstName: "", lastName: "", email: "", organization: "", message: "", subscribeNewsletter: false });
       } else {
         setFormStatus("error");
       }
@@ -398,6 +400,25 @@ export default function ServicesPage() {
                   required
                 />
               </div>
+              <label
+                style={{
+                  display: "flex",
+                  alignItems: "flex-start",
+                  gap: "0.5rem",
+                  fontSize: "0.875rem",
+                  color: "var(--text-muted)",
+                  cursor: "pointer",
+                  lineHeight: 1.5,
+                }}
+              >
+                <input
+                  type="checkbox"
+                  checked={formData.subscribeNewsletter}
+                  onChange={(e) => setFormData({ ...formData, subscribeNewsletter: e.target.checked })}
+                  style={{ marginTop: "0.2rem", accentColor: "var(--earth)" }}
+                />
+                Also sign me up for educator updates and free resources
+              </label>
               <button
                 type="submit"
                 className="svc-form-submit"

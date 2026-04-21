@@ -40,6 +40,7 @@ export default function ContactPage() {
     email: "",
     subject: "",
     message: "",
+    subscribeNewsletter: false,
   });
 
   const handleSubmit = async (e: FormEvent) => {
@@ -55,7 +56,7 @@ export default function ContactPage() {
 
       if (res.ok) {
         setFormState("success");
-        setFormData({ name: "", email: "", subject: "", message: "" });
+        setFormData({ name: "", email: "", subject: "", message: "", subscribeNewsletter: false });
       } else {
         setFormState("error");
       }
@@ -198,6 +199,16 @@ export default function ContactPage() {
                         placeholder="Tell me about your goals, challenges, or questions..."
                       />
                     </div>
+
+                    <label className="ct-checkbox-label">
+                      <input
+                        type="checkbox"
+                        checked={formData.subscribeNewsletter}
+                        onChange={(e) => setFormData({ ...formData, subscribeNewsletter: e.target.checked })}
+                        className="ct-checkbox"
+                      />
+                      Also sign me up for educator updates and free resources
+                    </label>
 
                     {formState === "error" && (
                       <div className="ct-error" role="alert">

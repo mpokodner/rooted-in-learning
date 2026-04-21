@@ -1,4 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
+import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { resend, FROM_EMAIL } from "@/lib/resend";
 import { getRatelimit } from "@/lib/ratelimit";
 
@@ -28,11 +29,19 @@ export async function POST(request: NextRequest) {
         );
       }
     } catch {
-      // Rate limiting unavailable (missing env vars) — continue without it in dev
+      // Rate limiting unavailable — continue without it
     }
 
     const body = await request.json();
-    const { name, email, subject, message } = body;
+    const {
+      name,
+      email,
+      subject,
+      message,
+      organization,
+      source = "contact-page",
+      subscribeNewsletter = false,
+    } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
@@ -61,6 +70,45 @@ export async function POST(request: NextRequest) {
     const safeSubject = sanitize(subject || "Not specified");
     const safeMessage = sanitize(message);
 
+    const supabase = createServerSupabaseClient();
+
+    const { error: insertError } = await supabase.from("leads").insert({
+      email: email.toLowerCase(),
+      name,
+      subject: subject || null,
+      message,
+      organization: organization || null,
+      source,
+      status: "new",
+      subscribe_newsletter: subscribeNewsletter,
+    });
+
+    if (insertError) {
+      console.error("Lead insert error:", insertError);
+    }
+
+    if (subscribeNewsletter) {
+      try {
+        const { data: existingSub } = await supabase
+          .from("newsletter_subscribers")
+          .select("id")
+          .eq("email", email.toLowerCase())
+          .single();
+
+        if (!existingSub) {
+          await supabase.from("newsletter_subscribers").insert({
+            email: email.toLowerCase(),
+            name: name || null,
+            source: `contact-${source}`,
+            freebie_sent: false,
+            subscribed: true,
+          });
+        }
+      } catch {
+        // Newsletter opt-in is secondary — don't fail the main request
+      }
+    }
+
     await resend.emails.send({
       from: FROM_EMAIL,
       to: "hello@therootedlearner.com",
@@ -70,10 +118,12 @@ export async function POST(request: NextRequest) {
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
         <p><strong>Subject:</strong> ${safeSubject}</p>
+        <p><strong>Organization:</strong> ${sanitize(organization || "Not provided")}</p>
         <p><strong>Message:</strong></p>
         <p>${safeMessage}</p>
+        <p><strong>Newsletter opt-in:</strong> ${subscribeNewsletter ? "Yes" : "No"}</p>
         <hr />
-        <p style="color: #999; font-size: 12px;">IP: ${ip}</p>
+        <p style="color: #999; font-size: 12px;">Source: ${source} | IP: ${ip}</p>
       `,
       replyTo: email,
     });

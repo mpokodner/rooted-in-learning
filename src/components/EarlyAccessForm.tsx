@@ -33,6 +33,7 @@ export function EarlyAccessForm({
   const [organization, setOrganization] = useState("");
   const [role, setRole] = useState("");
   const [districtSize, setDistrictSize] = useState("");
+  const [subscribeNewsletter, setSubscribeNewsletter] = useState(true);
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -42,16 +43,18 @@ export function EarlyAccessForm({
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/newsletter", {
+      const res = await fetch("/api/waitlist", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
           email,
           name,
-          source: "early-access",
+          product: "assessalign",
+          source: "assessalign-page",
           role: role || undefined,
           organization: organization || undefined,
           districtSize: districtSize || undefined,
+          subscribeNewsletter,
         }),
       });
 
@@ -297,6 +300,25 @@ export function EarlyAccessForm({
             ))}
           </select>
         </div>
+
+        <label
+          style={{
+            display: "flex",
+            alignItems: "flex-start",
+            gap: "0.5rem",
+            fontSize: "0.875rem",
+            color: "var(--text-muted, #6B6B6B)",
+            cursor: "pointer",
+          }}
+        >
+          <input
+            type="checkbox"
+            checked={subscribeNewsletter}
+            onChange={(e) => setSubscribeNewsletter(e.target.checked)}
+            style={{ marginTop: "0.2rem", accentColor: "var(--earth, #5C6B4D)" }}
+          />
+          Also sign me up for educator updates and free resources
+        </label>
 
         {status === "error" && (
           <p

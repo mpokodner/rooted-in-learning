@@ -311,14 +311,14 @@ export default function ShopPage() {
         </div>
       </section>
 
-      {/* ─── Early Access Email Capture ─── */}
+      {/* ─── Newsletter Email Capture ─── */}
       <section id="early-access" className="shop-early-access section--alt" aria-labelledby="early-access-heading">
         <div className="container" style={{ maxWidth: '36rem', textAlign: 'center', padding: '3rem 1rem' }}>
           <h2
             id="early-access-heading"
             style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-black)', fontSize: 'var(--text-2xl)', fontWeight: 700, marginBottom: '0.75rem' }}
           >
-            Get Early Access
+            Stay in the Loop
           </h2>
           <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 'var(--leading-relaxed)' }}>
             Be the first to know when new WIDA-aligned resources, assessment kits,
@@ -329,17 +329,20 @@ export default function ShopPage() {
             onSubmit={async (e) => {
               e.preventDefault();
               const form = e.currentTarget;
-              const email = (form.elements.namedItem("email") as HTMLInputElement).value;
-              if (!email) return;
+              const emailInput = form.elements.namedItem("email") as HTMLInputElement;
+              if (!emailInput.value) return;
               try {
-                const res = await fetch("/api/early-access", {
+                const res = await fetch("/api/newsletter", {
                   method: "POST",
                   headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ email, source: "shop" }),
+                  body: JSON.stringify({ email: emailInput.value, source: "shop" }),
                 });
                 if (res.ok) {
                   form.reset();
-                  alert("You're on the list! Check your inbox.");
+                  alert("You're subscribed! We'll keep you posted.");
+                } else {
+                  const data = await res.json();
+                  alert(data.error || "Something went wrong. Please try again.");
                 }
               } catch {
                 alert("Something went wrong. Please try again.");
@@ -376,7 +379,7 @@ export default function ShopPage() {
                 cursor: 'pointer',
               }}
             >
-              Notify Me
+              Subscribe
             </button>
           </form>
         </div>

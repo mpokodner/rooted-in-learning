@@ -392,6 +392,116 @@
 
 
 /* ═══════════════════════════════════
+   WHY THE ROOTED LEARNER
+   ═══════════════════════════════════ */
+
+.about-brand {
+  background: linear-gradient(
+    170deg,
+    var(--earth-dark, #4a5638) 0%,
+    var(--earth, #5C6B4A) 50%,
+    var(--earth-dark, #4a5638) 100%
+  );
+  position: relative;
+  overflow: hidden;
+}
+
+.about-brand::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse 50% 70% at 80% 20%,
+      rgba(213, 163, 114, 0.07) 0%,
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.about-brand-inner {
+  position: relative;
+  max-width: 40rem;
+  margin-inline: auto;
+  text-align: center;
+  padding: clamp(2.5rem, 6vw, 4rem) clamp(1.5rem, 4vw, 3rem);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-2xl, 2rem);
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.about-brand-accent {
+  width: clamp(2.5rem, 5vw, 3.5rem);
+  height: clamp(2.5rem, 5vw, 3.5rem);
+  margin-inline: auto;
+  margin-bottom: 1.25rem;
+  color: var(--terracotta-light, #D5A372);
+  opacity: 0.45;
+}
+
+.about-brand-accent svg {
+  width: 100%;
+  height: 100%;
+}
+
+.about-brand-label {
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--terracotta-light, #D5A372);
+  margin-bottom: 0.75rem;
+}
+
+.about-brand-heading {
+  font-family: var(--font-heading);
+  font-size: var(--text-3xl, clamp(1.625rem, 1.4rem + 1.2vw, 2.125rem));
+  font-weight: 800;
+  line-height: 1.2;
+  color: var(--white, #FFFFFF);
+  margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+.about-brand-body {
+  text-align: left;
+}
+
+.about-brand-body p {
+  font-size: var(--text-base, 1rem);
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.82);
+  margin-bottom: 1.25rem;
+}
+
+.about-brand-body p:last-child {
+  margin-bottom: 0;
+}
+
+.about-brand-anchor {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-style: italic;
+  font-size: var(--text-lg, 1.125rem) !important;
+  color: var(--white, #FFFFFF) !important;
+  text-align: center;
+  margin-top: 0.5rem;
+}
+
+@media (max-width: 479px) {
+  .about-brand-inner {
+    padding: 2rem 1.25rem;
+    border-radius: var(--radius-xl, 1.5rem);
+  }
+}
+
+@media (min-width: 768px) {
+  .about-brand-body {
+    text-align: center;
+  }
+}
+
+
+/* ═══════════════════════════════════
    CAREER TIMELINE
    ═══════════════════════════════════ */
 

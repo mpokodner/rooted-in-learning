@@ -314,6 +314,27 @@ export default async function Home() {
       </section>
 
       {/* ═══════════════════════════════════════════
+          SECTION 6b — QUOTE BLURB
+      ═══════════════════════════════════════════ */}
+      <section className="quote-blurb-section" aria-label="The premise behind The Rooted Learner">
+        <div className="container">
+          <div className="quote-blurb-inner">
+            <svg className="quote-blurb-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
+              <path d="M14 24c-4 0-7-3-7-7s3-7 7-7c1 0 2 .2 3 .5C14 13 12 16 12 20c0 2 1 4 2 4zm20 0c-4 0-7-3-7-7s3-7 7-7c1 0 2 .2 3 .5C34 13 32 16 32 20c0 2 1 4 2 4z" fill="currentColor"/>
+            </svg>
+            <blockquote className="quote-blurb-text">
+              <p>
+                The decisions made in curriculum meetings determine what&apos;s
+                possible in classrooms. And what&apos;s possible in classrooms
+                determines what&apos;s possible for students, especially the ones
+                your current system wasn&apos;t built for.
+              </p>
+            </blockquote>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════
           SECTION 7 — CREDIBILITY
       ═══════════════════════════════════════════ */}
       <section className="credibility-section" aria-labelledby="credibility-heading">

@@ -341,6 +341,41 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* ─── Why The Rooted Learner ─── */}
+      <section className="about-brand section" aria-labelledby="brand-heading">
+        <div className="container">
+          <div className="about-brand-inner">
+            <div className="about-brand-accent" aria-hidden="true">
+              <svg viewBox="0 0 64 64" fill="none">
+                <path d="M32 56V32M32 32c-6-8-16-12-20-24M32 32c6-8 16-12 20-24M32 32c-3 4-4 10-4 16M32 32c3 4 4 10 4 16M22 48c2-4 6-6 10-6M42 48c-2-4-6-6-10-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+              </svg>
+            </div>
+            <p className="about-brand-label">Why The Rooted Learner</p>
+            <h2 id="brand-heading" className="about-brand-heading">
+              The Child at the Center of Every System
+            </h2>
+            <div className="about-brand-body">
+              <p>
+                The Rooted Learner is built on a simple premise: when a
+                district&apos;s curriculum systems are aligned, equitable, and
+                designed for its actual students, especially its multilingual
+                learners, something changes all the way down the chain. Teachers
+                have what they need to teach. Students have what they need to
+                learn.
+              </p>
+              <p>
+                The work I do starts at the systems level, but it ends with a
+                child who is finally seen by the curriculum in front of them.
+              </p>
+              <p className="about-brand-anchor">
+                That child is the rooted learner. And they are the reason all of
+                this exists.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* ─── Career Timeline ─── */}
       <section className="about-timeline section" aria-labelledby="timeline-heading">
         <div className="container">

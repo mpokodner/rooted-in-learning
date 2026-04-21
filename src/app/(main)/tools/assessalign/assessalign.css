@@ -166,6 +166,18 @@
   gap: 1rem;
 }
 
+@media (max-width: 479px) {
+  .aa-hero-actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .aa-hero-actions .aa-cta {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .aa-hero-image {
   display: flex;
   justify-content: center;
@@ -535,6 +547,21 @@
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
+}
+
+@media (max-width: 479px) {
+  .aa-cta-banner-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-inline: 1rem;
+  }
+  .aa-cta-banner-actions .aa-cta {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* ═══════════════════════════════════════════════════════════════

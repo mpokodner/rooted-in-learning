@@ -115,6 +115,22 @@
   gap: 0.75rem;
 }
 
+@media (max-width: 479px) {
+  .svc-hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding-inline: 1rem;
+  }
+  .svc-hero-cta-primary,
+  .svc-hero-cta-secondary {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .svc-hero-cta-primary {
   display: inline-flex;
   align-items: center;
@@ -316,14 +332,26 @@
 
 @media (min-width: 1024px) {
   .svc-process-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(3, 1fr);
     gap: 0;
   }
 }
 
 .svc-process-step {
   text-align: center;
-  padding: 0 1rem;
+  padding: clamp(1rem, 2vw, 1.5rem);
+  background-color: var(--white, #FFFFFF);
+  border-radius: var(--radius-xl, 1.5rem);
+  border: 1px solid var(--border-beige, #E8DED0);
+}
+
+@media (min-width: 1024px) {
+  .svc-process-step {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    padding: 0 1rem;
+  }
 }
 
 .svc-process-number-row {
@@ -470,8 +498,14 @@
 
 .svc-form-row {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 1rem;
+}
+
+@media (min-width: 480px) {
+  .svc-form-row {
+    grid-template-columns: 1fr 1fr;
+  }
 }
 
 .svc-form-field {
@@ -747,6 +781,20 @@
   flex-wrap: wrap;
   gap: 0.625rem;
   margin-top: 1rem;
+  justify-content: center;
+}
+
+@media (max-width: 479px) {
+  .svc-process-step-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .svc-step-cta {
+    width: 100%;
+    max-width: 16rem;
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 .svc-step-cta {
@@ -807,7 +855,21 @@
   background-color: var(--earth, #5C6B4A);
 }
 
+.svc-bottom-cta .container {
+  text-align: center;
+}
+
 .svc-bottom-cta .svc-hero-cta-primary {
   font-size: var(--text-lg, 1.125rem);
   padding: 1rem 2.5rem;
+}
+
+@media (max-width: 479px) {
+  .svc-bottom-cta .svc-hero-cta-primary {
+    font-size: var(--text-base, 1rem);
+    padding: 0.875rem 1.75rem;
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+  }
 }

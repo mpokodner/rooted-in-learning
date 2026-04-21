@@ -90,6 +90,21 @@
   margin-top: 1.25rem;
 }
 
+@media (max-width: 479px) {
+  .shop-hero-actions {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+  .shop-hero-cta-primary,
+  .shop-hero-cta-secondary {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+    text-align: center;
+  }
+}
+
 .shop-hero-cta-primary {
   display: inline-flex;
   align-items: center;

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "District Work | The Rooted Learner",
+  title: "Services | The Rooted Learner",
   description:
     "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them — assessment alignment, multilingual learner access, technology integrations, and custom instructional tools.",
   keywords: [
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     canonical: "/services",
   },
   openGraph: {
-    title: "District Work | The Rooted Learner",
+    title: "Services | The Rooted Learner",
     description:
       "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them.",
     type: "website",

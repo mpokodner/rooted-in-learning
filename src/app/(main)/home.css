@@ -137,6 +137,19 @@
   flex-wrap: wrap;
   gap: 0.875rem;
   justify-content: center;
+  width: 100%;
+}
+
+@media (max-width: 479px) {
+  .hero-cta-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .hero-cta-btn {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+  }
 }
 
 .hero-cta-btn {
@@ -259,7 +272,7 @@
   display: flex;
   align-items: flex-start;
   gap: 1rem;
-  padding: 1.25rem 1.5rem;
+  padding: clamp(1rem, 2vw, 1.25rem) clamp(1rem, 2vw, 1.5rem);
   background-color: var(--neutral-bg, #FAF7F2);
   border-radius: var(--radius-lg, 1rem);
   border: 1px solid var(--border-beige, #E8DED0);
@@ -367,7 +380,7 @@
 
 .howworks-step {
   text-align: center;
-  padding: 2rem 1.5rem;
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1rem, 2vw, 1.5rem);
   background-color: var(--neutral-bg, #FAF7F2);
   border-radius: var(--radius-xl, 1.5rem);
   border: 1px solid var(--border-beige, #E8DED0);
@@ -413,6 +426,22 @@
   flex-wrap: wrap;
   justify-content: center;
   gap: 0.75rem;
+}
+
+@media (max-width: 479px) {
+  .howworks-cta-row,
+  .proof-cta-row,
+  .credibility-cta-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  .howworks-cta-row .trust-btn,
+  .proof-cta-row .trust-btn,
+  .credibility-cta-row .trust-btn {
+    width: 100%;
+    max-width: 18rem;
+    justify-content: center;
+  }
 }
 
 
@@ -721,6 +750,13 @@
   font-weight: 800;
   color: var(--white, #FFFFFF);
   margin-bottom: clamp(1.5rem, 3vw, 2rem);
+}
+
+@media (max-width: 479px) {
+  .footercta-inner .hero-cta-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: var(--text-sm, 0.875rem);
+  }
 }
 
 

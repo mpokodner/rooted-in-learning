@@ -126,9 +126,9 @@ export default function Footer() {
                 <span className="footer-logo-text">The Rooted Learner</span>
               </Link>
               <p className="footer-desc">
-                I diagnose where district curriculum systems break and build
-                what fixes them. 12+ year educator, reading interventionist,
-                and full-stack developer.
+                Built by a 12+ year educator, reading interventionist, and
+                EdTech developer. Practical tools and strategies for educators,
+                schools, and families.
               </p>
 
               {/* Trust Metrics */}
@@ -218,22 +218,13 @@ export default function Footer() {
 
             {/* Links Columns */}
             <div className="footer-links-grid">
+              {/* Pages — mirrors the navbar */}
               <div>
-                <h5 className="footer-heading">District</h5>
+                <h5 className="footer-heading">Pages</h5>
                 <ul className="footer-link-list">
                   <li>
-                    <Link href="/services" className="footer-link">
-                      District Work
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/tools/assessalign" className="footer-link">
-                      AssessAlign
-                    </Link>
-                  </li>
-                  <li>
-                    <Link href="/contact" className="footer-link">
-                      Contact
+                    <Link href="/" className="footer-link">
+                      Home
                     </Link>
                   </li>
                   <li>
@@ -241,11 +232,32 @@ export default function Footer() {
                       About
                     </Link>
                   </li>
+                  <li>
+                    <Link href="/shop" className="footer-link">
+                      Shop
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/learn" className="footer-link">
+                      Learn
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/services" className="footer-link">
+                      Services
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/tools" className="footer-link">
+                      Tools
+                    </Link>
+                  </li>
                 </ul>
               </div>
 
+              {/* Resources */}
               <div>
-                <h5 className="footer-heading">Educators</h5>
+                <h5 className="footer-heading">Resources</h5>
                 <ul className="footer-link-list">
                   <li>
                     <Link href="/learn/teacher-toolkit" className="footer-link">
@@ -258,8 +270,8 @@ export default function Footer() {
                     </Link>
                   </li>
                   <li>
-                    <Link href="/shop" className="footer-link">
-                      Classroom Tools
+                    <Link href="/contact" className="footer-link">
+                      Contact
                     </Link>
                   </li>
                 </ul>

@@ -12,18 +12,19 @@ interface NavItem {
 }
 
 const NAV_ITEMS: NavItem[] = [
-  { href: "/services", label: "District Work" },
-  { href: "/tools/assessalign", label: "AssessAlign" },
+  { href: "/", label: "Home" },
+  { href: "/about", label: "About" },
+  { href: "/shop", label: "Shop" },
   {
     href: "/learn",
-    label: "Resources",
+    label: "Learn",
     children: [
       { href: "/learn/teacher-toolkit", label: "Teacher Toolkit" },
       { href: "/learn/blog", label: "Blog" },
-      { href: "/shop", label: "Classroom Tools" },
     ],
   },
-  { href: "/about", label: "About" },
+  { href: "/services", label: "Services" },
+  { href: "/tools", label: "Tools" },
 ];
 
 export default function Header() {
@@ -162,13 +163,13 @@ export default function Header() {
           {/* Actions */}
           <div className="header-actions">
             <Link
-              href="/services#audit"
+              href="/contact"
               className="header-cta-btn"
             >
               <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Start the Audit
+              Book a Call
             </Link>
             <button
               className="header-mobile-toggle"
@@ -324,7 +325,7 @@ export default function Header() {
 
             {/* Mobile CTA */}
             <Link
-              href="/services#audit"
+              href="/contact"
               onClick={closeMobile}
               style={{
                 display: "flex",
@@ -333,7 +334,7 @@ export default function Header() {
                 gap: "0.5rem",
                 marginTop: "1.5rem",
                 padding: "0.75rem 1.5rem",
-                backgroundColor: "#5C6B4A",
+                backgroundColor: "#b05931",
                 color: "#fff",
                 fontSize: "1rem",
                 fontWeight: 600,
@@ -342,9 +343,9 @@ export default function Header() {
               }}
             >
               <svg width="18" height="18" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4" />
+                <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
               </svg>
-              Start the Audit
+              Book a Call
             </Link>
 
             {/* Secondary mobile links */}

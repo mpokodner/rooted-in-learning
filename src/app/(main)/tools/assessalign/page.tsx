@@ -325,7 +325,7 @@ export default function AssessAlignPage() {
                   </Link>{" "}
                   and{" "}
                   <a
-                    href="https://www.linkedin.com/in/michelle-pokodner-edtech/"
+                    href="https://www.linkedin.com/in/chris-carlozzi-52a569355/"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="aa-inline-link"

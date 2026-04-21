@@ -509,3 +509,60 @@
   color: var(--text-muted);
   font-size: var(--text-lg);
 }
+
+
+/* ═══════════════════════════════════
+   COMING SOON STATE
+   ═══════════════════════════════════ */
+
+.shop-coming-soon {
+  padding-block: clamp(3rem, 6vw, 5rem);
+}
+
+.shop-coming-soon-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  max-width: 32rem;
+  margin-inline: auto;
+  padding: clamp(2.5rem, 5vw, 4rem) clamp(1.5rem, 3vw, 2.5rem);
+  background-color: var(--white);
+  border-radius: var(--radius-xl, 1.5rem);
+  border: 1px solid var(--border-beige);
+  box-shadow: 0 4px 20px -8px rgba(0, 0, 0, 0.06);
+}
+
+.shop-coming-soon-icon {
+  width: 5rem;
+  height: 5rem;
+  margin-bottom: 1.5rem;
+}
+
+.shop-coming-soon-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-2xl, 1.5rem);
+  font-weight: 700;
+  color: var(--text-black);
+  margin-bottom: 0.75rem;
+}
+
+.shop-coming-soon-desc {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: var(--leading-relaxed);
+  max-width: 26rem;
+}
+
+.shop-coming-soon-link {
+  color: var(--earth);
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(92, 107, 74, 0.3);
+  text-underline-offset: 3px;
+  transition: text-decoration-color 0.2s ease;
+}
+
+.shop-coming-soon-link:hover {
+  text-decoration-color: var(--earth);
+}

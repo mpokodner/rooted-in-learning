@@ -1,95 +1,8 @@
 "use client";
 
-import { useState, useMemo } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import "./teacher-shop.css";
-
-interface Product {
-  id: number;
-  title: string;
-  description: string;
-  price: number;
-  badge: string | null;
-  category: string;
-  bgColor: string;
-  overlayText: string | null;
-  overlayStyle: "light" | "dark" | "script";
-}
-
-const products: Product[] = [
-  {
-    id: 1,
-    title: "Comprehensive ELD Unit: Narrative Writing",
-    description:
-      "A 4-week complete unit with scaffolded lessons, graphic organizers, and formative checks for English learners.",
-    price: 24.0,
-    badge: "Bestseller",
-    category: "ELD Resources",
-    bgColor: "#c4a882",
-    overlayText: null,
-    overlayStyle: "light",
-  },
-  {
-    id: 2,
-    title: "Digital Formative Assessment Kit",
-    description:
-      "15 interactive Google Forms templates for quick student check-ins, exit tickets, and progress monitoring.",
-    price: 12.5,
-    badge: null,
-    category: "Assessment Tools",
-    bgColor: "#9aada0",
-    overlayText: null,
-    overlayStyle: "light",
-  },
-  {
-    id: 3,
-    title: "Classroom Management Mega-Bundle",
-    description:
-      "Everything you need for a smooth school year: posters, logs, and slide templates for routines.",
-    price: 45.0,
-    badge: null,
-    category: "Bundles",
-    bgColor: "#9aada0",
-    overlayText: "Classroom\nManagement",
-    overlayStyle: "script",
-  },
-  {
-    id: 4,
-    title: "Weekly STEM Challenges: Volume 1",
-    description:
-      "10 low-prep STEM activities using common household materials.",
-    price: 15.0,
-    badge: null,
-    category: "Lesson Plans",
-    bgColor: "#2d2d2d",
-    overlayText: "STEM\nActivities",
-    overlayStyle: "dark",
-  },
-  {
-    id: 5,
-    title: "Reflective Reading Journal",
-    description:
-      "Printable student logs designed to increase deep comprehension and reading stamina.",
-    price: 8.0,
-    badge: null,
-    category: "ELD Resources",
-    bgColor: "#8b9b7a",
-    overlayText: "Literacy\nResource",
-    overlayStyle: "script",
-  },
-  {
-    id: 6,
-    title: "Fractions Mastery Stations",
-    description:
-      "8 hands-on math stations focused on simplifying and adding fractions with visual models.",
-    price: 18.5,
-    badge: null,
-    category: "Lesson Plans",
-    bgColor: "#5c6b4a",
-    overlayText: "Math\nResources",
-    overlayStyle: "dark",
-  },
-];
 
 const categories = [
   { id: "all", label: "All" },
@@ -111,32 +24,6 @@ export default function ShopPage() {
   const [searchQuery, setSearchQuery] = useState("");
   const [sortBy, setSortBy] = useState("featured");
 
-  const filteredProducts = useMemo(() => {
-    let result = products.filter((p) => {
-      const matchesCategory =
-        activeCategory === "all" || p.category === activeCategory;
-      const matchesSearch =
-        searchQuery.trim() === "" ||
-        p.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        p.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-
-    switch (sortBy) {
-      case "price-asc":
-        result = [...result].sort((a, b) => a.price - b.price);
-        break;
-      case "price-desc":
-        result = [...result].sort((a, b) => b.price - a.price);
-        break;
-      case "name":
-        result = [...result].sort((a, b) => a.title.localeCompare(b.title));
-        break;
-    }
-
-    return result;
-  }, [activeCategory, searchQuery, sortBy]);
-
   return (
     <div className="shop-page">
       <section className="shop-hero" aria-labelledby="shop-heading">
@@ -152,16 +39,7 @@ export default function ShopPage() {
           <h1 id="shop-heading" className="shop-title">
             Curriculum Tools Built for the Classrooms That Need Them Most.
           </h1>
-          <p className="shop-subtitle">
-            WIDA-aligned ELD overlays, formative assessment kits for
-            multilingual learners, AI prompt libraries for educators, and
-            Science of Reading intervention guides &mdash; designed at the
-            district level, usable at the classroom level. Launching soon.
-          </p>
           <div className="shop-hero-actions">
-            <a href="#early-access" className="shop-hero-cta-primary">
-              Get Early Access
-            </a>
             <a
               href="https://www.teacherspayteachers.com/store/rootedinlearninged"
               target="_blank"
@@ -254,142 +132,76 @@ export default function ShopPage() {
         </div>
       </section>
 
-      <section
-        className="shop-products section"
-        aria-labelledby="shop-products-heading"
-      >
+      <section className="shop-coming-soon section">
         <div className="container">
-          <h2 id="shop-products-heading" className="sr-only">
-            Products
-          </h2>
-          <div className="shop-grid">
-            {filteredProducts.length > 0 ? (
-              filteredProducts.map((product) => (
-                <div key={product.id} className="shop-card">
-                  <div
-                    className="shop-card-image"
-                    style={{ backgroundColor: product.bgColor }}
-                  >
-                    {product.overlayText && (
-                      <span
-                        className={`shop-card-overlay shop-card-overlay--${product.overlayStyle}`}
-                      >
-                        {product.overlayText}
-                      </span>
-                    )}
-                    {!product.overlayText && (
-                      <svg
-                        className="shop-card-placeholder"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={1}
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M19.5 14.25v-2.625a3.375 3.375 0 00-3.375-3.375h-1.5A1.125 1.125 0 0113.5 7.125v-1.5a3.375 3.375 0 00-3.375-3.375H8.25m0 12.75h7.5m-7.5 3H12M10.5 2.25H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 00-9-9z"
-                        />
-                      </svg>
-                    )}
-                    {product.badge && (
-                      <span className="shop-card-badge">{product.badge}</span>
-                    )}
-                  </div>
-                  <div className="shop-card-body">
-                    <h3 className="shop-card-title">{product.title}</h3>
-                    <p className="shop-card-desc">{product.description}</p>
-                    <div className="shop-card-footer">
-                      <span className="shop-card-price">
-                        ${product.price.toFixed(2)}
-                      </span>
-                      <button className="shop-card-cta">Add to Cart</button>
-                    </div>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p className="shop-empty">
-                No resources match your search. Try a different term or
-                category.
-              </p>
-            )}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Newsletter Email Capture ─── */}
-      <section id="early-access" className="shop-early-access section--alt" aria-labelledby="early-access-heading">
-        <div className="container" style={{ maxWidth: '36rem', textAlign: 'center', padding: '3rem 1rem' }}>
-          <h2
-            id="early-access-heading"
-            style={{ fontFamily: 'var(--font-heading)', color: 'var(--text-black)', fontSize: 'var(--text-2xl)', fontWeight: 700, marginBottom: '0.75rem' }}
-          >
-            Stay in the Loop
-          </h2>
-          <p style={{ color: 'var(--text-muted)', marginBottom: '1.5rem', lineHeight: 'var(--leading-relaxed)' }}>
-            Be the first to know when new WIDA-aligned resources, assessment kits,
-            and curriculum tools are available. No spam &mdash; just launch
-            announcements and free educator downloads.
-          </p>
-          <form
-            onSubmit={async (e) => {
-              e.preventDefault();
-              const form = e.currentTarget;
-              const emailInput = form.elements.namedItem("email") as HTMLInputElement;
-              if (!emailInput.value) return;
-              try {
-                const res = await fetch("/api/newsletter", {
-                  method: "POST",
-                  headers: { "Content-Type": "application/json" },
-                  body: JSON.stringify({ email: emailInput.value, source: "shop" }),
-                });
-                if (res.ok) {
-                  form.reset();
-                  alert("You're subscribed! We'll keep you posted.");
-                } else {
-                  const data = await res.json();
-                  alert(data.error || "Something went wrong. Please try again.");
-                }
-              } catch {
-                alert("Something went wrong. Please try again.");
-              }
-            }}
-            style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center', flexWrap: 'wrap' }}
-          >
-            <input
-              type="email"
-              name="email"
-              required
-              placeholder="you@school.edu"
-              aria-label="Email address"
-              style={{
-                flex: '1 1 14rem',
-                maxWidth: '20rem',
-                padding: '0.75rem 1rem',
-                borderRadius: '0.5rem',
-                border: '1px solid var(--border-beige)',
-                fontSize: 'var(--text-base)',
-                outline: 'none',
-              }}
-            />
-            <button
-              type="submit"
-              style={{
-                padding: '0.75rem 1.5rem',
-                borderRadius: '0.5rem',
-                backgroundColor: 'var(--terracotta)',
-                color: 'var(--white)',
-                fontWeight: 600,
-                fontSize: 'var(--text-base)',
-                border: 'none',
-                cursor: 'pointer',
-              }}
+          <div className="shop-coming-soon-card">
+            <svg
+              className="shop-coming-soon-icon"
+              fill="none"
+              viewBox="0 0 80 80"
+              aria-hidden="true"
             >
-              Subscribe
-            </button>
-          </form>
+              <path
+                d="M40 12 C40 12 42 28 40 36 C38 28 40 12 40 12Z"
+                fill="var(--earth, #5C6B4A)"
+                opacity="0.9"
+              />
+              <path
+                d="M40 36 C40 36 28 24 22 20 C30 26 40 36 40 36Z"
+                fill="var(--earth-light, #8B9B7A)"
+                opacity="0.7"
+              />
+              <path
+                d="M40 36 C40 36 52 24 58 20 C50 26 40 36 40 36Z"
+                fill="var(--earth-light, #8B9B7A)"
+                opacity="0.7"
+              />
+              <path
+                d="M40 22 C40 22 32 16 26 14 C34 18 40 22 40 22Z"
+                fill="var(--earth-mist, #A8B89A)"
+                opacity="0.6"
+              />
+              <path
+                d="M40 22 C40 22 48 16 54 14 C46 18 40 22 40 22Z"
+                fill="var(--earth-mist, #A8B89A)"
+                opacity="0.6"
+              />
+              <rect
+                x="38"
+                y="36"
+                width="4"
+                height="16"
+                rx="2"
+                fill="var(--terracotta-light, #D5A372)"
+              />
+              <ellipse
+                cx="40"
+                cy="54"
+                rx="12"
+                ry="4"
+                fill="var(--earth-mist, #A8B89A)"
+                opacity="0.3"
+              />
+            </svg>
+            <h2 className="shop-coming-soon-title">
+              We&apos;re Growing Our Shop
+            </h2>
+            <p className="shop-coming-soon-desc">
+              New roots are taking hold. Standards-aligned resources, WIDA
+              overlays, assessment kits, and AI prompt libraries for educators
+              are on the way. Check back soon or browse what&apos;s available
+              now on{" "}
+              <a
+                href="https://www.teacherspayteachers.com/store/rootedinlearninged"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shop-coming-soon-link"
+              >
+                Teachers Pay Teachers
+              </a>
+              .
+            </p>
+          </div>
         </div>
       </section>
     </div>

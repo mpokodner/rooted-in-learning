@@ -220,7 +220,7 @@ export default function TermsOfUsePage() {
             <ul className="legal-list">
               <li>We offer a 7-day satisfaction guarantee from the date of purchase. If you are not satisfied with a lesson pack, contact us within 7 days for a full refund.</li>
               <li>This guarantee applies to first-time purchases of each product only.</li>
-              <li>Refund requests should be submitted via our contact form or email at hello@therootedlearner.com.</li>
+              <li>Refund requests should be submitted via our contact form or email at admin@therootedlearner.com.</li>
               <li>This guarantee does not apply to consulting services, which are governed by individual service agreements.</li>
             </ul>
           </div>
@@ -231,7 +231,7 @@ export default function TermsOfUsePage() {
               If you have any questions about these Terms of Use, please reach out.
             </p>
             <p>
-              Email: <a href="mailto:hello@therootedlearner.com">hello@therootedlearner.com</a>
+              Email: <a href="mailto:admin@therootedlearner.com">admin@therootedlearner.com</a>
               <br />
               Or use our <Link href="/contact">contact form</Link>
             </p>

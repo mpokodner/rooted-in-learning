@@ -163,7 +163,7 @@ export default function AccessibilityPage() {
               I take every report seriously and am committed to resolving accessibility barriers as quickly as possible.
             </p>
             <p>
-              Email: <a href="mailto:hello@therootedlearner.com">hello@therootedlearner.com</a>
+              Email: <a href="mailto:admin@therootedlearner.com">admin@therootedlearner.com</a>
               <br />
               Or use the <Link href="/contact">contact form</Link>
             </p>

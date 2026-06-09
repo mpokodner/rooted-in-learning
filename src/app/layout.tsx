@@ -139,7 +139,7 @@ export default function RootLayout({
               ],
               "contactPoint": {
                 "@type": "ContactPoint",
-                "email": "hello@therootedlearner.com",
+                "email": "admin@therootedlearner.com",
                 "contactType": "customer service"
               }
             }),

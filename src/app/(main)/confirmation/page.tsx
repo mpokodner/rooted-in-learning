@@ -96,7 +96,7 @@ export default function ConfirmationPage() {
                     />
                   </svg>
                   <span>
-                    Questions? Contact us at hello@therootedlearner.com
+                    Questions? Contact us at admin@therootedlearner.com
                   </span>
                 </li>
               </ul>

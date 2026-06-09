@@ -207,7 +207,7 @@ export default function PrivacyPolicyPage() {
               Our legal basis for processing your data includes: consent (newsletter subscriptions), contract performance (purchases and account management), and legitimate interests (analytics and site improvement).
             </p>
             <p className="legal-text">
-              To exercise any GDPR rights, contact us at hello@therootedlearner.com. We will respond within 30 days.
+              To exercise any GDPR rights, contact us at admin@therootedlearner.com. We will respond within 30 days.
             </p>
           </div>
 
@@ -235,7 +235,7 @@ export default function PrivacyPolicyPage() {
               If you have questions, concerns, or requests regarding this Privacy Policy or how your data is handled, we&apos;re here to help.
             </p>
             <p>
-              Email: <a href="mailto:hello@therootedlearner.com">hello@therootedlearner.com</a>
+              Email: <a href="mailto:admin@therootedlearner.com">admin@therootedlearner.com</a>
               <br />
               Or use our <Link href="/contact">contact form</Link>
             </p>

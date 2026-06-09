@@ -110,7 +110,7 @@ export async function POST(request: NextRequest) {
     try {
       await resend.emails.send({
         from: FROM_EMAIL,
-        to: "hello@therootedlearner.com",
+        to: "admin@therootedlearner.com",
         subject: `[Waitlist] New ${product} signup: ${name || email}`,
         html: `
           <h2>New Waitlist Signup</h2>

@@ -182,8 +182,8 @@ export default function AIEthicsPage() {
             <h3 className="legal-contact-title">Questions About These AI Practices?</h3>
             <p>
               I welcome dialogue. Email:{" "}
-              <a href="mailto:hello@therootedlearner.com">
-                hello@therootedlearner.com
+              <a href="mailto:admin@therootedlearner.com">
+                admin@therootedlearner.com
               </a>{" "}
               or use the <Link href="/contact">contact form</Link>.
             </p>

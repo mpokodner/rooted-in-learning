@@ -205,7 +205,7 @@ export default function Footer() {
                   </svg>
                 </a>
                 <a
-                  href="mailto:hello@therootedlearner.com"
+                  href="mailto:admin@therootedlearner.com"
                   className="footer-social-icon"
                   aria-label="Email"
                 >

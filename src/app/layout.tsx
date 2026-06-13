@@ -40,7 +40,9 @@ export const metadata: Metadata = {
     "reading intervention",
     "literacy tools",
   ],
-  authors: [{ name: "Michelle Pokodner", url: "https://www.therootedlearner.com" }],
+  authors: [
+    { name: "Michelle Pokodner", url: "https://www.therootedlearner.com" },
+  ],
   creator: "Michelle Pokodner",
   publisher: "The Rooted Learner",
   robots: {
@@ -92,7 +94,8 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GTM_ID = process.env.TMNVGYGYXP;
 
 export default function RootLayout({
   children,
@@ -120,45 +123,50 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              "name": "The Rooted Learner",
-              "url": "https://www.therootedlearner.com",
-              "logo": "https://www.therootedlearner.com/logo.png",
-              "description": "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by a 12+ year classroom veteran.",
-              "founder": {
+              name: "The Rooted Learner",
+              url: "https://www.therootedlearner.com",
+              logo: "https://www.therootedlearner.com/logo.png",
+              description:
+                "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by a 12+ year classroom veteran.",
+              founder: {
                 "@type": "Person",
-                "name": "Michelle Pokodner",
-                "jobTitle": "Curricular Solutions Architect",
-                "url": "https://www.therootedlearner.com/about"
+                name: "Michelle Pokodner",
+                jobTitle: "Curricular Solutions Architect",
+                url: "https://www.therootedlearner.com/about",
               },
-              "sameAs": [
+              sameAs: [
                 "https://www.youtube.com/@TheRootedLearner",
                 "https://www.tiktok.com/@therootedlearner",
                 "https://www.instagram.com/rootedinlearninged/",
                 "https://www.linkedin.com/in/michelle-pokodner-edtech/",
-                "https://www.pinterest.com/rootedinlearninged/"
+                "https://www.pinterest.com/rootedinlearninged/",
               ],
-              "contactPoint": {
+              contactPoint: {
                 "@type": "ContactPoint",
-                "email": "admin@therootedlearner.com",
-                "contactType": "customer service"
-              }
+                email: "admin@therootedlearner.com",
+                contactType: "customer service",
+              },
             }),
           }}
         />
 
         {/* Google Analytics (gtag.js) */}
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-YN9FTS3PL5"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-YN9FTS3PL5');
-          `}
-        </Script>
+        {GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', '${GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
 
         {/* Google Tag Manager — Head Script */}
         {GTM_ID && (

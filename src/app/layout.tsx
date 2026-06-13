@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-const GTM_ID = process.env.TMNVGYGYXP;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function RootLayout({
   children,
@@ -150,7 +150,7 @@ export default function RootLayout({
           }}
         />
 
-        {/* Google Analytics (gtag.js) */}
+        {/* Google tag (gtag.js) — loads on every page via root layout */}
         {GA_ID && (
           <>
             <Script

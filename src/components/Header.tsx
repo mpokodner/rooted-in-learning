@@ -1,8 +1,8 @@
 "use client";
 
-import { useState, useEffect, useCallback } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 
 const SproutIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -67,20 +67,43 @@ const NAV: NavItem[] = [
 ];
 
 function isActive(pathname: string, key: string, href?: string, children?: NavChild[]) {
-  if (key === "home") return pathname === "/";
-  if (href && pathname.startsWith(href)) return true;
+  if (href) {
+    if (href === "/services") return pathname.startsWith("/services");
+    return pathname === href || pathname.startsWith(`${href}/`);
+  }
   if (children) {
-    return children.some((c) => pathname.startsWith(c.href));
+    return children.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`));
   }
   return false;
 }
 
 export default function Header() {
   const pathname = usePathname();
+  const router = useRouter();
   const [mobileOpen, setMobileOpen] = useState(false);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
   const closeMobile = useCallback(() => setMobileOpen(false), []);
+
+  const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    closeMobile();
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      router.refresh();
+    }
+  };
+
+  const openDropdownMenu = (key: string) => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setOpenDropdown(key);
+  };
+
+  const scheduleCloseDropdown = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
 
   useEffect(() => {
     document.body.style.overflow = mobileOpen ? "hidden" : "";
@@ -94,6 +117,12 @@ export default function Header() {
     setOpenDropdown(null);
   }, [pathname]);
 
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
   const toggleDropdown = (key: string) => {
     setOpenDropdown((prev) => (prev === key ? null : key));
   };
@@ -102,7 +131,7 @@ export default function Header() {
     <>
       <header className="site-header" role="banner">
         <div className="container header-inner">
-          <Link href="/" className="brand" aria-label="The Rooted Learner home">
+          <Link href="/" className="brand" aria-label="The Rooted Learner home" onClick={handleBrandClick}>
             <span className="brand-mark">
               <SproutIcon />
             </span>
@@ -118,8 +147,8 @@ export default function Header() {
                 <div
                   key={item.key}
                   className={`nav-item${openDropdown === item.key ? " open" : ""}`}
-                  onMouseEnter={() => setOpenDropdown(item.key)}
-                  onMouseLeave={() => setOpenDropdown(null)}
+                  onMouseEnter={() => openDropdownMenu(item.key)}
+                  onMouseLeave={scheduleCloseDropdown}
                 >
                   <button
                     type="button"
@@ -131,9 +160,9 @@ export default function Header() {
                     {item.label}
                     <ChevronIcon />
                   </button>
-                  <div className="dropdown">
+                  <div className="dropdown" onMouseEnter={() => openDropdownMenu(item.key)} onMouseLeave={scheduleCloseDropdown}>
                     {item.children.map((child) => (
-                      <Link key={child.href} href={child.href}>
+                      <Link key={child.href} href={child.href} onClick={() => setOpenDropdown(null)}>
                         {child.label}
                         <span>{child.desc}</span>
                       </Link>
@@ -171,7 +200,7 @@ export default function Header() {
 
       <div className={`mobile-menu${mobileOpen ? " open" : ""}`} role="dialog" aria-modal="true" aria-label="Navigation menu">
         <div className="mobile-menu-head">
-          <Link href="/" className="brand" onClick={closeMobile}>
+          <Link href="/" className="brand" onClick={handleBrandClick}>
             <span className="brand-mark">
               <SproutIcon />
             </span>
@@ -188,9 +217,9 @@ export default function Header() {
           {NAV.map((item) =>
             item.children ? (
               <div key={item.key}>
-                <Link href={item.children[0].href} onClick={closeMobile}>
+                <span style={{ display: "block", padding: "0.9rem 0.5rem", fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 600, color: "var(--text-black)", borderBottom: "1px solid var(--border-beige)" }}>
                   {item.label}
-                </Link>
+                </span>
                 {item.children.map((child) => (
                   <Link key={child.href} href={child.href} className="sub" onClick={closeMobile}>
                     {child.label}

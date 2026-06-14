@@ -390,37 +390,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Research flywheel */}
-      <section className="section" aria-labelledby="learning-zones-heading">
-        <div className="container">
-          <div className="feature-band feature-band--reverse">
-            <div className="reveal">
-              <span className="eyebrow">The long game</span>
-              <h2 id="learning-zones-heading" className="h-lg mt-3">
-                Learning Zones — the book that writes itself.
-              </h2>
-              <p className="muted mt-3">
-                Every school we work with can join a simple data partnership. Year over year,
-                that accumulates proprietary, longitudinal evidence on what makes learning
-                communities thrive — &ldquo;Blue Zones, but for education.&rdquo; It&apos;s our
-                case studies, our moat, and the spine of a body of research, all as a byproduct
-                of doing the work well.
-              </p>
-              <div className="mt-4">
-                <Link href="/learn/blog" className="link-arrow">
-                  Read the field notes <ArrowIcon />
-                </Link>
-              </div>
-            </div>
-            <div className="reveal">
-              <div className="ph" style={{ minHeight: "260px" }}>
-                <span className="ph-label">map · learning zones research</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Portfolio Projects */}
       <section
         id="projects"

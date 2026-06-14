@@ -123,7 +123,6 @@ export default function Footer() {
             <ul>
               <li><Link href="/services">Greenhouse Schools</Link></li>
               <li><Link href="/services#audit">The Greenhouse Audit</Link></li>
-              <li><Link href="/services#partners">EdTech Partners</Link></li>
               <li><Link href="/tools">Tools We Build</Link></li>
               <li><Link href="/tools/assessalign">AssessAlign</Link></li>
             </ul>

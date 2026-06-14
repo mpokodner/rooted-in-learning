@@ -8,7 +8,7 @@ const faqItems = [
   {
     question: "How does pricing work?",
     answer:
-      "Every engagement starts with the Greenhouse Audit so we can scope accurately. Build and Implement are priced in your findings report based on what's actually there — and what isn't.",
+      "Every engagement starts with the Greenhouse Audit ($4,000–6,500). Build and Implement ranges above are typical — your findings report names and prices the phases that actually fit your school, so you're not guessing or sitting through a separate sales call.",
   },
   {
     question:
@@ -93,19 +93,27 @@ const buildCards = [
 const priceRows = [
   {
     stage: "Greenhouse Audit",
-    note: "Entry point · every engagement",
+    note: "Start here · every engagement",
     desc: "2–3 week fixed-scope diagnostic → findings report + roadmap",
     amt: "$4,000–6,500",
+    featured: true,
   },
-  { stage: "Build · Curriculum", desc: "Curriculum & pathway architecture", amt: "$6,000–15,000" },
-  { stage: "Build · Access", desc: "ELD / multilingual-ready system", amt: "$4,000–10,000" },
-  { stage: "Build · AI & tech", desc: "AI integration & tech-stack design", amt: "$3,000–8,000" },
-  { stage: "Build · Custom tool", desc: "AssessAlign-style purpose-built application", amt: "$5,000–25,000" },
-  { stage: "Implement", desc: "Launch + PD + coaching cycles", amt: "$10,000–25,000" },
+  {
+    stage: "Build",
+    note: "After the audit",
+    desc: "Scoped from your findings — curriculum, access, AI, or custom tools as needed",
+    amt: "Typically $4,000–25,000",
+  },
+  {
+    stage: "Implement",
+    note: "When you're ready to launch",
+    desc: "PD, coaching, and launch support until the system holds in real classrooms",
+    amt: "Typically $10,000–25,000",
+  },
   {
     stage: "Sustain",
-    note: "Year 2+ · data partnership",
-    desc: "Retainer + the research flywheel",
+    note: "Year 2+ · optional",
+    desc: "Retainer + data partnership for schools that want ongoing support",
     amt: "$1,500–3,000/mo",
   },
 ];
@@ -599,14 +607,14 @@ export default function ServicesPage() {
       <section className="section" id="ladder" aria-labelledby="svc-ladder-heading">
         <div className="container">
           <div className="section-head reveal">
-            <span className="eyebrow">Pricing architecture</span>
+            <span className="eyebrow">Pricing</span>
             <h2 id="svc-ladder-heading" className="h-xl mt-3">
-              The report ends where the money starts.
+              Start with the audit. Everything else follows from what we find.
             </h2>
             <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
-              Every engagement is scoped from the audit. The last page of your
-              findings names and prices the next two phases — so expansion is
-              handed to you, not sold to you.
+              We publish starting rates so you know what you&apos;re walking into.
+              Deeper phases are scoped and priced in your findings report — handed
+              to you, not sold to you.
             </p>
           </div>
           <div className="card reveal mt-6" style={{ padding: 0, overflow: "hidden" }}>
@@ -620,7 +628,10 @@ export default function ServicesPage() {
               </thead>
               <tbody>
                 {priceRows.map((row) => (
-                  <tr key={row.stage}>
+                  <tr
+                    key={row.stage}
+                    className={row.featured ? "price-row--featured" : undefined}
+                  >
                     <td>
                       <span className="price-stage">{row.stage}</span>
                       {row.note && (
@@ -638,60 +649,10 @@ export default function ServicesPage() {
             </table>
           </div>
           <p className="note mt-3 reveal">
-            Outcome-priced, not hourly. 50% deposit before work begins. Pricing
-            is confirmed in your audit findings.
+            Outcome-priced, not hourly. 50% deposit before work begins. Build
+            and Implement figures are confirmed — and narrowed — in your audit
+            findings.
           </p>
-        </div>
-      </section>
-
-      {/* Partnerships */}
-      <section className="section--beige section" id="partners" aria-labelledby="svc-partners-heading">
-        <div className="container">
-          <div className="section-head reveal">
-            <span className="eyebrow">Partnership plays</span>
-            <h2 id="svc-partners-heading" className="h-xl mt-3">
-              Borrowed reach, kept honest.
-            </h2>
-          </div>
-          <div className="grid grid-2 mt-6">
-            <article className="card reveal">
-              <span className="chip-tag">EdTech partners · channel</span>
-              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>
-                The curriculum-integrity layer
-              </h3>
-              <p className="mt-3 muted">
-                Personalization platforms have a product and no curriculum
-                credibility. We&apos;re the partner who tells a network whether a
-                tool actually fits their crop — and recommends against it when it
-                doesn&apos;t. That honesty is the brand. You get a credible,
-                warm channel into the networks we audit; the school gets a real
-                build-vs-buy decision instead of a sales pitch.
-              </p>
-              <div className="mt-4">
-                <Link href="/about#contact" className="link-arrow">
-                  Explore a partnership <ArrowIcon />
-                </Link>
-              </div>
-            </article>
-            <article className="card reveal">
-              <span className="chip-tag">Ecosystem · halo</span>
-              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>
-                Credibility, not a paycheck
-              </h3>
-              <p className="mt-3 muted">
-                We pursue recognized educator and innovation programs and align
-                our Build framework to challenge-based learning — not for
-                revenue, but for the rooms they put us in. Being credibly inside
-                the ecosystems that innovative schools chase puts us in front of
-                them as a peer, not a vendor. The audit is still the product.
-              </p>
-              <div className="mt-4">
-                <Link href="/about" className="link-arrow">
-                  How we earn the right to be believed <ArrowIcon />
-                </Link>
-              </div>
-            </article>
-          </div>
         </div>
       </section>
 

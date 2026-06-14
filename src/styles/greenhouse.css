@@ -390,6 +390,8 @@ a { color: var(--earth-dark); text-underline-offset: 0.18em; transition: color v
 .price-table th { text-align: left; font-family: var(--font-mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-light); padding: 0.75rem 1rem; border-bottom: 1px solid var(--border-beige); }
 .price-table td { padding: 1rem; border-bottom: 1px solid var(--border-beige); vertical-align: top; }
 .price-table tr:last-child td { border-bottom: none; }
+.price-table tr.price-row--featured td { background: rgba(196, 112, 75, 0.06); }
+.price-table tr.price-row--featured .price-stage { color: var(--terracotta-dark); }
 .price-stage { font-family: var(--font-display); font-weight: 600; color: var(--earth-dark); }
 .price-amt { font-family: var(--font-mono); color: var(--terracotta-dark); white-space: nowrap; font-weight: 500; }
 

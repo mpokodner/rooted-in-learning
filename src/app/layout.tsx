@@ -1,14 +1,29 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans } from "next/font/google";
+import { Bricolage_Grotesque, Inter, Newsreader } from "next/font/google";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
-  variable: "--font-sans",
+const inter = Inter({
+  variable: "--font-body",
   subsets: ["latin"],
-  weight: ["400", "500", "600", "700"],
+  weight: ["300", "400", "500", "600", "700"],
+  display: "swap",
+});
+
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800"],
+  display: "swap",
+});
+
+const newsreader = Newsreader({
+  variable: "--font-serif",
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  style: ["normal", "italic"],
   display: "swap",
 });
 
@@ -22,7 +37,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.therootedlearner.com"),
   title: {
-    default: "The Rooted Learner | EdTech Solutions for Modern Educators",
+    default: "The Rooted Learner | Greenhouse Schools — Curriculum-Integrity Partner",
     template: "%s | The Rooted Learner",
   },
   description:
@@ -127,11 +142,6 @@ export default function RootLayout({
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
         />
-        {/* Cal Sans - Heading Font by Cal.com */}
-        <link
-          rel="stylesheet"
-          href="https://cdn.jsdelivr.net/npm/@calcom/font@1.1.0/index.css"
-        />
 
         <script
           type="application/ld+json"
@@ -183,7 +193,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className={`${dmSans.variable} antialiased`}>
+      <body className={`${inter.variable} ${bricolage.variable} ${newsreader.variable} antialiased`}>
         {/* Google Tag Manager — noscript fallback */}
         {GTM_ID && (
           <noscript>

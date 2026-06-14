@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import assessAlignImg from "../about/projects/images/assessalignpng.png";
-import "./edtech-tools.css";
 
 export const metadata: Metadata = {
   title: "Tools | The Rooted Learner",
@@ -30,6 +29,70 @@ const assessAlignTech = [
   "Vercel",
 ];
 
+const toolboxCards = [
+  {
+    title: "Standards-to-resource maps",
+    desc: "A living alignment dashboard connecting every standard to the resources that teach and assess it.",
+    terra: false,
+    icon: <path d="M3 12h4l3 8 4-16 3 8h4" />,
+  },
+  {
+    title: "ELD & multilingual overlays",
+    desc: "Scaffolding frameworks that make core instruction accessible to multilingual learners by design.",
+    terra: false,
+    icon: (
+      <>
+        <path d="M5 8h14M5 12h9M5 16h12" />
+        <circle cx="18" cy="14" r="3" />
+      </>
+    ),
+  },
+  {
+    title: "AI-integrated workflows",
+    desc: "Assistive AI built into planning and assessment — with a clear ethics line and human judgment at the center.",
+    terra: false,
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4" />
+      </>
+    ),
+  },
+  {
+    title: "Curriculum & pathway tools",
+    desc: "Applied-learning pathway maps — learn math through how it applies to construction, masonry, or design.",
+    terra: true,
+    icon: (
+      <>
+        <path d="M4 5h16v14H4z" />
+        <path d="M4 9h16M9 9v10" />
+      </>
+    ),
+  },
+  {
+    title: "Custom applications",
+    desc: "Purpose-built apps for the specific problem your school faces, generated adaptively rather than hand-maintained.",
+    terra: true,
+    icon: (
+      <>
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M8 21h8M12 18v3" />
+      </>
+    ),
+  },
+  {
+    title: "Measurement & data partnerships",
+    desc: "Outcome dashboards that prove the system is working — and feed the Learning Zones research.",
+    terra: false,
+    icon: (
+      <>
+        <path d="M3 3v18h18" />
+        <path d="M7 14l4-4 3 3 5-6" />
+      </>
+    ),
+  },
+];
+
 const techStack = [
   { name: "Vue.js", icon: "vue" },
   { name: "React", icon: "react" },
@@ -38,325 +101,189 @@ const techStack = [
   { name: "AI / RAG", icon: "ai" },
 ];
 
+const CheckIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
 export default function ToolsPage() {
   return (
-    <div className="tools-page">
-      {/* ─── Hero ─── */}
-      <section className="tools-hero" aria-labelledby="tools-heading">
+    <>
+      <section className="section hero" aria-labelledby="tools-heading">
         <div className="container">
-          <p className="tools-hero-eyebrow">Built by a Teacher Who Codes</p>
-          <h1 id="tools-heading" className="tools-hero-title">
-            Current Projects
-          </h1>
-          <p className="tools-hero-desc">
-            Practical, research-backed software designed in the classroom, not
-            a boardroom. Bridging the gap between pedagogy and production code
-            to solve real problems teachers face daily.
-          </p>
+          <div className="section-head reveal" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">Tools · the builder edge</span>
+            <h1 id="tools-heading" className="display mt-3">
+              We don&apos;t hand back a{" "}
+              <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
+                clipboard report.
+              </span>
+            </h1>
+            <p className="lead mt-3" style={{ maxWidth: "56ch" }}>
+              We deliver something alive — a tool built for your network. It previews the
+              Build value, proves we do the thing we advise, and makes us impossible to
+              replace with a cheaper auditor.
+            </p>
+            <div className="btn-row mt-4">
+              <Link href="/tools/assessalign" className="btn btn-terra btn-lg">
+                Explore AssessAlign
+              </Link>
+              <Link href="/services#audit" className="btn btn-outline btn-lg">
+                Start with an audit
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* ─── AssessAlign Featured Card ─── */}
       <section
         id="assessalign"
-        className="tools-featured section"
+        className="section--beige section"
         aria-labelledby="assessalign-heading"
       >
         <div className="container">
-          <div className="tools-aa-card">
-            <div className="tools-aa-top">
-              <div className="tools-aa-info">
-                <div className="tools-aa-badges">
-                  <span className="tools-badge tools-badge--earth">
-                    EdTech Development
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="chip-tag">Flagship</span>
+              <h2 id="assessalign-heading" className="h-xl mt-2">
+                AssessAlign
+              </h2>
+              <p className="lead mt-3" style={{ maxWidth: "44ch" }}>
+                A standards-grounded, adaptive assessment and curriculum engine. Built to
+                solve a problem we were living in the classroom — now framework-agnostic
+                for any school in the world.
+              </p>
+              <ul className="tick-list mt-4">
+                {assessAlignFeatures.map((feature) => (
+                  <li key={feature}>
+                    <CheckIcon />
+                    {feature}
+                  </li>
+                ))}
+              </ul>
+              <div className="badge-row mt-4">
+                {assessAlignTech.map((tech) => (
+                  <span key={tech} className="chip">
+                    {tech}
                   </span>
-                  <span className="tools-badge tools-badge--live">
-                    <span className="tools-badge-dot" />
-                    In Progress
-                  </span>
-                  <span className="tools-badge tools-badge--terracotta">
-                    Featured
-                  </span>
-                </div>
-                <h2 id="assessalign-heading" className="tools-aa-title">
-                  AssessAlign: Standards-Based Reading Assessment Platform
-                </h2>
-                <p className="tools-aa-desc">
-                  A comprehensive assessment platform for grades 3–8 with
-                  Common Core ELA alignment, real-time data collection, analytics
-                  dashboards, and team-based gamification to drive student
-                  engagement. Built with role-based access for students, teachers,
-                  and administrators.
-                </p>
-                <div className="tools-aa-actions">
-                  <Link href="/tools/assessalign" className="tools-btn tools-btn--primary">
-                    Explore AssessAlign
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M17 8l4 4m0 0l-4 4m4-4H3"
-                      />
-                    </svg>
-                  </Link>
-                  <Link href="/services" className="tools-aa-link">
-                    Learn about my consulting practice
-                  </Link>
-                </div>
+                ))}
               </div>
-
-              <div className="tools-aa-image-wrap">
+              <div className="mt-4">
+                <Link href="/tools/assessalign" className="btn btn-primary">
+                  See how it works
+                </Link>
+              </div>
+            </div>
+            <div className="reveal">
+              <div
+                className="ph ph--earth"
+                style={{
+                  minHeight: "clamp(300px, 38vw, 400px)",
+                  padding: 0,
+                  overflow: "hidden",
+                }}
+              >
                 <Image
                   src={assessAlignImg}
-                  alt="AssessAlign Dashboard, a standards-based reading assessment platform with real-time analytics, class management, and house leaderboards"
-                  className="tools-aa-image"
+                  alt="AssessAlign Dashboard — standards-based reading assessment platform with real-time analytics"
                   placeholder="blur"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
               </div>
             </div>
-
-            <div className="tools-aa-bottom">
-              <div className="tools-aa-col">
-                <h3 className="tools-aa-col-heading">Key Features</h3>
-                <ul className="tools-aa-list">
-                  {assessAlignFeatures.map((f) => (
-                    <li key={f}>
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M5 13l4 4L19 7"
-                        />
-                      </svg>
-                      {f}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <div className="tools-aa-col">
-                <h3 className="tools-aa-col-heading">
-                  Technologies &amp; Methods
-                </h3>
-                <div className="tools-aa-tech-tags">
-                  {assessAlignTech.map((t) => (
-                    <span key={t} className="tools-tech-tag">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Other Tools (Under Construction) ─── */}
-      <section className="tools-other section" aria-labelledby="other-heading">
+      <section className="section" aria-labelledby="toolbox-heading">
         <div className="container">
-          <h2 id="other-heading" className="sr-only">
-            Other Tools
-          </h2>
-          <div className="tools-other-grid">
-            {/* Microlearning Lesson System */}
-            <div className="tools-other-card tools-other-card--earth">
-              <div className="tools-other-card-top">
-                <div className="tools-other-badges">
-                  <span className="tools-badge tools-badge--earth">
-                    Instructional Design
-                  </span>
-                  <span className="tools-badge tools-badge--construction">
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    Under Construction
-                  </span>
+          <div className="section-head reveal">
+            <span className="eyebrow">The toolbox</span>
+            <h2 id="toolbox-heading" className="h-xl mt-3">
+              What else we build.
+            </h2>
+            <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
+              Each tool is prescribed by an audit and built for a specific school or
+              network — not pulled off a shelf.
+            </p>
+          </div>
+          <div className="grid grid-3 mt-6">
+            {toolboxCards.map((card) => (
+              <article key={card.title} className="card card--hover reveal">
+                <div className={`card-icon${card.terra ? " card-icon--terra" : ""}`}>
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {card.icon}
+                  </svg>
                 </div>
-                <h3 className="tools-other-title">
-                  Microlearning Lesson System: Standards-Aligned
-                </h3>
-                <p className="tools-other-desc">
-                  A complete library of ready-to-teach lessons designed using
-                  Science of Reading principles and UDL.
-                </p>
-              </div>
-              <div className="tools-other-card-bottom">
-                <h4 className="tools-other-col-heading">Core Focus</h4>
-                <ul className="tools-other-list">
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Common Core Aligned
-                  </li>
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Formative Checkpoints
-                  </li>
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Differentiation Tiers
-                  </li>
-                </ul>
-                <div className="tools-other-tags">
-                  <span className="tools-method-tag">Science of Reading</span>
-                  <span className="tools-method-tag">UDL</span>
-                  <span className="tools-method-tag">Curriculum Design</span>
-                </div>
-              </div>
-            </div>
-
-            {/* Dynamic Curriculum Planner */}
-            <div className="tools-other-card tools-other-card--terracotta">
-              <div className="tools-other-card-top">
-                <div className="tools-other-badges">
-                  <span className="tools-badge tools-badge--earth">
-                    AI / Research Tool
-                  </span>
-                  <span className="tools-badge tools-badge--construction">
-                    <svg
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                      aria-hidden="true"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-                      />
-                    </svg>
-                    Coming Soon
-                  </span>
-                </div>
-                <h3 className="tools-other-title">
-                  Science of Reading RAG
-                </h3>
-                <p className="tools-other-desc">
-                  A chatbot grounded in Science of Reading research. Ask
-                  questions, get evidence-based answers with source citations.
-                </p>
-              </div>
-              <div className="tools-other-card-bottom">
-                <h4 className="tools-other-col-heading">Key Features</h4>
-                <ul className="tools-other-list">
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Research-grounded responses
-                  </li>
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Source citations
-                  </li>
-                  <li>
-                    <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
-                    </svg>
-                    Teacher-friendly language
-                  </li>
-                </ul>
-                <div className="tools-other-tags">
-                  <span className="tools-method-tag">LangChain</span>
-                  <span className="tools-method-tag">Pinecone</span>
-                  <span className="tools-method-tag">Python</span>
-                </div>
-              </div>
-            </div>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ─── How I Build + Early Access (side by side) ─── */}
-      <section id="early-access" className="tools-how section" aria-labelledby="tools-how-heading">
+      <section className="section--earth-deep section">
+        <div className="container glass text-center">
+          <span className="eyebrow eyebrow--center reveal">The moat</span>
+          <blockquote className="pullquote mt-4 mx-auto reveal" style={{ maxWidth: "24ch" }}>
+            We build the tools and provide the guidance. That synthesis is the whole
+            reason you can&apos;t replace us with a cheaper auditor.
+          </blockquote>
+          <div className="btn-row reveal mt-4" style={{ justifyContent: "center" }}>
+            <Link href="/services#audit" className="btn btn-terra btn-lg">
+              Start with the Greenhouse Audit
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section id="early-access" className="section" aria-labelledby="tools-how-heading">
         <div className="container">
-          <div className="tools-how-split">
-            <div className="tools-how-col">
-              <p className="tools-section-label">How I Build</p>
-              <h2 id="tools-how-heading" className="tools-how-title">
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">How I Build</span>
+              <h2 id="tools-how-heading" className="h-lg mt-3">
                 Teacher Expertise Meets Modern Development
               </h2>
-              <p className="tools-how-desc">
-                Every tool starts with a real classroom problem. I prototype
-                quickly, test with real educators, and iterate based on feedback
-                , not assumptions. The stack is modern, but the priorities are
-                grounded: does it actually save a teacher time? If not, it
-                doesn&apos;t ship.
+              <p className="muted mt-3">
+                Every tool starts with a real classroom problem. I prototype quickly, test
+                with real educators, and iterate based on feedback — not assumptions. The
+                stack is modern, but the priorities are grounded: does it actually save a
+                teacher time? If not, it doesn&apos;t ship.
               </p>
-              <p className="tools-how-desc">
-                If you&apos;re a school, district, or EdTech company looking for
-                someone who can bridge the gap between pedagogy and production
-                code, these tools are my proof of concept.
+              <p className="muted mt-3">
+                If you&apos;re a school, district, or EdTech company looking for someone who
+                can bridge the gap between pedagogy and production code, these tools are my
+                proof of concept.
               </p>
-              <div className="tools-tech-row">
+              <div className="badge-row mt-4">
                 {techStack.map((tech) => (
-                  <div key={tech.name} className="tools-tech-item">
-                    <div className={`tools-tech-icon tools-tech-icon--${tech.icon}`}>
-                      {tech.icon === "vue" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M12 20L2 4h4l6 10 6-10h4L12 20z" />
-                        </svg>
-                      )}
-                      {tech.icon === "react" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                          <circle cx="12" cy="12" r="2.5" />
-                          <ellipse cx="12" cy="12" rx="10" ry="4" />
-                          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(60 12 12)" />
-                          <ellipse cx="12" cy="12" rx="10" ry="4" transform="rotate(120 12 12)" />
-                        </svg>
-                      )}
-                      {tech.icon === "next" && (
-                        <span className="tools-tech-letter">N</span>
-                      )}
-                      {tech.icon === "supabase" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                          <path strokeLinecap="round" strokeLinejoin="round" d="M13 3l-1 10h7L11 21l1-10H5L13 3z" />
-                        </svg>
-                      )}
-                      {tech.icon === "ai" && (
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5}>
-                          <circle cx="12" cy="12" r="3" />
-                          <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
-                        </svg>
-                      )}
-                    </div>
-                    <span className="tools-tech-label">{tech.name}</span>
-                  </div>
+                  <span key={tech.name} className="chip">
+                    {tech.name}
+                  </span>
                 ))}
               </div>
             </div>
-
-            <div className="tools-how-form-col">
+            <div className="reveal">
               <EarlyAccessForm
                 heading="Get Early Access to AssessAlign"
                 description="Be the first to try AssessAlign. Join the waitlist and we'll notify you when beta spots open up."
@@ -365,6 +292,6 @@ export default function ToolsPage() {
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

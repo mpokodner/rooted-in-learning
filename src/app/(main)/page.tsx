@@ -1,27 +1,33 @@
-import type { Metadata } from "next";
-import Image from "next/image";
 import Link from "next/link";
-import NewsletterForm from "@/components/NewsletterForm";
+import Image from "next/image";
+import type { Metadata } from "next";
 import { client } from "@/sanity/lib/client";
 import { blogPostsQuery } from "@/sanity/lib/queries";
 import type { BlogPostCard } from "@/sanity/lib/types";
 import BlogCard from "@/components/blog/BlogCard";
-import "./home.css";
+import assessAlignImg from "./about/projects/images/assessalignpng.png";
 
 export const metadata: Metadata = {
-  title: "The Rooted Learner | Curricular Solutions Architect for K–12 Districts",
+  title: "Greenhouse Schools — Curriculum-Integrity Partner",
   description:
-    "I diagnose where your system breaks: curriculum, assessment, multilingual learner access, and technology. Then I build what fixes it. Michelle Pokodner, Curricular Solutions Architect.",
+    "We help new, alternative, international, and microschools — and the edtech building for them — design coherent, learner-centered systems from seed. Start with the Greenhouse Audit.",
   alternates: { canonical: "/" },
-  openGraph: {
-    title: "The Rooted Learner | Curricular Solutions Architect",
-    description:
-      "I diagnose where your district's curriculum systems break and build what fixes them. Not recommendations. Infrastructure.",
-    type: "website",
-  },
 };
 
 export const revalidate = 60;
+
+const CheckIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12h14" />
+    <path d="m13 6 6 6-6 6" />
+  </svg>
+);
 
 export default async function Home() {
   let latestPosts: BlogPostCard[] = [];
@@ -31,563 +37,298 @@ export default async function Home() {
   } catch {
     // Sanity fetch failed — show fallback
   }
+
   return (
-    <div className="home-page">
-      {/* ═══════════════════════════════════════════
-          SECTION 1 — HERO
-      ═══════════════════════════════════════════ */}
-      <section className="hero-section">
-        <Image
-          src="/images/homepage-hero.png"
-          alt="Sunlight filtering through tree branches"
-          fill
-          priority
-          className="hero-bg-image"
-        />
-        <div className="hero-overlay">
-          <h1 className="hero-heading animate-fade-up">
-            Your district is already paying for the tools.{" "}
-            <span className="hero-heading-accent">
-              They&apos;re just not working together.
-            </span>
-          </h1>
-
-          <p className="hero-subheadline animate-fade-up animate-delay-1">
-            I diagnose where your system breaks: curriculum, assessment,
-            multilingual learner access, and technology. Then I build what
-            fixes it.
-          </p>
-
-          <p className="hero-identity animate-fade-up animate-delay-2">
-            I&apos;m Michelle Pokodner, a Curricular Solutions Architect.
-            I&apos;m currently in the classroom, and I build the systems
-            I wish we had.
-          </p>
-
-          <div className="hero-cta-row animate-fade-up animate-delay-3">
-            <Link
-              href="/services#audit"
-              className="hero-cta-btn hero-cta-btn--earth"
-            >
-              Start with a System Audit
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-            <a href="#how-it-works" className="hero-cta-btn hero-cta-btn--outline">
-              See How I Work
-            </a>
+    <>
+      <section className="hero section">
+        <div className="container hero-grid">
+          <div className="reveal">
+            <span className="eyebrow">The Greenhouse · Schools in formation</span>
+            <h1 className="display mt-3">
+              Most edtech drops students into{" "}
+              <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
+                someone else&apos;s climate.
+              </span>
+            </h1>
+            <p className="lead mt-3">
+              We build the greenhouse around the learners you actually have. The
+              curriculum-integrity partner for new, alternative, international, and
+              microschools — and the edtech growing alongside them.
+            </p>
+            <div className="btn-row mt-4">
+              <Link href="/services#audit" className="btn btn-terra btn-lg">
+                Start with the Greenhouse Audit
+              </Link>
+              <a href="#how" className="btn btn-outline btn-lg">
+                See how we work
+              </a>
+            </div>
+            <div className="badge-row mt-4">
+              <span className="chip">New &amp; alternative schools</span>
+              <span className="chip">International schools</span>
+              <span className="chip">Microschools &amp; networks</span>
+              <span className="chip">EdTech startups</span>
+            </div>
+          </div>
+          <div className="reveal">
+            <div className="ph" style={{ minHeight: "clamp(320px, 42vw, 460px)", padding: 0, overflow: "hidden" }}>
+              <Image
+                src="/images/homepage-hero.png"
+                alt="Sunlight filtering through a greenhouse"
+                width={800}
+                height={600}
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                priority
+              />
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 2 — WHAT'S BREAKING
-      ═══════════════════════════════════════════ */}
-      <section className="breaking-section" aria-labelledby="breaking-heading">
+      <section className="section--tight section--beige">
         <div className="container">
-          <div className="breaking-header">
-            <p className="section-label">The Problem</p>
-            <h2 id="breaking-heading" className="text-h2 breaking-title">
-              Where Your System Breaks
-            </h2>
-            <p className="breaking-desc">
-              Most districts don&apos;t have a single problem. They have
-              misalignment across systems.
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">The bet</span>
+              <h2 className="h-lg mt-3">
+                A whole generation of schools is being built right now — on mission and
+                model, with no system underneath.
+              </h2>
+            </div>
+            <div className="reveal stack">
+              <p className="muted">
+                Microschools, new charters, international schools, and the edtech serving
+                them are growing fast. Most launched on a founder&apos;s &ldquo;why&rdquo; — and a
+                learner promise — before anyone built the curriculum, assessment, and access
+                systems that make the promise real.
+              </p>
+              <p className="muted">
+                That gap isn&apos;t a flaw. It&apos;s an opening. A new school can say yes in a
+                week and has the gap by definition. So we read the climate first, then build
+                exactly what the crop needs.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="who">
+        <div className="container">
+          <div className="section-head text-center reveal" style={{ marginInline: "auto" }}>
+            <span className="eyebrow eyebrow--center">Who grows here</span>
+            <h2 className="h-xl mt-3">One niche. Four kinds of greenhouse.</h2>
+            <p className="lead mx-auto mt-3" style={{ maxWidth: "54ch" }}>
+              They share one trait: they&apos;re still forming. Which means there&apos;s still time
+              to build the system right — for the students they&apos;ll actually serve.
             </p>
           </div>
-          <div className="breaking-grid">
+          <div className="grid grid-4 mt-6">
             {[
-              {
-                icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
-                text: "Curriculum and assessments aren\u2019t aligned",
-              },
-              {
-                icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
-                text: "Multilingual learners can\u2019t access core instruction",
-              },
-              {
-                icon: "M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5",
-                text: "Tools operate in isolation",
-              },
-              {
-                icon: "M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z",
-                text: "Teachers are carrying the burden manually",
-              },
-            ].map((item) => (
-              <div key={item.text} className="breaking-card">
-                <div className="breaking-icon">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d={item.icon}
-                    />
-                  </svg>
+              { title: "New & alternative", desc: "Founding teams designing competency-based, hybrid, and forest/Montessori models from scratch.", icon: <path d="M3 21h18M5 21V8l7-5 7 5v13M9 21v-6h6v6" /> },
+              { title: "International", desc: "IB, Cambridge, and American schools abroad building future-ready, globally-minded systems.", icon: <><circle cx="12" cy="12" r="9" /><path d="M3 12h18M12 3a14 14 0 0 1 0 18 14 14 0 0 1 0-18Z" /></> },
+              { title: "Microschools & networks", desc: "ESA-, voucher-, and tax-credit-funded models that need a real system under new public scrutiny.", icon: <path d="M4 21V9l5-3 5 3v12M14 21V13l4-2 2 1.2V21M2 21h20" /> },
+              { title: "EdTech startups", desc: "Personalization platforms that have a product but no curriculum credibility. We're the integrity layer.", terra: true, icon: <path d="M13 2 4.5 13H11l-1 9 8.5-11H12z" /> },
+            ].map((card) => (
+              <article key={card.title} className="card card--hover reveal">
+                <div className={`card-icon${card.terra ? " card-icon--terra" : ""}`}>
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">{card.icon}</svg>
                 </div>
-                <p className="breaking-text">{item.text}</p>
+                <h3>{card.title}</h3>
+                <p>{card.desc}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section--earth section">
+        <div className="container glass" style={{ paddingBlock: "clamp(1rem, 3vw, 2rem)" }}>
+          <div className="container--narrow text-center" style={{ paddingInline: 0, marginInline: "auto" }}>
+            <span className="eyebrow eyebrow--center reveal">The question only we ask</span>
+            <blockquote className="pullquote mt-4 reveal">
+              &ldquo;Are your multilingual and diverse learners actually served by your model — or
+              just enrolled in it?&rdquo;
+            </blockquote>
+            <p className="lead mx-auto mt-4 reveal" style={{ maxWidth: "52ch" }}>
+              No one else opens with that question. It&apos;s the one that gets us the audit — and
+              the one that keeps the child at the end of the chain visible the whole way through.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" id="how">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">How every engagement works</span>
+            <h2 className="h-xl mt-3">Read the climate. Then build for it.</h2>
+            <p className="lead mt-3" style={{ maxWidth: "50ch" }}>
+              No menus, no generic proposals. The same diagnostic engine, pointed at a school
+              that&apos;s still forming.
+            </p>
+          </div>
+          <div className="steps mt-6">
+            {[
+              { title: "Audit", desc: "A 2–3 week fixed-scope diagnostic. We map vision-to-system fit, the real learner model, curriculum, assessment, and tech stack — and hand you a findings report plus a prioritized roadmap." },
+              { title: "Build", desc: "Prescribed by the audit: curriculum architecture, ELD/multilingual overlays, standards-to-resource maps, AI-integrated workflows, and the custom tools that don't exist yet." },
+              { title: "Implement", desc: "Launch support, PD for new staff, and coaching cycles — until the system actually works in classrooms, not just on paper." },
+            ].map((step) => (
+              <div key={step.title} className="step reveal">
+                <h3>{step.title}</h3>
+                <p>{step.desc}</p>
               </div>
             ))}
           </div>
-          <p className="breaking-close">
-            You don&apos;t need more tools. You need your system to work.
-          </p>
+          <div className="mt-6 reveal">
+            <Link href="/services" className="link-arrow">
+              See the full engagement model <ArrowIcon />
+            </Link>
+          </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 3 — WHAT I DO
-      ═══════════════════════════════════════════ */}
-      <section className="diagnose-section section--alt" aria-labelledby="diagnose-heading">
+      <section className="section--beige section">
         <div className="container">
-          <div className="diagnose-header">
-            <p className="section-label">What I Do</p>
-            <h2 id="diagnose-heading" className="text-h2 diagnose-title">
-              I Diagnose and Build
-            </h2>
-            <p className="diagnose-desc">
-              Most consulting stops at recommendations. I stay through the
-              build, designing curriculum, aligning assessments, and
-              creating the tools that make the system function.
+          <div className="section-head reveal">
+            <span className="eyebrow">The offer ladder</span>
+            <h2 className="h-xl mt-3">Growth is built into the deliverable.</h2>
+            <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
+              The audit report ends where the money starts — the last page is the Build +
+              Implement roadmap, not a separate sales call.
             </p>
           </div>
-          <div className="diagnose-cta-row">
-            <a href="#how-it-works" className="trust-btn trust-btn--primary">
-              See the System
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M19 14l-7 7m0 0l-7-7m7 7V3"
-                />
-              </svg>
-            </a>
+          <div className="ladder mt-6">
+            <div className="ladder-step ladder-step--feature reveal">
+              <span className="ladder-stage">Stage 01 · Clarity</span>
+              <h3>The Greenhouse Audit</h3>
+              <p className="mt-2">A fixed-scope diagnostic of a school still in formation. Findings report + a roadmap that prices the next two phases.</p>
+              <div className="mt-3"><span className="chip">2–3 weeks</span></div>
+            </div>
+            <div className="ladder-step reveal">
+              <span className="ladder-stage">Stage 02 · Build</span>
+              <h3>Build what fits</h3>
+              <p className="mt-2">Curriculum &amp; pathway architecture, ELD overlays, standards-to-resource maps, AI workflows, AssessAlign.</p>
+            </div>
+            <div className="ladder-step reveal">
+              <span className="ladder-stage">Stage 03 · Implement</span>
+              <h3>Make it work</h3>
+              <p className="mt-2">PD, coaching, and measurement until the system holds up in real classrooms — and an optional data partnership.</p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 4 — HOW IT WORKS
-      ═══════════════════════════════════════════ */}
-      <section id="how-it-works" className="howworks-section" aria-labelledby="howworks-heading">
+      <section className="section">
         <div className="container">
-          <div className="howworks-header">
-            <p className="section-label">The Process</p>
-            <h2 id="howworks-heading" className="text-h2 howworks-title">
-              Start with Diagnosis
-            </h2>
-          </div>
-          <div className="howworks-steps">
-            <div className="howworks-step">
-              <div className="howworks-step-number">1</div>
-              <div className="howworks-step-content">
-                <h3 className="howworks-step-title">Audit</h3>
-                <p className="howworks-step-desc">
-                  I map where your system breaks.
-                </p>
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">Proof of work</span>
+              <h2 className="h-lg mt-3">We build the tools we recommend.</h2>
+              <p className="muted mt-3">
+                AssessAlign is a standards-grounded, adaptive assessment and curriculum engine —
+                built to solve a problem we were living in the classroom. The same architecture
+                now points at any framework: state standards, IB, Cambridge, or competency-based.
+              </p>
+              <ul className="tick-list mt-4">
+                <li><CheckIcon />Shorter passages, standards-aligned questions</li>
+                <li><CheckIcon />Actionable analytics teachers will actually use</li>
+                <li><CheckIcon />Framework-agnostic — built for schools without a single shared standard</li>
+              </ul>
+              <div className="btn-row mt-4">
+                <Link href="/tools/assessalign" className="btn btn-primary">Explore AssessAlign</Link>
+                <Link href="/tools" className="btn btn-ghost">All the tools we build →</Link>
               </div>
             </div>
-            <div className="howworks-step">
-              <div className="howworks-step-number">2</div>
-              <div className="howworks-step-content">
-                <h3 className="howworks-step-title">Build</h3>
-                <p className="howworks-step-desc">
-                  I design and develop the solution.
-                </p>
-              </div>
-            </div>
-            <div className="howworks-step">
-              <div className="howworks-step-number">3</div>
-              <div className="howworks-step-content">
-                <h3 className="howworks-step-title">Implement</h3>
-                <p className="howworks-step-desc">
-                  I support it until it works in classrooms.
-                </p>
+            <div className="reveal">
+              <div className="ph ph--earth" style={{ minHeight: "clamp(300px, 38vw, 420px)", padding: 0, overflow: "hidden" }}>
+                <Image
+                  src={assessAlignImg}
+                  alt="AssessAlign dashboard"
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                />
               </div>
             </div>
           </div>
-          <div className="howworks-cta-row">
-            <Link href="/services#audit" className="trust-btn trust-btn--primary">
-              Start the Audit
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-            <Link href="/services" className="trust-btn trust-btn--outline">
-              Explore District Work
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 5 — ASSESSALIGN (PROOF)
-      ═══════════════════════════════════════════ */}
-      <section className="proof-section section--alt" aria-labelledby="proof-heading">
-        <div className="container">
-          <div className="proof-header">
-            <p className="section-label">Proof of Work</p>
-            <h2 id="proof-heading" className="text-h2 proof-title">
-              I Build the Tools I Recommend
+      <section className="section--earth-deep section">
+        <div className="container glass">
+          <div className="container--narrow text-center" style={{ marginInline: "auto", paddingInline: 0 }}>
+            <span className="eyebrow eyebrow--center reveal">The reframe</span>
+            <h2 className="h-xl mt-3 reveal" style={{ color: "#fff" }}>
+              This was never about the ideal classroom.
             </h2>
-            <p className="proof-desc">
-              AssessAlign is a standards-based assessment system I built to solve
-              a problem I was experiencing in my own classroom.
-            </p>
-          </div>
-          <div className="proof-cta-row">
-            <Link href="/tools/assessalign" className="trust-btn trust-btn--primary">
-              Explore AssessAlign
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                aria-hidden="true"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-            <Link href="/services" className="trust-btn trust-btn--outline">
-              See District Applications
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 6 — THE REAL PROBLEM
-      ═══════════════════════════════════════════ */}
-      <section className="realproblem-section" aria-labelledby="realproblem-heading">
-        <div className="container">
-          <div className="realproblem-content">
-            <h2 id="realproblem-heading" className="realproblem-title">
-              This Isn&apos;t a People Problem
-            </h2>
-            <p className="realproblem-lead">
-              Teachers aren&apos;t failing. Students aren&apos;t the issue. The
-              system wasn&apos;t designed to work together.
-            </p>
-            <p className="realproblem-body">
-              When curriculum, assessment, and access are misaligned, the burden
-              shifts to the classroom. That&apos;s where burnout starts, and
-              and where students get missed.
+            <p className="lead mx-auto mt-3 reveal" style={{ maxWidth: "50ch" }}>
+              It&apos;s about the conditions these learners actually need to grow. Roots keep them
+              grounded in who they are — language, identity, community. The greenhouse is what we
+              build around them. We&apos;re the grower who reads the climate before adjusting it.
             </p>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 6b — QUOTE BLURB
-      ═══════════════════════════════════════════ */}
-      <section className="quote-blurb-section" aria-label="The premise behind The Rooted Learner">
+      <section className="section">
         <div className="container">
-          <div className="quote-blurb-inner">
-            <svg className="quote-blurb-mark" viewBox="0 0 48 48" fill="none" aria-hidden="true">
-              <path d="M14 24c-4 0-7-3-7-7s3-7 7-7c1 0 2 .2 3 .5C14 13 12 16 12 20c0 2 1 4 2 4zm20 0c-4 0-7-3-7-7s3-7 7-7c1 0 2 .2 3 .5C34 13 32 16 32 20c0 2 1 4 2 4z" fill="currentColor"/>
-            </svg>
-            <blockquote className="quote-blurb-text">
-              <p>
-                The decisions made in curriculum meetings determine what&apos;s
-                possible in classrooms. And what&apos;s possible in classrooms
-                determines what&apos;s possible for students, especially the ones
-                your current system wasn&apos;t built for.
-              </p>
-            </blockquote>
+          <div className="section-head reveal">
+            <span className="eyebrow">Two ways in</span>
+            <h2 className="h-xl mt-3">Build the system — or stock the shelves.</h2>
           </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 7 — CREDIBILITY
-      ═══════════════════════════════════════════ */}
-      <section className="credibility-section" aria-labelledby="credibility-heading">
-        <div className="container">
-          <p className="credibility-eyebrow">Credentials</p>
-          <h2 id="credibility-heading" className="credibility-heading">
-            Built Inside the Classroom
-          </h2>
-
-          <div className="credibility-list">
-            <p className="credibility-item">12+ years in K&ndash;8 classrooms</p>
-            <p className="credibility-item">Reading interventionist and curriculum designer</p>
-            <p className="credibility-item">Science of Reading and multilingual learner specialist</p>
-            <p className="credibility-item">Full-stack developer building instructional tools</p>
-          </div>
-
-          <p className="credibility-close">
-            I don&apos;t step into classrooms to observe. I&apos;m already in one.
-          </p>
-
-          <div className="credibility-cta-row">
-            <Link href="/about" className="trust-btn trust-btn--outline-light">
-              About Michelle
-            </Link>
-          </div>
-        </div>
-      </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 8 — AUDIENCE SPLIT
-      ═══════════════════════════════════════════ */}
-      <section className="split-section" aria-labelledby="split-heading">
-        <div className="container">
-          <h2 id="split-heading" className="text-h2 split-title">
-            Two Ways to Work With Me
-          </h2>
-          <div className="split-grid">
-            <div className="split-card">
-              <div className="split-card-icon split-card-icon--district">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3.75 21h16.5M4.5 3h15M5.25 3v18m13.5-18v18M9 6.75h1.5m-1.5 3h1.5m-1.5 3h1.5m3-6H15m-1.5 3H15m-1.5 3H15M9 21v-3.375c0-.621.504-1.125 1.125-1.125h3.75c.621 0 1.125.504 1.125 1.125V21"
-                  />
-                </svg>
+          <div className="grid grid-2 mt-6">
+            <article className="card card--hover reveal" style={{ display: "flex", flexDirection: "column" }}>
+              <span className="chip-tag">For founders &amp; operators</span>
+              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>Greenhouse Schools</h3>
+              <p className="mt-2">System-level audits, builds, and implementation for schools in formation and the edtech serving them.</p>
+              <div className="mt-4">
+                <Link href="/services" className="link-arrow">Explore the work <ArrowIcon /></Link>
               </div>
-              <h3 className="split-card-title">Districts</h3>
-              <p className="split-card-desc">
-                System-level audits, builds, and implementation.
-              </p>
-              <Link href="/services" className="split-card-cta">
-                Explore District Work
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
-            <div className="split-card">
-              <div className="split-card-icon split-card-icon--educator">
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M4.26 10.147a60.438 60.438 0 00-.491 6.347A48.62 48.62 0 0112 20.904a48.62 48.62 0 018.232-4.41 60.46 60.46 0 00-.491-6.347m-15.482 0a50.636 50.636 0 00-2.658-.813A59.906 59.906 0 0112 3.493a59.903 59.903 0 0110.399 5.84c-.896.248-1.783.52-2.658.814m-15.482 0A50.717 50.717 0 0112 13.489a50.702 50.702 0 017.74-3.342M6.75 15a.75.75 0 100-1.5.75.75 0 000 1.5zm0 0v-3.675A55.378 55.378 0 0112 8.443m-7.007 11.55A5.981 5.981 0 006.75 15.75v-1.5"
-                  />
-                </svg>
+            </article>
+            <article className="card card--hover reveal" style={{ display: "flex", flexDirection: "column" }}>
+              <span className="chip-tag">For educators</span>
+              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>Classroom tools &amp; resources</h3>
+              <p className="mt-2">Field-tested downloads, the Teacher Toolkit, and the shop — practical resources built from inside the classroom.</p>
+              <div className="mt-4">
+                <Link href="/learn" className="link-arrow">Browse resources <ArrowIcon /></Link>
               </div>
-              <h3 className="split-card-title">Educators</h3>
-              <p className="split-card-desc">
-                Classroom tools and resources.
-              </p>
-              <Link href="/learn" className="split-card-cta">
-                Browse Classroom Tools
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
-              </Link>
-            </div>
+            </article>
           </div>
         </div>
       </section>
 
-      {/* ═══════════════════════════════════════════
-          SECTION 9 — BLOG
-      ═══════════════════════════════════════════ */}
-      <section className="blog-section section--alt">
-        <div className="container">
-          <div className="blog-header">
-            <div className="blog-header-content">
-              <p className="blog-header-label">From the Blog</p>
-              <h2 className="text-h3 blog-header-title">
-                Insights from Inside the System
-              </h2>
-              <p className="blog-header-desc">
-                Diagnosis, strategy, and what actually works at the classroom
-                and district level.
-              </p>
+      {latestPosts.length > 0 && (
+        <section className="section--beige section">
+          <div className="container">
+            <div className="section-head reveal">
+              <span className="eyebrow">From the field</span>
+              <h2 className="h-xl mt-3">Naming the problem out loud.</h2>
             </div>
-            <Link href="/learn/blog" className="blog-view-all">
-              View all articles
-              <svg
-                className="blog-view-all-icon"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </Link>
-          </div>
-
-          {latestPosts.length > 0 ? (
-            <div className="blog-cards-grid">
+            <div className="grid grid-3 mt-6">
               {latestPosts.map((post) => (
-                <BlogCard key={post._id} post={post} />
+                <div key={post._id} className="reveal">
+                  <BlogCard post={post} />
+                </div>
               ))}
             </div>
-          ) : (
-            <div className="blog-empty-state">
-              <p className="blog-empty-text">
-                Articles coming soon. Practical strategies grounded in
-                Science of Reading, multilingual learner support, and AI in
-                education.
-              </p>
-              <Link href="/learn/blog" className="blog-empty-link">
-                Visit the Blog
-                <svg
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                  aria-hidden="true"
-                  style={{ width: "1rem", height: "1rem" }}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M17 8l4 4m0 0l-4 4m4-4H3"
-                  />
-                </svg>
+            <div className="mt-6 reveal">
+              <Link href="/learn/blog" className="link-arrow">
+                View all insights <ArrowIcon />
               </Link>
             </div>
-          )}
-        </div>
-      </section>
+          </div>
+        </section>
+      )}
 
-      {/* ═══════════════════════════════════════════
-          SECTION 10 — NEWSLETTER / LEAD MAGNET
-      ═══════════════════════════════════════════ */}
-      <section id="newsletter" className="newsletter-section">
-        <div className="container">
-          <div className="newsletter-card">
-            <div className="newsletter-card-content">
-              <div className="newsletter-icon-wrap">
-                <svg
-                  className="newsletter-icon"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={1.5}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                  />
-                </svg>
-              </div>
-              <span className="newsletter-free-badge">Free Download</span>
-              <h3 className="newsletter-card-title">
-                Free Claude AI Guide for Educators
-              </h3>
-              <p className="newsletter-card-desc">
-                A practical, step-by-step guide to using Claude AI in your
-                classroom: prompt templates, lesson planning workflows,
-                and real examples from a current 1&ndash;8 educator. Enter your
-                email and I&apos;ll send it straight to your inbox.
-              </p>
-              <NewsletterForm
-                source="homepage-claude-guide"
-                buttonText="Get My Free Guide"
-              />
-              <p className="newsletter-disclaimer">
-                Join a growing community of educators. Unsubscribe anytime.
-              </p>
-            </div>
+      <section className="section">
+        <div className="container text-center">
+          <h2 className="h-xl mx-auto reveal" style={{ maxWidth: "18ch" }}>
+            The point was never the ideal classroom. It&apos;s the conditions these learners actually need.
+          </h2>
+          <div className="btn-row reveal mt-4" style={{ justifyContent: "center" }}>
+            <Link href="/services#audit" className="btn btn-terra btn-lg">Book the Greenhouse Audit</Link>
+            <Link href="/about" className="btn btn-outline btn-lg">Meet the grower</Link>
           </div>
         </div>
       </section>
-
-      {/* ═══════════════════════════════════════════
-          SECTION 11 — FOOTER CTA
-      ═══════════════════════════════════════════ */}
-      <section className="footercta-section">
-        <div className="container footercta-inner">
-          <p className="footercta-lead">
-            Your system isn&apos;t broken because your people aren&apos;t trying.
-          </p>
-          <p className="footercta-accent">
-            It&apos;s broken because it wasn&apos;t designed to work together.
-          </p>
-          <Link href="/services#audit" className="hero-cta-btn hero-cta-btn--terracotta">
-            Start with a System Audit
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

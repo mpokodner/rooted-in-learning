@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import SiteAnimations from "@/components/SiteAnimations";
 
 export default function MainLayout({
   children,
@@ -9,8 +10,9 @@ export default function MainLayout({
   return (
     <>
       <Header />
-      {children}
+      <main>{children}</main>
       <Footer />
+      <SiteAnimations />
     </>
   );
 }

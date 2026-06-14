@@ -1,24 +1,25 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Services | The Rooted Learner",
+  title: "Greenhouse Schools | The Rooted Learner",
   description:
-    "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them: assessment alignment, multilingual learner access, technology integrations, and custom instructional tools.",
+    "The curriculum-integrity partner for new, alternative, international, and microschools — and the edtech serving them. Start with the Greenhouse Audit: read the climate, then build what the crop needs.",
   keywords: [
+    "Greenhouse Schools",
     "education consulting",
-    "AI professional development",
     "curriculum consulting",
+    "microschool consulting",
+    "international school consulting",
     "edtech integration",
-    "equity consulting",
     "school consulting",
   ],
   alternates: {
     canonical: "/services",
   },
   openGraph: {
-    title: "Services | The Rooted Learner",
+    title: "Greenhouse Schools | The Rooted Learner",
     description:
-      "Start with diagnosis, not a menu. I audit where your curriculum systems break and build what fixes them.",
+      "The curriculum-integrity partner for new, alternative, international, and microschools — and the edtech serving them. Start with the Greenhouse Audit.",
     type: "website",
   },
 };

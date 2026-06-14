@@ -3,8 +3,8 @@ import Image, { type StaticImageData } from "next/image";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import "./about.css";
 import "./projects/portfolio.css";
+import AboutContactForm from "./AboutContactForm";
 
 import reactDictionaryImg from "./projects/images/react-dictionary-project.png";
 import aiPoetryImg from "./projects/images/PoemGenerator_Thumbnail.png";
@@ -12,83 +12,85 @@ import dataVizImg from "./projects/images/pythonadvanced.png";
 import weatherAppImg from "./projects/images/react-weather-app.png";
 
 export const metadata: Metadata = {
-  title: "About Michelle Pokodner | The Rooted Learner",
+  title: "About | Greenhouse Schools",
   description:
-    "12+ year educator, reading interventionist, curriculum designer, and full-stack developer. I diagnose where district systems break and build what fixes them.",
+    "The Rooted Learner is led by Michelle Pokodner — a current educator, multilingual-learner specialist, and full-stack builder helping new and reimagined schools design coherent systems from seed.",
   keywords: [
+    "Greenhouse Schools",
     "education consultant",
-    "reading interventionist",
-    "curriculum designer",
-    "science of reading",
-    "EdTech developer",
     "multilingual learner specialist",
-    "portfolio",
+    "curriculum design",
+    "science of reading",
+    "new school advisory",
     "edtech development",
-    "instructional design",
-    "educational technology",
-    "web development",
-    "assessment tools",
+    "school systems design",
   ],
   alternates: {
     canonical: "/about",
   },
   openGraph: {
-    title: "About Michelle Pokodner | The Rooted Learner",
+    title: "About | The Rooted Learner — Greenhouse Schools",
     description:
-      "I started as a classroom teacher trying to make disconnected systems work. Over time, I realized the problem wasn't effort. It was infrastructure. So I started building what didn't exist.",
+      "We read the climate before we adjust it. Michelle Pokodner helps new and reimagined schools design coherent, learner-centered systems from the ground up.",
     type: "website",
   },
 };
 
-const expertise = [
+const thesisCards = [
   {
-    title: "Reading Interventionist",
-    description: "Specialized in diagnosing and closing literacy gaps using structured, research-backed methods.",
-    icon: "M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253",
+    title: "Roots",
+    description:
+      "The learner stays grounded in who they are — language, identity, community. We never rip them out of their soil.",
+    icon: (
+      <>
+        <path d="M12 22V12" />
+        <path d="M12 12c-2 0-5-2-5-6 0 0 5 0 5 4" />
+        <path d="M12 12c2 0 5-2 5-6 0 0-5 0-5 4" />
+        <path d="M8 22h8" />
+      </>
+    ),
+    terra: false,
   },
   {
-    title: "Science of Reading Certified",
-    description: "Trained in the evidence base behind how children learn to read: phonics, fluency, comprehension, and beyond.",
-    icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
+    title: "Greenhouse",
+    description:
+      "The conditions we build around them — curriculum, assessment, pathways, and tech tuned to fit, not to an imagined average.",
+    icon: (
+      <>
+        <path d="M3 21V9l9-6 9 6v12z" />
+        <path d="M3 9h18M12 3v18M7.5 6v15M16.5 6v15" />
+      </>
+    ),
+    terra: false,
   },
   {
-    title: "Curriculum Designer",
-    description: "Creates standards-aligned, classroom-tested lessons that educators and families can use immediately.",
-    icon: "M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z",
-  },
-  {
-    title: "Multilingual Learner Specialist",
-    description: "Deep expertise supporting English learners with culturally responsive, linguistically informed instruction.",
-    icon: "M3 5h12M9 3v2m1.048 9.5A18.022 18.022 0 016.412 9m6.088 9h7M11 21l5-10 5 10M12.751 5C11.783 10.77 8.07 15.61 3 18.129",
-  },
-  {
-    title: "EdTech Developer",
-    description: "Building AI-supported instructional tools that give educators cognitive leverage in their daily work.",
-    icon: "M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4",
-  },
-  {
-    title: "Digital Marketing Trained",
-    description: "Understands content strategy, SEO, and conversion, bridging education expertise with reach.",
-    icon: "M13 7h8m0 0v8m0-8l-8 8-4-4-6 6",
-  },
-];
-
-const philosophy = [
-  {
-    statement: "Teaching is infrastructure, not performance.",
-    detail: "The best teaching systems run whether you had coffee or not. I design tools that create leverage, not dependency.",
-  },
-  {
-    statement: "Research should be usable, not just publishable.",
-    detail: "Evidence-based practice only matters if it reaches classrooms. I translate research into ready-to-use resources.",
-  },
-  {
-    statement: "Every learner deserves access, regardless of language or starting point.",
-    detail: "Multilingual learners and students with skill gaps deserve tools designed for their reality, not adapted as an afterthought.",
+    title: "The grower",
+    description:
+      "Us. The one who reads what the climate needs before adjusting it — which is, literally, the diagnostic, audit-first model.",
+    icon: (
+      <>
+        <path d="M12 2v6M5 9l2 2M19 9l-2 2" />
+        <path d="M4 14c0 4 3.5 8 8 8s8-4 8-8c-3 0-5 1-8 4-3-3-5-4-8-4Z" />
+      </>
+    ),
+    terra: true,
   },
 ];
 
-/* ─── Portfolio Projects Grid ─── */
+const credentials = [
+  "12+ years in K–8 classrooms",
+  "Reading interventionist & curriculum designer",
+  "Science of Reading & WIDA / multilingual specialist",
+  "Full-stack developer building instructional tools",
+];
+
+const stats = [
+  { num: "12+", label: "Years in classrooms" },
+  { num: "100+", label: "Resources built" },
+  { num: "K–8", label: "Lived experience" },
+  { num: "2–3 wk", label: "Audit to clarity" },
+];
+
 interface DevProject {
   category: string;
   categoryColor: "dev" | "ai" | "data";
@@ -147,336 +149,299 @@ const devProjects: DevProject[] = [
   },
 ];
 
-const headshotExists = fs.existsSync(path.join(process.cwd(), "public", "headshot.jpg"));
+const headshotExists = fs.existsSync(
+  path.join(process.cwd(), "public", "headshot.jpg")
+);
 
 const personJsonLd = {
   "@context": "https://schema.org",
   "@type": "Person",
   name: "Michelle Pokodner",
-  jobTitle: "Curricular Solutions Architect",
+  jobTitle: "Curriculum-Integrity Partner",
   url: "https://www.therootedlearner.com/about",
   worksFor: {
     "@type": "Organization",
-    name: "The Rooted Learner",
+    name: "The Rooted Learner — Greenhouse Schools",
     url: "https://www.therootedlearner.com",
   },
   description:
-    "12+ year classroom veteran, reading interventionist, curriculum designer, and full-stack developer. I diagnose where district curriculum systems break and build what fixes them.",
+    "Current educator, multilingual-learner specialist, and full-stack builder helping new and reimagined schools design coherent systems from seed.",
   sameAs: [
     "https://www.linkedin.com/in/michelle-pokodner-edtech/",
     "https://www.instagram.com/rootedinlearninged/",
     "https://www.youtube.com/@TheRootedLearner",
   ],
   knowsAbout: [
+    "Greenhouse Schools",
     "Reading Intervention",
     "Science of Reading",
     "Curriculum Design",
     "Multilingual Learner Support",
     "EdTech Development",
-    "AI in Education",
   ],
 };
 
+const CheckIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14" />
+    <path d="m13 6 6 6-6 6" />
+  </svg>
+);
+
 export default function AboutPage() {
   return (
-    <div className="about-page">
+    <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      {/* ─── Identity Hero ─── */}
-      <section className="about-hero" aria-labelledby="about-heading">
-        <div className="about-hero-bg" aria-hidden="true">
-          <div className="about-hero-circle about-hero-circle--1" />
-          <div className="about-hero-circle about-hero-circle--2" />
-        </div>
-        <div className="container about-hero-container">
-          <div className="about-hero-badge">
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-              <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
-            </svg>
-            <span>Curricular Solutions Architect</span>
-          </div>
-          <h1 id="about-heading" className="about-hero-title">
-            I Started as a Classroom Teacher
-            <br />
-            <span className="about-hero-title-accent">Trying to Make Disconnected Systems Work.</span>
-          </h1>
-          <p className="about-hero-desc">
-            Over time, I realized the problem wasn&apos;t effort. It was
-            infrastructure. So I started building what didn&apos;t exist.
-          </p>
-          <div className="about-hero-actions">
-            <Link href="/services" className="about-hero-cta-primary">
-              See How I Work with Districts
-              <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </Link>
-          </div>
-        </div>
-      </section>
 
-      {/* ─── Narrative Arc ─── */}
-      <section className="about-narrative section" aria-labelledby="narrative-heading">
-        <div className="container">
-          <div className="about-narrative-grid">
-            {/* Image / Visual */}
-            <div className="about-narrative-visual">
-              <div className="about-narrative-image">
-                {headshotExists ? (
-                  <Image
-                    src="/headshot.jpg"
-                    alt="Michelle Pokodner, Curricular Solutions Architect and Full-Stack Developer"
-                    width={400}
-                    height={500}
-                    className="about-headshot"
-                    style={{ borderRadius: "var(--radius-lg, 1rem)", objectFit: "cover", width: "100%", height: "auto" }}
-                    priority
-                  />
-                ) : (
-                  <div
-                    className="about-narrative-placeholder"
-                    style={{
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      width: "100%",
-                      aspectRatio: "4 / 5",
-                      borderRadius: "var(--radius-lg, 1rem)",
-                      background: "linear-gradient(135deg, var(--earth) 0%, var(--earth-dark) 100%)",
-                    }}
-                  >
-                    <span
-                      style={{
-                        fontFamily: "var(--font-heading)",
-                        fontSize: "clamp(4rem, 8vw, 6rem)",
-                        fontWeight: 800,
-                        color: "rgba(255,255,255,0.25)",
-                        letterSpacing: "-0.03em",
-                        userSelect: "none",
-                      }}
-                      aria-hidden="true"
-                    >
-                      MP
-                    </span>
-                  </div>
-                )}
-              </div>
-              <div className="about-narrative-accent" aria-hidden="true" />
-            </div>
-
-            {/* Story Content */}
-            <div className="about-narrative-content">
-              <p className="about-section-label">My Story</p>
-              <h2 id="narrative-heading" className="about-section-title">
-                From Classroom Teacher to Education Architect
-              </h2>
-              <div className="about-narrative-text">
-                <p>
-                  I started as a classroom teacher trying to make disconnected
-                  systems work. Over 12 years in K&ndash;8 classrooms, I became
-                  a reading interventionist, a curriculum designer, and the
-                  person colleagues called when something needed to actually
-                  function.
-                </p>
-                <p>
-                  Over time, I realized the problem wasn&apos;t effort. It
-                  was infrastructure. Curriculum and assessments weren&apos;t
-                  aligned. Multilingual learners couldn&apos;t access core
-                  instruction. Tools operated in isolation. Teachers were
-                  carrying the burden manually.
-                </p>
-                <p>
-                  So I started building what didn&apos;t exist. First came
-                  curriculum overlays. Then standards-aligned assessments. Then
-                  full-stack instructional tools like AssessAlign. Now I
-                  diagnose where district systems break and build what fixes
-                  them.
-                </p>
-              </div>
-
-              <div style={{ display: "flex", justifyContent: "center", margin: "2rem 0 1rem" }}>
-                <Link href="/services" className="about-hero-cta-primary" style={{ fontSize: "0.875rem", padding: "0.625rem 1.5rem" }}>
-                  See How I Work with Districts
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true" style={{ width: "1rem", height: "1rem" }}>
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </Link>
-              </div>
-
-              {/* Impact Stats */}
-              <div className="about-stats">
-                <div className="about-stat">
-                  <span className="about-stat-number">12+</span>
-                  <span className="about-stat-label">Years in Education</span>
-                </div>
-                <div className="about-stat">
-                  <span className="about-stat-number">1–8</span>
-                  <span className="about-stat-label">Focused Practice</span>
-                </div>
-                <div className="about-stat">
-                  <span className="about-stat-number">100+</span>
-                  <span className="about-stat-label">Resources Built</span>
-                </div>
-              </div>
+      {/* Hero */}
+      <section className="section hero" aria-labelledby="about-heading">
+        <div className="container hero-grid">
+          <div className="reveal">
+            <span className="eyebrow">About · the grower</span>
+            <h1 id="about-heading" className="display mt-3">
+              We read the climate{" "}
+              <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
+                before
+              </span>{" "}
+              we adjust it.
+            </h1>
+            <p className="lead mt-3">
+              The Rooted Learner is led by Michelle Pokodner — a current classroom
+              educator, multilingual-learner specialist, and full-stack builder. We help
+              new and reimagined schools design coherent, learner-centered systems from
+              the ground up.
+            </p>
+            <div className="btn-row mt-4">
+              <Link href="/services#audit" className="btn btn-primary btn-lg">
+                Work with us
+              </Link>
+              <Link href="/about#contact" className="btn btn-outline btn-lg">
+                Start a conversation
+              </Link>
             </div>
           </div>
-
-          {/* Guiding Principles — inline under My Story */}
-          <div className="about-principles">
-            <h3 className="about-principles-title">Guiding Principles</h3>
-            <div className="about-principles-grid">
-              {philosophy.map((item, index) => (
-                <div key={index} className="about-principles-card">
-                  <span className="about-principles-number">{String(index + 1).padStart(2, "0")}</span>
-                  <blockquote className="about-principles-statement">
-                    &ldquo;{item.statement}&rdquo;
-                  </blockquote>
-                  <p className="about-principles-detail">{item.detail}</p>
-                </div>
-              ))}
+          <div className="reveal">
+            <div
+              className="ph"
+              style={{
+                minHeight: "clamp(320px, 40vw, 440px)",
+                padding: 0,
+                overflow: "hidden",
+              }}
+            >
+              {headshotExists ? (
+                <Image
+                  src="/headshot.jpg"
+                  alt="Michelle Pokodner, curriculum-integrity partner and full-stack builder"
+                  width={440}
+                  height={550}
+                  style={{ width: "100%", height: "100%", objectFit: "cover" }}
+                  priority
+                />
+              ) : (
+                <span className="ph-label">portrait · Michelle Pokodner</span>
+              )}
             </div>
           </div>
         </div>
       </section>
 
-      {/* ─── Why The Rooted Learner ─── */}
-      <section className="about-brand section" aria-labelledby="brand-heading">
-        <div className="container">
-          <div className="about-brand-inner">
-            <div className="about-brand-accent" aria-hidden="true">
-              <svg viewBox="0 0 64 64" fill="none">
-                <path d="M32 56V32M32 32c-6-8-16-12-20-24M32 32c6-8 16-12 20-24M32 32c-3 4-4 10-4 16M32 32c3 4 4 10 4 16M22 48c2-4 6-6 10-6M42 48c-2-4-6-6-10-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
-              </svg>
-            </div>
-            <p className="about-brand-label">Why The Rooted Learner</p>
-            <h2 id="brand-heading" className="about-brand-heading">
-              The Child at the Center of Every System
-            </h2>
-            <div className="about-brand-body">
-              <p>
-                The Rooted Learner is built on a simple premise: when a
-                district&apos;s curriculum systems are aligned, equitable, and
-                designed for its actual students, especially its multilingual
-                learners, something changes all the way down the chain. Teachers
-                have what they need to teach. Students have what they need to
-                learn.
-              </p>
-              <p>
-                The work I do starts at the systems level, but it ends with a
-                child who is finally seen by the curriculum in front of them.
-              </p>
-              <p className="about-brand-anchor">
-                That child is the rooted learner. And they are the reason all of
-                this exists.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Career Timeline ─── */}
-      <section className="about-timeline section" aria-labelledby="timeline-heading">
-        <div className="container">
-          <div className="about-timeline-header">
-            <p className="about-section-label">Career Path</p>
-            <h2 id="timeline-heading" className="about-section-title">
-              Professional Journey
-            </h2>
-          </div>
-
-          <div className="about-timeline-list">
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot" aria-hidden="true" />
-              <div className="about-timeline-content">
-                <h3 className="about-timeline-title">Classroom Teacher</h3>
-                <p className="about-timeline-desc">Grades 1–8 educator focused on literacy and intervention</p>
-                <span className="about-timeline-date">2012-2020</span>
-              </div>
-            </div>
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot" aria-hidden="true" />
-              <div className="about-timeline-content">
-                <h3 className="about-timeline-title">Reading Interventionist</h3>
-                <p className="about-timeline-desc">Specialized in diagnosing and closing literacy gaps</p>
-                <span className="about-timeline-date">2018-2024</span>
-              </div>
-            </div>
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot" aria-hidden="true" />
-              <div className="about-timeline-content">
-                <h3 className="about-timeline-title">Curriculum Designer</h3>
-                <p className="about-timeline-desc">Standards-aligned lesson design and assessment</p>
-                <span className="about-timeline-date">2020-Present</span>
-              </div>
-            </div>
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot" aria-hidden="true" />
-              <div className="about-timeline-content">
-                <h3 className="about-timeline-title">EdTech Developer</h3>
-                <p className="about-timeline-desc">Building AI-powered tools for educators</p>
-                <span className="about-timeline-date">2024-Present</span>
-              </div>
-            </div>
-            <div className="about-timeline-item">
-              <div className="about-timeline-dot" aria-hidden="true" />
-              <div className="about-timeline-content">
-                <h3 className="about-timeline-title">Founder, The Rooted Learner</h3>
-                <p className="about-timeline-desc">Education infrastructure company</p>
-                <span className="about-timeline-date">2025-Present</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Expertise Grid ─── */}
-      <section className="about-expertise section" aria-labelledby="expertise-heading">
-        <div className="container">
-          <div className="about-expertise-header">
-            <p className="about-section-label">Areas of Expertise</p>
-            <h2 id="expertise-heading" className="about-section-title">
-              What I Bring to the Table
-            </h2>
-            <p className="about-expertise-desc">
-              A rare combination of deep classroom experience, research training,
-              technical skill, and strategic thinking.
+      {/* Story */}
+      <section className="section--beige section" aria-labelledby="origin-heading">
+        <div className="container container--narrow">
+          <span className="eyebrow reveal">The origin</span>
+          <h2 id="origin-heading" className="h-lg mt-3 reveal">
+            Built inside the classroom — not above it.
+          </h2>
+          <div className="stack mt-4 reveal">
+            <p className="muted">
+              The Rooted Learner didn&apos;t start as a business. It started as a teacher
+              getting tired of waiting for better tools and deciding to build them from the
+              inside out. Twelve years in K–8 classrooms, reading intervention, curriculum
+              design, and a growing certainty that the problem was never the people — it was
+              that the systems were never designed to work together.
+            </p>
+            <p className="muted">
+              Entrenched systems are nearly impossible to change from the inside. But new
+              schools are a greenhouse: you can build the right system there from seed, with
+              no bureaucracy fighting you. The proof we generate in those rooms is the lever
+              that eventually moves the harder systems too. That&apos;s the shift — from
+              fixing what&apos;s broken to designing what gets to start right.
             </p>
           </div>
+          <blockquote className="pullquote mt-6 reveal">
+            &ldquo;The decisions made in curriculum meetings determine what&apos;s possible in
+            classrooms — and what&apos;s possible in classrooms determines what&apos;s possible
+            for students.&rdquo;
+          </blockquote>
+        </div>
+      </section>
 
-          <div className="about-expertise-grid">
-            {expertise.map((item) => (
-              <div key={item.title} className="about-expertise-card">
-                <div className="about-expertise-icon">
-                  <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
-                    <path strokeLinecap="round" strokeLinejoin="round" d={item.icon} />
+      {/* The greenhouse thesis */}
+      <section className="section" aria-labelledby="thesis-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">The thesis</span>
+            <h2 id="thesis-heading" className="h-xl mt-3">
+              Roots, greenhouse, grower.
+            </h2>
+            <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
+              It doesn&apos;t compete with &ldquo;rooted.&rdquo; It completes it. The point
+              was never the ideal classroom — it&apos;s the conditions these learners actually
+              need.
+            </p>
+          </div>
+          <div className="grid grid-3 mt-6">
+            {thesisCards.map((card) => (
+              <article key={card.title} className="card reveal">
+                <div
+                  className={`card-icon${card.terra ? " card-icon--terra" : ""}`}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {card.icon}
                   </svg>
                 </div>
-                <h3 className="about-expertise-card-title">{item.title}</h3>
-                <p className="about-expertise-card-desc">{item.description}</p>
-              </div>
+                <h3>{card.title}</h3>
+                <p>{card.description}</p>
+              </article>
             ))}
           </div>
         </div>
       </section>
 
-      {/* ─── Portfolio Projects Grid ─── */}
-      <section id="projects" className="pf-dev section" aria-labelledby="dev-heading">
+      {/* Credentials */}
+      <section className="section--earth section" aria-labelledby="credentials-heading">
+        <div className="container glass">
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">Why us</span>
+              <h2
+                id="credentials-heading"
+                className="h-xl mt-3"
+                style={{ color: "#fff" }}
+              >
+                A rare combination in this market.
+              </h2>
+              <p className="lead mt-3">
+                Current educator. Multilingual-learner specialist. Full-stack builder.
+                AI-fluent. In the new-school advisory space, most advisors hand you a vision
+                deck. We give you the vision and the working system.
+              </p>
+              <ul className="tick-list mt-4">
+                {credentials.map((item) => (
+                  <li key={item}>
+                    <CheckIcon />
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+            <div className="reveal">
+              <div className="grid grid-2" style={{ gap: "1rem" }}>
+                {stats.map((stat) => (
+                  <div
+                    key={stat.label}
+                    className="card"
+                    style={{
+                      background: "rgba(255,255,255,0.06)",
+                      borderColor: "rgba(255,255,255,0.16)",
+                    }}
+                  >
+                    <div className="stat-num">{stat.num}</div>
+                    <div className="stat-label">{stat.label}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Research flywheel */}
+      <section className="section" aria-labelledby="learning-zones-heading">
+        <div className="container">
+          <div className="feature-band feature-band--reverse">
+            <div className="reveal">
+              <span className="eyebrow">The long game</span>
+              <h2 id="learning-zones-heading" className="h-lg mt-3">
+                Learning Zones — the book that writes itself.
+              </h2>
+              <p className="muted mt-3">
+                Every school we work with can join a simple data partnership. Year over year,
+                that accumulates proprietary, longitudinal evidence on what makes learning
+                communities thrive — &ldquo;Blue Zones, but for education.&rdquo; It&apos;s our
+                case studies, our moat, and the spine of a body of research, all as a byproduct
+                of doing the work well.
+              </p>
+              <div className="mt-4">
+                <Link href="/learn/blog" className="link-arrow">
+                  Read the field notes <ArrowIcon />
+                </Link>
+              </div>
+            </div>
+            <div className="reveal">
+              <div className="ph" style={{ minHeight: "260px" }}>
+                <span className="ph-label">map · learning zones research</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Portfolio Projects */}
+      <section
+        id="projects"
+        className="pf-dev section section--beige"
+        aria-labelledby="dev-heading"
+      >
         <div className="portfolio-container">
-          <div className="pf-section-header">
+          <div className="pf-section-header reveal">
             <p className="pf-section-label">Portfolio</p>
             <h2 id="dev-heading" className="pf-section-title">
               Portfolio Projects
             </h2>
             <p className="pf-section-desc">
-              Technical projects demonstrating coding fundamentals, AI integration, and full-stack development skills.
+              Technical projects demonstrating coding fundamentals, AI integration, and
+              full-stack development skills.
             </p>
           </div>
 
           <div className="pf-dev-grid">
             {devProjects.map((project) => (
-              <article key={project.title} className="pf-dev-card">
+              <article key={project.title} className="pf-dev-card reveal">
                 <div className="pf-dev-image-wrap">
                   <Image
                     src={project.image}
@@ -493,22 +458,36 @@ export default function AboutPage() {
                   >
                     <span className="pf-dev-overlay-btn">
                       View Project
-                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                        />
                       </svg>
                     </span>
                   </a>
                 </div>
 
                 <div className="pf-dev-content">
-                  <span className={`pf-dev-category pf-dev-category--${project.categoryColor}`}>
+                  <span
+                    className={`pf-dev-category pf-dev-category--${project.categoryColor}`}
+                  >
                     {project.category}
                   </span>
                   <h3 className="pf-dev-title">{project.title}</h3>
                   <p className="pf-dev-desc">{project.description}</p>
                   <div className="pf-dev-tags">
                     {project.skills.map((skill) => (
-                      <span key={skill} className="pf-dev-tag">{skill}</span>
+                      <span key={skill} className="pf-dev-tag">
+                        {skill}
+                      </span>
                     ))}
                   </div>
                   <div className="pf-dev-footer">
@@ -520,8 +499,18 @@ export default function AboutPage() {
                       className="pf-dev-link"
                     >
                       View Project
-                      <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                        <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      <svg
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        aria-hidden="true"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M17 8l4 4m0 0l-4 4m4-4H3"
+                        />
                       </svg>
                     </a>
                   </div>
@@ -532,18 +521,40 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* ─── End CTA ─── */}
-      <section className="about-end-cta section" style={{ paddingBlock: "clamp(3rem, 6vw, 5rem)", backgroundColor: "var(--earth, #5C6B4A)", textAlign: "center" }}>
+      {/* Contact */}
+      <section
+        className="section--beige section"
+        id="contact"
+        aria-labelledby="contact-heading"
+      >
         <div className="container">
-          <Link href="/contact" className="about-hero-cta-primary" style={{ fontSize: "var(--text-lg, 1.125rem)", padding: "1rem 2.5rem" }}>
-            Start with a System Audit
-            <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2} aria-hidden="true" style={{ width: "1.25rem", height: "1.25rem" }}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </Link>
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">Start the conversation</span>
+              <h2 id="contact-heading" className="h-xl mt-3">
+                Tell us what&apos;s growing.
+              </h2>
+              <p className="lead mt-3" style={{ maxWidth: "42ch" }}>
+                Whether you&apos;re founding a school, reimagining one, or building the tools
+                that serve them — start by telling us what you&apos;re trying to grow.
+              </p>
+              <p className="muted mt-4">
+                <strong>
+                  <a href="mailto:admin@therootedlearner.com">
+                    admin@therootedlearner.com
+                  </a>
+                </strong>
+                <br />
+                Available nationwide &amp; internationally · remote &amp; on-site
+              </p>
+              <p className="muted mt-2">Built with intention in Baltimore, MD</p>
+            </div>
+            <div className="reveal">
+              <AboutContactForm />
+            </div>
+          </div>
         </div>
       </section>
-
-    </div>
+    </>
   );
 }

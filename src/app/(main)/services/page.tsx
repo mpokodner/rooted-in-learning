@@ -3,35 +3,155 @@
 import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import "./consulting.css";
 
 const faqItems = [
   {
-    question: "How does pricing work for school districts?",
+    question: "How does pricing work?",
     answer:
-      "Pricing is scoped to the engagement. Every engagement starts with a system audit so I can provide an accurate proposal based on what's actually broken.",
+      "Every engagement starts with the Greenhouse Audit so we can scope accurately. Build and Implement are priced in your findings report based on what's actually there — and what isn't.",
   },
   {
-    question: "Do you work with individual teachers?",
+    question:
+      "We're a brand-new school with almost nothing built. Is that a problem?",
     answer:
-      "My primary work is at the district and school level. For individual educators, I offer classroom tools and resources through the Training Hub.",
+      "That's the ideal time. A school in formation has the gap by definition — and no bureaucracy fighting the fix. We design the whole system to hold together from day one.",
   },
   {
-    question: "What's the typical engagement timeline?",
+    question: "Do you work with edtech companies, not just schools?",
     answer:
-      "The audit phase is typically 2–3 weeks. Build and implementation timelines depend on scope, ranging from 4 weeks to 3 months.",
+      "Yes. We act as the curriculum-integrity layer for personalization platforms — auditing fit, advising implementation, and giving you a credible channel into the networks we serve.",
   },
   {
-    question: "Can you provide a proposal for my administration?",
+    question: "What's the typical timeline?",
     answer:
-      "Yes. After the system audit, I deliver a scoped proposal with clear deliverables, timelines, and pricing you can bring to your leadership team.",
+      "The audit is 2–3 weeks. Build and Implement depend on scope — typically 4 weeks to 3 months — and are sequenced so each stage earns the next.",
   },
   {
-    question: "What about procurement and purchase orders?",
+    question: "Do you work internationally?",
     answer:
-      "I work with standard school district procurement processes. PO-based billing is available for institutional clients.",
+      "Yes — remote and on-site. International schools are a core part of the Greenhouse Schools niche, especially those building IB, Cambridge, or American-style systems.",
   },
 ];
+
+const buildCards = [
+  {
+    title: "Curriculum & pathway architecture",
+    desc: "Standards mapping, scope-and-sequence, and applied career pathways that hold together across grade bands.",
+    icon: (
+      <>
+        <path d="M4 5h16v14H4z" />
+        <path d="M4 9h16" />
+        <path d="M9 9v10" />
+      </>
+    ),
+  },
+  {
+    title: "ELD & multilingual overlays",
+    desc: "WIDA-aligned scaffolding and access frameworks so multilingual learners are served by the model, not just present in it.",
+    icon: (
+      <>
+        <path d="M5 8h14M5 12h9M5 16h12" />
+        <circle cx="18" cy="14" r="3" />
+      </>
+    ),
+  },
+  {
+    title: "AI-integrated workflows",
+    desc: "Thoughtful AI woven into instruction from day one — assistive, not bolted on — with a clear ethics line.",
+    icon: (
+      <>
+        <circle cx="12" cy="12" r="3" />
+        <path d="M12 2v4M12 18v4M2 12h4M18 12h4M5 5l2.5 2.5M16.5 16.5 19 19M19 5l-2.5 2.5M7.5 16.5 5 19" />
+      </>
+    ),
+  },
+  {
+    title: "Assessment systems",
+    desc: "Mastery and progress measurement that teachers will actually use — standards-aligned and adaptive.",
+    icon: <path d="M20 6 9 17l-5-5" />,
+  },
+  {
+    title: "Custom instructional tools",
+    desc: "Purpose-built applications for the specific problem your school faces. AssessAlign is one example.",
+    icon: (
+      <>
+        <rect x="3" y="4" width="18" height="14" rx="2" />
+        <path d="M8 21h8M12 18v3" />
+      </>
+    ),
+    terra: true,
+    link: "/tools/assessalign",
+  },
+  {
+    title: "Standards-to-resource maps",
+    desc: "A living alignment dashboard built for your network — proof we do the thing we advise.",
+    icon: <path d="M3 12h4l3 8 4-16 3 8h4" />,
+    terra: true,
+  },
+];
+
+const priceRows = [
+  {
+    stage: "Greenhouse Audit",
+    note: "Entry point · every engagement",
+    desc: "2–3 week fixed-scope diagnostic → findings report + roadmap",
+    amt: "$4,000–6,500",
+  },
+  { stage: "Build · Curriculum", desc: "Curriculum & pathway architecture", amt: "$6,000–15,000" },
+  { stage: "Build · Access", desc: "ELD / multilingual-ready system", amt: "$4,000–10,000" },
+  { stage: "Build · AI & tech", desc: "AI integration & tech-stack design", amt: "$3,000–8,000" },
+  { stage: "Build · Custom tool", desc: "AssessAlign-style purpose-built application", amt: "$5,000–25,000" },
+  { stage: "Implement", desc: "Launch + PD + coaching cycles", amt: "$10,000–25,000" },
+  {
+    stage: "Sustain",
+    note: "Year 2+ · data partnership",
+    desc: "Retainer + the research flywheel",
+    amt: "$1,500–3,000/mo",
+  },
+];
+
+const CheckIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M20 6 9 17l-5-5" />
+  </svg>
+);
+
+const ArrowIcon = () => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    aria-hidden="true"
+  >
+    <path d="M5 12h14" />
+    <path d="m13 6 6 6-6 6" />
+  </svg>
+);
+
+const FaqIcon = () => (
+  <svg
+    className="faq-icon"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    aria-hidden="true"
+  >
+    <path d="M12 5v14M5 12h14" />
+  </svg>
+);
 
 export default function ServicesPage() {
   const [formData, setFormData] = useState({
@@ -45,6 +165,7 @@ export default function ServicesPage() {
   const [formStatus, setFormStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
+  const [openFaq, setOpenFaq] = useState<number | null>(null);
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -65,7 +186,14 @@ export default function ServicesPage() {
       });
       if (res.ok) {
         setFormStatus("success");
-        setFormData({ firstName: "", lastName: "", email: "", organization: "", message: "", subscribeNewsletter: false });
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          organization: "",
+          message: "",
+          subscribeNewsletter: false,
+        });
       } else {
         setFormStatus("error");
       }
@@ -74,423 +202,557 @@ export default function ServicesPage() {
     }
   };
 
+  const toggleFaq = (index: number) => {
+    setOpenFaq((prev) => (prev === index ? null : index));
+  };
+
   return (
-    <div className="svc-page">
-      {/* ─── Hero ─── */}
-      <section className="svc-hero" aria-labelledby="svc-heading">
-        <Image
-          src="/images/services-hero.png"
-          alt="Interconnected technology and data systems network"
-          fill
-          priority
-          className="svc-hero-bg-image"
-        />
-        <div className="container svc-hero-container">
-          <div className="svc-hero-badge">
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4"
-              />
-            </svg>
-            <span>District Work</span>
+    <>
+      {/* Hero */}
+      <section className="section hero" aria-labelledby="svc-heading">
+        <div className="container hero-grid">
+          <div className="reveal">
+            <span className="eyebrow">Greenhouse Schools · the practice</span>
+            <h1 id="svc-heading" className="display mt-3">
+              Start with the climate.{" "}
+              <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
+                Not a menu.
+              </span>
+            </h1>
+            <p className="lead mt-3">
+              You&apos;re building a school — or the tool that serves one — which
+              means there&apos;s still time to build it right for the students
+              you&apos;ll actually have. We diagnose where the system needs to
+              hold together, then build the pieces that don&apos;t exist yet.
+            </p>
+            <div className="btn-row mt-4">
+              <Link href="/services#audit" className="btn btn-terra btn-lg">
+                Book the Greenhouse Audit
+              </Link>
+              <Link href="/services#ladder" className="btn btn-outline btn-lg">
+                See the offer ladder
+              </Link>
+            </div>
           </div>
-          <h1 id="svc-heading" className="svc-hero-title">
-            Start with Diagnosis.
-            <br />
-            Not a Menu.
-          </h1>
-          <p className="svc-hero-desc">
-            Most districts don&apos;t need another service offering. They need
-            someone to diagnose where the system breaks and build what fixes
-            it. Every engagement starts with an audit, because the
-            solution depends on what&apos;s actually broken.
-          </p>
-          <div className="svc-hero-actions">
-            <a href="#audit" className="svc-hero-cta-primary">
-              Start with a System Audit
-              <svg
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-                aria-hidden="true"
+          <div className="reveal">
+            <div
+              className="ph"
+              style={{
+                minHeight: "clamp(300px, 38vw, 420px)",
+                padding: 0,
+                overflow: "hidden",
+              }}
+            >
+              <Image
+                src="/images/services-hero.png"
+                alt="Interconnected technology and data systems network"
+                width={800}
+                height={600}
+                priority
+                style={{ width: "100%", height: "100%", objectFit: "cover" }}
+              />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Engagement model */}
+      <section className="section--beige section" id="model" aria-labelledby="svc-model-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">How every engagement works</span>
+            <h2 id="svc-model-heading" className="h-xl mt-3">
+              The same diagnostic engine — pointed at a school in formation.
+            </h2>
+            <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
+              No generic proposals. The audit prescribes the build; the build
+              prescribes the implementation. Each stage earns the next.
+            </p>
+          </div>
+          <div className="grid grid-3 mt-6">
+            <article className="card reveal">
+              <span className="ladder-stage">Stage 01</span>
+              <h3>Audit</h3>
+              <p>
+                We map vision-to-system fit, the real learner model, curriculum
+                and assessment architecture, and the tech stack — and deliver a
+                findings report with a prioritized roadmap.
+              </p>
+            </article>
+            <article className="card reveal">
+              <span className="ladder-stage">Stage 02</span>
+              <h3>Build</h3>
+              <p>
+                Prescribed by the audit. Curriculum and pathway architecture,
+                multilingual overlays, AI workflows, and custom tools — built
+                for your framework, not a generic one.
+              </p>
+            </article>
+            <article className="card reveal">
+              <span className="ladder-stage">Stage 03</span>
+              <h3>Implement &amp; sustain</h3>
+              <p>
+                Launch support, PD for new staff, coaching cycles, and an
+                optional data partnership that keeps improving the system — and
+                feeds the research.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* Who we serve */}
+      <section className="section" id="segments" aria-labelledby="svc-segments-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">Who grows here</span>
+            <h2 id="svc-segments-heading" className="h-xl mt-3">
+              One engine. Tuned to your crop.
+            </h2>
+          </div>
+          <div className="stack-lg mt-6">
+            <div className="feature-band reveal">
+              <div>
+                <span className="chip-tag">New &amp; alternative schools</span>
+                <h3 className="h-md mt-2">
+                  Build the system before the bureaucracy arrives.
+                </h3>
+                <p className="muted mt-3">
+                  Competency-based, hybrid, Montessori, Waldorf, and forest
+                  models often launch on a mission with no curriculum
+                  infrastructure underneath. We translate the founder&apos;s
+                  &ldquo;why&rdquo; into curriculum, assessment, and pathways
+                  that actually hold together — for the learners you&apos;ll
+                  actually enroll.
+                </p>
+              </div>
+              <div className="ph" style={{ minHeight: "240px" }}>
+                <span className="ph-label">photo · alternative classroom</span>
+              </div>
+            </div>
+            <div className="feature-band feature-band--reverse reveal">
+              <div>
+                <span className="chip-tag">International schools</span>
+                <h3 className="h-md mt-2">
+                  Future-ready, globally minded, coherent.
+                </h3>
+                <p className="muted mt-3">
+                  IB, Cambridge, and American schools abroad were willing to be
+                  creative — that&apos;s their edge. We help them align global
+                  citizenship, high standards, AI and digital literacy, and
+                  sustainability into one system instead of a stack of
+                  disconnected initiatives.
+                </p>
+              </div>
+              <div className="ph" style={{ minHeight: "240px" }}>
+                <span className="ph-label">photo · international school campus</span>
+              </div>
+            </div>
+            <div className="feature-band reveal">
+              <div>
+                <span className="chip-tag">Microschools &amp; networks</span>
+                <h3 className="h-md mt-2">
+                  New public money. New scrutiny. No system yet.
+                </h3>
+                <p className="muted mt-3">
+                  ESA-, voucher-, and tax-credit-funded models got public dollars
+                  and public accountability in the same breath. For them the
+                  audit isn&apos;t a nice-to-have — it&apos;s how they keep
+                  their funding and their reputation. One network audit becomes a
+                  repeatable template, not fifty cold emails.
+                </p>
+              </div>
+              <div className="ph" style={{ minHeight: "240px" }}>
+                <span className="ph-label">photo · microschool cohort</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* What we build */}
+      <section className="section--beige section" aria-labelledby="svc-build-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">Depending on what the audit reveals</span>
+            <h2 id="svc-build-heading" className="h-xl mt-3">
+              What we build.
+            </h2>
+          </div>
+          <div className="grid grid-3 mt-6">
+            {buildCards.map((card) => (
+              <article key={card.title} className="card card--hover reveal">
+                <div
+                  className={`card-icon${card.terra ? " card-icon--terra" : ""}`}
+                >
+                  <svg
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="1.6"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    aria-hidden="true"
+                  >
+                    {card.icon}
+                  </svg>
+                </div>
+                <h3>{card.title}</h3>
+                <p>
+                  {card.link ? (
+                    <>
+                      {card.desc.split("AssessAlign")[0]}
+                      <Link href={card.link}>AssessAlign</Link>
+                      {card.desc.split("AssessAlign")[1]}
+                    </>
+                  ) : (
+                    card.desc
+                  )}
+                </p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* The Audit detail + contact form */}
+      <section
+        className="section--earth section"
+        id="audit"
+        aria-labelledby="svc-audit-heading"
+      >
+        <div className="container glass">
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="eyebrow">Stage 01 · the wedge</span>
+              <h2 id="svc-audit-heading" className="h-xl mt-3" style={{ color: "#fff" }}>
+                The Greenhouse Audit
+              </h2>
+              <p className="lead mt-3">
+                A 2–3 week, fixed-scope diagnostic of a school still in
+                formation. The easiest yes a founder ever gives — and the door to
+                everything that follows.
+              </p>
+              <ul className="tick-list mt-4">
+                <li>
+                  <CheckIcon />
+                  Vision-to-system alignment scan
+                </li>
+                <li>
+                  <CheckIcon />
+                  Learner-model &amp; multilingual access review
+                </li>
+                <li>
+                  <CheckIcon />
+                  Curriculum, assessment &amp; tech-stack diagnostic
+                </li>
+                <li>
+                  <CheckIcon />
+                  Findings report + a roadmap that prices Build &amp; Implement
+                </li>
+              </ul>
+            </div>
+            <div className="reveal">
+              <div
+                className="card"
+                style={{
+                  background: "rgba(255,255,255,0.06)",
+                  borderColor: "rgba(255,255,255,0.16)",
+                }}
               >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M17 8l4 4m0 0l-4 4m4-4H3"
-                />
-              </svg>
-            </a>
-            <Link href="/tools/assessalign" className="svc-hero-cta-secondary">
-              See Example Build Work
+                <h3 style={{ color: "#fff" }}>Start the audit</h3>
+                <p
+                  style={{
+                    color: "rgba(255,255,255,0.7)",
+                    marginBottom: "1.25rem",
+                  }}
+                >
+                  Tell us what you&apos;re building. We&apos;ll tell you what it
+                  takes to make it hold together.
+                </p>
+                <form className="stack-sm" onSubmit={handleSubmit}>
+                  <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "0.75rem" }}>
+                    <input
+                      className="footer-capture-input"
+                      style={{ width: "100%" }}
+                      type="text"
+                      placeholder="First name"
+                      aria-label="First name"
+                      value={formData.firstName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, firstName: e.target.value })
+                      }
+                      required
+                    />
+                    <input
+                      className="footer-capture-input"
+                      style={{ width: "100%" }}
+                      type="text"
+                      placeholder="Last name"
+                      aria-label="Last name"
+                      value={formData.lastName}
+                      onChange={(e) =>
+                        setFormData({ ...formData, lastName: e.target.value })
+                      }
+                      required
+                    />
+                  </div>
+                  <input
+                    className="footer-capture-input"
+                    style={{ width: "100%" }}
+                    type="email"
+                    placeholder="you@yourschool.org"
+                    aria-label="Email"
+                    value={formData.email}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
+                    required
+                  />
+                  <input
+                    className="footer-capture-input"
+                    style={{ width: "100%" }}
+                    type="text"
+                    placeholder="School / organization"
+                    aria-label="Organization"
+                    value={formData.organization}
+                    onChange={(e) =>
+                      setFormData({ ...formData, organization: e.target.value })
+                    }
+                  />
+                  <textarea
+                    className="footer-capture-input"
+                    style={{
+                      width: "100%",
+                      minHeight: "90px",
+                      resize: "vertical",
+                    }}
+                    placeholder="What are you building?"
+                    aria-label="What are you building"
+                    value={formData.message}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
+                    required
+                  />
+                  <label
+                    style={{
+                      display: "flex",
+                      alignItems: "flex-start",
+                      gap: "0.5rem",
+                      fontSize: "var(--text-xs)",
+                      color: "rgba(255,255,255,0.6)",
+                      cursor: "pointer",
+                      lineHeight: 1.5,
+                    }}
+                  >
+                    <input
+                      type="checkbox"
+                      checked={formData.subscribeNewsletter}
+                      onChange={(e) =>
+                        setFormData({
+                          ...formData,
+                          subscribeNewsletter: e.target.checked,
+                        })
+                      }
+                      style={{ marginTop: "0.2rem", accentColor: "var(--terracotta-light)" }}
+                    />
+                    Also sign me up for educator updates and free resources
+                  </label>
+                  <button
+                    className="btn btn-terra"
+                    type="submit"
+                    style={{ width: "100%" }}
+                    disabled={formStatus === "loading"}
+                  >
+                    {formStatus === "loading"
+                      ? "Sending..."
+                      : "Request scope & pricing"}
+                  </button>
+                  {formStatus === "success" && (
+                    <p className="note" style={{ color: "var(--terracotta-light)" }}>
+                      Message sent! We&apos;ll be in touch soon.
+                    </p>
+                  )}
+                  {formStatus === "error" && (
+                    <p className="note" style={{ color: "#f5a89a" }}>
+                      Something went wrong. Please try again.
+                    </p>
+                  )}
+                </form>
+                <p className="note mt-2" style={{ color: "rgba(255,255,255,0.5)" }}>
+                  Or email{" "}
+                  <a
+                    href="mailto:admin@therootedlearner.com"
+                    style={{ color: "var(--terracotta-light)" }}
+                  >
+                    admin@therootedlearner.com
+                  </a>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Offer ladder / pricing */}
+      <section className="section" id="ladder" aria-labelledby="svc-ladder-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">Pricing architecture</span>
+            <h2 id="svc-ladder-heading" className="h-xl mt-3">
+              The report ends where the money starts.
+            </h2>
+            <p className="lead mt-3" style={{ maxWidth: "54ch" }}>
+              Every engagement is scoped from the audit. The last page of your
+              findings names and prices the next two phases — so expansion is
+              handed to you, not sold to you.
+            </p>
+          </div>
+          <div className="card reveal mt-6" style={{ padding: 0, overflow: "hidden" }}>
+            <table className="price-table">
+              <thead>
+                <tr>
+                  <th>Tier</th>
+                  <th>What it is</th>
+                  <th>Investment</th>
+                </tr>
+              </thead>
+              <tbody>
+                {priceRows.map((row) => (
+                  <tr key={row.stage}>
+                    <td>
+                      <span className="price-stage">{row.stage}</span>
+                      {row.note && (
+                        <>
+                          <br />
+                          <span className="note">{row.note}</span>
+                        </>
+                      )}
+                    </td>
+                    <td>{row.desc}</td>
+                    <td className="price-amt">{row.amt}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+          <p className="note mt-3 reveal">
+            Outcome-priced, not hourly. 50% deposit before work begins. Pricing
+            is confirmed in your audit findings.
+          </p>
+        </div>
+      </section>
+
+      {/* Partnerships */}
+      <section className="section--beige section" id="partners" aria-labelledby="svc-partners-heading">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">Partnership plays</span>
+            <h2 id="svc-partners-heading" className="h-xl mt-3">
+              Borrowed reach, kept honest.
+            </h2>
+          </div>
+          <div className="grid grid-2 mt-6">
+            <article className="card reveal">
+              <span className="chip-tag">EdTech partners · channel</span>
+              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>
+                The curriculum-integrity layer
+              </h3>
+              <p className="mt-3 muted">
+                Personalization platforms have a product and no curriculum
+                credibility. We&apos;re the partner who tells a network whether a
+                tool actually fits their crop — and recommends against it when it
+                doesn&apos;t. That honesty is the brand. You get a credible,
+                warm channel into the networks we audit; the school gets a real
+                build-vs-buy decision instead of a sales pitch.
+              </p>
+              <div className="mt-4">
+                <Link href="/about#contact" className="link-arrow">
+                  Explore a partnership <ArrowIcon />
+                </Link>
+              </div>
+            </article>
+            <article className="card reveal">
+              <span className="chip-tag">Ecosystem · halo</span>
+              <h3 className="mt-2" style={{ fontSize: "var(--text-2xl)" }}>
+                Credibility, not a paycheck
+              </h3>
+              <p className="mt-3 muted">
+                We pursue recognized educator and innovation programs and align
+                our Build framework to challenge-based learning — not for
+                revenue, but for the rooms they put us in. Being credibly inside
+                the ecosystems that innovative schools chase puts us in front of
+                them as a peer, not a vendor. The audit is still the product.
+              </p>
+              <div className="mt-4">
+                <Link href="/about" className="link-arrow">
+                  How we earn the right to be believed <ArrowIcon />
+                </Link>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ */}
+      <section className="section" aria-labelledby="svc-faq-heading">
+        <div className="container container--narrow">
+          <div
+            className="section-head text-center reveal"
+            style={{ marginInline: "auto" }}
+          >
+            <span className="eyebrow eyebrow--center">Questions</span>
+            <h2 id="svc-faq-heading" className="h-lg mt-3">
+              Before you book
+            </h2>
+          </div>
+          <div className="mt-6 reveal">
+            {faqItems.map((item, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div
+                  key={item.question}
+                  className={`faq-item${isOpen ? " open" : ""}`}
+                >
+                  <button
+                    type="button"
+                    className="faq-q"
+                    aria-expanded={isOpen}
+                    onClick={() => toggleFaq(index)}
+                  >
+                    {item.question}
+                    <FaqIcon />
+                  </button>
+                  <div
+                    className="faq-a"
+                    style={{ maxHeight: isOpen ? "12rem" : 0 }}
+                  >
+                    <p>{item.answer}</p>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* Closing CTA */}
+      <section className="section--earth-deep section">
+        <div className="container glass text-center">
+          <h2
+            className="h-xl mx-auto reveal"
+            style={{ color: "#fff", maxWidth: "20ch" }}
+          >
+            Tell us what you&apos;re building. We&apos;ll read the climate first.
+          </h2>
+          <div className="btn-row reveal mt-4" style={{ justifyContent: "center" }}>
+            <Link href="/services#audit" className="btn btn-terra btn-lg">
+              Book the Greenhouse Audit
             </Link>
           </div>
         </div>
       </section>
-
-      {/* ─── Three-Phase Process ─── */}
-      <section className="svc-process section" aria-labelledby="svc-process-heading">
-        <div className="container">
-          <div className="svc-process-header">
-            <h2 id="svc-process-heading" className="svc-section-title">
-              How Every Engagement Works
-            </h2>
-            <p className="svc-process-subtitle">
-              No menus. No generic proposals. Every engagement follows the same
-              diagnostic framework.
-            </p>
-          </div>
-
-          <div className="svc-process-grid">
-            <div id="audit" className="svc-process-step">
-              <div className="svc-process-number-row">
-                <div className="svc-process-number">1</div>
-                <div className="svc-process-connector" aria-hidden="true" />
-              </div>
-              <h3 className="svc-process-step-title">System Audit</h3>
-              <p className="svc-process-step-desc">
-                I map where your curriculum, assessment, access, and technology
-                systems break. This is the entry point for every engagement.
-              </p>
-              <div className="svc-process-step-actions">
-                <Link href="/contact" className="svc-step-cta svc-step-cta--primary">
-                  Book the Audit
-                </Link>
-                <Link href="/contact" className="svc-step-cta svc-step-cta--outline">
-                  Request Scope &amp; Pricing
-                </Link>
-              </div>
-            </div>
-
-            <div className="svc-process-step">
-              <div className="svc-process-number-row">
-                <div className="svc-process-number">2</div>
-                <div className="svc-process-connector" aria-hidden="true" />
-              </div>
-              <h3 className="svc-process-step-title">Build</h3>
-              <p className="svc-process-step-desc">
-                Based on what the audit reveals, I design and develop the
-                solution. This might include curriculum and assessment
-                alignment, multilingual learner access systems, technology
-                integrations, or custom instructional tools.
-              </p>
-              <div className="svc-process-step-actions">
-                <Link href="/tools/assessalign" className="svc-step-cta svc-step-cta--outline">
-                  See What This Looks Like
-                </Link>
-                <a href="#audit" className="svc-step-cta svc-step-cta--text">
-                  Start with an Audit
-                </a>
-              </div>
-            </div>
-
-            <div className="svc-process-step">
-              <div className="svc-process-number-row">
-                <div className="svc-process-number">3</div>
-              </div>
-              <h3 className="svc-process-step-title">Implement</h3>
-              <p className="svc-process-step-desc">
-                I support the solution until it works in real classrooms.
-                Training, iteration, and ongoing refinement, because
-                building it isn&apos;t enough if it doesn&apos;t function for
-                the people using it.
-              </p>
-              <div className="svc-process-step-actions">
-                <Link href="/contact" className="svc-step-cta svc-step-cta--outline">
-                  Discuss Implementation
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── What the Audit May Reveal ─── */}
-      <section className="svc-cards section" aria-labelledby="svc-reveals-heading">
-        <div className="container">
-          <h2 id="svc-reveals-heading" className="svc-section-title" style={{ marginBottom: "0.75rem" }}>
-            Depending on What the Audit Reveals, I May Build:
-          </h2>
-          <div className="svc-cards-grid">
-            {[
-              {
-                title: "Curriculum &amp; Assessment Alignment",
-                desc: "Standards mapping, assessment redesign, and instructional coherence across grade bands.",
-                icon: "M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2",
-              },
-              {
-                title: "Multilingual Learner Access Systems",
-                desc: "WIDA-aligned overlays, scaffolding frameworks, and equitable access to core instruction.",
-                icon: "M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z",
-              },
-              {
-                title: "Technology Integrations",
-                desc: "Making existing tools work together instead of adding new ones. Reducing tech burden, not increasing it.",
-                icon: "M17.25 6.75L22.5 12l-5.25 5.25m-10.5 0L1.5 12l5.25-5.25m7.5-3l-4.5 16.5",
-              },
-              {
-                title: "Custom Instructional Tools",
-                desc: "Purpose-built applications that solve the specific problems your district faces. See AssessAlign as an example.",
-                icon: "M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z",
-              },
-            ].map((svc) => (
-              <div key={svc.title} className="svc-card">
-                <div className="svc-card-icon">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d={svc.icon}
-                    />
-                  </svg>
-                </div>
-                <h3
-                  className="svc-card-title"
-                  dangerouslySetInnerHTML={{ __html: svc.title }}
-                />
-                <p className="svc-card-desc">{svc.desc}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Contact Form ─── */}
-      <section
-        id="contact-form"
-        className="svc-contact section"
-        aria-labelledby="svc-contact-heading"
-      >
-        <div className="container">
-          <div className="svc-contact-card">
-            <div className="svc-contact-info">
-              <h2 id="svc-contact-heading" className="svc-contact-title">
-                Start the Conversation
-              </h2>
-              <p className="svc-contact-desc">
-                Tell me what&apos;s breaking. I&apos;ll tell you what it takes
-                to fix it.
-              </p>
-              <div className="svc-contact-details">
-                <div className="svc-contact-detail">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M21.75 6.75v10.5a2.25 2.25 0 01-2.25 2.25h-15a2.25 2.25 0 01-2.25-2.25V6.75m19.5 0A2.25 2.25 0 0019.5 4.5h-15a2.25 2.25 0 00-2.25 2.25m19.5 0v.243a2.25 2.25 0 01-1.07 1.916l-7.5 4.615a2.25 2.25 0 01-2.36 0L3.32 8.91a2.25 2.25 0 01-1.07-1.916V6.75"
-                    />
-                  </svg>
-                  <span>admin@therootedlearner.com</span>
-                </div>
-                <div className="svc-contact-detail">
-                  <svg
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={1.5}
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S14.485 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.515 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.42-3.113 1.157-4.418"
-                    />
-                  </svg>
-                  <span>Available Nationwide (Remote &amp; On-site)</span>
-                </div>
-              </div>
-            </div>
-
-            <form className="svc-contact-form" onSubmit={handleSubmit}>
-              <div className="svc-form-row">
-                <div className="svc-form-field">
-                  <label htmlFor="svc-first" className="svc-form-label">
-                    First Name
-                  </label>
-                  <input
-                    id="svc-first"
-                    type="text"
-                    className="svc-form-input"
-                    placeholder="Jane"
-                    value={formData.firstName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, firstName: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-                <div className="svc-form-field">
-                  <label htmlFor="svc-last" className="svc-form-label">
-                    Last Name
-                  </label>
-                  <input
-                    id="svc-last"
-                    type="text"
-                    className="svc-form-input"
-                    placeholder="Doe"
-                    value={formData.lastName}
-                    onChange={(e) =>
-                      setFormData({ ...formData, lastName: e.target.value })
-                    }
-                    required
-                  />
-                </div>
-              </div>
-              <div className="svc-form-field">
-                <label htmlFor="svc-email" className="svc-form-label">
-                  Email
-                </label>
-                <input
-                  id="svc-email"
-                  type="email"
-                  className="svc-form-input"
-                  placeholder="you@school.edu"
-                  value={formData.email}
-                  onChange={(e) =>
-                    setFormData({ ...formData, email: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <div className="svc-form-field">
-                <label htmlFor="svc-org" className="svc-form-label">
-                  School/Organization
-                </label>
-                <input
-                  id="svc-org"
-                  type="text"
-                  className="svc-form-input"
-                  placeholder="Lincoln Public Schools"
-                  value={formData.organization}
-                  onChange={(e) =>
-                    setFormData({ ...formData, organization: e.target.value })
-                  }
-                />
-              </div>
-              <div className="svc-form-field">
-                <label htmlFor="svc-msg" className="svc-form-label">
-                  What&apos;s breaking in your system?
-                </label>
-                <textarea
-                  id="svc-msg"
-                  className="svc-form-textarea"
-                  placeholder="Tell me what's not working..."
-                  rows={4}
-                  value={formData.message}
-                  onChange={(e) =>
-                    setFormData({ ...formData, message: e.target.value })
-                  }
-                  required
-                />
-              </div>
-              <label
-                style={{
-                  display: "flex",
-                  alignItems: "flex-start",
-                  gap: "0.5rem",
-                  fontSize: "0.875rem",
-                  color: "var(--text-muted)",
-                  cursor: "pointer",
-                  lineHeight: 1.5,
-                }}
-              >
-                <input
-                  type="checkbox"
-                  checked={formData.subscribeNewsletter}
-                  onChange={(e) => setFormData({ ...formData, subscribeNewsletter: e.target.checked })}
-                  style={{ marginTop: "0.2rem", accentColor: "var(--earth)" }}
-                />
-                Also sign me up for educator updates and free resources
-              </label>
-              <button
-                type="submit"
-                className="svc-form-submit"
-                disabled={formStatus === "loading"}
-              >
-                {formStatus === "loading" ? "Sending..." : "Start the Conversation"}
-              </button>
-              {formStatus === "success" && (
-                <p className="svc-form-success">
-                  Message sent! I&apos;ll be in touch soon.
-                </p>
-              )}
-              {formStatus === "error" && (
-                <p className="svc-form-error">
-                  Something went wrong. Please try again.
-                </p>
-              )}
-              <p className="svc-form-calendly">
-                Or email me directly at{" "}
-                <a href="mailto:admin@therootedlearner.com">
-                  admin@therootedlearner.com
-                </a>
-              </p>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      {/* ─── FAQ ─── */}
-      <section className="svc-faq section" aria-labelledby="svc-faq-heading">
-        <div className="container">
-          <div className="svc-faq-header">
-            <h2 id="svc-faq-heading" className="svc-section-title">
-              Frequently Asked Questions
-            </h2>
-          </div>
-          <div className="svc-faq-list">
-            {faqItems.map((item) => (
-              <div key={item.question} className="svc-faq-item">
-                <h3 className="svc-faq-question">{item.question}</h3>
-                <p className="svc-faq-answer">{item.answer}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ─── Bottom CTA ─── */}
-      <section className="svc-bottom-cta section">
-        <div className="container" style={{ textAlign: "center" }}>
-          <Link href="/contact" className="svc-hero-cta-primary">
-            Start the Audit
-            <svg
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-              strokeWidth={2}
-              aria-hidden="true"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M17 8l4 4m0 0l-4 4m4-4H3"
-              />
-            </svg>
-          </Link>
-        </div>
-      </section>
-    </div>
+    </>
   );
 }

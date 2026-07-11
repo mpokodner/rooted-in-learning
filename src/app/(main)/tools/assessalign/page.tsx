@@ -302,7 +302,7 @@ export default function AssessAlignPage() {
             >
               Chris Carlozzi
             </a>
-            , combining 12+ years of classroom expertise with full-stack engineering.
+            , combining 30+ years of classroom expertise with full-stack engineering.
           </p>
         </div>
       </section>

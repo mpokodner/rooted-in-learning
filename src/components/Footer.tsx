@@ -81,7 +81,7 @@ export default function Footer() {
             </p>
             <div className="footer-stats">
               <div>
-                <div className="footer-stat-num">12+</div>
+                <div className="footer-stat-num">30+</div>
                 <div className="footer-stat-label">Years in classrooms</div>
               </div>
               <div>

@@ -74,14 +74,14 @@ const thesisCards = [
 ];
 
 const credentials = [
-  "12+ years in K–8 classrooms (Michelle)",
+  "30+ years in K–8 classrooms (Michelle P.)",
   "Reading intervention, curriculum design & WIDA / multilingual specialist",
-  "AI Solutions Specialist & SIS Administrator (Chris)",
+  "AI Solutions Specialist & SIS Administrator (Chris C.)",
   "Full-stack developers building district software and classroom tools",
 ];
 
 const stats = [
-  { num: "12+", label: "Years in classrooms" },
+  { num: "30+", label: "Years in classrooms" },
   { num: "100+", label: "Resources built" },
   { num: "K–8", label: "Lived experience" },
   { num: "2–3 wk", label: "Audit to clarity" },
@@ -154,8 +154,8 @@ export default function AboutPage() {
               </span>
             </h1>
             <p className="lead mt-3">
-              The Rooted Learner is co-founded by Michelle and Chris Pokodner —
-              educators who bridge 12+ years of classroom expertise with AI
+              The Rooted Learner is co-founded by Michelle P. and Chris C. —
+              educators who bridge 30+ years of classroom expertise with AI
               solutions, workflow automation, and district software development.
               We build the tools we wished existed.
             </p>
@@ -180,14 +180,14 @@ export default function AboutPage() {
               {headshotExists ? (
                 <Image
                   src="/headshot.jpg"
-                  alt="Michelle and Chris Pokodner, co-founders of The Rooted Learner"
+                  alt="Michelle P. and Chris C., co-founders of The Rooted Learner"
                   width={440}
                   height={550}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   priority
                 />
               ) : (
-                <span className="ph-label">portrait · Michelle &amp; Chris Pokodner</span>
+                <span className="ph-label">portrait · Michelle P. &amp; Chris C.</span>
               )}
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function AboutPage() {
               build them from the inside out.
             </p>
             <p className="muted">
-              <strong>Michelle</strong> brings 12+ years in K–8 classrooms — reading
+              <strong>Michelle</strong> brings 30+ years in K–8 classrooms — reading
               intervention, curriculum design, and multilingual-learner
               specialization. She&apos;s the practitioner who knows which questions
               a district evaluator is really asking, because she&apos;s been on both

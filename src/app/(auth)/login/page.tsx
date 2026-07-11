@@ -29,7 +29,7 @@ export default async function LoginPage({
 
           <h2 className="auth-brand-title">The Rooted Learner</h2>
           <p className="auth-brand-desc">
-            Practical tools and strategies built by a 12+ year educator for classrooms that thrive.
+            Practical tools and strategies built by a 30+ year educator for classrooms that thrive.
           </p>
 
           <div className="auth-features">

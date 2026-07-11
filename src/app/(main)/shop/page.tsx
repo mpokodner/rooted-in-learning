@@ -172,7 +172,7 @@ export default function ShopPage() {
               <div className="stat-label">Resources created</div>
             </div>
             <div className="reveal">
-              <div className="stat-num">12+</div>
+              <div className="stat-num">30+</div>
               <div className="stat-label">Years in classrooms</div>
             </div>
             <div className="reveal">

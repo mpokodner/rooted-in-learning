@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "The Rooted Learner: Links",
     description:
-      "Educator. Builder. EdTech Founder. Explore teacher resources, blog posts, and tools built by a 12+ year classroom veteran.",
+      "Educator. Builder. EdTech Founder. Explore teacher resources, blog posts, and tools built by a 30+ year classroom veteran.",
     type: "website",
     url: "https://www.therootedlearner.com/links",
   },

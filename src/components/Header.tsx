@@ -2,17 +2,9 @@
 
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname, useRouter } from "next/navigation";
 import SocialLinks from "./SocialLinks";
-
-const SproutIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M7 20h10" />
-    <path d="M12 20V10" />
-    <path d="M12 14c0-3-2.5-5-6-5 0 3 2.5 5 6 5Z" />
-    <path d="M12 11c0-3 2.2-5.5 6-5.5 0 3.3-2.2 5.5-6 5.5Z" />
-  </svg>
-);
 
 const ChevronIcon = () => (
   <svg className="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -135,7 +127,7 @@ export default function Header() {
         <div className="container header-inner">
           <Link href="/" className="brand" aria-label="The Rooted Learner home" onClick={handleBrandClick}>
             <span className="brand-mark">
-              <SproutIcon />
+              <Image src="/logo.png" alt="" width={32} height={32} aria-hidden="true" />
             </span>
             <span className="brand-text">
               <span className="brand-name">The Rooted Learner</span>
@@ -205,7 +197,7 @@ export default function Header() {
         <div className="mobile-menu-head">
           <Link href="/" className="brand" onClick={handleBrandClick}>
             <span className="brand-mark">
-              <SproutIcon />
+              <Image src="/logo.png" alt="" width={32} height={32} aria-hidden="true" />
             </span>
             <span className="brand-text">
               <span className="brand-name">The Rooted Learner</span>

@@ -15,61 +15,33 @@ function getUtmSource(): string {
 }
 
 export default function BentoHero() {
-  const [signupEmail, setSignupEmail] = useState("");
-  const [signupStatus, setSignupStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-  const [downloadEmail, setDownloadEmail] = useState("");
-  const [downloadStatus, setDownloadStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
 
   const handleSignup = async () => {
-    if (!signupEmail || !signupEmail.includes("@")) return;
-    setSignupStatus("loading");
+    if (!email || !email.includes("@")) return;
+    setStatus("loading");
     try {
       const utmSource = getUtmSource();
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
-          email: signupEmail,
+          email,
           source: "homepage-bento",
           tag: "newsletter",
-          ...(utmSource && { referrer: utmSource }),
-        }),
-      });
-      if (res.ok) {
-        setSignupStatus("success");
-        setSignupEmail("");
-      } else {
-        setSignupStatus("error");
-      }
-    } catch {
-      setSignupStatus("error");
-    }
-  };
-
-  const handleDownload = async () => {
-    if (!downloadEmail || !downloadEmail.includes("@")) return;
-    setDownloadStatus("loading");
-    try {
-      const utmSource = getUtmSource();
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email: downloadEmail,
-          source: "homepage-bento-download",
           sendFreebie: true,
-          tag: "claude-educators-pdf",
           ...(utmSource && { referrer: utmSource }),
         }),
       });
       if (res.ok) {
-        setDownloadStatus("success");
-        setDownloadEmail("");
+        setStatus("success");
+        setEmail("");
       } else {
-        setDownloadStatus("error");
+        setStatus("error");
       }
     } catch {
-      setDownloadStatus("error");
+      setStatus("error");
     }
   };
 
@@ -91,79 +63,37 @@ export default function BentoHero() {
         </div>
       </div>
 
-      {/* Signup tile — top right */}
-      <div className="bento-tile bento-tile--signup">
-        <span className="bento-eyebrow">Newsletter</span>
+      {/* Combined signup + download tile — right column */}
+      <div className="bento-tile bento-tile--combined">
+        <span className="bento-eyebrow">Newsletter + Free Guide</span>
         <h2>Grow your inbox</h2>
-        <p>Classroom-tested ideas, tools, and reading — twice a month, never noise.</p>
-        {signupStatus === "success" ? (
-          <p className="bento-success">You&apos;re in! Check your inbox.</p>
+        <p>Classroom-tested ideas, tools, and reading — twice a month, never noise. Sign up and get our free Claude for Educators guide.</p>
+        {status === "success" ? (
+          <p className="bento-success">You&apos;re in! Check your inbox for the guide.</p>
         ) : (
           <div className="bento-capture">
             <input
               type="email"
               placeholder="you@school.edu"
-              value={signupEmail}
-              onChange={(e) => setSignupEmail(e.target.value)}
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSignup()}
-              aria-label="Email for newsletter"
+              aria-label="Email for newsletter and free guide"
             />
             <button
               type="button"
               className="btn btn-terra"
               onClick={handleSignup}
-              disabled={signupStatus === "loading"}
+              disabled={status === "loading"}
             >
-              {signupStatus === "loading" ? "..." : "Subscribe"}
+              {status === "loading" ? "..." : "Subscribe & get the guide"}
             </button>
           </div>
         )}
-        {signupStatus === "error" && (
+        {status === "error" && (
           <p className="bento-error">Something went wrong. Try again.</p>
         )}
-        <p className="bento-fine">No spam. Unsubscribe anytime.</p>
-      </div>
-
-      {/* Download tile — middle right */}
-      <div className="bento-tile bento-tile--download">
-        <span className="bento-eyebrow bento-eyebrow--terra">Free Download</span>
-        <h2>Claude for Educators</h2>
-        <p>A practical starter guide to using AI in your classroom — prompts, policies, and lesson ideas you can use Monday.</p>
-        {downloadStatus === "success" ? (
-          <p className="bento-success bento-success--light">Check your inbox for the download link!</p>
-        ) : (
-          <div className="bento-capture bento-capture--dark">
-            <input
-              type="email"
-              placeholder="you@school.edu"
-              value={downloadEmail}
-              onChange={(e) => setDownloadEmail(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleDownload()}
-              aria-label="Email for PDF download"
-            />
-            <button
-              type="button"
-              className="btn bento-btn-download"
-              onClick={handleDownload}
-              disabled={downloadStatus === "loading"}
-            >
-              {downloadStatus === "loading" ? "..." : (
-                <>
-                  <svg className="bento-download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
-                    <polyline points="7 10 12 15 17 10" />
-                    <line x1="12" y1="15" x2="12" y2="3" />
-                  </svg>
-                  Download the guide
-                </>
-              )}
-            </button>
-          </div>
-        )}
-        {downloadStatus === "error" && (
-          <p className="bento-error bento-error--light">Something went wrong. Try again.</p>
-        )}
-        <p className="bento-fine bento-fine--light">PDF &middot; 18 pages</p>
+        <p className="bento-fine">No spam. Unsubscribe anytime. PDF &middot; 18 pages.</p>
       </div>
 
       {/* Shop tile — bottom left */}

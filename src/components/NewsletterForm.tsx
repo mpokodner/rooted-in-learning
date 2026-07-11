@@ -9,6 +9,8 @@ interface NewsletterFormProps {
   buttonClassName?: string;
   formClassName?: string;
   errorClassName?: string;
+  sendFreebie?: boolean;
+  tag?: string;
 }
 
 export default function NewsletterForm({
@@ -18,7 +20,10 @@ export default function NewsletterForm({
   buttonClassName = "btn btn-lg btn-secondary newsletter-submit-btn",
   formClassName = "newsletter-form",
   errorClassName = "newsletter-error",
+  sendFreebie: sendFreebieOverride,
+  tag,
 }: NewsletterFormProps) {
+  const sendFreebie = sendFreebieOverride ?? true;
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
@@ -36,7 +41,8 @@ export default function NewsletterForm({
         body: JSON.stringify({
           email,
           source,
-          sendFreebie: true,
+          sendFreebie,
+          ...(tag && { tag }),
         }),
       });
 

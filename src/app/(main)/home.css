@@ -8,7 +8,7 @@
 .bento-hero {
   display: grid;
   grid-template-columns: 1.65fr 1fr;
-  grid-template-rows: minmax(0, 1fr) minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0, 1fr) auto;
   gap: 14px;
   min-height: calc(100dvh - 76px);
   max-height: 860px;
@@ -23,10 +23,10 @@
   position: relative;
 }
 
-/* ─── Hero tile (rows 1-2, col 1) ─── */
+/* ─── Hero tile (row 1, col 1) ─── */
 
 .bento-tile--hero {
-  grid-row: 1 / 3;
+  grid-row: 1;
   grid-column: 1;
   background: var(--earth-dark);
 }
@@ -74,14 +74,14 @@
   max-width: 32rem;
 }
 
-/* ─── Signup tile (row 1, col 2) ─── */
+/* ─── Combined signup tile (row 1, col 2) ─── */
 
-.bento-tile--signup {
+.bento-tile--combined {
   grid-row: 1;
   grid-column: 2;
   background: var(--white);
   border: 1px solid var(--border-beige);
-  padding: clamp(1.25rem, 2.5vw, 2rem);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -96,12 +96,7 @@
   margin-bottom: 0.5rem;
 }
 
-.bento-eyebrow--terra {
-  color: var(--terracotta);
-}
-
-.bento-tile--signup h2,
-.bento-tile--download h2 {
+.bento-tile--combined h2 {
   font-family: var(--font-display);
   font-size: var(--text-2xl);
   font-weight: 600;
@@ -110,8 +105,7 @@
   margin-bottom: 0.5rem;
 }
 
-.bento-tile--signup p,
-.bento-tile--download p {
+.bento-tile--combined p {
   font-size: var(--text-sm);
   color: var(--text-muted);
   line-height: 1.5;
@@ -141,28 +135,10 @@
   border-color: transparent;
 }
 
-.bento-capture--dark input {
-  background: rgba(255, 255, 255, 0.12);
-  border-color: rgba(255, 255, 255, 0.2);
-  color: var(--white);
-}
-
-.bento-capture--dark input::placeholder {
-  color: rgba(255, 255, 255, 0.5);
-}
-
-.bento-capture--dark input:focus {
-  outline-color: var(--terracotta-light);
-}
-
 .bento-fine {
   font-size: 0.6875rem;
   color: var(--text-light);
   margin-top: 0.5rem;
-}
-
-.bento-fine--light {
-  color: rgba(255, 255, 255, 0.5);
 }
 
 .bento-success {
@@ -172,66 +148,13 @@
   padding: 0.75rem 0;
 }
 
-.bento-success--light {
-  color: var(--earth-mist);
-}
-
 .bento-error {
   font-size: 0.6875rem;
   color: var(--terracotta);
   margin-top: 0.25rem;
 }
 
-.bento-error--light {
-  color: var(--terracotta-light);
-}
-
-/* ─── Download tile (row 2, col 2) ─── */
-
-.bento-tile--download {
-  grid-row: 2;
-  grid-column: 2;
-  background: var(--earth-dark);
-  padding: clamp(1.25rem, 2.5vw, 2rem);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-}
-
-.bento-tile--download h2 {
-  color: var(--text-on-dark);
-}
-
-.bento-tile--download p {
-  color: var(--earth-mist);
-}
-
-.bento-btn-download {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  background: var(--neutral-bg);
-  color: var(--earth-dark);
-  font-weight: 600;
-  border: none;
-  padding: 0.625rem 1.25rem;
-  border-radius: var(--radius-md);
-  cursor: pointer;
-  font-size: var(--text-sm);
-  white-space: nowrap;
-}
-
-.bento-btn-download:hover {
-  background: var(--white);
-}
-
-.bento-download-icon {
-  width: 1rem;
-  height: 1rem;
-  flex-shrink: 0;
-}
-
-/* ─── Shop & Learn tiles (row 3) ─── */
+/* ─── Shop & Learn tiles (row 2) ─── */
 
 .bento-tile--shop,
 .bento-tile--learn {
@@ -244,14 +167,14 @@
 }
 
 .bento-tile--shop {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 1;
   background: var(--beige-bg);
   border: 1px solid var(--border-beige);
 }
 
 .bento-tile--learn {
-  grid-row: 3;
+  grid-row: 2;
   grid-column: 2;
   background: var(--earth);
 }
@@ -489,8 +412,7 @@
     min-height: 50vh;
   }
 
-  .bento-tile--signup,
-  .bento-tile--download,
+  .bento-tile--combined,
   .bento-tile--shop,
   .bento-tile--learn {
     grid-row: auto;

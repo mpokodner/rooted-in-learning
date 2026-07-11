@@ -87,7 +87,7 @@ export default function BentoHero() {
         <div className="bento-hero-overlay">
           <span className="bento-pill">Independent Education Press</span>
           <h1>The Rooted Learner</h1>
-          <p>Practical AI training &amp; classroom tools for teachers of multilingual learners</p>
+          <p>Curriculum, tools, and honest insight for educators who grow their own way.</p>
         </div>
       </div>
 
@@ -95,14 +95,14 @@ export default function BentoHero() {
       <div className="bento-tile bento-tile--signup">
         <span className="bento-eyebrow">Newsletter</span>
         <h2>Grow your inbox</h2>
-        <p>Teaching tips, AI strategies, and new resources — delivered when we have something worth sharing.</p>
+        <p>Classroom-tested ideas, tools, and reading — twice a month, never noise.</p>
         {signupStatus === "success" ? (
           <p className="bento-success">You&apos;re in! Check your inbox.</p>
         ) : (
           <div className="bento-capture">
             <input
               type="email"
-              placeholder="your@email.com"
+              placeholder="you@school.edu"
               value={signupEmail}
               onChange={(e) => setSignupEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleSignup()}
@@ -121,21 +121,21 @@ export default function BentoHero() {
         {signupStatus === "error" && (
           <p className="bento-error">Something went wrong. Try again.</p>
         )}
-        <p className="bento-fine">Free, no spam, unsubscribe anytime.</p>
+        <p className="bento-fine">No spam. Unsubscribe anytime.</p>
       </div>
 
       {/* Download tile — middle right */}
       <div className="bento-tile bento-tile--download">
         <span className="bento-eyebrow bento-eyebrow--terra">Free Download</span>
         <h2>Claude for Educators</h2>
-        <p>Prompt templates, classroom workflows, and real examples — 18 pages of practical AI guidance.</p>
+        <p>A practical starter guide to using AI in your classroom — prompts, policies, and lesson ideas you can use Monday.</p>
         {downloadStatus === "success" ? (
           <p className="bento-success bento-success--light">Check your inbox for the download link!</p>
         ) : (
           <div className="bento-capture bento-capture--dark">
             <input
               type="email"
-              placeholder="your@email.com"
+              placeholder="you@school.edu"
               value={downloadEmail}
               onChange={(e) => setDownloadEmail(e.target.value)}
               onKeyDown={(e) => e.key === "Enter" && handleDownload()}
@@ -147,14 +147,23 @@ export default function BentoHero() {
               onClick={handleDownload}
               disabled={downloadStatus === "loading"}
             >
-              {downloadStatus === "loading" ? "..." : "Get the PDF"}
+              {downloadStatus === "loading" ? "..." : (
+                <>
+                  <svg className="bento-download-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                    <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+                    <polyline points="7 10 12 15 17 10" />
+                    <line x1="12" y1="15" x2="12" y2="3" />
+                  </svg>
+                  Download the guide
+                </>
+              )}
             </button>
           </div>
         )}
         {downloadStatus === "error" && (
           <p className="bento-error bento-error--light">Something went wrong. Try again.</p>
         )}
-        <p className="bento-fine bento-fine--light">PDF &middot; 18 pages &middot; free with email</p>
+        <p className="bento-fine bento-fine--light">PDF &middot; 18 pages</p>
       </div>
 
       {/* Shop tile — bottom left */}
@@ -166,9 +175,14 @@ export default function BentoHero() {
             <path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
           <h2>Shop</h2>
-          <p>Classroom-ready resources</p>
+          <p>Books, guides &amp; printables</p>
         </div>
+        <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7" />
+          <polyline points="7 7 17 7 17 17" />
+        </svg>
         <div className="bento-hover-overlay">
+          <span className="bento-hover-eyebrow">In the Shop</span>
           <ul>
             <li>MCAP-aligned units</li>
             <li>Differentiated resources</li>
@@ -184,9 +198,14 @@ export default function BentoHero() {
             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
           </svg>
           <h2>Learn</h2>
-          <p>Training &amp; free resources</p>
+          <p>Courses, the Learn Hub &amp; teacher toolkit</p>
         </div>
+        <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7" />
+          <polyline points="7 7 17 7 17 17" />
+        </svg>
         <div className="bento-hover-overlay">
+          <span className="bento-hover-eyebrow">What You&apos;ll Learn</span>
           <ul>
             <li>AI Educator Course</li>
             <li>Free teaching tips</li>

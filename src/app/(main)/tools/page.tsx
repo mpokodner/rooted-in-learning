@@ -117,11 +117,11 @@ export default function ToolsPage() {
               not demos.
             </p>
             <div className="btn-row mt-4">
-              <Link href="/tools/assessalign" className="btn btn-terra btn-lg">
-                Explore AssessAlign
-              </Link>
-              <Link href="/tools/hallpass" className="btn btn-outline btn-lg">
+              <Link href="/tools/hallpass" className="btn btn-terra btn-lg">
                 See Hall Pass
+              </Link>
+              <Link href="/tools/assessalign" className="btn btn-outline btn-lg">
+                Explore AssessAlign
               </Link>
             </div>
           </div>
@@ -129,10 +129,54 @@ export default function ToolsPage() {
       </section>
 
       <section
-        id="assessalign"
         className="section--beige section"
-        aria-labelledby="assessalign-heading"
+        aria-labelledby="hallpass-heading"
       >
+        <div className="container">
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="chip-tag">Featured</span>
+              <h2 id="hallpass-heading" className="h-xl mt-2">
+                Hall Pass
+              </h2>
+              <p className="lead mt-3" style={{ maxWidth: "44ch" }}>
+                A district-owned student movement management platform built
+                around security, SIS alignment, campus-level boundaries, and
+                local customization.
+              </p>
+              <ul className="tick-list mt-4">
+                <li><CheckIcon />Teacher workflows with one-tap pass creation</li>
+                <li><CheckIcon />Kiosk mode with role-based access and instant revocation</li>
+                <li><CheckIcon />Campus admin dashboards with live movement data</li>
+                <li><CheckIcon />District-wide oversight with tenant-scoped boundaries</li>
+              </ul>
+              <div className="mt-4">
+                <Link href="/tools/hallpass" className="btn btn-primary">
+                  Learn about Hall Pass
+                </Link>
+              </div>
+            </div>
+            <div className="reveal">
+              <div
+                className="ph ph--earth"
+                style={{
+                  minHeight: "clamp(300px, 38vw, 400px)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  color: "var(--earth-mist)",
+                  fontSize: "var(--text-sm)",
+                }}
+              >
+                <p>Hall Pass screenshot coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="assessalign" className="section" aria-labelledby="assessalign-heading">
         <div className="container">
           <div className="feature-band">
             <div className="reveal">
@@ -175,51 +219,6 @@ export default function ToolsPage() {
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <section className="section" aria-labelledby="hallpass-heading">
-        <div className="container">
-          <div className="feature-band">
-            <div className="reveal">
-              <span className="chip-tag">Student Movement</span>
-              <h2 id="hallpass-heading" className="h-xl mt-2">
-                Hall Pass
-              </h2>
-              <p className="lead mt-3" style={{ maxWidth: "44ch" }}>
-                A district-owned student movement management platform built
-                around security, SIS alignment, campus-level boundaries, and
-                local customization.
-              </p>
-              <ul className="tick-list mt-4">
-                <li><CheckIcon />Teacher workflows with one-tap pass creation</li>
-                <li><CheckIcon />Kiosk mode with role-based access and instant revocation</li>
-                <li><CheckIcon />Campus admin dashboards with live movement data</li>
-                <li><CheckIcon />District-wide oversight with tenant-scoped boundaries</li>
-              </ul>
-              <div className="mt-4">
-                <Link href="/tools/hallpass" className="btn btn-primary">
-                  Learn about Hall Pass
-                </Link>
-              </div>
-            </div>
-            <div className="reveal">
-              <div
-                className="ph ph--earth"
-                style={{
-                  minHeight: "clamp(300px, 38vw, 400px)",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  textAlign: "center",
-                  color: "var(--earth-mist)",
-                  fontSize: "var(--text-sm)",
-                }}
-              >
-                <p>Hall Pass screenshot coming soon</p>
               </div>
             </div>
           </div>

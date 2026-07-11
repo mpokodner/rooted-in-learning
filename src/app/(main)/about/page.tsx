@@ -1,16 +1,11 @@
 import type { Metadata } from "next";
-import Image, { type StaticImageData } from "next/image";
+import Image from "next/image";
 import Link from "next/link";
 import fs from "fs";
 import path from "path";
-import "./projects/portfolio.css";
+
 import AboutContactForm from "./AboutContactForm";
 import SocialLinks from "@/components/SocialLinks";
-
-import reactDictionaryImg from "./projects/images/react-dictionary-project.png";
-import aiPoetryImg from "./projects/images/PoemGenerator_Thumbnail.png";
-import dataVizImg from "./projects/images/pythonadvanced.png";
-import weatherAppImg from "./projects/images/react-weather-app.png";
 
 export const metadata: Metadata = {
   title: "About",
@@ -92,64 +87,6 @@ const stats = [
   { num: "2–3 wk", label: "Audit to clarity" },
 ];
 
-interface DevProject {
-  category: string;
-  categoryColor: "dev" | "ai" | "data";
-  title: string;
-  description: string;
-  skills: string[];
-  status: "Published" | "In Progress";
-  link: string;
-  image: StaticImageData;
-}
-
-const devProjects: DevProject[] = [
-  {
-    category: "REACT DEVELOPMENT",
-    categoryColor: "dev",
-    title: "Interactive React Dictionary",
-    description:
-      "Vocabulary learning tool with categorized word collections (nouns, verbs, adjectives), supplemented with images to support acquisition.",
-    skills: ["React.js", "Hooks", "Dynamic Rendering", "State Management"],
-    status: "Published",
-    link: "https://www.shecodes.io/projects/2651626?_gl=1*15h5bjp*_gcl_au*MTg4OTQwNTg2LjE3NjUzODk1ODE.",
-    image: reactDictionaryImg,
-  },
-  {
-    category: "AI PROMPT ENGINEERING",
-    categoryColor: "ai",
-    title: "AI Poetry Generator",
-    description:
-      "Creative content generation app leveraging AI API integration with responsive design and modern UI/UX principles.",
-    skills: ["AI Integration", "Prompt Engineering", "API Integration", "JavaScript DOM"],
-    status: "Published",
-    link: "https://www.shecodes.io/projects/2603943?_gl=1*1v0bu1k*_gcl_au*MTg4OTQwNTg2LjE3NjUzODk1ODE.",
-    image: aiPoetryImg,
-  },
-  {
-    category: "PYTHON DATA SCIENCE",
-    categoryColor: "data",
-    title: "Internet Population Data Visualization",
-    description:
-      "Global internet population analysis by continent using OOP, data manipulation libraries, and interactive charts.",
-    skills: ["Python OOP", "Data Visualization", "Data Manipulation", "File Processing"],
-    status: "Published",
-    link: "https://www.shecodes.io/cohorts/2618/projects/2634791",
-    image: dataVizImg,
-  },
-  {
-    category: "REACT DEVELOPMENT",
-    categoryColor: "dev",
-    title: "Weather Application",
-    description:
-      "Real-time weather data from OpenWeather API with city search, 5-day forecast, and temperature unit toggling.",
-    skills: ["React.js", "ES6+", "Component Architecture", "Responsive Design"],
-    status: "Published",
-    link: "https://www.shecodes.io/cohorts/2661/projects/2646774?_gl=1*ukbm8c*_gcl_au*NDAxODI1MDY4LjE3NDczOTExNjAuMTU5NTA2MjEyMC4xNzQ4Njk2MzY0LjE3NDg2OTY5MDI.",
-    image: weatherAppImg,
-  },
-];
-
 const headshotExists = fs.existsSync(
   path.join(process.cwd(), "public", "headshot.jpg")
 );
@@ -194,21 +131,6 @@ const CheckIcon = () => (
     aria-hidden="true"
   >
     <path d="M20 6 9 17l-5-5" />
-  </svg>
-);
-
-const ArrowIcon = () => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    aria-hidden="true"
-  >
-    <path d="M5 12h14" />
-    <path d="m13 6 6 6-6 6" />
   </svg>
 );
 
@@ -396,106 +318,6 @@ export default function AboutPage() {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Portfolio Projects */}
-      <section
-        id="projects"
-        className="pf-dev section section--beige"
-        aria-labelledby="dev-heading"
-      >
-        <div className="portfolio-container">
-          <div className="pf-section-header reveal">
-            <p className="pf-section-label">Portfolio</p>
-            <h2 id="dev-heading" className="pf-section-title">
-              Portfolio Projects
-            </h2>
-            <p className="pf-section-desc">
-              Technical projects demonstrating coding fundamentals, AI integration, and
-              full-stack development skills.
-            </p>
-          </div>
-
-          <div className="pf-dev-grid">
-            {devProjects.map((project) => (
-              <article key={project.title} className="pf-dev-card reveal">
-                <div className="pf-dev-image-wrap">
-                  <Image
-                    src={project.image}
-                    alt={project.title}
-                    className="pf-dev-image"
-                    placeholder="blur"
-                    sizes="(max-width: 700px) 100vw, 50vw"
-                  />
-                  <a
-                    href={project.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="pf-dev-overlay"
-                  >
-                    <span className="pf-dev-overlay-btn">
-                      View Project
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                        />
-                      </svg>
-                    </span>
-                  </a>
-                </div>
-
-                <div className="pf-dev-content">
-                  <span
-                    className={`pf-dev-category pf-dev-category--${project.categoryColor}`}
-                  >
-                    {project.category}
-                  </span>
-                  <h3 className="pf-dev-title">{project.title}</h3>
-                  <p className="pf-dev-desc">{project.description}</p>
-                  <div className="pf-dev-tags">
-                    {project.skills.map((skill) => (
-                      <span key={skill} className="pf-dev-tag">
-                        {skill}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="pf-dev-footer">
-                    <span className="pf-dev-status">{project.status}</span>
-                    <a
-                      href={project.link}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="pf-dev-link"
-                    >
-                      View Project
-                      <svg
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                        strokeWidth={2}
-                        aria-hidden="true"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M17 8l4 4m0 0l-4 4m4-4H3"
-                        />
-                      </svg>
-                    </a>
-                  </div>
-                </div>
-              </article>
-            ))}
           </div>
         </div>
       </section>

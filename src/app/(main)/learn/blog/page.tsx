@@ -12,12 +12,12 @@ import BlogFilters from '@/components/blog/BlogFilters'
 import NewsletterForm from '@/components/NewsletterForm'
 
 export const metadata: Metadata = {
-  title: 'Insights & Blog | The Rooted Learner',
+  title: 'Insights',
   description:
     'Field notes from inside the work — audit teardowns, the wedge question, build-vs-buy, and the greenhouse thesis for new and alternative schools.',
   alternates: { canonical: '/learn/blog' },
   openGraph: {
-    title: 'Insights & Blog | The Rooted Learner',
+    title: 'Insights',
     description:
       'Diagnosis, strategy, and what actually works — at the classroom, school, and network level.',
     type: 'website',

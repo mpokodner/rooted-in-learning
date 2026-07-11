@@ -1,18 +1,10 @@
 @import "tailwindcss";
 @import "../styles/greenhouse.css";
 
-/*
+/* 
  * The Rooted Learner - Design System
  * Tailwind v4 CSS-based configuration
  */
-
-@font-face {
-  font-family: "Cal Sans";
-  src: url("/fonts/CalSans-SemiBold.woff2") format("woff2");
-  font-weight: 600;
-  font-style: normal;
-  font-display: swap;
-}
 
 /* ═══════════════════════════════════════════════════════════════
    CSS VARIABLES (Design Tokens)

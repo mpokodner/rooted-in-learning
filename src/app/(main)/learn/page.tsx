@@ -8,7 +8,7 @@ import type { BlogPostCard } from "@/sanity/lib/types";
 import NewsletterForm from "@/components/NewsletterForm";
 
 export const metadata: Metadata = {
-  title: "Learn | The Rooted Learner",
+  title: "Learn",
   description:
     "Practical strategies grounded in Science of Reading, WIDA alignment, and AI integration. Written for curriculum designers, district leaders, and the teachers who deliver instruction.",
   keywords: [
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     canonical: "/learn",
   },
   openGraph: {
-    title: "Learn | The Rooted Learner",
+    title: "Learn",
     description:
       "Research that reaches classrooms. Insights that reach systems. Practical strategies for educators and district leaders.",
     type: "website",

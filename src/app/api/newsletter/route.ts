@@ -24,7 +24,14 @@ export async function POST(request: NextRequest) {
     }
 
     const body = await request.json();
-    const { email, name, source = "website", sendFreebie = false } = body;
+    const {
+      email,
+      name,
+      source = "website",
+      sendFreebie = false,
+      tag,
+      referrer,
+    } = body;
 
     if (!email || !email.includes("@")) {
       return NextResponse.json(
@@ -49,29 +56,51 @@ export async function POST(request: NextRequest) {
     }
 
     const supabase = createServerSupabaseClient();
+    const normalizedEmail = email.toLowerCase();
 
     const { data: existing } = await supabase
       .from("newsletter_subscribers")
       .select("id, freebie_sent")
-      .eq("email", email.toLowerCase())
+      .eq("email", normalizedEmail)
       .single();
 
     if (existing) {
+      if (sendFreebie && !existing.freebie_sent) {
+        await sendFreebieEmail(normalizedEmail);
+        await supabase
+          .from("newsletter_subscribers")
+          .update({ freebie_sent: true })
+          .eq("email", normalizedEmail);
+
+        return NextResponse.json({
+          success: true,
+          message: "Check your inbox for your free guide!",
+        });
+      }
+
       return NextResponse.json({
         success: true,
-        message: "You're already subscribed! Check your inbox.",
+        message: sendFreebie
+          ? "You're already subscribed! Check your inbox for the guide."
+          : "You're already subscribed! Check your inbox.",
       });
+    }
+
+    const insertData: Record<string, unknown> = {
+      email: normalizedEmail,
+      name: name || null,
+      source: referrer ? `${source}|${referrer}` : source,
+      freebie_sent: false,
+      subscribed: true,
+    };
+
+    if (tag) {
+      insertData.tag = tag;
     }
 
     const { error: insertError } = await supabase
       .from("newsletter_subscribers")
-      .insert({
-        email: email.toLowerCase(),
-        name: name || null,
-        source,
-        freebie_sent: false,
-        subscribed: true,
-      });
+      .insert(insertData);
 
     if (insertError) {
       console.error("Newsletter insert error:", insertError);
@@ -82,45 +111,11 @@ export async function POST(request: NextRequest) {
     }
 
     if (sendFreebie) {
-      try {
-        await resend.emails.send({
-          from: FROM_EMAIL,
-          to: email.toLowerCase(),
-          subject: "Your Free Claude AI Guide for Educators",
-          html: `
-            <div style="font-family: 'Inter', Arial, sans-serif; max-width: 560px; margin: 0 auto; color: #2d2d2d;">
-              <h1 style="color: #1a1a1a; font-size: 24px;">Your Claude AI Guide Is Here</h1>
-              <p>Thanks for joining The Rooted Learner community! Here's the guide you requested:</p>
-              <p style="margin: 24px 0;">
-                <a href="https://www.therootedlearner.com/freebies/claude-ai-guide.pdf"
-                   style="display: inline-block; background-color: #5C6B4A; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">
-                  📥 Download the Claude AI Guide
-                </a>
-              </p>
-              <p>Inside you'll find:</p>
-              <ul style="color: #6b6b6b; line-height: 1.8;">
-                <li>Ready-to-use prompt templates for lesson planning</li>
-                <li>Step-by-step workflows for differentiation</li>
-                <li>Real classroom examples from a current 1–8 educator</li>
-              </ul>
-              <p>If you find it helpful, reply to this email — I read every response.</p>
-              <p style="margin-top: 24px;">— Michelle</p>
-              <hr style="border: none; border-top: 1px solid #e8ded0; margin: 24px 0;" />
-              <p style="font-size: 12px; color: #8a8a8a;">
-                You're receiving this because you signed up at therootedlearner.com.
-                <a href="https://www.therootedlearner.com" style="color: #5C6B4A;">Visit the site</a>
-              </p>
-            </div>
-          `,
-        });
-
-        await supabase
-          .from("newsletter_subscribers")
-          .update({ freebie_sent: true })
-          .eq("email", email.toLowerCase());
-      } catch (emailError) {
-        console.error("Freebie email error:", emailError);
-      }
+      await sendFreebieEmail(normalizedEmail);
+      await supabase
+        .from("newsletter_subscribers")
+        .update({ freebie_sent: true })
+        .eq("email", normalizedEmail);
     }
 
     return NextResponse.json({
@@ -135,5 +130,42 @@ export async function POST(request: NextRequest) {
       { success: false, error: "An unexpected error occurred." },
       { status: 500 }
     );
+  }
+}
+
+async function sendFreebieEmail(email: string) {
+  try {
+    await resend.emails.send({
+      from: FROM_EMAIL,
+      to: email,
+      subject: "Your Free Claude AI Guide for Educators",
+      html: `
+        <div style="font-family: 'Inter', Arial, sans-serif; max-width: 560px; margin: 0 auto; color: #2d2d2d;">
+          <h1 style="color: #1a1a1a; font-size: 24px;">Your Claude AI Guide Is Here</h1>
+          <p>Thanks for joining The Rooted Learner community! Here's the guide you requested:</p>
+          <p style="margin: 24px 0;">
+            <a href="https://www.therootedlearner.com/freebies/claude-ai-guide.pdf"
+               style="display: inline-block; background-color: #5C6B4A; color: #ffffff; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-weight: 600;">
+              Download the Claude AI Guide
+            </a>
+          </p>
+          <p>Inside you'll find:</p>
+          <ul style="color: #6b6b6b; line-height: 1.8;">
+            <li>Ready-to-use prompt templates for lesson planning</li>
+            <li>Step-by-step workflows for differentiation</li>
+            <li>Real classroom examples from a current 1–8 educator</li>
+          </ul>
+          <p>If you find it helpful, reply to this email — I read every response.</p>
+          <p style="margin-top: 24px;">— Michelle</p>
+          <hr style="border: none; border-top: 1px solid #e8ded0; margin: 24px 0;" />
+          <p style="font-size: 12px; color: #8a8a8a;">
+            You're receiving this because you signed up at therootedlearner.com.
+            <a href="https://www.therootedlearner.com" style="color: #5C6B4A;">Visit the site</a>
+          </p>
+        </div>
+      `,
+    });
+  } catch (emailError) {
+    console.error("Freebie email error:", emailError);
   }
 }

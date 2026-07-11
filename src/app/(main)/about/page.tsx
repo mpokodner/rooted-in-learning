@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import "./projects/portfolio.css";
 import AboutContactForm from "./AboutContactForm";
+import SocialLinks from "@/components/SocialLinks";
 
 import reactDictionaryImg from "./projects/images/react-dictionary-project.png";
 import aiPoetryImg from "./projects/images/PoemGenerator_Thumbnail.png";
@@ -12,16 +13,16 @@ import dataVizImg from "./projects/images/pythonadvanced.png";
 import weatherAppImg from "./projects/images/react-weather-app.png";
 
 export const metadata: Metadata = {
-  title: "About | Greenhouse Schools",
+  title: "About",
   description:
-    "The Rooted Learner is led by Michelle Pokodner — a current educator, multilingual-learner specialist, and full-stack builder helping new and reimagined schools design coherent systems from seed.",
+    "The Rooted Learner is co-founded by Michelle and Chris Pokodner — educators who bridge pedagogy and production code to build the classroom tools and district software they wished existed.",
   keywords: [
-    "Greenhouse Schools",
-    "education consultant",
+    "education technology",
+    "co-founders",
     "multilingual learner specialist",
     "curriculum design",
-    "science of reading",
-    "new school advisory",
+    "AI for educators",
+    "district software",
     "edtech development",
     "school systems design",
   ],
@@ -29,9 +30,9 @@ export const metadata: Metadata = {
     canonical: "/about",
   },
   openGraph: {
-    title: "About | The Rooted Learner — Greenhouse Schools",
+    title: "About — The Rooted Learner",
     description:
-      "We read the climate before we adjust it. Michelle Pokodner helps new and reimagined schools design coherent, learner-centered systems from the ground up.",
+      "Co-founded by Michelle and Chris Pokodner — educators who bridge pedagogy and production code to build tools and software for districts.",
     type: "website",
   },
 };
@@ -78,10 +79,10 @@ const thesisCards = [
 ];
 
 const credentials = [
-  "12+ years in K–8 classrooms",
-  "Reading interventionist & curriculum designer",
-  "Science of Reading & WIDA / multilingual specialist",
-  "Full-stack developer building instructional tools",
+  "12+ years in K–8 classrooms (Michelle)",
+  "Reading intervention, curriculum design & WIDA / multilingual specialist",
+  "AI Solutions Specialist & SIS Administrator (Chris)",
+  "Full-stack developers building district software and classroom tools",
 ];
 
 const stats = [
@@ -153,31 +154,32 @@ const headshotExists = fs.existsSync(
   path.join(process.cwd(), "public", "headshot.jpg")
 );
 
-const personJsonLd = {
+const orgJsonLd = {
   "@context": "https://schema.org",
-  "@type": "Person",
-  name: "Michelle Pokodner",
-  jobTitle: "Curriculum-Integrity Partner",
-  url: "https://www.therootedlearner.com/about",
-  worksFor: {
-    "@type": "Organization",
-    name: "The Rooted Learner — Greenhouse Schools",
-    url: "https://www.therootedlearner.com",
-  },
+  "@type": "Organization",
+  name: "The Rooted Learner",
+  url: "https://www.therootedlearner.com",
   description:
-    "Current educator, multilingual-learner specialist, and full-stack builder helping new and reimagined schools design coherent systems from seed.",
+    "Practical AI training, standards-aligned classroom tools, and district software from educators who still teach.",
+  founder: [
+    {
+      "@type": "Person",
+      name: "Michelle Pokodner",
+      jobTitle: "Co-Founder & Curriculum Architect",
+      knowsAbout: ["Reading Intervention", "Curriculum Design", "Multilingual Learner Support", "Science of Reading"],
+    },
+    {
+      "@type": "Person",
+      name: "Chris Pokodner",
+      jobTitle: "Co-Founder & AI Solutions Architect",
+      knowsAbout: ["AI Solutions", "Workflow Automation", "SIS Administration", "District Software"],
+    },
+  ],
   sameAs: [
     "https://www.linkedin.com/in/michelle-pokodner-edtech/",
     "https://www.instagram.com/rootedinlearninged/",
     "https://www.youtube.com/@TheRootedLearner",
-  ],
-  knowsAbout: [
-    "Greenhouse Schools",
-    "Reading Intervention",
-    "Science of Reading",
-    "Curriculum Design",
-    "Multilingual Learner Support",
-    "EdTech Development",
+    "https://www.pinterest.com/rootedinlearninged/",
   ],
 };
 
@@ -215,33 +217,32 @@ export default function AboutPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(orgJsonLd) }}
       />
 
       {/* Hero */}
       <section className="section hero" aria-labelledby="about-heading">
         <div className="container hero-grid">
           <div className="reveal">
-            <span className="eyebrow">About · the grower</span>
+            <span className="eyebrow">About · our story</span>
             <h1 id="about-heading" className="display mt-3">
-              We read the climate{" "}
+              Pedagogy meets{" "}
               <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
-                before
-              </span>{" "}
-              we adjust it.
+                production code.
+              </span>
             </h1>
             <p className="lead mt-3">
-              The Rooted Learner is led by Michelle Pokodner — a current classroom
-              educator, multilingual-learner specialist, and full-stack builder. We help
-              new and reimagined schools design coherent, learner-centered systems from
-              the ground up.
+              The Rooted Learner is co-founded by Michelle and Chris Pokodner —
+              educators who bridge 12+ years of classroom expertise with AI
+              solutions, workflow automation, and district software development.
+              We build the tools we wished existed.
             </p>
             <div className="btn-row mt-4">
-              <Link href="/services#audit" className="btn btn-primary btn-lg">
+              <Link href="/work-with-me" className="btn btn-primary btn-lg">
                 Work with us
               </Link>
-              <Link href="/about#contact" className="btn btn-outline btn-lg">
-                Start a conversation
+              <Link href="/about/approach" className="btn btn-outline btn-lg">
+                See our approach
               </Link>
             </div>
           </div>
@@ -257,14 +258,14 @@ export default function AboutPage() {
               {headshotExists ? (
                 <Image
                   src="/headshot.jpg"
-                  alt="Michelle Pokodner, curriculum-integrity partner and full-stack builder"
+                  alt="Michelle and Chris Pokodner, co-founders of The Rooted Learner"
                   width={440}
                   height={550}
                   style={{ width: "100%", height: "100%", objectFit: "cover" }}
                   priority
                 />
               ) : (
-                <span className="ph-label">portrait · Michelle Pokodner</span>
+                <span className="ph-label">portrait · Michelle &amp; Chris Pokodner</span>
               )}
             </div>
           </div>
@@ -280,18 +281,27 @@ export default function AboutPage() {
           </h2>
           <div className="stack mt-4 reveal">
             <p className="muted">
-              The Rooted Learner didn&apos;t start as a business. It started as a teacher
-              getting tired of waiting for better tools and deciding to build them from the
-              inside out. Twelve years in K–8 classrooms, reading intervention, curriculum
-              design, and a growing certainty that the problem was never the people — it was
-              that the systems were never designed to work together.
+              The Rooted Learner didn&apos;t start as a business. It started as two
+              educators getting tired of waiting for better tools and deciding to
+              build them from the inside out.
             </p>
             <p className="muted">
-              Entrenched systems are nearly impossible to change from the inside. But new
-              schools are a greenhouse: you can build the right system there from seed, with
-              no bureaucracy fighting you. The proof we generate in those rooms is the lever
-              that eventually moves the harder systems too. That&apos;s the shift — from
-              fixing what&apos;s broken to designing what gets to start right.
+              <strong>Michelle</strong> brings 12+ years in K–8 classrooms — reading
+              intervention, curriculum design, and multilingual-learner
+              specialization. She&apos;s the practitioner who knows which questions
+              a district evaluator is really asking, because she&apos;s been on both
+              sides of that table.
+            </p>
+            <p className="muted">
+              <strong>Chris</strong> brings AI solutions architecture, workflow
+              automation, and SIS administration from a decade inside Conroe ISD.
+              He built Hall Pass, ScholarGen, and the technical infrastructure that
+              turns audit findings into working district software.
+            </p>
+            <p className="muted">
+              Together, we bridge pedagogy and production code. That combination is
+              why we can deliver a curriculum audit <em>and</em> the custom technology
+              to implement it — not one or the other.
             </p>
           </div>
           <blockquote className="pullquote mt-6 reveal">
@@ -356,9 +366,9 @@ export default function AboutPage() {
                 A rare combination in this market.
               </h2>
               <p className="lead mt-3">
-                Current educator. Multilingual-learner specialist. Full-stack builder.
-                AI-fluent. In the new-school advisory space, most advisors hand you a vision
-                deck. We give you the vision and the working system.
+                Classroom expertise. AI fluency. District operations. Full-stack development.
+                Most advisors hand you a vision deck. We give you the vision and the working
+                system.
               </p>
               <ul className="tick-list mt-4">
                 {credentials.map((item) => (
@@ -517,6 +527,13 @@ export default function AboutPage() {
                 Available nationwide &amp; internationally · remote &amp; on-site
               </p>
               <p className="muted mt-2">Built with intention in Baltimore, MD</p>
+              <div className="mt-4">
+                <p className="muted" style={{ marginBottom: "0.75rem", fontWeight: 600 }}>Connect with us</p>
+                <SocialLinks
+                  platforms={["instagram", "youtube", "pinterest", "linkedin", "email"]}
+                  location="about"
+                />
+              </div>
             </div>
             <div className="reveal">
               <AboutContactForm />

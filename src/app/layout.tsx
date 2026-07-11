@@ -1,5 +1,5 @@
 import type { Metadata, Viewport } from "next";
-import { Bricolage_Grotesque, Inter, Newsreader } from "next/font/google";
+import { Inter, Newsreader } from "next/font/google";
 import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/components/AuthProvider";
@@ -9,13 +9,6 @@ const inter = Inter({
   variable: "--font-body",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  display: "swap",
-});
-
-const bricolage = Bricolage_Grotesque({
-  variable: "--font-display",
-  subsets: ["latin"],
-  weight: ["400", "500", "600", "700", "800"],
   display: "swap",
 });
 
@@ -37,23 +30,22 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.therootedlearner.com"),
   title: {
-    default: "The Rooted Learner | Greenhouse Schools — Curriculum-Integrity Partner",
-    template: "%s | The Rooted Learner",
+    default: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
+    template: "%s — The Rooted Learner",
   },
   description:
-    "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by Michelle Pokodner, a 12+ year classroom veteran and full-stack developer.",
+    "We help educators integrate AI thoughtfully and build the classroom tools we wished existed. Practical training, standards-aligned resources, and district software from educators who still teach.",
   keywords: [
+    "AI for educators",
     "education technology",
     "edtech",
-    "teaching resources",
     "classroom tools",
+    "multilingual learners",
     "professional development",
     "curriculum design",
     "teacher resources",
-    "educational templates",
-    "classroom management",
-    "reading intervention",
-    "literacy tools",
+    "district software",
+    "student movement management",
   ],
   authors: [
     { name: "Michelle Pokodner", url: "https://www.therootedlearner.com" },
@@ -79,9 +71,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.therootedlearner.com",
     siteName: "The Rooted Learner",
-    title: "The Rooted Learner | EdTech Solutions for Modern Educators",
+    title: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
     description:
-      "EdTech consulting, AI-powered teacher tools, and standards-aligned curriculum resources for grades 1–8. Built by a classroom veteran and full-stack developer.",
+      "We help educators integrate AI thoughtfully and build the classroom tools we wished existed. Practical training, standards-aligned resources, and district software.",
     images: [
       {
         url: "/og-image.png",
@@ -93,9 +85,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Rooted Learner | EdTech Solutions",
+    title: "The Rooted Learner — AI training & classroom tools for educators",
     description:
-      "Bridging pedagogy and technology with 12+ years of classroom experience.",
+      "Practical AI training, standards-aligned resources, and district software from educators who still teach.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -153,13 +145,21 @@ export default function RootLayout({
               url: "https://www.therootedlearner.com",
               logo: "https://www.therootedlearner.com/logo.png",
               description:
-                "Curriculum systems consulting, standards-aligned tools, and instructional technology for K–12 districts. Built by a 12+ year classroom veteran.",
-              founder: {
-                "@type": "Person",
-                name: "Michelle Pokodner",
-                jobTitle: "Curricular Solutions Architect",
-                url: "https://www.therootedlearner.com/about",
-              },
+                "Practical AI training, standards-aligned classroom tools, and district software from educators who still teach.",
+              founder: [
+                {
+                  "@type": "Person",
+                  name: "Michelle Pokodner",
+                  jobTitle: "Co-Founder & Curriculum Architect",
+                  url: "https://www.therootedlearner.com/about",
+                },
+                {
+                  "@type": "Person",
+                  name: "Chris Pokodner",
+                  jobTitle: "Co-Founder & AI Solutions Architect",
+                  url: "https://www.therootedlearner.com/about",
+                },
+              ],
               sameAs: [
                 "https://www.youtube.com/@TheRootedLearner",
                 "https://www.tiktok.com/@therootedlearner",
@@ -193,7 +193,7 @@ export default function RootLayout({
           />
         )}
       </head>
-      <body className={`${inter.variable} ${bricolage.variable} ${newsreader.variable} antialiased`}>
+      <body className={`${inter.variable} ${newsreader.variable} antialiased`}>
         {/* Google Tag Manager — noscript fallback */}
         {GTM_ID && (
           <noscript>

@@ -5,9 +5,9 @@ import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import assessAlignImg from "../about/projects/images/assessalignpng.png";
 
 export const metadata: Metadata = {
-  title: "Tools | The Rooted Learner",
+  title: "Software",
   description:
-    "AI-powered tools for educators, built by a teacher who codes. Standards-based assessment, curriculum planning, and more.",
+    "District software and AI-powered tools built by educators who still teach. AssessAlign for standards-based assessment, Hall Pass for student movement management, and more.",
   alternates: {
     canonical: "/tools",
   },
@@ -16,17 +16,8 @@ export const metadata: Metadata = {
 const assessAlignFeatures = [
   "Standards-based reading assessments (Grades 3–8)",
   "Real-time analytics for teachers & administrators",
-  "Team-based houses & gamification leaderboards",
+  "Framework-agnostic — built for any standard set worldwide",
   "Multi-school support with district-wide deployment",
-];
-
-const assessAlignTech = [
-  "React 18 + Vite",
-  "Node.js + GraphQL",
-  "Supabase (Auth + RLS)",
-  "TailwindCSS",
-  "Recharts",
-  "Vercel",
 ];
 
 const toolboxCards = [
@@ -70,8 +61,8 @@ const toolboxCards = [
     ),
   },
   {
-    title: "Custom applications",
-    desc: "Purpose-built apps for the specific problem your school faces, generated adaptively rather than hand-maintained.",
+    title: "Custom district applications",
+    desc: "Purpose-built apps for the specific problem your school faces — from audit finding to deployed tool.",
     terra: true,
     icon: (
       <>
@@ -82,7 +73,7 @@ const toolboxCards = [
   },
   {
     title: "Measurement & data partnerships",
-    desc: "Outcome dashboards that prove the system is working — and feed the Learning Zones research.",
+    desc: "Outcome dashboards that prove the system is working — built to your district's reporting requirements.",
     terra: false,
     icon: (
       <>
@@ -91,14 +82,6 @@ const toolboxCards = [
       </>
     ),
   },
-];
-
-const techStack = [
-  { name: "Vue.js", icon: "vue" },
-  { name: "React", icon: "react" },
-  { name: "Next.js", icon: "next" },
-  { name: "Supabase", icon: "supabase" },
-  { name: "AI / RAG", icon: "ai" },
 ];
 
 const CheckIcon = () => (
@@ -121,24 +104,24 @@ export default function ToolsPage() {
       <section className="section hero" aria-labelledby="tools-heading">
         <div className="container">
           <div className="section-head reveal" style={{ maxWidth: "60ch" }}>
-            <span className="eyebrow">Tools · the builder edge</span>
+            <span className="eyebrow">Software</span>
             <h1 id="tools-heading" className="display mt-3">
-              We don&apos;t hand back a{" "}
+              We build the tools{" "}
               <span className="serif-accent" style={{ color: "var(--terracotta)" }}>
-                clipboard report.
+                we wished existed.
               </span>
             </h1>
             <p className="lead mt-3" style={{ maxWidth: "56ch" }}>
-              We deliver something alive — a tool built for your network. It previews the
-              Build value, proves we do the thing we advise, and makes us impossible to
-              replace with a cheaper auditor.
+              Every tool starts as an audit finding or a classroom problem we
+              couldn&apos;t solve with what was available. We build for districts,
+              not demos.
             </p>
             <div className="btn-row mt-4">
               <Link href="/tools/assessalign" className="btn btn-terra btn-lg">
                 Explore AssessAlign
               </Link>
-              <Link href="/services#audit" className="btn btn-outline btn-lg">
-                Start with an audit
+              <Link href="/tools/hallpass" className="btn btn-outline btn-lg">
+                See Hall Pass
               </Link>
             </div>
           </div>
@@ -153,14 +136,14 @@ export default function ToolsPage() {
         <div className="container">
           <div className="feature-band">
             <div className="reveal">
-              <span className="chip-tag">Flagship</span>
+              <span className="chip-tag">Assessment Engine</span>
               <h2 id="assessalign-heading" className="h-xl mt-2">
                 AssessAlign
               </h2>
               <p className="lead mt-3" style={{ maxWidth: "44ch" }}>
-                A standards-grounded, adaptive assessment and curriculum engine. Built to
-                solve a problem we were living in the classroom — now framework-agnostic
-                for any school in the world.
+                A standards-grounded, adaptive assessment and curriculum engine.
+                Built to solve a problem we were living in the classroom — now
+                framework-agnostic for any school in the world.
               </p>
               <ul className="tick-list mt-4">
                 {assessAlignFeatures.map((feature) => (
@@ -170,13 +153,6 @@ export default function ToolsPage() {
                   </li>
                 ))}
               </ul>
-              <div className="badge-row mt-4">
-                {assessAlignTech.map((tech) => (
-                  <span key={tech} className="chip">
-                    {tech}
-                  </span>
-                ))}
-              </div>
               <div className="mt-4">
                 <Link href="/tools/assessalign" className="btn btn-primary">
                   See how it works
@@ -205,7 +181,52 @@ export default function ToolsPage() {
         </div>
       </section>
 
-      <section className="section" aria-labelledby="toolbox-heading">
+      <section className="section" aria-labelledby="hallpass-heading">
+        <div className="container">
+          <div className="feature-band">
+            <div className="reveal">
+              <span className="chip-tag">Student Movement</span>
+              <h2 id="hallpass-heading" className="h-xl mt-2">
+                Hall Pass
+              </h2>
+              <p className="lead mt-3" style={{ maxWidth: "44ch" }}>
+                A district-owned student movement management platform built
+                around security, SIS alignment, campus-level boundaries, and
+                local customization.
+              </p>
+              <ul className="tick-list mt-4">
+                <li><CheckIcon />Teacher workflows with one-tap pass creation</li>
+                <li><CheckIcon />Kiosk mode with role-based access and instant revocation</li>
+                <li><CheckIcon />Campus admin dashboards with live movement data</li>
+                <li><CheckIcon />District-wide oversight with tenant-scoped boundaries</li>
+              </ul>
+              <div className="mt-4">
+                <Link href="/tools/hallpass" className="btn btn-primary">
+                  Learn about Hall Pass
+                </Link>
+              </div>
+            </div>
+            <div className="reveal">
+              <div
+                className="ph ph--earth"
+                style={{
+                  minHeight: "clamp(300px, 38vw, 400px)",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  textAlign: "center",
+                  color: "var(--earth-mist)",
+                  fontSize: "var(--text-sm)",
+                }}
+              >
+                <p>Hall Pass screenshot coming soon</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section--beige section" aria-labelledby="toolbox-heading">
         <div className="container">
           <div className="section-head reveal">
             <span className="eyebrow">The toolbox</span>
@@ -243,14 +264,14 @@ export default function ToolsPage() {
 
       <section className="section--earth-deep section">
         <div className="container glass text-center">
-          <span className="eyebrow eyebrow--center reveal">The moat</span>
-          <blockquote className="pullquote mt-4 mx-auto reveal" style={{ maxWidth: "24ch" }}>
-            We build the tools and provide the guidance. That synthesis is the whole
-            reason you can&apos;t replace us with a cheaper auditor.
+          <span className="eyebrow eyebrow--center reveal">Work with us</span>
+          <blockquote className="pullquote mt-4 mx-auto reveal" style={{ maxWidth: "28ch" }}>
+            We build the tools and provide the guidance. That&apos;s the whole reason
+            we understand what your district actually needs.
           </blockquote>
           <div className="btn-row reveal mt-4" style={{ justifyContent: "center" }}>
-            <Link href="/services#audit" className="btn btn-terra btn-lg">
-              Start with the Greenhouse Audit
+            <Link href="/work-with-me" className="btn btn-terra btn-lg">
+              Start a conversation
             </Link>
           </div>
         </div>
@@ -260,28 +281,22 @@ export default function ToolsPage() {
         <div className="container">
           <div className="feature-band">
             <div className="reveal">
-              <span className="eyebrow">How I Build</span>
+              <span className="eyebrow">How we build</span>
               <h2 id="tools-how-heading" className="h-lg mt-3">
-                Teacher Expertise Meets Modern Development
+                Teacher expertise meets modern development
               </h2>
               <p className="muted mt-3">
-                Every tool starts with a real classroom problem. I prototype quickly, test
-                with real educators, and iterate based on feedback — not assumptions. The
-                stack is modern, but the priorities are grounded: does it actually save a
-                teacher time? If not, it doesn&apos;t ship.
+                Every tool starts with a real classroom problem. We prototype
+                quickly, test with real educators, and iterate based on
+                feedback — not assumptions. The stack is modern, but the
+                priorities are grounded: does it actually save a teacher time? If
+                not, it doesn&apos;t ship.
               </p>
               <p className="muted mt-3">
-                If you&apos;re a school, district, or EdTech company looking for someone who
-                can bridge the gap between pedagogy and production code, these tools are my
-                proof of concept.
+                If you&apos;re a school, district, or EdTech company looking for
+                someone who can bridge the gap between pedagogy and production
+                code, our tools are the proof of concept.
               </p>
-              <div className="badge-row mt-4">
-                {techStack.map((tech) => (
-                  <span key={tech.name} className="chip">
-                    {tech.name}
-                  </span>
-                ))}
-              </div>
             </div>
             <div className="reveal">
               <EarlyAccessForm

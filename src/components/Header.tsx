@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
 import { usePathname, useRouter } from "next/navigation";
+import SocialLinks from "./SocialLinks";
 
 const SproutIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -31,48 +32,49 @@ const CloseIcon = () => (
   </svg>
 );
 
-const ArrowIcon = () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-    <path d="M5 12h14" />
-    <path d="m13 6 6 6-6 6" />
-  </svg>
-);
-
 type NavChild = { href: string; label: string; desc: string };
-type NavItem =
-  | { label: string; href: string; key: string; children?: never }
-  | { label: string; key: string; href?: never; children: NavChild[] };
+type NavItem = {
+  label: string;
+  key: string;
+  href?: string;
+  children?: NavChild[];
+};
 
 const NAV: NavItem[] = [
-  { label: "Greenhouse Schools", href: "/services", key: "services" },
-  {
-    label: "Tools",
-    key: "tools",
-    children: [
-      { label: "Tools Overview", href: "/tools", desc: "What we build, and why" },
-      { label: "AssessAlign", href: "/tools/assessalign", desc: "Standards-aligned assessment engine" },
-    ],
-  },
-  {
-    label: "Learn",
-    key: "learn",
-    children: [
-      { label: "Insights & Blog", href: "/learn/blog", desc: "Field notes from inside the work" },
-      { label: "Teacher Toolkit", href: "/learn/teacher-toolkit", desc: "Free, classroom-ready downloads" },
-      { label: "Learn Hub", href: "/learn", desc: "Everything in one place" },
-    ],
-  },
+  { label: "Learn", href: "/learn", key: "learn" },
   { label: "Shop", href: "/shop", key: "shop" },
-  { label: "About", href: "/about", key: "about" },
+  {
+    label: "Software",
+    key: "software",
+    href: "/tools",
+    children: [
+      { label: "Software Overview", href: "/tools", desc: "What we build, and why" },
+      { label: "Hall Pass", href: "/tools/hallpass", desc: "District-owned student movement management" },
+    ],
+  },
+  { label: "Blog", href: "/learn/blog", key: "blog" },
+  {
+    label: "About",
+    key: "about",
+    href: "/about",
+    children: [
+      { label: "Our Story", href: "/about", desc: "The educators behind the work" },
+      { label: "Our Approach", href: "/about/approach", desc: "How we diagnose, build, and support" },
+      { label: "Contact", href: "/contact", desc: "Start a conversation" },
+    ],
+  },
 ];
 
-function isActive(pathname: string, key: string, href?: string, children?: NavChild[]) {
-  if (href) {
-    if (href === "/services") return pathname.startsWith("/services");
-    return pathname === href || pathname.startsWith(`${href}/`);
+function isActive(pathname: string, key: string, item: NavItem) {
+  if (key === "blog") return pathname.startsWith("/learn/blog");
+  if (key === "learn") return pathname === "/learn";
+  if (key === "software") return pathname.startsWith("/tools");
+  if (key === "about") {
+    return pathname === "/about" || pathname.startsWith("/about/") || pathname === "/contact";
   }
-  if (children) {
-    return children.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`));
+  if (item.href) return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  if (item.children) {
+    return item.children.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`));
   }
   return false;
 }
@@ -137,7 +139,6 @@ export default function Header() {
             </span>
             <span className="brand-text">
               <span className="brand-name">The Rooted Learner</span>
-              <span className="brand-sub">Greenhouse Schools</span>
             </span>
           </Link>
 
@@ -150,16 +151,21 @@ export default function Header() {
                   onMouseEnter={() => openDropdownMenu(item.key)}
                   onMouseLeave={scheduleCloseDropdown}
                 >
-                  <button
-                    type="button"
-                    className={`nav-link${isActive(pathname, item.key, undefined, item.children) ? " active" : ""}`}
+                  <Link
+                    href={item.href || "#"}
+                    className={`nav-link${isActive(pathname, item.key, item) ? " active" : ""}`}
                     aria-haspopup="true"
                     aria-expanded={openDropdown === item.key}
-                    onClick={() => toggleDropdown(item.key)}
+                    onClick={(e) => {
+                      if (window.innerWidth < 900) {
+                        e.preventDefault();
+                        toggleDropdown(item.key);
+                      }
+                    }}
                   >
                     {item.label}
                     <ChevronIcon />
-                  </button>
+                  </Link>
                   <div className="dropdown" onMouseEnter={() => openDropdownMenu(item.key)} onMouseLeave={scheduleCloseDropdown}>
                     {item.children.map((child) => (
                       <Link key={child.href} href={child.href} onClick={() => setOpenDropdown(null)}>
@@ -172,8 +178,8 @@ export default function Header() {
               ) : (
                 <div key={item.key} className="nav-item">
                   <Link
-                    href={item.href}
-                    className={`nav-link${isActive(pathname, item.key, item.href) ? " active" : ""}`}
+                    href={item.href!}
+                    className={`nav-link${isActive(pathname, item.key, item) ? " active" : ""}`}
                   >
                     {item.label}
                   </Link>
@@ -183,9 +189,6 @@ export default function Header() {
           </nav>
 
           <div className="header-actions">
-            <Link href="/services#audit" className="btn btn-terra header-cta">
-              Book the Audit
-            </Link>
             <button
               type="button"
               className="mobile-toggle"
@@ -206,7 +209,6 @@ export default function Header() {
             </span>
             <span className="brand-text">
               <span className="brand-name">The Rooted Learner</span>
-              <span className="brand-sub">Greenhouse Schools</span>
             </span>
           </Link>
           <button type="button" className="mobile-close" aria-label="Close menu" onClick={closeMobile}>
@@ -227,15 +229,18 @@ export default function Header() {
                 ))}
               </div>
             ) : (
-              <Link key={item.key} href={item.href} onClick={closeMobile}>
+              <Link key={item.key} href={item.href!} onClick={closeMobile}>
                 {item.label}
               </Link>
             )
           )}
         </nav>
-        <Link href="/services#audit" className="btn btn-terra btn-lg" onClick={closeMobile}>
-          Book the Greenhouse Audit <ArrowIcon />
-        </Link>
+        <div style={{ padding: "1rem 0.5rem", borderTop: "1px solid var(--border-beige)", marginTop: "auto" }}>
+          <SocialLinks
+            platforms={["instagram", "youtube", "pinterest", "linkedin"]}
+            location="mobile-menu"
+          />
+        </div>
       </div>
     </>
   );

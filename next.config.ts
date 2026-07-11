@@ -27,7 +27,6 @@ const nextConfig: NextConfig = {
       { source: "/resources/lessons", destination: "/shop", permanent: true },
       { source: "/resources/teacher-tools", destination: "/shop", permanent: true },
       { source: "/teacher-shop", destination: "/shop", permanent: true },
-      { source: "/work-with-me", destination: "/services", permanent: true },
       { source: "/edtech-tools", destination: "/tools", permanent: true },
       { source: "/consulting", destination: "/services", permanent: true },
       { source: "/consulting/assessalign", destination: "/tools/assessalign", permanent: true },

@@ -5,7 +5,7 @@ import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import assessAlignImg from "../../about/projects/images/assessalignpng.png";
 
 export const metadata: Metadata = {
-  title: "AssessAlign | The Rooted Learner",
+  title: "AssessAlign",
   description:
     "AssessAlign is a standards-grounded, adaptive assessment and curriculum engine — shorter passages, aligned questions, actionable analytics. Framework-agnostic for any school in the world.",
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: "/tools/assessalign" },
   openGraph: {
-    title: "AssessAlign | The Rooted Learner",
+    title: "AssessAlign",
     description:
       "Shorter passages, aligned questions, and analytics teachers actually use — built from inside the classroom, for any framework in the world.",
     type: "website",

@@ -8,6 +8,7 @@ import { urlFor } from "@/sanity/lib/image";
 import type { BlogPost } from "@/sanity/lib/types";
 import RichText from "@/components/shared/RichText";
 import BlogCard from "@/components/blog/BlogCard";
+import SocialLinks from "@/components/SocialLinks";
 
 export const revalidate = 60;
 
@@ -226,6 +227,12 @@ export default async function BlogPostPage({
           ))}
         </div>
       )}
+
+      {/* Follow for more */}
+      <div style={{ borderTop: "1px solid var(--border-beige)", marginTop: "2.5rem", paddingTop: "1.5rem", display: "flex", alignItems: "center", gap: "1rem" }}>
+        <span style={{ fontSize: "var(--text-sm)", fontWeight: 600, color: "var(--text-dark)" }}>Follow for more</span>
+        <SocialLinks platforms={["instagram", "youtube", "pinterest"]} location="blog-post" />
+      </div>
 
       {/* Related posts */}
       {post.relatedPosts && post.relatedPosts.length > 0 && (

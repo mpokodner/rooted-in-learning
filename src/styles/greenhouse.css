@@ -28,7 +28,7 @@
   --text-on-dark: #faf7f2;
 
   /* Type */
-  --font-display: "Bricolage Grotesque", system-ui, sans-serif;
+  --font-display: "Cal Sans", system-ui, sans-serif;
   --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Newsreader", Georgia, serif;
   --font-mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, monospace;
@@ -435,3 +435,19 @@ button.chip.chip--active { background: var(--earth); color: var(--white); border
 .footer-form--light input { border: 1px solid var(--border-greige); background: var(--white); color: var(--text-dark); min-width: 16rem; flex: 1; }
 .footer-form--light input::placeholder { color: var(--text-light); }
 .footer-form--light input:focus { outline: none; border-color: var(--earth); }
+
+/* ─── Announcement Bar ─── */
+.announcement-bar { background: var(--earth-dark); color: var(--text-on-dark); font-size: var(--text-sm); }
+.announcement-inner { display: flex; align-items: center; justify-content: center; gap: 1rem; padding: 0.5rem var(--container-pad); }
+.announcement-inner p { margin: 0; text-align: center; }
+.announcement-inner a { color: var(--terracotta-light); font-weight: 600; text-decoration: underline; }
+.announcement-inner a:hover { color: var(--white); }
+.announcement-close { background: none; border: none; color: var(--text-on-dark); cursor: pointer; padding: 0.25rem; opacity: 0.6; flex-shrink: 0; }
+.announcement-close:hover { opacity: 1; }
+.announcement-close svg { width: 1rem; height: 1rem; }
+
+/* ─── Social Links Component ─── */
+.social-links { display: flex; align-items: center; gap: 0.75rem; }
+.social-links a { display: flex; align-items: center; justify-content: center; width: 2rem; height: 2rem; color: var(--text-muted); transition: color 150ms ease; }
+.social-links a:hover { color: var(--terracotta); }
+.social-links svg { width: 1.25rem; height: 1.25rem; }

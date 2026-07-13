@@ -7,8 +7,8 @@ export default function BentoHero() {
       {/* Hero tile — "I Teach" funnel */}
       <Link href="/for-teachers" className="bento-tile bento-tile--hero">
         <Image
-          src="/images/homepage-hero.png"
-          alt="Educator in a learning environment"
+          src="/images/teachers-hero.png"
+          alt="Tree ring cross-section illustration with equity, wholeness, innovation"
           fill
           priority
           style={{ objectFit: "cover" }}
@@ -30,17 +30,16 @@ export default function BentoHero() {
 
       {/* Districts tile — "I Lead" funnel */}
       <Link href="/for-districts" className="bento-tile bento-tile--combined">
-        <div className="bento-tile-content">
-          <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-            <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
-          </svg>
+        <Image
+          src="/images/districts-hero.png"
+          alt="Watercolor illustration of a school building"
+          fill
+          style={{ objectFit: "cover" }}
+        />
+        <div className="bento-districts-overlay">
           <h2>For Districts</h2>
           <p>Software and support for the schools we serve</p>
         </div>
-        <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-          <line x1="7" y1="17" x2="17" y2="7" />
-          <polyline points="7 7 17 7 17 17" />
-        </svg>
         <div className="bento-hover-overlay bento-hover-overlay--districts">
           <h2>I lead a school or district</h2>
           <ul>

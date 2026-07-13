@@ -41,7 +41,7 @@
   flex-direction: column;
   justify-content: flex-end;
   padding: clamp(1.5rem, 3vw, 2.5rem);
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
+  background: linear-gradient(to top, rgba(90, 40, 15, 0.85) 0%, rgba(176, 89, 49, 0.45) 40%, rgba(176, 89, 49, 0.1) 100%);
   pointer-events: none;
   z-index: 1;
   transition: opacity 200ms ease;
@@ -73,13 +73,15 @@
   line-height: 1.1;
   letter-spacing: var(--tracking-tight);
   margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
 }
 
 .bento-hero-overlay p {
   font-size: var(--text-base);
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.95);
   line-height: 1.5;
   max-width: 32rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 /* Hero hover overlay — terracotta */
@@ -98,11 +100,7 @@
 .bento-tile--combined {
   grid-row: 1;
   grid-column: 2;
-  background: var(--white);
-  border: 1px solid var(--border-beige);
-  padding: clamp(1.25rem, 2vw, 1.75rem);
-  display: flex;
-  align-items: flex-start;
+  display: block;
   text-decoration: none;
   cursor: pointer;
   transition: transform 200ms ease, box-shadow 200ms ease;
@@ -113,29 +111,38 @@
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
 
-.bento-tile--combined .bento-tile-icon {
-  color: var(--earth);
+/* Districts dark overlay for text readability */
+
+.bento-districts-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 200ms ease;
 }
 
-.bento-tile--combined h2 {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 600;
-  color: var(--text-black);
-  margin-bottom: 0.25rem;
-}
-
-.bento-tile--combined p {
-  font-size: var(--text-sm);
-  color: var(--text-muted);
-}
-
-.bento-tile--combined .bento-tile-arrow {
-  color: var(--text-muted);
-}
-
-.bento-tile--combined:hover .bento-tile-arrow {
+.bento-tile--combined:hover .bento-districts-overlay {
   opacity: 0;
+}
+
+.bento-districts-overlay h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.bento-districts-overlay p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
 }
 
 /* Combined hover overlay — earth green */

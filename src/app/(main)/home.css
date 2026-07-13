@@ -23,12 +23,15 @@
   position: relative;
 }
 
-/* ─── Hero tile (row 1, col 1) ─── */
+/* ─── Hero tile (row 1, col 1) — "I Teach" funnel ─── */
 
 .bento-tile--hero {
   grid-row: 1;
   grid-column: 1;
   background: var(--earth-dark);
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 .bento-hero-overlay {
@@ -41,6 +44,11 @@
   background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 50%, transparent 100%);
   pointer-events: none;
   z-index: 1;
+  transition: opacity 200ms ease;
+}
+
+.bento-tile--hero:hover .bento-hero-overlay {
+  opacity: 0;
 }
 
 .bento-pill {
@@ -74,84 +82,70 @@
   max-width: 32rem;
 }
 
-/* ─── Combined signup tile (row 1, col 2) ─── */
+/* Hero hover overlay — terracotta */
+
+.bento-tile--hero .bento-hover-overlay {
+  background: var(--terracotta);
+  z-index: 2;
+}
+
+.bento-tile--hero:hover .bento-hover-overlay {
+  opacity: 1;
+}
+
+/* ─── Combined tile (row 1, col 2) — "I Lead" funnel ─── */
 
 .bento-tile--combined {
   grid-row: 1;
   grid-column: 2;
   background: var(--white);
   border: 1px solid var(--border-beige);
-  padding: clamp(1.5rem, 3vw, 2.5rem);
+  padding: clamp(1.25rem, 2vw, 1.75rem);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  align-items: flex-start;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
 }
 
-.bento-eyebrow {
-  font-size: 0.625rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.14em;
+.bento-tile--combined:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.bento-tile--combined .bento-tile-icon {
   color: var(--earth);
-  margin-bottom: 0.5rem;
 }
 
 .bento-tile--combined h2 {
   font-family: var(--font-display);
-  font-size: var(--text-2xl);
+  font-size: var(--text-xl);
   font-weight: 600;
   color: var(--text-black);
-  line-height: 1.2;
-  margin-bottom: 0.5rem;
+  margin-bottom: 0.25rem;
 }
 
 .bento-tile--combined p {
   font-size: var(--text-sm);
   color: var(--text-muted);
-  line-height: 1.5;
-  margin-bottom: 0.75rem;
 }
 
-.bento-capture {
-  display: flex;
-  gap: 0.5rem;
+.bento-tile--combined .bento-tile-arrow {
+  color: var(--text-muted);
 }
 
-.bento-capture input {
-  flex: 1;
-  padding: 0.625rem 0.875rem;
-  border: 1px solid var(--border-beige);
-  border-radius: var(--radius-md);
-  font-size: var(--text-sm);
-  font-family: var(--font-body);
-  color: var(--text-black);
-  background: var(--neutral-bg);
-  min-width: 0;
+.bento-tile--combined:hover .bento-tile-arrow {
+  opacity: 0;
 }
 
-.bento-capture input:focus {
-  outline: 2px solid var(--earth);
-  outline-offset: 1px;
-  border-color: transparent;
+/* Combined hover overlay — earth green */
+
+.bento-tile--combined .bento-hover-overlay {
+  background: var(--earth);
 }
 
-.bento-fine {
-  font-size: 0.6875rem;
-  color: var(--text-light);
-  margin-top: 0.5rem;
-}
-
-.bento-success {
-  font-size: var(--text-sm);
-  color: var(--earth);
-  font-weight: 600;
-  padding: 0.75rem 0;
-}
-
-.bento-error {
-  font-size: 0.6875rem;
-  color: var(--terracotta);
-  margin-top: 0.25rem;
+.bento-tile--combined:hover .bento-hover-overlay {
+  opacity: 1;
 }
 
 /* ─── Shop & Learn tiles (row 2) ─── */
@@ -180,7 +174,8 @@
 }
 
 .bento-tile--shop:hover,
-.bento-tile--learn:hover {
+.bento-tile--learn:hover,
+.bento-tile--combined:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
 }
@@ -204,7 +199,7 @@
   color: var(--earth-mist);
 }
 
-/* Arrow icon — top right corner of Shop/Learn tiles */
+/* Arrow icon — top right corner */
 
 .bento-tile-arrow {
   position: absolute;
@@ -256,7 +251,7 @@
   color: var(--earth-mist);
 }
 
-/* Hover overlays */
+/* ─── Hover overlays (shared) ─── */
 
 .bento-hover-overlay {
   position: absolute;
@@ -285,6 +280,14 @@
   opacity: 1;
 }
 
+.bento-hover-overlay h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+}
+
 .bento-hover-eyebrow {
   font-size: 0.5625rem;
   font-weight: 700;
@@ -310,6 +313,82 @@
 .bento-hover-overlay li::before {
   content: "→ ";
   opacity: 0.6;
+}
+
+.bento-hover-price {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 0.75rem;
+}
+
+.bento-hover-cta {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.25rem;
+}
+
+/* ─── Bento Newsletter Strip ─── */
+
+.bento-newsletter {
+  background: var(--earth-dark);
+  margin: 0 14px;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.bento-newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.bento-newsletter-text h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 0.25rem;
+}
+
+.bento-newsletter-text p {
+  font-size: var(--text-sm);
+  color: var(--earth-mist);
+  line-height: 1.5;
+}
+
+.bento-newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.bento-newsletter-input {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 220px;
+}
+
+.bento-newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bento-newsletter-input:focus {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.bento-newsletter .newsletter-success {
+  color: var(--text-on-dark);
+  font-size: var(--text-sm);
 }
 
 /* ─── Software band ─── */
@@ -419,6 +498,21 @@
     grid-column: auto;
   }
 
+  .bento-newsletter-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bento-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bento-newsletter-input {
+    min-width: 0;
+    width: 100%;
+  }
+
   .home-software-inner {
     flex-direction: column;
     align-items: flex-start;
@@ -431,16 +525,19 @@
 
 @media (prefers-reduced-motion: reduce) {
   .bento-tile--shop,
-  .bento-tile--learn {
+  .bento-tile--learn,
+  .bento-tile--combined {
     transition: none;
   }
 
   .bento-tile--shop:hover,
-  .bento-tile--learn:hover {
+  .bento-tile--learn:hover,
+  .bento-tile--combined:hover {
     transform: none;
   }
 
-  .bento-hover-overlay {
+  .bento-hover-overlay,
+  .bento-hero-overlay {
     transition: none;
   }
 

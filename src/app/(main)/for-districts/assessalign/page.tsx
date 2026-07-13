@@ -18,7 +18,7 @@ export const metadata: Metadata = {
     "edtech",
     "teacher tools",
   ],
-  alternates: { canonical: "/tools/assessalign" },
+  alternates: { canonical: "/for-districts/assessalign" },
   openGraph: {
     title: "AssessAlign",
     description:

@@ -1,54 +1,11 @@
-"use client";
-
-import { useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
 
-function getUtmSource(): string {
-  if (typeof window === "undefined") return "";
-  try {
-    const params = new URLSearchParams(window.location.search);
-    return params.get("utm_source") || "";
-  } catch {
-    return "";
-  }
-}
-
 export default function BentoHero() {
-  const [email, setEmail] = useState("");
-  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
-
-  const handleSignup = async () => {
-    if (!email || !email.includes("@")) return;
-    setStatus("loading");
-    try {
-      const utmSource = getUtmSource();
-      const res = await fetch("/api/newsletter", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          email,
-          source: "homepage-bento",
-          tag: "newsletter",
-          sendFreebie: true,
-          ...(utmSource && { referrer: utmSource }),
-        }),
-      });
-      if (res.ok) {
-        setStatus("success");
-        setEmail("");
-      } else {
-        setStatus("error");
-      }
-    } catch {
-      setStatus("error");
-    }
-  };
-
   return (
     <section className="bento-hero">
-      {/* Hero tile — large left */}
-      <div className="bento-tile bento-tile--hero">
+      {/* Hero tile — "I Teach" funnel */}
+      <Link href="/for-teachers" className="bento-tile bento-tile--hero">
         <Image
           src="/images/homepage-hero.png"
           alt="Educator in a learning environment"
@@ -61,40 +18,38 @@ export default function BentoHero() {
           <h1>The Rooted Learner</h1>
           <p>Curriculum, tools, and honest insight for educators who grow their own way.</p>
         </div>
-      </div>
+        <div className="bento-hover-overlay bento-hover-overlay--hero">
+          <h2>I teach</h2>
+          <ul>
+            <li>ELD lessons</li>
+            <li>MCAP units</li>
+            <li>Standards-based Microlearning</li>
+          </ul>
+        </div>
+      </Link>
 
-      {/* Combined signup + download tile — right column */}
-      <div className="bento-tile bento-tile--combined">
-        <span className="bento-eyebrow">Newsletter + Free Guide</span>
-        <h2>Grow your inbox</h2>
-        <p>Classroom-tested ideas, tools, and reading — twice a month, never noise. Sign up and get our free Claude for Educators guide.</p>
-        {status === "success" ? (
-          <p className="bento-success">You&apos;re in! Check your inbox for the guide.</p>
-        ) : (
-          <div className="bento-capture">
-            <input
-              type="email"
-              placeholder="you@school.edu"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSignup()}
-              aria-label="Email for newsletter and free guide"
-            />
-            <button
-              type="button"
-              className="btn btn-terra"
-              onClick={handleSignup}
-              disabled={status === "loading"}
-            >
-              {status === "loading" ? "..." : "Subscribe & get the guide"}
-            </button>
-          </div>
-        )}
-        {status === "error" && (
-          <p className="bento-error">Something went wrong. Try again.</p>
-        )}
-        <p className="bento-fine">No spam. Unsubscribe anytime. PDF &middot; 18 pages.</p>
-      </div>
+      {/* Districts tile — "I Lead" funnel */}
+      <Link href="/for-districts" className="bento-tile bento-tile--combined">
+        <div className="bento-tile-content">
+          <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M3 21h18M9 8h1M9 12h1M9 16h1M14 8h1M14 12h1M14 16h1M5 21V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16" />
+          </svg>
+          <h2>For Districts</h2>
+          <p>Software and support for the schools we serve</p>
+        </div>
+        <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7" />
+          <polyline points="7 7 17 7 17 17" />
+        </svg>
+        <div className="bento-hover-overlay bento-hover-overlay--districts">
+          <h2>I lead a school or district</h2>
+          <ul>
+            <li>Hall Pass &mdash; student movement management your district owns</li>
+          </ul>
+          <p className="bento-hover-price">$1.50 students/year</p>
+          <p className="bento-hover-cta">Free 60 day pilot</p>
+        </div>
+      </Link>
 
       {/* Shop tile — bottom left */}
       <Link href="/shop" className="bento-tile bento-tile--shop">

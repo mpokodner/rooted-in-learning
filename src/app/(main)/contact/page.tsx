@@ -289,7 +289,7 @@ export default function ContactPage() {
                     </svg>
                     <span>Explore the Process</span>
                   </Link>
-                  <Link href="/tools/assessalign" className="ct-quick-link">
+                  <Link href="/for-districts/assessalign" className="ct-quick-link">
                     <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} aria-hidden="true">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                     </svg>

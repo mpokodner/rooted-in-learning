@@ -6,6 +6,7 @@ import { blogPostsQuery } from "@/sanity/lib/queries";
 import type { BlogPostCard } from "@/sanity/lib/types";
 import BlogCard from "@/components/blog/BlogCard";
 import BentoHero from "@/components/BentoHero";
+import BentoNewsletter from "@/components/BentoNewsletter";
 
 export const metadata: Metadata = {
   title: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
@@ -26,6 +27,7 @@ export default async function Home() {
   return (
     <>
       <BentoHero />
+      <BentoNewsletter />
 
       <section className="home-software section">
         <div className="container">
@@ -38,7 +40,7 @@ export default async function Home() {
                 real audit findings and real classroom problems.
               </p>
             </div>
-            <Link href="/tools" className="btn btn-outline">
+            <Link href="/for-districts" className="btn btn-outline">
               See our software
             </Link>
           </div>

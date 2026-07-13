@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "SIS integration",
     "district software",
   ],
-  alternates: { canonical: "/tools/hallpass" },
+  alternates: { canonical: "/for-districts/hallpass" },
   openGraph: {
     title: "Hall Pass — The Rooted Learner",
     description:

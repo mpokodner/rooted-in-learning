@@ -80,7 +80,7 @@ const buildCards = [
       </>
     ),
     terra: true,
-    link: "/tools/assessalign",
+    link: "/for-districts/assessalign",
   },
   {
     title: "Standards-to-resource maps",

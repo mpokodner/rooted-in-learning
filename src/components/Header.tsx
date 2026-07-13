@@ -36,12 +36,12 @@ const NAV: NavItem[] = [
   { label: "Learn", href: "/learn", key: "learn" },
   { label: "Shop", href: "/shop", key: "shop" },
   {
-    label: "Software",
-    key: "software",
-    href: "/tools",
+    label: "For Districts",
+    key: "districts",
+    href: "/for-districts",
     children: [
-      { label: "Software Overview", href: "/tools", desc: "What we build, and why" },
-      { label: "Hall Pass", href: "/tools/hallpass", desc: "District-owned student movement management" },
+      { label: "For Districts", href: "/for-districts", desc: "What we build, and why" },
+      { label: "Hall Pass", href: "/for-districts/hallpass", desc: "District-owned student movement management" },
     ],
   },
   { label: "Blog", href: "/learn/blog", key: "blog" },
@@ -60,7 +60,7 @@ const NAV: NavItem[] = [
 function isActive(pathname: string, key: string, item: NavItem) {
   if (key === "blog") return pathname.startsWith("/learn/blog");
   if (key === "learn") return pathname === "/learn";
-  if (key === "software") return pathname.startsWith("/tools");
+  if (key === "districts") return pathname.startsWith("/for-districts");
   if (key === "about") {
     return pathname === "/about" || pathname.startsWith("/about/") || pathname === "/contact";
   }

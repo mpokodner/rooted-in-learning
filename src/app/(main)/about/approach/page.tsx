@@ -112,7 +112,7 @@ export default function ApproachPage() {
                 district&apos;s actual workflow. Not a slide deck that sits in a
                 shared drive.
               </p>
-              <Link href="/tools/assessalign" className="ap-proof-link">
+              <Link href="/for-districts/assessalign" className="ap-proof-link">
                 See how AssessAlign works
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14" />

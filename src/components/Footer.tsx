@@ -113,10 +113,10 @@ export default function Footer() {
           </div>
 
           <div className="footer-col">
-            <h4>Software</h4>
+            <h4>For Districts</h4>
             <ul>
-              <li><Link href="/tools">Software Overview</Link></li>
-              <li><Link href="/tools/hallpass">Hall Pass</Link></li>
+              <li><Link href="/for-districts">For Districts</Link></li>
+              <li><Link href="/for-districts/hallpass">Hall Pass</Link></li>
               <li><Link href="/about/approach">Our Approach</Link></li>
               <li><Link href="/work-with-me">Work With Us</Link></li>
             </ul>

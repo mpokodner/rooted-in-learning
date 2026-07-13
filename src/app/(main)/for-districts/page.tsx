@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   description:
     "District software and AI-powered tools built by educators who still teach. AssessAlign for standards-based assessment, Hall Pass for student movement management, and more.",
   alternates: {
-    canonical: "/tools",
+    canonical: "/for-districts",
   },
 };
 
@@ -117,10 +117,10 @@ export default function ToolsPage() {
               not demos.
             </p>
             <div className="btn-row mt-4">
-              <Link href="/tools/hallpass" className="btn btn-terra btn-lg">
+              <Link href="/for-districts/hallpass" className="btn btn-terra btn-lg">
                 See Hall Pass
               </Link>
-              <Link href="/tools/assessalign" className="btn btn-outline btn-lg">
+              <Link href="/for-districts/assessalign" className="btn btn-outline btn-lg">
                 Explore AssessAlign
               </Link>
             </div>
@@ -151,7 +151,7 @@ export default function ToolsPage() {
                 <li><CheckIcon />District-wide oversight with tenant-scoped boundaries</li>
               </ul>
               <div className="mt-4">
-                <Link href="/tools/hallpass" className="btn btn-primary">
+                <Link href="/for-districts/hallpass" className="btn btn-primary">
                   Learn about Hall Pass
                 </Link>
               </div>
@@ -198,7 +198,7 @@ export default function ToolsPage() {
                 ))}
               </ul>
               <div className="mt-4">
-                <Link href="/tools/assessalign" className="btn btn-primary">
+                <Link href="/for-districts/assessalign" className="btn btn-primary">
                   See how it works
                 </Link>
               </div>

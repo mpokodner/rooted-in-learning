@@ -45,7 +45,6 @@ export default function BentoHero() {
           <ul>
             <li>Hall Pass &mdash; student movement management your district owns</li>
           </ul>
-          <p className="bento-hover-price">$1.50 students/year</p>
           <p className="bento-hover-cta">Free 60 day pilot</p>
         </div>
       </Link>

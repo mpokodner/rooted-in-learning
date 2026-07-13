@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import ApproachCaseStudy from "@/components/ApproachCaseStudy";
 import "./approach.css";
 
 export const metadata: Metadata = {
@@ -59,9 +60,11 @@ export default function ApproachPage() {
           <span className="ap-eyebrow">Our Approach</span>
           <h1>How we diagnose, build, and support</h1>
           <p className="ap-hero-sub">
-            Every engagement starts with the same diagnostic engine. The audit
-            prescribes the build; the build prescribes the implementation. Each
-            stage earns the next — no generic proposals, no guesswork.
+            <em>
+              Every engagement starts with the same diagnostic engine. The audit
+              prescribes the build; the build prescribes the implementation. Each
+              stage earns the next — no generic proposals, no guesswork.
+            </em>
           </p>
         </div>
       </section>
@@ -71,19 +74,12 @@ export default function ApproachPage() {
           <div className="ap-stages">
             {stages.map((s) => (
               <div key={s.num} className="ap-stage-card">
-                <div className="ap-stage-header">
-                  <span className="ap-stage-num">Stage {s.num}</span>
-                  <h2>{s.title}</h2>
-                </div>
+                <span className="ap-stage-num">Stage {s.num}</span>
+                <h2>{s.title}</h2>
                 <p className="ap-stage-desc">{s.desc}</p>
                 <ul className="ap-stage-details">
                   {s.details.map((d) => (
-                    <li key={d}>
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M20 6 9 17l-5-5" />
-                      </svg>
-                      {d}
-                    </li>
+                    <li key={d}>{d}</li>
                   ))}
                 </ul>
               </div>
@@ -92,48 +88,19 @@ export default function ApproachPage() {
         </div>
       </section>
 
-      <section className="ap-proof section">
-        <div className="container">
-          <div className="ap-section-header">
-            <span className="ap-eyebrow">Proof of concept</span>
-            <h2>We don&apos;t hand back a clipboard report. We build something alive.</h2>
-          </div>
-          <div className="ap-proof-content">
-            <div className="ap-proof-text">
-              <p>
-                AssessAlign started as an audit finding — teachers needed
-                standards-aligned assessments that actually measured comprehension
-                without exhausting attention. Instead of recommending a vendor, we
-                built the tool ourselves.
-              </p>
-              <p>
-                That&apos;s the difference. Our deliverables include custom
-                technology <em>and</em> professional development inside your
-                district&apos;s actual workflow. Not a slide deck that sits in a
-                shared drive.
-              </p>
-              <Link href="/for-districts/assessalign" className="ap-proof-link">
-                See how AssessAlign works
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M5 12h14" />
-                  <path d="m13 6 6 6-6 6" />
-                </svg>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
+      <ApproachCaseStudy />
 
       <section className="ap-cta section">
         <div className="container">
+          <span className="ap-eyebrow">Proof Over Proposals</span>
           <h2>Ready to start with the audit?</h2>
           <p>
             Every engagement begins with a conversation about your school, your
             learners, and what &ldquo;working&rdquo; actually looks like for your
             team.
           </p>
-          <Link href="/work-with-me" className="btn btn-terra">
-            Start a conversation
+          <Link href="/work-with-me" className="btn btn-outline-light">
+            Start a conversation &rarr;
           </Link>
         </div>
       </section>

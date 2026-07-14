@@ -33,17 +33,8 @@ type NavItem = {
 };
 
 const NAV: NavItem[] = [
-  { label: "Home", href: "/", key: "home" },
-  {
-    label: "For Teachers",
-    key: "teachers",
-    href: "/for-teachers",
-    children: [
-      { label: "For Teachers", href: "/for-teachers", desc: "Curriculum, guides & professional learning" },
-      { label: "Shop", href: "/shop", desc: "Books, guides & printables" },
-      { label: "Learn", href: "/learn", desc: "Courses, the Learn Hub & teacher toolkit" },
-    ],
-  },
+  { label: "Learn", href: "/learn", key: "learn" },
+  { label: "Shop", href: "/shop", key: "shop" },
   {
     label: "For Districts",
     key: "districts",
@@ -67,13 +58,8 @@ const NAV: NavItem[] = [
 ];
 
 function isActive(pathname: string, key: string, item: NavItem) {
-  if (key === "home") return pathname === "/";
   if (key === "blog") return pathname.startsWith("/learn/blog");
-  if (key === "teachers") {
-    return pathname === "/for-teachers" || pathname.startsWith("/for-teachers/")
-      || pathname === "/shop" || pathname.startsWith("/shop/")
-      || (pathname === "/learn" || (pathname.startsWith("/learn/") && !pathname.startsWith("/learn/blog")));
-  }
+  if (key === "learn") return pathname === "/learn";
   if (key === "districts") return pathname.startsWith("/for-districts");
   if (key === "about") {
     return pathname === "/about" || pathname.startsWith("/about/") || pathname === "/contact";

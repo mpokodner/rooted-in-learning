@@ -19,12 +19,14 @@ export default function BentoHero() {
           <p>Curriculum, tools, and honest insight for educators who grow their own way.</p>
         </div>
         <div className="bento-hover-overlay bento-hover-overlay--hero">
+          <span className="bento-hover-eyebrow">For Teachers</span>
           <h2>I teach</h2>
           <ul>
             <li>ELD lessons</li>
             <li>MCAP units</li>
             <li>Standards-based Microlearning</li>
           </ul>
+          <span className="bento-hover-cta-btn">Explore resources &rarr;</span>
         </div>
       </Link>
 
@@ -41,11 +43,12 @@ export default function BentoHero() {
           <p>Software and support for the schools we serve</p>
         </div>
         <div className="bento-hover-overlay bento-hover-overlay--districts">
+          <span className="bento-hover-eyebrow">For District Leaders</span>
           <h2>I lead a school or district</h2>
           <ul>
             <li>Hall Pass &mdash; student movement management your district owns</li>
           </ul>
-          <p className="bento-hover-cta">Free 60 day pilot</p>
+          <span className="bento-hover-cta-btn">Free 60-day pilot &rarr;</span>
         </div>
       </Link>
 

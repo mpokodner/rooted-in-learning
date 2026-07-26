@@ -1,6 +1,7 @@
 import { groq } from 'next-sanity'
 
 const authorFragment = `author->{name, slug, image, role}`
+const authorDetailFragment = `author->{name, slug, image, role, bio, social}`
 const pillarFragment = `contentPillar->{title, slug, color}`
 const categoryFragment = `categories[]->{title, slug}`
 const tagFragment = `tags[]->{title, slug}`
@@ -46,11 +47,13 @@ export const blogPostBySlugQuery = groq`
       ...,
       _type == "image" => { ..., asset-> }
     },
-    ${authorFragment},
+    ${authorDetailFragment},
     ${pillarFragment},
     ${categoryFragment},
     ${tagFragment},
     seo { metaTitle, metaDescription, ogImage },
+    "previousPost": *[_type == "blogPost" && status == "published" && publishedAt < ^.publishedAt] | order(publishedAt desc)[0] { title, slug },
+    "nextPost": *[_type == "blogPost" && status == "published" && publishedAt > ^.publishedAt] | order(publishedAt asc)[0] { title, slug },
     "relatedPosts": *[
       _type == "blogPost"
       && status == "published"

@@ -7,7 +7,7 @@
 
 .bento-hero {
   display: grid;
-  grid-template-columns: 1.65fr 1fr;
+  grid-template-columns: repeat(3, 1fr);
   grid-template-rows: minmax(0, 1fr) auto;
   gap: 14px;
   min-height: calc(100dvh - 76px);
@@ -27,7 +27,7 @@
 
 .bento-tile--hero {
   grid-row: 1;
-  grid-column: 1;
+  grid-column: 1 / 3;
   background: var(--earth-dark);
   display: block;
   text-decoration: none;
@@ -98,7 +98,7 @@
 
 .bento-tile--combined {
   grid-row: 1;
-  grid-column: 2;
+  grid-column: 3;
   display: block;
   text-decoration: none;
   cursor: pointer;
@@ -175,12 +175,60 @@
 
 .bento-tile--learn {
   grid-row: 2;
-  grid-column: 2;
+  grid-column: 3;
   background: var(--earth);
+}
+
+.bento-tile--guide {
+  grid-row: 2;
+  grid-column: 2;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+  background: var(--terracotta);
+}
+
+.bento-tile--guide h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.bento-tile--guide p {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bento-tile--guide .bento-tile-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bento-tile--guide .bento-tile-arrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bento-guide-eyebrow {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.5rem;
+}
+
+.bento-tile--guide .bento-hover-overlay {
+  background: var(--earth-dark);
 }
 
 .bento-tile--shop:hover,
 .bento-tile--learn:hover,
+.bento-tile--guide:hover,
 .bento-tile--combined:hover {
   transform: translateY(-3px);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
@@ -227,7 +275,8 @@
 }
 
 .bento-tile--shop:hover .bento-tile-arrow,
-.bento-tile--learn:hover .bento-tile-arrow {
+.bento-tile--learn:hover .bento-tile-arrow,
+.bento-tile--guide:hover .bento-tile-arrow {
   opacity: 0;
 }
 
@@ -284,7 +333,8 @@
 }
 
 .bento-tile--shop:hover .bento-hover-overlay,
-.bento-tile--learn:hover .bento-hover-overlay {
+.bento-tile--learn:hover .bento-hover-overlay,
+.bento-tile--guide:hover .bento-hover-overlay {
   opacity: 1;
 }
 
@@ -360,7 +410,8 @@
 }
 
 .bento-tile--shop .bento-hover-overlay,
-.bento-tile--learn .bento-hover-overlay {
+.bento-tile--learn .bento-hover-overlay,
+.bento-tile--guide .bento-hover-overlay {
   align-items: flex-start;
   text-align: left;
 }
@@ -529,6 +580,7 @@
 
   .bento-tile--combined,
   .bento-tile--shop,
+  .bento-tile--guide,
   .bento-tile--learn {
     grid-row: auto;
     grid-column: auto;
@@ -562,12 +614,14 @@
 @media (prefers-reduced-motion: reduce) {
   .bento-tile--shop,
   .bento-tile--learn,
+  .bento-tile--guide,
   .bento-tile--combined {
     transition: none;
   }
 
   .bento-tile--shop:hover,
   .bento-tile--learn:hover,
+  .bento-tile--guide:hover,
   .bento-tile--combined:hover {
     transform: none;
   }

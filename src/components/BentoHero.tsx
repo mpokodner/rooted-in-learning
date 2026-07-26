@@ -14,7 +14,7 @@ export default function BentoHero() {
           style={{ objectFit: "cover" }}
         />
         <div className="bento-hero-overlay">
-          <span className="bento-pill">Independent Education Press</span>
+          <span className="bento-pill">Built by Educators</span>
           <h1>The Rooted Learner</h1>
           <p>Curriculum, tools, and honest insight for educators who grow their own way.</p>
         </div>
@@ -74,6 +74,34 @@ export default function BentoHero() {
             <li>Differentiated resources</li>
             <li>Microlearning lessons</li>
           </ul>
+        </div>
+      </Link>
+
+      {/* Guide tile — bottom center */}
+      <Link href="/learn/teacher-toolkit/getting-started-with-claude-ai-for-educators" className="bento-tile bento-tile--guide">
+        <div className="bento-tile-content">
+          <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
+            <path d="M14 2v6h6" />
+            <path d="M16 13H8" />
+            <path d="M16 17H8" />
+            <path d="M10 9H8" />
+          </svg>
+          <span className="bento-guide-eyebrow">FREE GUIDE</span>
+          <h2>The Educator&apos;s Guide to Claude AI</h2>
+          <p>15 chapters, 50+ pages &mdash; free PDF for teachers getting started with AI.</p>
+        </div>
+        <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <line x1="7" y1="17" x2="17" y2="7" />
+          <polyline points="7 7 17 7 17 17" />
+        </svg>
+        <div className="bento-hover-overlay">
+          <span className="bento-hover-eyebrow">Free Resource</span>
+          <ul>
+            <li>15 chapters for educators</li>
+            <li>50+ pages, practical tips</li>
+          </ul>
+          <span className="bento-hover-cta-btn">Get the free guide &rarr;</span>
         </div>
       </Link>
 

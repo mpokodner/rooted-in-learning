@@ -7,6 +7,7 @@ import {
 import type { PortableTextBlock } from '@portabletext/types'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
+import { slugify } from '@/lib/slugify'
 
 function extractYouTubeId(url: string): string | null {
   const match = url.match(
@@ -95,6 +96,48 @@ export const portableTextComponents: PortableTextComponents = {
         </aside>
       )
     },
+
+    comparisonCards: ({ value }) => (
+      <div style={{ margin: '2rem 0' }}>
+        {value.title && (
+          <h3
+            style={{
+              fontFamily: 'var(--font-heading)',
+              fontSize: '1.25rem',
+              fontWeight: 700,
+              color: 'var(--text-black)',
+              marginBottom: '1.25rem',
+            }}
+          >
+            {value.title}
+          </h3>
+        )}
+        <div className="bp-comparison-grid">
+          {value.cards?.map(
+            (
+              card: { heading?: string; traditional?: string; aiEnhanced?: string; color?: string },
+              i: number,
+            ) => (
+              <div
+                key={i}
+                className="bp-comparison-card"
+                style={card.color ? { borderTopColor: card.color } : undefined}
+              >
+                {card.heading && <h4 className="bp-comparison-heading">{card.heading}</h4>}
+                <div className="bp-comparison-col">
+                  <span className="bp-comparison-label">Traditional</span>
+                  <p>{card.traditional}</p>
+                </div>
+                <div className="bp-comparison-col">
+                  <span className="bp-comparison-label">AI-Enhanced</span>
+                  <p>{card.aiEnhanced}</p>
+                </div>
+              </div>
+            ),
+          )}
+        </div>
+      </div>
+    ),
 
     youtubeEmbed: ({ value }) => {
       const videoId = extractYouTubeId(value.url)
@@ -315,15 +358,70 @@ export const portableTextComponents: PortableTextComponents = {
   },
 }
 
+const idBlockComponents = {
+  h2: ({ children, value }: { children?: React.ReactNode; value?: PortableTextBlock }) => {
+    const text = (value?.children as { text?: string }[])?.map((c) => c.text ?? '').join('') ?? ''
+    return (
+      <h2
+        id={slugify(text)}
+        style={{
+          fontFamily: 'var(--font-heading)',
+          color: 'var(--text-black)',
+          fontSize: '1.5rem',
+          fontWeight: 700,
+          marginBottom: '1rem',
+          marginTop: '2.5rem',
+          scrollMarginTop: '6rem',
+        }}
+      >
+        {children}
+      </h2>
+    )
+  },
+  h3: ({ children, value }: { children?: React.ReactNode; value?: PortableTextBlock }) => {
+    const text = (value?.children as { text?: string }[])?.map((c) => c.text ?? '').join('') ?? ''
+    return (
+      <h3
+        id={slugify(text)}
+        style={{
+          fontFamily: 'var(--font-heading)',
+          color: 'var(--text-black)',
+          fontSize: '1.25rem',
+          fontWeight: 600,
+          marginBottom: '0.75rem',
+          marginTop: '2rem',
+          scrollMarginTop: '6rem',
+        }}
+      >
+        {children}
+      </h3>
+    )
+  },
+}
+
+const portableTextWithIds: PortableTextComponents = {
+  ...portableTextComponents,
+  block: {
+    ...(portableTextComponents.block as Record<string, unknown>),
+    ...idBlockComponents,
+  } as PortableTextComponents['block'],
+}
+
 interface RichTextProps {
   content: PortableTextBlock[]
   className?: string
+  generateIds?: boolean
 }
 
-export default function RichText({ content, className }: RichTextProps) {
+export default function RichText({ content, className, generateIds }: RichTextProps) {
   return (
     <div className={className}>
-      <PortableText value={content} components={portableTextComponents} />
+      <PortableText
+        value={content}
+        components={generateIds ? portableTextWithIds : portableTextComponents}
+      />
     </div>
   )
 }
+
+export { slugify } from '@/lib/slugify'

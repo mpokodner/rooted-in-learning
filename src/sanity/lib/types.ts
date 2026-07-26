@@ -63,6 +63,8 @@ export interface BlogPost extends BlogPostCard {
     ogImage?: any
   }
   relatedPosts?: BlogPostCard[]
+  previousPost?: { title: string; slug: { current: string } }
+  nextPost?: { title: string; slug: { current: string } }
 }
 
 export type ResourceType = 'video' | 'howto' | 'download' | 'review'

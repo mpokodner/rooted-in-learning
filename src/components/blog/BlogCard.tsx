@@ -69,7 +69,17 @@ export function BlogFeaturedCard({ post }: { post: BlogPostCard }) {
         className="post-card-body"
         style={{ padding: 'clamp(1.5rem, 3vw, 2.5rem)' }}
       >
-        <span className="chip-tag">{pillarLabel}</span>
+        <span
+          className="chip-tag"
+          style={{
+            backgroundColor: post.contentPillar?.color || 'var(--earth)',
+            color: '#fff',
+            borderRadius: '9999px',
+            padding: '0.2rem 0.75rem',
+          }}
+        >
+          {pillarLabel}
+        </span>
         <h2 className="h-md" style={{ color: 'var(--text-black)' }}>
           {post.title}
         </h2>
@@ -104,7 +114,17 @@ export default function BlogCard({ post }: { post: BlogPostCard }) {
 
       <div className="post-card-body">
         {post.contentPillar && (
-          <span className="chip-tag">{post.contentPillar.title}</span>
+          <span
+            className="chip-tag"
+            style={{
+              backgroundColor: post.contentPillar.color || 'var(--earth)',
+              color: '#fff',
+              borderRadius: '9999px',
+              padding: '0.2rem 0.75rem',
+            }}
+          >
+            {post.contentPillar.title}
+          </span>
         )}
         <h3>{post.title}</h3>
         {post.excerpt && <p>{post.excerpt}</p>}

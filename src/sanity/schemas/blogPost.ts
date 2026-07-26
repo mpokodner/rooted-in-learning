@@ -161,6 +161,43 @@ export default defineType({
           },
         }),
         defineArrayMember({
+          name: 'comparisonCards',
+          title: 'Comparison Cards',
+          type: 'object',
+          fields: [
+            defineField({
+              name: 'title',
+              title: 'Section Title',
+              type: 'string',
+            }),
+            defineField({
+              name: 'cards',
+              title: 'Cards',
+              type: 'array',
+              of: [
+                {
+                  type: 'object',
+                  fields: [
+                    defineField({ name: 'heading', title: 'Heading', type: 'string' }),
+                    defineField({ name: 'traditional', title: 'Traditional', type: 'text', rows: 2 }),
+                    defineField({ name: 'aiEnhanced', title: 'AI-Enhanced', type: 'text', rows: 2 }),
+                    defineField({ name: 'color', title: 'Accent Color (hex)', type: 'string' }),
+                  ],
+                  preview: {
+                    select: { title: 'heading' },
+                  },
+                },
+              ],
+            }),
+          ],
+          preview: {
+            select: { title: 'title' },
+            prepare({ title }) {
+              return { title: title || 'Comparison Cards' }
+            },
+          },
+        }),
+        defineArrayMember({
           name: 'youtubeEmbed',
           title: 'YouTube Embed',
           type: 'object',

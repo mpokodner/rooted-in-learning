@@ -1,0 +1,637 @@
+/* ═══════════════════════════════════════════════════════════════
+   HOME PAGE — Bento Hero + Sections
+   Uses design tokens from globals.css / greenhouse.css
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Bento Hero Grid ─── */
+
+.bento-hero {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: minmax(0, 1fr) auto;
+  gap: 14px;
+  min-height: calc(100dvh - 76px);
+  max-height: 860px;
+  padding: 14px;
+}
+
+/* ─── Base tile ─── */
+
+.bento-tile {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  position: relative;
+}
+
+/* ─── Hero tile (row 1, col 1) — "I Teach" funnel ─── */
+
+.bento-tile--hero {
+  grid-row: 1;
+  grid-column: 1 / 3;
+  background: var(--earth-dark);
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.bento-hero-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  background: linear-gradient(to top, rgba(90, 40, 15, 0.85) 0%, rgba(176, 89, 49, 0.45) 40%, rgba(176, 89, 49, 0.1) 100%);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 200ms ease;
+}
+
+.bento-tile--hero:hover .bento-hero-overlay {
+  opacity: 0;
+}
+
+.bento-pill {
+  display: inline-block;
+  width: fit-content;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: var(--white);
+  background: var(--terracotta);
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  margin-bottom: 0.75rem;
+}
+
+.bento-hero-overlay h1 {
+  font-family: var(--font-display);
+  font-size: var(--text-4xl);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.1;
+  letter-spacing: var(--tracking-tight);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.bento-hero-overlay p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.5;
+  max-width: 32rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Hero hover overlay — terracotta */
+
+.bento-tile--hero .bento-hover-overlay {
+  background: radial-gradient(ellipse at 30% 80%, rgba(146, 60, 41, 0.9) 0%, var(--terracotta) 60%);
+}
+
+.bento-tile--hero:hover .bento-hover-overlay {
+  opacity: 1;
+}
+
+/* ─── Combined tile (row 1, col 2) — "I Lead" funnel ─── */
+
+.bento-tile--combined {
+  grid-row: 1;
+  grid-column: 3;
+  display: block;
+  text-decoration: none;
+  cursor: pointer;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.bento-tile--combined:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Districts dark overlay for text readability */
+
+.bento-districts-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.65) 0%, rgba(0, 0, 0, 0.35) 50%, rgba(0, 0, 0, 0.2) 100%);
+  pointer-events: none;
+  z-index: 1;
+  transition: opacity 200ms ease;
+}
+
+.bento-tile--combined:hover .bento-districts-overlay {
+  opacity: 0;
+}
+
+.bento-districts-overlay h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.4);
+}
+
+.bento-districts-overlay p {
+  font-size: var(--text-base);
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+}
+
+/* Combined hover overlay — earth green */
+
+.bento-tile--combined .bento-hover-overlay {
+  background: radial-gradient(ellipse at 70% 20%, rgba(107, 125, 86, 0.9) 0%, var(--earth) 60%);
+}
+
+.bento-tile--combined:hover .bento-hover-overlay {
+  opacity: 1;
+}
+
+/* ─── Shop & Learn tiles (row 2) ─── */
+
+.bento-tile--shop,
+.bento-tile--learn {
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+}
+
+.bento-tile--shop {
+  grid-row: 2;
+  grid-column: 1;
+  background: var(--beige-bg);
+  border: 1px solid var(--border-beige);
+}
+
+.bento-tile--learn {
+  grid-row: 2;
+  grid-column: 3;
+  background: var(--earth);
+}
+
+.bento-tile--guide {
+  grid-row: 2;
+  grid-column: 2;
+  padding: clamp(1.25rem, 2vw, 1.75rem);
+  display: flex;
+  align-items: flex-start;
+  text-decoration: none;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+  cursor: pointer;
+  background: var(--terracotta);
+}
+
+.bento-tile--guide h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.25rem;
+}
+
+.bento-tile--guide p {
+  font-size: var(--text-sm);
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bento-tile--guide .bento-tile-icon {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.bento-tile--guide .bento-tile-arrow {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.bento-guide-eyebrow {
+  display: block;
+  font-size: 0.625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0.5rem;
+}
+
+.bento-tile--guide .bento-hover-overlay {
+  background: var(--earth-dark);
+}
+
+.bento-tile--shop:hover,
+.bento-tile--learn:hover,
+.bento-tile--guide:hover,
+.bento-tile--combined:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+.bento-tile-content {
+  position: relative;
+  z-index: 1;
+}
+
+.bento-tile-icon {
+  width: 1.75rem;
+  height: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.bento-tile--shop .bento-tile-icon {
+  color: var(--terracotta);
+}
+
+.bento-tile--learn .bento-tile-icon {
+  color: var(--earth-mist);
+}
+
+/* Arrow icon — top right corner */
+
+.bento-tile-arrow {
+  position: absolute;
+  top: clamp(1rem, 2vw, 1.5rem);
+  right: clamp(1rem, 2vw, 1.5rem);
+  width: 1.25rem;
+  height: 1.25rem;
+  z-index: 1;
+  opacity: 0.5;
+  transition: opacity 200ms ease;
+}
+
+.bento-tile--shop .bento-tile-arrow {
+  color: var(--text-muted);
+}
+
+.bento-tile--learn .bento-tile-arrow {
+  color: var(--earth-mist);
+}
+
+.bento-tile--shop:hover .bento-tile-arrow,
+.bento-tile--learn:hover .bento-tile-arrow,
+.bento-tile--guide:hover .bento-tile-arrow {
+  opacity: 0;
+}
+
+.bento-tile--shop h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-black);
+  margin-bottom: 0.25rem;
+}
+
+.bento-tile--shop p {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.bento-tile--learn h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 0.25rem;
+}
+
+.bento-tile--learn p {
+  font-size: var(--text-sm);
+  color: var(--earth-mist);
+}
+
+/* ─── Hover overlays (shared) ─── */
+
+.bento-hover-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2.5rem);
+  z-index: 2;
+}
+
+.bento-tile--shop .bento-hover-overlay {
+  background: var(--terracotta);
+}
+
+.bento-tile--learn .bento-hover-overlay {
+  background: var(--earth-dark);
+}
+
+.bento-tile--shop:hover .bento-hover-overlay,
+.bento-tile--learn:hover .bento-hover-overlay,
+.bento-tile--guide:hover .bento-hover-overlay {
+  opacity: 1;
+}
+
+.bento-hover-overlay h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.75rem;
+  line-height: 1.1;
+}
+
+.bento-hover-eyebrow {
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.18em;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 0.75rem;
+}
+
+.bento-hover-overlay ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.bento-hover-overlay li {
+  font-size: var(--text-base);
+  font-weight: 500;
+  color: var(--white);
+  padding: 0.35rem 0;
+}
+
+.bento-hover-overlay li::before {
+  content: "→ ";
+  opacity: 0.6;
+}
+
+.bento-hover-price {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--white);
+  margin-top: 0.75rem;
+}
+
+.bento-hover-cta {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  margin-top: 0.25rem;
+}
+
+.bento-hover-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 1.25rem;
+  padding: 0.65rem 1.4rem;
+  border: 1.5px solid rgba(255, 255, 255, 0.5);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  transition: border-color 200ms ease, background 200ms ease;
+}
+
+.bento-tile:hover .bento-hover-cta-btn {
+  border-color: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.bento-tile--shop .bento-hover-overlay,
+.bento-tile--learn .bento-hover-overlay,
+.bento-tile--guide .bento-hover-overlay {
+  align-items: flex-start;
+  text-align: left;
+}
+
+/* ─── Bento Newsletter Strip ─── */
+
+.bento-newsletter {
+  background: var(--earth-dark);
+  margin: 0 14px;
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem) clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.bento-newsletter-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.bento-newsletter-text h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--text-on-dark);
+  margin-bottom: 0.25rem;
+}
+
+.bento-newsletter-text p {
+  font-size: var(--text-sm);
+  color: var(--earth-mist);
+  line-height: 1.5;
+}
+
+.bento-newsletter-form {
+  display: flex;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.bento-newsletter-input {
+  padding: 0.625rem 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 220px;
+}
+
+.bento-newsletter-input::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.bento-newsletter-input:focus {
+  outline: 2px solid var(--terracotta);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.bento-newsletter .newsletter-success {
+  color: var(--text-on-dark);
+  font-size: var(--text-sm);
+}
+
+/* ─── Software band ─── */
+
+.home-software {
+  background: var(--beige-bg);
+}
+
+.home-software-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.home-eyebrow {
+  display: block;
+  font-size: 0.6875rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--terracotta);
+  margin-bottom: 0.75rem;
+}
+
+.home-software-inner h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  color: var(--text-black);
+  margin-bottom: 0.5rem;
+}
+
+.home-software-inner p {
+  font-size: var(--text-base);
+  color: var(--text-muted);
+  line-height: 1.6;
+  max-width: 36rem;
+}
+
+/* ─── Blog section ─── */
+
+.home-blog {
+  background: var(--neutral-bg);
+}
+
+.home-blog-header {
+  margin-bottom: clamp(2rem, 4vw, 3rem);
+}
+
+.home-blog-header h2 {
+  font-family: var(--font-display);
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  color: var(--text-black);
+}
+
+.home-blog-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.home-blog-more {
+  margin-top: 2rem;
+}
+
+.home-link-arrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--terracotta);
+  text-decoration: none;
+}
+
+.home-link-arrow:hover {
+  text-decoration: underline;
+}
+
+.home-link-arrow svg {
+  width: 1.125rem;
+  height: 1.125rem;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 900px) {
+  .bento-hero {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    min-height: auto;
+    max-height: none;
+  }
+
+  .bento-tile--hero {
+    grid-row: auto;
+    grid-column: auto;
+    min-height: 50vh;
+  }
+
+  .bento-tile--combined,
+  .bento-tile--shop,
+  .bento-tile--guide,
+  .bento-tile--learn {
+    grid-row: auto;
+    grid-column: auto;
+  }
+
+  .bento-newsletter-inner {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bento-newsletter-form {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .bento-newsletter-input {
+    min-width: 0;
+    width: 100%;
+  }
+
+  .home-software-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .home-blog-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .bento-tile--shop,
+  .bento-tile--learn,
+  .bento-tile--guide,
+  .bento-tile--combined {
+    transition: none;
+  }
+
+  .bento-tile--shop:hover,
+  .bento-tile--learn:hover,
+  .bento-tile--guide:hover,
+  .bento-tile--combined:hover {
+    transform: none;
+  }
+
+  .bento-hover-overlay,
+  .bento-hero-overlay {
+    transition: none;
+  }
+
+  .bento-tile-arrow {
+    transition: none;
+  }
+}

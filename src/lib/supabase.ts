@@ -1,52 +1,27 @@
-import { createClient } from '@supabase/supabase-js';
+"use client";
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
+import { createBrowserClient } from "@supabase/ssr";
+import { type SupabaseClient } from "@supabase/supabase-js";
 
-// Client-side Supabase client (uses anon key)
-export const supabase = createClient(supabaseUrl, supabaseAnonKey);
+/**
+ * Creates a Supabase client for use in Client Components (browser).
+ * Uses `createBrowserClient` from @supabase/ssr so cookies stay
+ * in sync with the server client — no token juggling needed.
+ *
+ * Returns `null` when the required env vars are missing (e.g. during
+ * static pre-rendering at build time).
+ *
+ * ⚠️  Only import this in files marked "use client".
+ */
+export function createClient(): SupabaseClient | null {
+  const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
+  const supabaseKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY;
 
-// Server-side Supabase client (uses service role key for admin operations)
-// Only use this in server-side code (API routes, server components, etc.)
-export function createServerSupabaseClient() {
-  const supabaseServiceRoleKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
-  
-  return createClient(supabaseUrl, supabaseServiceRoleKey, {
-    auth: {
-      autoRefreshToken: false,
-      persistSession: false,
-    },
-  });
+  if (!supabaseUrl || !supabaseKey) {
+    // Env vars are unavailable (e.g. during static build).
+    // Return null so callers can handle gracefully.
+    return null;
+  }
+
+  return createBrowserClient(supabaseUrl, supabaseKey);
 }
-
-// Type definitions for database (to be extended as tables are created)
-export type Database = {
-  public: {
-    Tables: {
-      // Add table definitions here as you create them in Supabase
-      // Example:
-      // products: {
-      //   Row: {
-      //     id: string;
-      //     name: string;
-      //     price: number;
-      //     created_at: string;
-      //   };
-      //   Insert: {
-      //     id?: string;
-      //     name: string;
-      //     price: number;
-      //     created_at?: string;
-      //   };
-      //   Update: {
-      //     id?: string;
-      //     name?: string;
-      //     price?: number;
-      //     created_at?: string;
-      //   };
-      // };
-    };
-    Views: Record<string, never>;
-    Functions: Record<string, never>;
-  };
-};

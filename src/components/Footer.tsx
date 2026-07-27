@@ -1,221 +1,158 @@
+"use client";
+
+import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
+
+const ArrowIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="M5 12h14" />
+    <path d="m13 6 6 6-6 6" />
+  </svg>
+);
 
 export default function Footer() {
-  const footerLinks = {
-    explore: [
-      { label: "Portfolio", href: "/projects" },
-      { label: "Philosophy", href: "/blog" },
-      { label: "Blog", href: "/blog" },
-      { label: "Speaking", href: "/#contact" },
-    ],
-    shop: [
-      { label: "Templates", href: "/microlearning" },
-      { label: "Courses", href: "/microlearning" },
-      { label: "Consulting", href: "/#contact" },
-      { label: "Merch", href: "/microlearning" },
-    ],
-    support: [
-      { label: "FAQ", href: "/#contact" },
-      { label: "Contact", href: "/#contact" },
-      { label: "Privacy Policy", href: "#" },
-      { label: "Terms", href: "#" },
-    ],
+  const [email, setEmail] = useState("");
+  const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
+
+  const handleSubscribe = async (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!email.trim()) return;
+    setStatus("loading");
+    try {
+      const res = await fetch("/api/newsletter", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, source: "footer", tag: "newsletter" }),
+      });
+      if (res.ok) {
+        setStatus("success");
+        setEmail("");
+      } else {
+        setStatus("error");
+      }
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
-    <footer className="bg-rooted-earth">
-      {/* Newsletter Section - Top of Footer */}
-      <div className="border-b border-white/10">
-        <div className="container py-12 md:py-16">
-          <div className="max-w-md">
-            <h3 className="text-[11px] font-bold text-white/70 uppercase tracking-widest mb-4">
-              Weekly Newsletter
-            </h3>
-            <h2 className="text-2xl md:text-3xl font-serif text-white mb-4 leading-tight">
-              Join 5,000+ Educators
-            </h2>
-            <p className="text-calm-spirit/90 text-sm mb-6 leading-relaxed">
-              Get weekly microteaching tips, pedagogical insights, and exclusive free product
-              drops delivered straight to your inbox.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-3">
-              <input
-                type="email"
-                placeholder="your@email.com"
-                className="flex-1 px-4 py-3 text-sm bg-white/10 border border-white/20 rounded-xl text-white placeholder:text-white/50 focus:outline-none focus:border-white/40 focus:bg-white/15 transition-colors"
-              />
-              <button className="bg-white text-rooted-earth px-6 py-3 rounded-xl text-sm font-semibold hover:bg-gentle-hold transition-colors whitespace-nowrap shadow-lg">
-                Join Now
-              </button>
-            </div>
-            <p className="text-xs text-calm-spirit/70 mt-3">
-              We respect your inbox. Unsubscribe anytime.
+    <footer className="site-footer" role="contentinfo">
+      <div className="footer-cta">
+        <div className="container footer-cta-inner">
+          <div>
+            <h2>Stay in the loop.</h2>
+            <p>
+              Teaching tips, AI strategies, and new resources — delivered when we
+              have something worth sharing.
             </p>
           </div>
+          <form className="footer-form" onSubmit={handleSubscribe}>
+            <input
+              type="email"
+              placeholder="you@email.com"
+              aria-label="Email for newsletter"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              disabled={status === "loading" || status === "success"}
+            />
+            <button className="btn btn-terra" type="submit" disabled={status === "loading" || status === "success"}>
+              {status === "loading" ? "Sending…" : status === "success" ? "Subscribed!" : <>Subscribe <ArrowIcon /></>}
+            </button>
+          </form>
         </div>
       </div>
 
-      {/* Main Footer */}
-      <div className="container py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-12">
-          {/* Brand Column */}
-          <div className="lg:col-span-5">
-            <Link href="/" className="inline-flex items-center gap-2.5 mb-5">
-              <div className="w-9 h-9 bg-white/10 rounded-lg flex items-center justify-center">
-                <svg
-                  className="w-5 h-5 text-white"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                  />
-                </svg>
-              </div>
-              <span className="text-lg font-semibold text-white">
-                Rooted in Learning
+      <div className="footer-main">
+        <div className="container footer-grid">
+          <div className="footer-brand">
+            <Link href="/" className="brand">
+              <span className="brand-mark">
+                <Image src="/logo.png" alt="" width={32} height={32} aria-hidden="true" />
+              </span>
+              <span className="brand-text">
+                <span className="brand-name" style={{ color: "#fff" }}>The Rooted Learner</span>
               </span>
             </Link>
-            <p className="text-calm-spirit/80 text-sm mb-6 max-w-sm leading-relaxed">
-              Helping educators navigate the digital divide with practical
-              tools, thoughtful pedagogy, and a bit of code.
+            <p className="footer-desc">
+              We help educators integrate AI thoughtfully and build the classroom
+              tools we wished existed.
             </p>
-            <div className="flex gap-3">
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-calm-spirit hover:bg-white/20 hover:text-white transition-colors"
-                aria-label="Website"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M21 12a9 9 0 01-9 9m9-9a9 9 0 00-9-9m9 9H3m9 9a9 9 0 01-9-9m9 9c1.657 0 3-4.03 3-9s-1.343-9-3-9m0 18c-1.657 0-3-4.03-3-9s1.343-9 3-9m-9 9a9 9 0 019-9"
-                  />
-                </svg>
+            <div className="footer-stats">
+              <div>
+                <div className="footer-stat-num">30+</div>
+                <div className="footer-stat-label">Years in classrooms</div>
+              </div>
+              <div>
+                <div className="footer-stat-num">2</div>
+                <div className="footer-stat-label">Co-founders</div>
+              </div>
+              <div>
+                <div className="footer-stat-num">100+</div>
+                <div className="footer-stat-label">Resources built</div>
+              </div>
+            </div>
+            <div className="footer-socials">
+              <a href="https://www.instagram.com/rootedinlearninged/" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" /><circle cx="12" cy="12" r="4" /><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none" /></svg>
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-calm-spirit hover:bg-white/20 hover:text-white transition-colors"
-                aria-label="Share"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M8.684 13.342C8.886 12.938 9 12.482 9 12c0-.482-.114-.938-.316-1.342m0 2.684a3 3 0 110-2.684m0 2.684l6.632 3.316m-6.632-6l6.632-3.316m0 0a3 3 0 105.367-2.684 3 3 0 00-5.367 2.684zm0 9.316a3 3 0 105.368 2.684 3 3 0 00-5.368-2.684z"
-                  />
-                </svg>
+              <a href="https://www.youtube.com/@TheRootedLearner" aria-label="YouTube" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M23 7.5a3 3 0 0 0-2.1-2.1C19 4.9 12 4.9 12 4.9s-7 0-8.9.5A3 3 0 0 0 1 7.5 31 31 0 0 0 .5 12 31 31 0 0 0 1 16.5a3 3 0 0 0 2.1 2.1c1.9.5 8.9.5 8.9.5s7 0 8.9-.5a3 3 0 0 0 2.1-2.1A31 31 0 0 0 23.5 12 31 31 0 0 0 23 7.5zM9.8 15.3V8.7l5.7 3.3z" /></svg>
               </a>
-              <a
-                href="#"
-                className="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center text-calm-spirit hover:bg-white/20 hover:text-white transition-colors"
-                aria-label="Email"
-              >
-                <svg
-                  className="w-4 h-4"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  strokeWidth={2}
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                  />
-                </svg>
+              <a href="https://www.pinterest.com/rootedinlearninged/" aria-label="Pinterest" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0a12 12 0 0 0-4.37 23.17c-.1-.94-.2-2.4.04-3.44l1.4-5.96s-.36-.72-.36-1.78c0-1.67.97-2.92 2.17-2.92 1.02 0 1.52.77 1.52 1.7 0 1.03-.66 2.58-1 4.01-.28 1.2.6 2.17 1.78 2.17 2.13 0 3.77-2.25 3.77-5.5 0-2.87-2.06-4.88-5.01-4.88-3.41 0-5.42 2.56-5.42 5.2 0 1.03.4 2.13.89 2.73a.36.36 0 0 1 .08.34l-.33 1.36c-.05.22-.18.27-.4.16-1.5-.7-2.43-2.9-2.43-4.67 0-3.8 2.76-7.3 7.96-7.3 4.18 0 7.43 2.98 7.43 6.96 0 4.15-2.62 7.5-6.25 7.5-1.22 0-2.37-.63-2.76-1.38l-.75 2.86c-.27 1.05-1.01 2.36-1.5 3.16A12 12 0 1 0 12 0z" /></svg>
+              </a>
+              <a href="https://www.linkedin.com/in/michelle-pokodner-edtech/" aria-label="LinkedIn" target="_blank" rel="noopener noreferrer">
+                <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.34 8.3h4.37v2.15h.06c.61-1.15 2.1-2.36 4.32-2.36 4.62 0 5.47 3.04 5.47 7v8.91h-4.56v-7.9c0-1.88-.03-4.3-2.62-4.3-2.62 0-3.02 2.05-3.02 4.16V24H8.34z" /></svg>
+              </a>
+              <a href="mailto:admin@therootedlearner.com" aria-label="Email">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.7" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2" /><path d="m3 7 9 6 9-6" /></svg>
               </a>
             </div>
           </div>
 
-          {/* Links Grid */}
-          <div className="lg:col-span-7 grid grid-cols-3 gap-8 md:gap-10">
-            {/* Explore Links */}
-            <div>
-              <h5 className="font-bold text-sacred-ember-light mb-4 text-[11px] uppercase tracking-widest">
-                Explore
-              </h5>
-              <ul className="space-y-3">
-                {footerLinks.explore.map((link) => (
-                  <li key={link.href + link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-calm-spirit/80 hover:text-white transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="footer-col">
+            <h4>For Districts</h4>
+            <ul>
+              <li><Link href="/for-districts">For Districts</Link></li>
+              <li><Link href="/for-districts/hallpass">Hall Pass</Link></li>
+              <li><Link href="/about/approach">Our Approach</Link></li>
+              <li><Link href="/work-with-me">Work With Us</Link></li>
+            </ul>
+          </div>
 
-            {/* Shop Links */}
-            <div>
-              <h5 className="font-bold text-sacred-ember-light mb-4 text-[11px] uppercase tracking-widest">
-                Shop
-              </h5>
-              <ul className="space-y-3">
-                {footerLinks.shop.map((link) => (
-                  <li key={link.href + link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-calm-spirit/80 hover:text-white transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="footer-col">
+            <h4>Learn</h4>
+            <ul>
+              <li><Link href="/learn">Learn Hub</Link></li>
+              <li><Link href="/learn/blog">Insights &amp; Blog</Link></li>
+              <li><Link href="/learn/teacher-toolkit">Teacher Toolkit</Link></li>
+              <li><Link href="/shop">Shop</Link></li>
+            </ul>
+          </div>
 
-            {/* Support Links */}
-            <div>
-              <h5 className="font-bold text-sacred-ember-light mb-4 text-[11px] uppercase tracking-widest">
-                Support
-              </h5>
-              <ul className="space-y-3">
-                {footerLinks.support.map((link) => (
-                  <li key={link.href + link.label}>
-                    <Link
-                      href={link.href}
-                      className="text-sm text-calm-spirit/80 hover:text-white transition-colors block"
-                    >
-                      {link.label}
-                    </Link>
-                  </li>
-                ))}
-              </ul>
-            </div>
+          <div className="footer-col">
+            <h4>About</h4>
+            <ul>
+              <li><Link href="/about">Our Story</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
+              <li><a href="mailto:admin@therootedlearner.com">admin@therootedlearner.com</a></li>
+              <li><Link href="/work-with-me">Work With Us</Link></li>
+            </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="container py-6 flex flex-col md:flex-row justify-between items-center gap-3">
-          <p className="text-xs text-calm-spirit/70 text-center md:text-left">
-            © {new Date().getFullYear()} Rooted in Learning. All rights reserved.
-          </p>
-          <p className="text-xs text-calm-spirit/70">
-            Built with <span className="text-sacred-ember-light font-semibold">intention</span> in Austin, TX
-          </p>
+      <div className="footer-bottom">
+        <div className="container">
+          <p>&copy; {new Date().getFullYear()} The Rooted Learner &middot; Built with intention in Baltimore, MD</p>
+          <div className="footer-legal">
+            <Link href="/privacy">Privacy</Link>
+            <Link href="/terms">Terms</Link>
+            <Link href="/accessibility">Accessibility</Link>
+            <Link href="/ai-ethics">AI Ethics</Link>
+          </div>
         </div>
       </div>
     </footer>

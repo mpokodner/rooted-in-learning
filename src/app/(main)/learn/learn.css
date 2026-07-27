@@ -1,0 +1,195 @@
+/* ═══════════════════════════════════════════════════════════════
+   LEARN PAGE — AI Education Hub
+   Uses design tokens from globals.css / greenhouse.css
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ─── Video Grid ─── */
+
+.learn-videos-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
+}
+
+.learn-video-card {
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  background: var(--white);
+  border: 1px solid var(--border-beige);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.learn-video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+
+.learn-video-placeholder {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  background: var(--earth-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.learn-video-play {
+  width: 3rem;
+  height: 3rem;
+  color: rgba(255, 255, 255, 0.3);
+}
+
+.learn-video-badge {
+  position: absolute;
+  top: 0.75rem;
+  left: 0.75rem;
+  font-size: 0.5625rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.15);
+  padding: 0.25rem 0.625rem;
+  border-radius: var(--radius-full);
+}
+
+.learn-video-title {
+  font-family: var(--font-display);
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-black);
+  line-height: 1.3;
+  padding: 1rem 1rem 0.25rem;
+}
+
+.learn-video-desc {
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+  line-height: 1.5;
+  padding: 0 1rem 1rem;
+}
+
+/* ─── Video Embed (for when real videos are added) ─── */
+
+.learn-video-embed {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%;
+  background: var(--earth-dark);
+}
+
+.learn-video-embed iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+
+/* ─── Course Waitlist ─── */
+
+.learn-course-signup {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius-lg);
+  padding: clamp(1.5rem, 3vw, 2rem);
+}
+
+.learn-course-signup h3 {
+  font-family: var(--font-display);
+  font-size: var(--text-lg);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.learn-waitlist {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.learn-waitlist-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.learn-waitlist-input {
+  flex: 1;
+  padding: 0.625rem 0.875rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  font-family: var(--font-body);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  min-width: 0;
+}
+
+.learn-waitlist-input::placeholder {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.learn-waitlist-input:focus {
+  outline: 2px solid var(--terracotta-light);
+  outline-offset: 1px;
+  border-color: transparent;
+}
+
+.learn-waitlist-fine {
+  font-size: 0.6875rem;
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.learn-waitlist-error {
+  font-size: 0.6875rem;
+  color: var(--terracotta-light);
+}
+
+.learn-waitlist-success {
+  padding: 0.75rem 0;
+}
+
+.learn-waitlist-success p {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--earth-mist);
+}
+
+/* ─── Explore More Grid ─── */
+
+.learn-explore-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+/* ─── Responsive ─── */
+
+@media (max-width: 900px) {
+  .learn-videos-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .learn-explore-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .learn-waitlist-row {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .learn-video-card {
+    transition: none;
+  }
+
+  .learn-video-card:hover {
+    transform: none;
+  }
+}

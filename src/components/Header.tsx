@@ -1,153 +1,253 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import Image from "next/image";
+import { usePathname, useRouter } from "next/navigation";
+import SocialLinks from "./SocialLinks";
+
+const ChevronIcon = () => (
+  <svg className="nav-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+    <path d="m6 9 6 6 6-6" />
+  </svg>
+);
+
+const MenuIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+    <path d="M4 7h16M4 12h16M4 17h16" />
+  </svg>
+);
+
+const CloseIcon = () => (
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
+    <path d="M6 6l12 12M18 6 6 18" />
+  </svg>
+);
+
+type NavChild = { href: string; label: string; desc: string };
+type NavItem = {
+  label: string;
+  key: string;
+  href?: string;
+  children?: NavChild[];
+};
+
+const NAV: NavItem[] = [
+  { label: "Home", href: "/", key: "home" },
+  {
+    label: "For Teachers",
+    key: "teachers",
+    href: "/for-teachers",
+    children: [
+      { label: "For Teachers", href: "/for-teachers", desc: "Curriculum, guides & professional learning" },
+      { label: "Shop", href: "/shop", desc: "Books, guides & printables" },
+      { label: "Learn", href: "/learn", desc: "Courses, the Learn Hub & teacher toolkit" },
+    ],
+  },
+  {
+    label: "For Districts",
+    key: "districts",
+    href: "/for-districts",
+    children: [
+      { label: "For Districts", href: "/for-districts", desc: "What we build, and why" },
+      { label: "Hall Pass", href: "/for-districts/hallpass", desc: "District-owned student movement management" },
+    ],
+  },
+  { label: "Blog", href: "/learn/blog", key: "blog" },
+  {
+    label: "About",
+    key: "about",
+    href: "/about",
+    children: [
+      { label: "Our Story", href: "/about", desc: "The educators behind the work" },
+      { label: "Our Approach", href: "/about/approach", desc: "How we diagnose, build, and support" },
+      { label: "Contact", href: "/contact", desc: "Start a conversation" },
+    ],
+  },
+];
+
+function isActive(pathname: string, key: string, item: NavItem) {
+  if (key === "home") return pathname === "/";
+  if (key === "blog") return pathname.startsWith("/learn/blog");
+  if (key === "teachers") {
+    return pathname === "/for-teachers" || pathname.startsWith("/for-teachers/")
+      || pathname === "/shop" || pathname.startsWith("/shop/")
+      || (pathname === "/learn" || (pathname.startsWith("/learn/") && !pathname.startsWith("/learn/blog")));
+  }
+  if (key === "districts") return pathname.startsWith("/for-districts");
+  if (key === "about") {
+    return pathname === "/about" || pathname.startsWith("/about/") || pathname === "/contact";
+  }
+  if (item.href) return pathname === item.href || pathname.startsWith(`${item.href}/`);
+  if (item.children) {
+    return item.children.some((c) => pathname === c.href || pathname.startsWith(`${c.href}/`));
+  }
+  return false;
+}
 
 export default function Header() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  const closeTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const navLinks = [
-    { href: "/", label: "Home" },
-    { href: "/microlearning", label: "Microlearning" },
-    { href: "/projects", label: "Projects" },
-    { href: "/blog", label: "Blog" },
-    { href: "/favorites", label: "Favorites" },
-  ];
+  const closeMobile = useCallback(() => setMobileOpen(false), []);
 
-  const isActive = (href: string) => {
-    if (href === "/") {
-      return pathname === "/";
+  const handleBrandClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    closeMobile();
+    if (pathname === "/") {
+      e.preventDefault();
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      router.refresh();
     }
-    return pathname.startsWith(href);
+  };
+
+  const openDropdownMenu = (key: string) => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    setOpenDropdown(key);
+  };
+
+  const scheduleCloseDropdown = () => {
+    if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    closeTimerRef.current = setTimeout(() => setOpenDropdown(null), 150);
+  };
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [mobileOpen]);
+
+  useEffect(() => {
+    setMobileOpen(false);
+    setOpenDropdown(null);
+  }, [pathname]);
+
+  useEffect(() => {
+    return () => {
+      if (closeTimerRef.current) clearTimeout(closeTimerRef.current);
+    };
+  }, []);
+
+  const toggleDropdown = (key: string) => {
+    setOpenDropdown((prev) => (prev === key ? null : key));
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-new-light/95 backdrop-blur-md border-b border-border/40">
-      <nav className="container">
-        <div className="flex items-center justify-between py-4 md:py-5">
-          {/* Logo */}
-          <Link
-            href="/"
-            className="flex items-center gap-2.5 hover:opacity-90 transition-opacity"
-          >
-            <div className="w-9 h-9 bg-rooted-earth rounded-lg flex items-center justify-center shadow-sm">
-              <svg
-                className="w-5 h-5 text-white"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-                />
-              </svg>
-            </div>
-            <span className="text-base md:text-lg font-semibold text-rooted-earth hidden sm:inline">
-              Rooted in Learning
+    <>
+      <header className="site-header" role="banner">
+        <div className="container header-inner">
+          <Link href="/" className="brand" aria-label="The Rooted Learner home" onClick={handleBrandClick}>
+            <span className="brand-mark">
+              <Image src="/logo.png" alt="" width={32} height={32} aria-hidden="true" />
+            </span>
+            <span className="brand-text">
+              <span className="brand-name">The Rooted Learner</span>
             </span>
           </Link>
 
-          {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center gap-2">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`px-5 py-2.5 text-sm font-medium rounded-full transition-all ${
-                  isActive(link.href)
-                    ? "text-rooted-earth bg-gentle-hold/80"
-                    : "text-onyx-muted hover:text-rooted-earth hover:bg-gentle-hold/50"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
-          </div>
-
-          {/* Right Side Actions */}
-          <div className="hidden lg:block">
-            <Link
-              href="/#contact"
-              className="bg-rooted-earth text-white px-6 py-2.5 rounded-full text-sm font-semibold hover:bg-rooted-earth-dark transition-all shadow-sm hover:shadow-md"
-            >
-              Contact
-            </Link>
-          </div>
-
-          {/* Mobile Menu Button */}
-          <button
-            className="lg:hidden p-2.5 text-onyx hover:bg-gentle-hold/60 rounded-lg transition-colors"
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            aria-label="Toggle menu"
-          >
-            {mobileMenuOpen ? (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M6 18L18 6M6 6l12 12"
-                />
-              </svg>
-            ) : (
-              <svg
-                className="w-6 h-6"
-                fill="none"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-                strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="M4 6h16M4 12h16M4 18h16"
-                />
-              </svg>
+          <nav className="main-nav" aria-label="Primary">
+            {NAV.map((item) =>
+              item.children ? (
+                <div
+                  key={item.key}
+                  className={`nav-item${openDropdown === item.key ? " open" : ""}`}
+                  onMouseEnter={() => openDropdownMenu(item.key)}
+                  onMouseLeave={scheduleCloseDropdown}
+                >
+                  <Link
+                    href={item.href || "#"}
+                    className={`nav-link${isActive(pathname, item.key, item) ? " active" : ""}`}
+                    aria-haspopup="true"
+                    aria-expanded={openDropdown === item.key}
+                    onClick={(e) => {
+                      if (window.innerWidth < 900) {
+                        e.preventDefault();
+                        toggleDropdown(item.key);
+                      }
+                    }}
+                  >
+                    {item.label}
+                    <ChevronIcon />
+                  </Link>
+                  <div className="dropdown" onMouseEnter={() => openDropdownMenu(item.key)} onMouseLeave={scheduleCloseDropdown}>
+                    {item.children.map((child) => (
+                      <Link key={child.href} href={child.href} onClick={() => setOpenDropdown(null)}>
+                        {child.label}
+                        <span>{child.desc}</span>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              ) : (
+                <div key={item.key} className="nav-item">
+                  <Link
+                    href={item.href!}
+                    className={`nav-link${isActive(pathname, item.key, item) ? " active" : ""}`}
+                  >
+                    {item.label}
+                  </Link>
+                </div>
+              )
             )}
+          </nav>
+
+          <div className="header-actions">
+            <button
+              type="button"
+              className="mobile-toggle"
+              aria-label="Open menu"
+              onClick={() => setMobileOpen(true)}
+            >
+              <MenuIcon />
+            </button>
+          </div>
+        </div>
+      </header>
+
+      <div className={`mobile-menu${mobileOpen ? " open" : ""}`} role="dialog" aria-modal="true" aria-label="Navigation menu">
+        <div className="mobile-menu-head">
+          <Link href="/" className="brand" onClick={handleBrandClick}>
+            <span className="brand-mark">
+              <Image src="/logo.png" alt="" width={32} height={32} aria-hidden="true" />
+            </span>
+            <span className="brand-text">
+              <span className="brand-name">The Rooted Learner</span>
+            </span>
+          </Link>
+          <button type="button" className="mobile-close" aria-label="Close menu" onClick={closeMobile}>
+            <CloseIcon />
           </button>
         </div>
-
-        {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="lg:hidden pb-5 border-t border-border/40 pt-4 animate-in slide-in-from-top duration-200">
-            <div className="flex flex-col gap-1.5">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className={`text-sm font-medium py-3 px-4 rounded-xl transition-colors ${
-                    isActive(link.href)
-                      ? "text-rooted-earth bg-gentle-hold/70 font-semibold"
-                      : "text-onyx hover:text-rooted-earth hover:bg-gentle-hold/50"
-                  }`}
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  {link.label}
-                </Link>
-              ))}
-              <div className="pt-4 mt-3 border-t border-border/40">
-                <Link
-                  href="/#contact"
-                  className="block w-full bg-rooted-earth text-white text-center py-3 rounded-xl font-semibold text-sm shadow-sm hover:bg-rooted-earth-dark transition-colors"
-                  onClick={() => setMobileMenuOpen(false)}
-                >
-                  Contact
-                </Link>
+        <nav className="mobile-nav">
+          {NAV.map((item) =>
+            item.children ? (
+              <div key={item.key}>
+                <span style={{ display: "block", padding: "0.9rem 0.5rem", fontFamily: "var(--font-display)", fontSize: "1.5rem", fontWeight: 600, color: "var(--text-black)", borderBottom: "1px solid var(--border-beige)" }}>
+                  {item.label}
+                </span>
+                {item.children.map((child) => (
+                  <Link key={child.href} href={child.href} className="sub" onClick={closeMobile}>
+                    {child.label}
+                  </Link>
+                ))}
               </div>
-            </div>
-          </div>
-        )}
-      </nav>
-    </header>
+            ) : (
+              <Link key={item.key} href={item.href!} onClick={closeMobile}>
+                {item.label}
+              </Link>
+            )
+          )}
+        </nav>
+        <div style={{ padding: "1rem 0.5rem", borderTop: "1px solid var(--border-beige)", marginTop: "auto" }}>
+          <SocialLinks
+            platforms={["instagram", "youtube", "pinterest", "linkedin"]}
+            location="mobile-menu"
+          />
+        </div>
+      </div>
+    </>
   );
 }

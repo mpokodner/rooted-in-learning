@@ -1,0 +1,27 @@
+import { NextResponse, type NextRequest } from "next/server";
+import { createClient } from "@/lib/supabase-server";
+
+/**
+ * GET /api/auth/callback
+ * Handles OAuth callbacks, email confirmation, and password reset links.
+ * Exchanges the auth code for a session and redirects.
+ */
+export async function GET(request: NextRequest) {
+  const { searchParams, origin } = new URL(request.url);
+  const code = searchParams.get("code");
+  const next = searchParams.get("next") ?? "/account";
+
+  if (code) {
+    const supabase = await createClient();
+    if (!supabase) {
+      return NextResponse.redirect(`${origin}/login?error=config_error`);
+    }
+
+    const { error } = await supabase.auth.exchangeCodeForSession(code);
+    if (!error) {
+      return NextResponse.redirect(`${origin}${next}`);
+    }
+  }
+
+  return NextResponse.redirect(`${origin}/login?error=auth_failed`);
+}

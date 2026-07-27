@@ -87,7 +87,7 @@ export default function LinksPage() {
           rel="noopener noreferrer"
           className="links-cta"
         >
-          Help me decide what to build
+          Share your feedback and expertise
           <span className="links-cta-sub">
             9 questions &middot; 2 minutes &middot; no email required
           </span>

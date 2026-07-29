@@ -37,6 +37,12 @@ export default function AdminLayout({
           <a href="/admin/subscribers" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
             Subscribers
           </a>
+          <a href="/admin/leads" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+            Leads
+          </a>
+          <a href="/admin/waitlist" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+            Waitlist
+          </a>
           <a href="/admin/analytics" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
             Analytics
           </a>

@@ -42,16 +42,25 @@ export async function generateMetadata({
       ? urlFor(post.featuredImage).width(1200).height(630).url()
       : undefined
 
+  const title = post.seo?.metaTitle || `${post.title} | The Rooted Learner`
+  const description = post.seo?.metaDescription || post.excerpt || ''
+
   return {
-    title: post.seo?.metaTitle || `${post.title} | The Rooted Learner`,
-    description: post.seo?.metaDescription || post.excerpt,
+    title,
+    description,
     alternates: { canonical: `/learn/blog/${slug}` },
     openGraph: {
       title: post.seo?.metaTitle || post.title,
-      description: post.seo?.metaDescription || post.excerpt || '',
+      description,
       type: 'article',
       publishedTime: post.publishedAt,
       ...(ogImage && { images: [{ url: ogImage, width: 1200, height: 630 }] }),
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: post.seo?.metaTitle || post.title,
+      description,
+      ...(ogImage && { images: [ogImage] }),
     },
   }
 }
@@ -91,8 +100,41 @@ export default async function BlogPostPage({
 
   const headings = post.body ? extractHeadings(post.body) : []
 
+  const postOgImage = post.seo?.ogImage?.asset?._ref
+    ? urlFor(post.seo.ogImage).width(1200).height(630).url()
+    : post.featuredImage?.asset?._ref
+      ? urlFor(post.featuredImage).width(1200).height(630).url()
+      : undefined
+
+  const jsonLd = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    headline: post.title,
+    ...(post.subtitle && { alternativeHeadline: post.subtitle }),
+    ...(postOgImage && { image: postOgImage }),
+    datePublished: post.publishedAt,
+    ...(post.author && {
+      author: {
+        '@type': 'Person',
+        name: post.author.name,
+        ...(post.author.social?.linkedin && { url: post.author.social.linkedin }),
+      },
+    }),
+    publisher: {
+      '@type': 'Organization',
+      name: 'The Rooted Learner',
+      url: 'https://www.therootedlearner.com',
+    },
+    url: `https://www.therootedlearner.com/learn/blog/${slug}`,
+    ...(post.excerpt && { description: post.excerpt }),
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+      />
       <ReadingProgress />
 
       <div className="bp-page">

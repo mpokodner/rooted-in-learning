@@ -155,7 +155,7 @@ export default function AssessAlignPage() {
               </a>
             </div>
             <p className="mt-3 reveal">
-              <Link href="/services" className="link-arrow">
+              <Link href="/work-with-me" className="link-arrow">
                 See How This Applies to Your District
                 <svg
                   viewBox="0 0 24 24"
@@ -323,7 +323,7 @@ export default function AssessAlignPage() {
             <Link href="/contact" className="btn btn-terra">
               Discuss Implementation
             </Link>
-            <Link href="/services#audit" className="btn btn-outline">
+            <Link href="/about/approach" className="btn btn-outline">
               Start with a System Audit
             </Link>
           </div>

@@ -185,15 +185,17 @@ export default function ShopPage() {
 
       <section className="section">
         <div className="container container--narrow text-center">
-          <span className="eyebrow eyebrow--center reveal">For founders &amp; operators</span>
-          <h2 className="h-lg mt-3 reveal">Building something bigger than a classroom?</h2>
+          <span className="eyebrow eyebrow--center reveal">Keep growing</span>
+          <h2 className="h-lg mt-3 reveal">Want to go deeper?</h2>
           <p className="lead mx-auto mt-3 reveal" style={{ maxWidth: "46ch" }}>
-            When you&apos;re designing a whole school or the tool that serves one, start with
-            the Greenhouse Audit.
+            Free videos, a weekly newsletter, and the story behind everything we build.
           </p>
           <div className="btn-row mt-4 reveal" style={{ justifyContent: "center" }}>
-            <Link href="/services" className="btn btn-primary btn-lg">
-              Explore Greenhouse Schools
+            <Link href="/learn" className="btn btn-primary btn-lg">
+              Explore Free Resources
+            </Link>
+            <Link href="/about" className="btn btn-outline btn-lg">
+              Read Our Story
             </Link>
           </div>
         </div>

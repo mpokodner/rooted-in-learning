@@ -20,6 +20,7 @@ export const metadata: Metadata = {
     description: "Questions, consulting inquiries, or collaborations? Reach out and I'll respond within 48 hours.",
     type: "website",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function ContactLayout({

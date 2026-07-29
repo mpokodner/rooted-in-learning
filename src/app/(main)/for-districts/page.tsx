@@ -5,12 +5,26 @@ import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import assessAlignImg from "../about/projects/images/assessalignpng.png";
 
 export const metadata: Metadata = {
-  title: "Software",
+  title: "What We Build",
   description:
     "District software and AI-powered tools built by educators who still teach. AssessAlign for standards-based assessment, Hall Pass for student movement management, and more.",
+  keywords: [
+    "district software",
+    "education technology",
+    "school assessment tools",
+    "student movement management",
+    "custom edtech",
+  ],
   alternates: {
     canonical: "/for-districts",
   },
+  openGraph: {
+    title: "What We Build — The Rooted Learner",
+    description:
+      "District software and AI-powered tools built by educators who still teach.",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 const assessAlignFeatures = [
@@ -271,6 +285,9 @@ export default function ToolsPage() {
           <div className="btn-row reveal mt-4" style={{ justifyContent: "center" }}>
             <Link href="/work-with-me" className="btn btn-terra btn-lg">
               Start a conversation
+            </Link>
+            <Link href="/about/approach" className="btn btn-outline btn-lg">
+              Read about our approach
             </Link>
           </div>
         </div>

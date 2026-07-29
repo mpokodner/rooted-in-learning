@@ -22,6 +22,7 @@ export const metadata: Metadata = {
       "Curriculum tools built for the classrooms that need them most. WIDA-aligned overlays, assessment kits, and intervention guides.",
     type: "website",
   },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function TeacherShopLayout({

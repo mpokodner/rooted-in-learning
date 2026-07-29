@@ -138,8 +138,8 @@ export default async function ToolkitPage({
             If you&apos;re building a whole school, you need more than a worksheet.
           </h2>
           <div className="btn-row mt-4 reveal" style={{ justifyContent: 'center' }}>
-            <Link href="/services" className="btn btn-terra btn-lg">
-              Explore Greenhouse Schools
+            <Link href="/work-with-me" className="btn btn-terra btn-lg">
+              Start a Conversation
             </Link>
           </div>
         </div>

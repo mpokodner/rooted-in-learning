@@ -4,14 +4,14 @@ import { useState, type FormEvent } from "react";
 import Link from "next/link";
 import "./work-with-me.css";
 
-const engagements = [
+const engagements: { title: string; desc: React.ReactNode }[] = [
   {
     title: "Curriculum & systems audit",
     desc: "A diagnostic that maps vision-to-system fit, the real learner model, curriculum architecture, and the tech stack — then delivers a prioritized roadmap.",
   },
   {
     title: "Custom software builds",
-    desc: "District-specific tools like Hall Pass and AssessAlign — built from audit findings, not vendor catalogs.",
+    desc: (<>District-specific tools like <Link href="/for-districts/hallpass">Hall Pass</Link> and <Link href="/for-districts/assessalign">AssessAlign</Link> — built from audit findings, not vendor catalogs.</>),
   },
   {
     title: "AI integration strategy",

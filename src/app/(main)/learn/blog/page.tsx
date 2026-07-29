@@ -15,6 +15,13 @@ export const metadata: Metadata = {
   title: 'Insights',
   description:
     'Field notes from inside the work — audit teardowns, the wedge question, build-vs-buy, and the greenhouse thesis for new and alternative schools.',
+  keywords: [
+    'education blog',
+    'AI in education',
+    'classroom strategies',
+    'edtech insights',
+    'multilingual learner strategies',
+  ],
   alternates: { canonical: '/learn/blog' },
   openGraph: {
     title: 'Insights',
@@ -22,6 +29,7 @@ export const metadata: Metadata = {
       'Diagnosis, strategy, and what actually works — at the classroom, school, and network level.',
     type: 'website',
   },
+  twitter: { card: 'summary_large_image' },
 }
 
 export const revalidate = 60
@@ -101,6 +109,36 @@ export default async function BlogPage({
               </p>
             </div>
           ) : null}
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <h2 className="h-md text-center reveal">Explore more</h2>
+          <div className="grid grid-2 mt-4" style={{ maxWidth: '48rem', margin: '1.5rem auto 0' }}>
+            <Link
+              href="/shop"
+              className="card reveal"
+              style={{ padding: '2rem', textDecoration: 'none', color: 'inherit' }}
+            >
+              <span className="eyebrow">For educators</span>
+              <h3 className="mt-2">Shop classroom resources</h3>
+              <p className="muted mt-2">
+                WIDA-aligned overlays, assessment kits, AI prompt libraries, and intervention guides.
+              </p>
+            </Link>
+            <Link
+              href="/for-districts"
+              className="card reveal"
+              style={{ padding: '2rem', textDecoration: 'none', color: 'inherit' }}
+            >
+              <span className="eyebrow">For districts</span>
+              <h3 className="mt-2">See what we build</h3>
+              <p className="muted mt-2">
+                District software and AI-powered tools built by educators who still teach.
+              </p>
+            </Link>
+          </div>
         </div>
       </section>
 

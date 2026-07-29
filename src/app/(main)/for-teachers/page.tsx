@@ -6,7 +6,22 @@ export const metadata: Metadata = {
   title: "For Teachers — The Rooted Learner",
   description:
     "Curriculum, guides, printables, and professional learning for educators who grow their own way.",
+  keywords: [
+    "teacher resources",
+    "classroom tools",
+    "lesson plans",
+    "ELD resources",
+    "educator professional learning",
+    "AI for teachers",
+  ],
   alternates: { canonical: "/for-teachers" },
+  openGraph: {
+    title: "For Teachers — The Rooted Learner",
+    description:
+      "Curriculum, guides, printables, and professional learning for educators who grow their own way.",
+    type: "website",
+  },
+  twitter: { card: "summary_large_image" },
 };
 
 export default function ForTeachersPage() {

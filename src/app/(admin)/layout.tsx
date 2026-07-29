@@ -18,14 +18,13 @@ export default function AdminLayout({
 }) {
   return (
     <div className="min-h-screen bg-[var(--neutral-bg)] flex">
-      {/* Admin sidebar will be added as a component in Phase 7 */}
-      <aside className="hidden lg:flex w-64 bg-[var(--earth)] text-white flex-col">
-        <div className="p-6">
-          <h2 className="text-lg font-bold font-[var(--font-heading)]">
+      <aside className="hidden lg:flex w-56 bg-[var(--earth)] text-white flex-col shrink-0">
+        <div className="p-5">
+          <h2 className="text-base font-bold font-[var(--font-heading)]">
             RIL Admin
           </h2>
         </div>
-        <nav className="flex-1 px-4 space-y-1">
+        <nav className="flex-1 px-3 space-y-0.5">
           <a href="/admin" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
             Dashboard
           </a>
@@ -42,15 +41,14 @@ export default function AdminLayout({
             Analytics
           </a>
         </nav>
-        <div className="p-4 border-t border-white/10">
+        <div className="p-3 border-t border-white/10">
           <a href="/" className="block px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/10 transition-colors">
-            ← Back to Site
+            &larr; Back to Site
           </a>
         </div>
       </aside>
 
-      {/* Main content area */}
-      <main className="flex-1 overflow-auto">
+      <main className="flex-1 min-w-0 overflow-auto">
         {children}
       </main>
     </div>

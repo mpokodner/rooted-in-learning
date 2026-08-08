@@ -2,27 +2,32 @@ import { type NextRequest, NextResponse } from "next/server";
 import { updateSession } from "@/lib/supabase-middleware";
 
 const PROTECTED_PATHS = ["/account"];
+const ADMIN_AUTH_PATHS = ["/admin/login", "/admin/forgot-password", "/admin/reset-password"];
 const ADMIN_PATHS = ["/admin"];
-const AUTH_PATHS = ["/login", "/register", "/forgot-password", "/reset-password"];
 
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const { user, supabaseResponse } = await updateSession(request);
 
-  const isProtected = PROTECTED_PATHS.some((p) => pathname.startsWith(p));
+  const isAdminAuth = ADMIN_AUTH_PATHS.some((p) => pathname.startsWith(p));
   const isAdmin = ADMIN_PATHS.some((p) => pathname.startsWith(p));
-  const isAuth = AUTH_PATHS.some((p) => pathname.startsWith(p));
+  const isProtected = PROTECTED_PATHS.some((p) => pathname.startsWith(p));
 
-  if (isProtected || isAdmin) {
-    if (!user) {
-      const loginUrl = new URL("/login", request.url);
-      loginUrl.searchParams.set("next", pathname);
-      return NextResponse.redirect(loginUrl);
+  if (isAdminAuth) {
+    if (user) {
+      return NextResponse.redirect(new URL("/admin", request.url));
     }
+    return supabaseResponse;
   }
 
-  if (isAdmin && user) {
+  if (isAdmin) {
+    if (!user) {
+      const loginUrl = new URL("/admin/login", request.url);
+      loginUrl.searchParams.set("redirect", pathname);
+      return NextResponse.redirect(loginUrl);
+    }
+
     const { supabase } = await updateSession(request);
     if (supabase) {
       const { data: profile } = await supabase
@@ -35,10 +40,14 @@ export async function middleware(request: NextRequest) {
         return NextResponse.redirect(new URL("/", request.url));
       }
     }
+
+    return supabaseResponse;
   }
 
-  if (isAuth && user) {
-    return NextResponse.redirect(new URL("/account", request.url));
+  if (isProtected) {
+    if (!user) {
+      return NextResponse.redirect(new URL("/", request.url));
+    }
   }
 
   return supabaseResponse;
@@ -48,9 +57,5 @@ export const config = {
   matcher: [
     "/account/:path*",
     "/admin/:path*",
-    "/login",
-    "/register",
-    "/forgot-password",
-    "/reset-password",
   ],
 };

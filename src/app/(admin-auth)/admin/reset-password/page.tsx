@@ -1,16 +1,14 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import { ForgotPasswordForm } from "./forgot-password-form";
+import { ResetPasswordForm } from "./reset-password-form";
 
 export const metadata: Metadata = {
-  title: "Reset Password | The Rooted Learner",
+  title: "Set New Password | The Rooted Learner Admin",
   robots: "noindex, nofollow",
 };
 
-export default function ForgotPasswordPage() {
+export default function AdminResetPasswordPage() {
   return (
     <main className="auth-layout">
-      {/* Brand Panel */}
       <div className="auth-brand">
         <div className="auth-brand-inner">
           <div className="auth-brand-logo">
@@ -19,41 +17,36 @@ export default function ForgotPasswordPage() {
             </svg>
           </div>
 
-          <h2 className="auth-brand-title">No Worries</h2>
+          <h2 className="auth-brand-title">Almost There</h2>
           <p className="auth-brand-desc">
-            It happens to the best of us. We&apos;ll get you back into your account in no time.
+            Choose a strong new password and you&apos;ll be back in the dashboard in seconds.
           </p>
 
           <div className="auth-trust">
             <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+              <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
             </svg>
-            Secure password reset via email
+            Your data is always encrypted
           </div>
         </div>
       </div>
 
-      {/* Form Panel */}
       <div className="auth-form-panel">
         <div className="auth-form-container">
           <div className="auth-card">
             <div className="auth-card-header">
-              <div className="auth-card-icon auth-card-icon--muted">
+              <div className="auth-card-icon">
                 <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-                  <path strokeLinecap="round" strokeLinejoin="round" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z" />
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                 </svg>
               </div>
-              <h1 className="auth-card-title">Reset Password</h1>
+              <h1 className="auth-card-title">Set New Password</h1>
               <p className="auth-card-subtitle">
-                Enter your email and we&apos;ll send you a reset link.
+                Choose a new password for your account.
               </p>
             </div>
 
-            <ForgotPasswordForm />
-
-            <div className="auth-card-footer">
-              <Link href="/login">&larr; Back to Login</Link>
-            </div>
+            <ResetPasswordForm />
           </div>
         </div>
       </div>

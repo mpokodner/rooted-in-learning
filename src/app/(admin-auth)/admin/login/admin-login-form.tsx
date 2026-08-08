@@ -4,12 +4,10 @@ import Link from "next/link";
 import { AuthForm } from "@/components/AuthForm";
 import { signIn } from "@/lib/auth-actions";
 
-export function LoginForm({ redirectTo }: { redirectTo?: string }) {
+export function AdminLoginForm({ redirectTo }: { redirectTo?: string }) {
   return (
     <AuthForm action={signIn} submitLabel="Sign In">
-      {redirectTo && (
-        <input type="hidden" name="redirect" value={redirectTo} />
-      )}
+      <input type="hidden" name="redirect" value={redirectTo || "/admin"} />
 
       <div className="auth-field">
         <label htmlFor="email" className="auth-label">
@@ -31,7 +29,7 @@ export function LoginForm({ redirectTo }: { redirectTo?: string }) {
           <label htmlFor="password" className="auth-label" style={{ marginBottom: 0 }}>
             Password
           </label>
-          <Link href="/forgot-password" className="auth-forgot-link">
+          <Link href="/admin/forgot-password" className="auth-forgot-link">
             Forgot password?
           </Link>
         </div>

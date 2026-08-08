@@ -1,0 +1,16 @@
+{
+  "hooks": {
+    "SessionStart": [
+      {
+        "matcher": "startup|resume",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "bash -c 'if [ -f CLAUDE.md ]; then LAST=$(git log -1 --format=\"%H\" -- CLAUDE.md README.md 2>/dev/null); if [ -n \"$LAST\" ]; then COUNT=$(git rev-list --count \"$LAST\"..HEAD 2>/dev/null); if [ \"$COUNT\" -gt 0 ]; then echo \"[docs] $COUNT commit(s) since docs were last updated. Run /update-docs after committing current work.\"; fi; fi; fi'",
+            "timeout": 10000
+          }
+        ]
+      }
+    ]
+  }
+}

@@ -9,12 +9,12 @@ import { createClient } from "@/lib/supabase-server";
 export async function GET(request: NextRequest) {
   const { searchParams, origin } = new URL(request.url);
   const code = searchParams.get("code");
-  const next = searchParams.get("next") ?? "/account";
+  const next = searchParams.get("next") ?? "/admin";
 
   if (code) {
     const supabase = await createClient();
     if (!supabase) {
-      return NextResponse.redirect(`${origin}/login?error=config_error`);
+      return NextResponse.redirect(`${origin}/admin/login?error=config_error`);
     }
 
     const { error } = await supabase.auth.exchangeCodeForSession(code);
@@ -23,5 +23,5 @@ export async function GET(request: NextRequest) {
     }
   }
 
-  return NextResponse.redirect(`${origin}/login?error=auth_failed`);
+  return NextResponse.redirect(`${origin}/admin/login?error=auth_failed`);
 }

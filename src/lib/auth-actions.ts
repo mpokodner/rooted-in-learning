@@ -14,7 +14,7 @@ export async function signIn(
 ): Promise<AuthResult> {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-  const redirectTo = (formData.get("redirect") as string) || "/account";
+  const redirectTo = (formData.get("redirect") as string) || "/admin";
 
   if (!email || !password) {
     return { error: "Email and password are required." };
@@ -110,7 +110,7 @@ export async function forgotPassword(
   const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000";
 
   const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo: `${siteUrl}/api/auth/callback?next=/reset-password`,
+    redirectTo: `${siteUrl}/api/auth/callback?next=/admin/reset-password`,
   });
 
   if (error) {
@@ -153,5 +153,5 @@ export async function resetPassword(
     return { error: error.message };
   }
 
-  redirect("/login?message=Password updated successfully. Please sign in.");
+  redirect("/admin/login?message=Password updated successfully. Please sign in.");
 }

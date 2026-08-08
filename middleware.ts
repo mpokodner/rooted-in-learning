@@ -8,7 +8,7 @@ const ADMIN_PATHS = ["/admin"];
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
-  const { user, supabaseResponse } = await updateSession(request);
+  const { user, supabase, supabaseResponse } = await updateSession(request);
 
   const isAdminAuth = ADMIN_AUTH_PATHS.some((p) => pathname.startsWith(p));
   const isAdmin = ADMIN_PATHS.some((p) => pathname.startsWith(p));
@@ -28,7 +28,6 @@ export async function middleware(request: NextRequest) {
       return NextResponse.redirect(loginUrl);
     }
 
-    const { supabase } = await updateSession(request);
     if (supabase) {
       const { data: profile } = await supabase
         .from("profiles")
@@ -37,7 +36,7 @@ export async function middleware(request: NextRequest) {
         .single();
 
       if (!profile || profile.role !== "admin") {
-        return NextResponse.redirect(new URL("/", request.url));
+        return NextResponse.redirect(new URL("/admin/login?error=access_denied", request.url));
       }
     }
 

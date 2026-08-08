@@ -59,7 +59,9 @@ export default async function AdminLoginPage({
               <div className="auth-alert auth-alert--error">
                 {params.error === "auth_failed"
                   ? "Authentication failed. Please try again."
-                  : params.error}
+                  : params.error === "access_denied"
+                    ? "You don't have admin access. Contact the site administrator."
+                    : params.error}
               </div>
             )}
 

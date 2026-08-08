@@ -46,6 +46,9 @@ export default function AdminLayout({
           <a href="/admin/analytics" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
             Analytics
           </a>
+          <a href="/admin/vault" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
+            Vault
+          </a>
         </nav>
         <div className="p-3 border-t border-white/10">
           <a href="/" className="block px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/10 transition-colors">

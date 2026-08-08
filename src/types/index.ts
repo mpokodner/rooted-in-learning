@@ -179,6 +179,82 @@ export interface AffiliateLink {
 }
 
 // ═══════════════════════════════════════
+// IDEAS (Idea Engine / Vault)
+// ═══════════════════════════════════════
+
+export type IdeaStatus = "draft" | "researched" | "routed" | "complete" | "archived";
+
+export type IdeaChannel = "tpt" | "rooted-learner" | "both";
+
+export type SourceReputability = "official" | "industry" | "seller-anecdote" | "inferred";
+
+export interface IdeaSource {
+  url: string;
+  title?: string;
+  access_date: string;
+  reputability: SourceReputability;
+  snippet?: string;
+}
+
+export interface SourcedClaim {
+  claim: string;
+  sources: IdeaSource[];
+}
+
+export interface TptResearch {
+  demand_signals?: SourcedClaim[];
+  seasonal_timing?: SourcedClaim[];
+  competitor_saturation?: SourcedClaim;
+  pricing_bands?: SourcedClaim;
+  trending_keywords?: string[];
+  summary?: string;
+  research_date?: string;
+}
+
+export interface BrandResearch {
+  brand_alignment_score?: number;
+  brand_alignment_rationale?: string;
+  business_fit?: string;
+  design_considerations?: string;
+  audience_match?: string;
+  product_ladder_position?: string;
+  summary?: string;
+  research_date?: string;
+}
+
+export interface IdeaRouting {
+  decision?: IdeaChannel;
+  confidence?: number;
+  rationale?: string;
+  boundary_factors?: string[];
+}
+
+export interface IdeaOptimized {
+  title?: string;
+  positioning?: string;
+  pricing_recommendation?: string;
+  differentiation?: string;
+  product_ladder_placement?: string;
+  channel?: IdeaChannel;
+  next_steps?: string[];
+}
+
+export interface Idea {
+  id: string;
+  title: string | null;
+  original_idea: string;
+  status: IdeaStatus;
+  tpt_research: TptResearch | null;
+  brand_research: BrandResearch | null;
+  routing: IdeaRouting | null;
+  optimized: IdeaOptimized | null;
+  channel: IdeaChannel | null;
+  sources: IdeaSource[];
+  created_at: string;
+  updated_at: string;
+}
+
+// ═══════════════════════════════════════
 // API RESPONSES
 // ═══════════════════════════════════════
 

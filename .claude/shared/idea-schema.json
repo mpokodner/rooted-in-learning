@@ -1,0 +1,92 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "type": "object",
+  "required": ["id", "original_idea", "status", "created_at"],
+  "properties": {
+    "id":             { "type": "string", "format": "uuid" },
+    "title":          { "type": "string", "description": "Short name for the idea, derived from original_idea or set by optimizer" },
+    "original_idea":  { "type": "string" },
+    "status":         { "type": "string", "enum": ["draft","researched","routed","complete","archived"] },
+
+    "tpt_research": {
+      "type": "object",
+      "properties": {
+        "demand_signals":        { "type": "array", "items": { "$ref": "#/$defs/sourced_claim" } },
+        "seasonal_timing":       { "type": "array", "items": { "$ref": "#/$defs/sourced_claim" } },
+        "competitor_saturation": { "$ref": "#/$defs/sourced_claim" },
+        "pricing_bands":         { "$ref": "#/$defs/sourced_claim" },
+        "trending_keywords":     { "type": "array", "items": { "type": "string" } },
+        "summary":               { "type": "string" },
+        "research_date":         { "type": "string", "format": "date-time" }
+      }
+    },
+
+    "brand_research": {
+      "type": "object",
+      "properties": {
+        "brand_alignment_score":     { "type": "number", "minimum": 0, "maximum": 10 },
+        "brand_alignment_rationale": { "type": "string" },
+        "business_fit":              { "type": "string" },
+        "design_considerations":     { "type": "string" },
+        "audience_match":            { "type": "string" },
+        "product_ladder_position":   { "type": "string" },
+        "summary":                   { "type": "string" },
+        "research_date":             { "type": "string", "format": "date-time" }
+      }
+    },
+
+    "routing": {
+      "type": "object",
+      "properties": {
+        "decision":         { "type": "string", "enum": ["tpt","rooted-learner","both"] },
+        "confidence":       { "type": "number", "minimum": 0, "maximum": 1 },
+        "rationale":        { "type": "string" },
+        "boundary_factors": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "optimized": {
+      "type": "object",
+      "properties": {
+        "title":                    { "type": "string" },
+        "positioning":              { "type": "string" },
+        "pricing_recommendation":   { "type": "string" },
+        "differentiation":          { "type": "string" },
+        "product_ladder_placement": { "type": "string" },
+        "channel":                  { "type": "string", "enum": ["tpt","rooted-learner","both"] },
+        "next_steps":               { "type": "array", "items": { "type": "string" } }
+      }
+    },
+
+    "channel":    { "type": "string", "enum": ["tpt","rooted-learner","both"] },
+    "sources":    { "type": "array", "items": { "$ref": "#/$defs/source" } },
+    "created_at": { "type": "string", "format": "date-time" },
+    "updated_at": { "type": "string", "format": "date-time" }
+  },
+
+  "$defs": {
+    "sourced_claim": {
+      "type": "object",
+      "required": ["claim", "sources"],
+      "properties": {
+        "claim":   { "type": "string" },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" },
+          "description": "Sources backing this specific claim (inline, not index-referenced)"
+        }
+      }
+    },
+    "source": {
+      "type": "object",
+      "required": ["url", "access_date", "reputability"],
+      "properties": {
+        "url":          { "type": "string", "format": "uri" },
+        "title":        { "type": "string" },
+        "access_date":  { "type": "string", "format": "date" },
+        "reputability": { "type": "string", "enum": ["official","industry","seller-anecdote","inferred"] },
+        "snippet":      { "type": "string" }
+      }
+    }
+  }
+}

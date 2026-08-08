@@ -15,7 +15,7 @@ export async function middleware(request: NextRequest) {
   const isProtected = PROTECTED_PATHS.some((p) => pathname.startsWith(p));
 
   if (isAdminAuth) {
-    if (user) {
+    if (user && !pathname.startsWith("/admin/reset-password")) {
       return NextResponse.redirect(new URL("/admin", request.url));
     }
     return supabaseResponse;

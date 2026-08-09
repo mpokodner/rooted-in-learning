@@ -36,7 +36,7 @@ export async function middleware(request: NextRequest) {
         .single();
 
       if (!profile || profile.role !== "admin") {
-        return NextResponse.redirect(new URL("/admin/login?error=access_denied", request.url));
+        return NextResponse.redirect(new URL("/", request.url));
       }
     }
 

@@ -255,6 +255,67 @@ export interface Idea {
 }
 
 // ═══════════════════════════════════════
+// ARCHITECT SESSIONS (Idea Architect)
+// ═══════════════════════════════════════
+
+export type ArchitectStatus = "draft" | "generating" | "complete" | "error";
+
+export interface ArchitectConstraints {
+  stack?: string;
+  timeline?: string;
+  rag_requirements?: string;
+  data_sources?: string[];
+  scale?: "prototype" | "production" | "enterprise";
+}
+
+export interface ArchitectureOutput {
+  title: string;
+  summary: string;
+  systems_design: string;
+  folder_structure: string;
+  frontend_pieces: string[];
+  backend_pieces: string[];
+  relevant_skills: Array<{
+    slug: string;
+    category: string;
+    how_it_applies: string;
+  }>;
+  key_decisions: Array<{
+    decision: string;
+    recommendation: string;
+    tradeoff: string;
+  }>;
+  implementation_phases: Array<{
+    phase: number;
+    title: string;
+    tasks: string[];
+  }>;
+}
+
+export interface ArchitectSession {
+  id: string;
+  idea_id: string | null;
+  title: string;
+  input_idea: string;
+  constraints: ArchitectConstraints;
+  selected_skills: string[];
+  architecture: ArchitectureOutput | null;
+  implementation_prompt: string | null;
+  status: ArchitectStatus;
+  created_at: string;
+  updated_at: string;
+}
+
+export interface SkillManifest {
+  slug: string;
+  category: string;
+  description: string;
+  when_to_use: string;
+  related_references: string[];
+  file_path: string;
+}
+
+// ═══════════════════════════════════════
 // API RESPONSES
 // ═══════════════════════════════════════
 

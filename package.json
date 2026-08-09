@@ -11,7 +11,8 @@
     "test:watch": "vitest",
     "add-product": "tsx scripts/add-product.ts",
     "verify-chain": "tsx scripts/verify-purchase-chain.ts",
-    "save-idea": "tsx scripts/save-idea.ts"
+    "save-idea": "tsx scripts/save-idea.ts",
+    "build-skills": "tsx scripts/build-skills-manifest.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",

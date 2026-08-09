@@ -1,0 +1,271 @@
+[
+  {
+    "slug": "api-first-agent-design",
+    "category": "agent-orchestration-frameworks",
+    "description": "Design API interfaces for agent services with proper schemas, authentication, rate limiting, documentation, and deployment patterns",
+    "when_to_use": "Exposing an LLM agent (RAG pipeline, recursive agent, tool-calling agent) as a service other teams or clients consume - Building a multi-tenant agent platform where multiple consumers share agent infrastructure - Replacing ad-hoc agent scripts with a production API that needs auth, rate limiting, an",
+    "related_references": [
+      "references/patterns/api-gateway-for-agents.md",
+      "references/code-templates/agent-api-service-template.py",
+      "references/patterns/tool-agent-composition.md"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/api-first-agent-design.md"
+  },
+  {
+    "slug": "database-backed-rag-service",
+    "category": "agent-orchestration-frameworks",
+    "description": "Design a RAG system that combines structured database queries with unstructured content retrieval for hybrid data access",
+    "when_to_use": "Building a system where queries span structured data AND content (e.g., \"What topics is student X struggling with based on their quiz results and the course material?\") - Adding RAG to an existing application that already has a relational database - Creating a service that answers questions about us",
+    "related_references": [
+      "references/patterns/staged-pipeline.md"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/database-backed-rag-service.md"
+  },
+  {
+    "slug": "design-recursive-agent",
+    "category": "agent-orchestration-frameworks",
+    "description": "Design a recursive LLM agent with REPL loop, depth-bounded sub-calls, and resource propagation for complex decomposition tasks",
+    "when_to_use": "Processing documents too large for a single context window (100K+ tokens of course content, legal documents, codebases) - Multi-hop reasoning across many course modules or document sections - Hierarchical analysis (analyze individual lessons, then synthesize across a module) - Tasks where the decomp",
+    "related_references": [
+      "references/patterns/recursive-decomposition.md",
+      "references/code-templates/recursive-agent-template.py"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/design-recursive-agent.md"
+  },
+  {
+    "slug": "optimize-llm-pipeline",
+    "category": "agent-orchestration-frameworks",
+    "description": "Optimize an LLM pipeline's prompts and demonstrations using DSPy-style teleprompters, closing the build-evaluate-optimize loop",
+    "when_to_use": "After running the evaluation harness and seeing scores below your quality bar - When hand-tuning prompts has plateaued and you want automated optimization - When adding few-shot demonstrations to improve generation quality - When comparing multiple optimization strategies to find the best approach -",
+    "related_references": [
+      "references/code-templates/optimizer-template.py"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/optimize-llm-pipeline.md"
+  },
+  {
+    "slug": "rag-evaluation-harness",
+    "category": "agent-orchestration-frameworks",
+    "description": "Build a multi-metric evaluation framework for RAG systems with tension-preserving synthesis and regression tracking",
+    "when_to_use": "Before launching a RAG system (baseline quality measurement) - After changing any pipeline component (regression detection) - When the system \"feels wrong\" but you can't pinpoint why (metric disagreeement diagnosis) - When comparing two pipeline configurations (A/B evaluation) - When building a cont",
+    "related_references": [
+      "references/patterns/multi-perspective-review.md",
+      "references/code-templates/evaluation-harness.py"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/rag-evaluation-harness.md"
+  },
+  {
+    "slug": "rag-over-course-content",
+    "category": "agent-orchestration-frameworks",
+    "description": "Design a RAG pipeline for educational/curriculum content with course hierarchies, mixed media, and pedagogically-aware retrieval",
+    "when_to_use": "Building a RAG system over course materials, textbooks, or training content - Adding AI-powered Q&A to a learning management system - Creating a study assistant that can answer questions from course content - Migrating from keyword search to semantic search over educational content",
+    "related_references": [
+      "references/patterns/staged-pipeline.md",
+      "references/code-templates/dspy-rag-module.py",
+      "references/patterns/multi-perspective-review.md",
+      "references/code-templates/evaluation-harness.py"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/rag-over-course-content.md"
+  },
+  {
+    "slug": "visual-workflow-orchestration",
+    "category": "agent-orchestration-frameworks",
+    "description": "Design visual chatflow/agentflow graphs using drag-and-drop node-based patterns, and assess when visual vs code-based orchestration is the right fit",
+    "when_to_use": "Prototyping an LLM pipeline quickly — testing retrieval strategies, prompt variations, or tool combinations without writing boilerplate - Building workflows accessible to non-engineers (product managers, domain experts, instructional designers) - Designing multi-step agent flows with branching, cond",
+    "related_references": [
+      "references/patterns/visual-workflow-composition.md",
+      "references/code-templates/flowise-chatflow-template.json"
+    ],
+    "file_path": ".claude/commands/agent-orchestration_frameworks(Dify-DSPy-recursiveDSpy-rlm)/visual-workflow-orchestration.md"
+  },
+  {
+    "slug": "ci-cd-for-llm-microservices",
+    "category": "infra-security",
+    "description": "Design CI/CD pipelines for LLM microservices — evaluation gates, canary deployments, model versioning, rollback strategies, and security scanning for AI codebases",
+    "when_to_use": "Building a deployment pipeline for a RAG service or LLM-powered API - Adding evaluation gates to prevent quality regressions in AI outputs - Implementing canary deployments with LLM-specific success metrics - Versioning models alongside application code - Designing rollback procedures when generatio",
+    "related_references": [
+      "references/infra-security/github-actions-llm-template.yml",
+      "references/infra-security/repo-hardening-checklist.md"
+    ],
+    "file_path": ".claude/commands/infra-security(github-hardening-kong)/ci-cd-for-llm-microservices.md"
+  },
+  {
+    "slug": "kong-api-gateway-for-rag-service",
+    "category": "infra-security",
+    "description": "Set up Kong as API gateway for AI/RAG services — ai-proxy for LLM routing, prompt guards, tiered rate limiting, authentication, circuit breaking, and AI-specific observability",
+    "when_to_use": "Exposing a RAG service as a public or internal API - Routing requests to multiple LLM providers through a unified interface - Adding rate limiting, authentication, and observability to AI services - Implementing circuit breaking for unreliable LLM provider endpoints - Building tiered API access (fre",
+    "related_references": [
+      "references/infra-security/api-gateway-ai-patterns.md",
+      "references/infra-security/kong-declarative-config-template.yml"
+    ],
+    "file_path": ".claude/commands/infra-security(github-hardening-kong)/kong-api-gateway-for-rag-service.md"
+  },
+  {
+    "slug": "secure-ai-repo-setup",
+    "category": "infra-security",
+    "description": "Harden a GitHub repository for AI/ML projects — branch protection, secrets management, dependency scanning, CODEOWNERS, model artifact security, and CI security baselines",
+    "when_to_use": "Setting up a new repository for an AI/ML project - Hardening an existing repo before going to production - After a security incident (exposed secrets, unauthorized access) - Onboarding a team to a shared AI codebase - Preparing for compliance requirements (SOC 2, HIPAA, GDPR)",
+    "related_references": [
+      "references/infra-security/repo-hardening-checklist.md"
+    ],
+    "file_path": ".claude/commands/infra-security(github-hardening-kong)/secure-ai-repo-setup.md"
+  },
+  {
+    "slug": "configure-transformer-for-rag",
+    "category": "llm-foundations",
+    "description": "Load and configure transformer models for RAG pipelines — model selection, quantization, device mapping, generation parameters, and embedding extraction",
+    "when_to_use": "Setting up a local transformer model for RAG answer generation - Choosing between quantization methods to fit a model in available VRAM - Configuring generation parameters (temperature, sampling, stopping) for RAG outputs - Loading embedding models for semantic retrieval with proper pooling - Optimi",
+    "related_references": [
+      "references/llm-foundations/model-loading-patterns.md",
+      "references/llm-foundations/model-loading-template.py",
+      "references/llm-foundations/generation-config-patterns.md"
+    ],
+    "file_path": ".claude/commands/llm-foundations(transformers)/configure-transformer-for-rag.md"
+  },
+  {
+    "slug": "debug-tokenization-issues",
+    "category": "llm-foundations",
+    "description": "Diagnose and fix tokenization problems — truncation bugs, special token mishandling, vocabulary gaps, chat template errors, and encoding mismatches",
+    "when_to_use": "Generation output is cut off, garbled, or includes unexpected special tokens - RAG context is silently truncated and losing retrieved chunks - Chat template produces malformed prompts or missing role markers - Multilingual or code content has encoding artifacts or UNK tokens - Batch inference produc",
+    "related_references": [],
+    "file_path": ".claude/commands/llm-foundations(transformers)/debug-tokenization-issues.md"
+  },
+  {
+    "slug": "small-scale-fine-tuning",
+    "category": "llm-foundations",
+    "description": "Fine-tune transformer models with Trainer API, LoRA/QLoRA for domain adaptation — dataset preparation, training configuration, evaluation during training, and adapter merging",
+    "when_to_use": "Adapting a pretrained model to domain-specific vocabulary or style (medical, legal, educational) - Improving RAG generation quality by fine-tuning on your corpus - Teaching a model to follow specific output formats (citations, structured responses) - Building a custom embedding model from a general-",
+    "related_references": [
+      "references/llm-foundations/fine-tuning-template.py",
+      "references/llm-foundations/generation-config-patterns.md"
+    ],
+    "file_path": ".claude/commands/llm-foundations(transformers)/small-scale-fine-tuning.md"
+  },
+  {
+    "slug": "lesson-plan-agent",
+    "category": "llm-integration",
+    "description": "Design an educational lesson-planning agent with tool use, orchestrator-worker decomposition, and curriculum-aware generation",
+    "when_to_use": "Building automated or assisted lesson plan generation for educators - The system must respect curriculum standards, prerequisites, and scope/sequence - Multiple tools are needed (curriculum DB, resource library, assessment bank, student data) - Lessons require multi-step planning: objectives → activ",
+    "related_references": [
+      "references/llm-integration/agent-design-patterns.md",
+      "references/llm-integration/tool-calling-template.py"
+    ],
+    "file_path": ".claude/commands/llm-integration(langchain-claude-cookbooks)/lesson-plan-agent.md"
+  },
+  {
+    "slug": "multi-agent-orchestration",
+    "category": "llm-integration",
+    "description": "Orchestrate multiple LLM agents with coordination patterns — orchestrator-worker, evaluator-optimizer, routing, parallelization, and hub-based communication",
+    "when_to_use": "A single agent with tools can't handle the task (too many tools, too much context, conflicting instructions) - The task naturally decomposes into subtasks requiring different expertise (research + analysis + writing) - You need quality assurance — one agent generates, another evaluates - The workloa",
+    "related_references": [
+      "references/llm-integration/agent-design-patterns.md",
+      "references/llm-integration/multi-agent-template.py"
+    ],
+    "file_path": ".claude/commands/llm-integration(langchain-claude-cookbooks)/multi-agent-orchestration.md"
+  },
+  {
+    "slug": "rag-backed-chat-endpoint",
+    "category": "llm-integration",
+    "description": "Build a RAG-powered chat API endpoint with LCEL chains, conversation memory, streaming responses, and retrieval evaluation",
+    "when_to_use": "Building a chat interface backed by your own documents (knowledge base, docs, course content) - Need conversation memory so follow-up questions work without repeating context - Want streaming responses for responsive UX - The retrieval pipeline is already set up (or being set up) and you need the se",
+    "related_references": [
+      "references/llm-integration/lcel-chain-patterns.md",
+      "references/llm-integration/langchain-rag-chain-template.py"
+    ],
+    "file_path": ".claude/commands/llm-integration(langchain-claude-cookbooks)/rag-backed-chat-endpoint.md"
+  },
+  {
+    "slug": "tool-calling-integration",
+    "category": "llm-integration",
+    "description": "Implement tool/function calling across LLM providers with schema design, validation, error handling, and the tool-use execution loop",
+    "when_to_use": "Your LLM needs to access external data or perform actions (search, calculate, query databases, call APIs) - Building an agent that decides which tools to use at runtime based on the user's question - Integrating with multiple LLM providers and want a consistent tool interface - Need robust validatio",
+    "related_references": [
+      "references/llm-integration/tool-calling-template.py"
+    ],
+    "file_path": ".claude/commands/llm-integration(langchain-claude-cookbooks)/tool-calling-integration.md"
+  },
+  {
+    "slug": "plan-project",
+    "category": "meta",
+    "description": "Map project requirements to skills across all categories, produce a sequenced build plan with invocation order, dependencies, and reference pre-reads",
+    "when_to_use": "Starting a new AI/LLM project and unsure which skills to invoke first - Planning the architecture for a system that spans multiple concerns (RAG + agents + infra) - Onboarding to this skills library and wanting a guided path through it - Sequencing work across a team where different members handle d",
+    "related_references": [],
+    "file_path": ".claude/commands/plan-project.md"
+  },
+  {
+    "slug": "graph-rag-pipeline",
+    "category": "rag-pipelines",
+    "description": "Build a knowledge graph from documents and use graph-based retrieval to augment LLM generation",
+    "when_to_use": "Queries require multi-hop reasoning across entities (\"How does A relate to C through B?\") - The domain has rich entity relationships (people, organizations, scientific concepts, prerequisites) - Simple vector retrieval misses connections that span multiple chunks - You need structured context alongs",
+    "related_references": [
+      "references/rag-pipelines/graph-retrieval-patterns.md",
+      "references/rag-pipelines/graph-rag-template.py"
+    ],
+    "file_path": ".claude/commands/rag-pipelines(llamaindex-ragflow-raganything-ragtechniques-pathway)/graph-rag-pipeline.md"
+  },
+  {
+    "slug": "hybrid-retrieval-strategy",
+    "category": "rag-pipelines",
+    "description": "Design a hybrid/fusion retrieval strategy that combines semantic, keyword, and graph retrieval with adaptive routing and reranking",
+    "when_to_use": "Queries span from keyword-heavy lookups (\"FERPA section 99.31\") to conceptual questions (\"how does constructivist pedagogy improve retention\") - Pure semantic search returns topically related but non-answering documents, or pure keyword search misses paraphrased content - You need a tunable knob to ",
+    "related_references": [
+      "references/rag-pipelines/retrieval-fusion-patterns.md",
+      "references/code-templates/hybrid-retrieval-service.py"
+    ],
+    "file_path": ".claude/commands/rag-pipelines(llamaindex-ragflow-raganything-ragtechniques-pathway)/hybrid-retrieval-strategy.md"
+  },
+  {
+    "slug": "multimodal-rag-pipeline",
+    "category": "rag-pipelines",
+    "description": "Design a RAG pipeline that handles documents with mixed content types (text, images, tables, equations, audio) and builds unified retrieval across all modalities",
+    "when_to_use": "Documents contain significant non-text content (figures, tables, diagrams, equations) that must be retrievable - Existing text-only RAG misses answers that live in images or tables - Building over PDFs, slides, or textbooks where layout structure carries meaning - Need to answer questions that requi",
+    "related_references": [
+      "references/rag-pipelines/multimodal-parsing-pipeline.md",
+      "references/rag-pipelines/multimodal-rag-template.py"
+    ],
+    "file_path": ".claude/commands/rag-pipelines(llamaindex-ragflow-raganything-ragtechniques-pathway)/multimodal-rag-pipeline.md"
+  },
+  {
+    "slug": "streaming-rag-pipeline",
+    "category": "rag-pipelines",
+    "description": "Design a real-time/streaming RAG pipeline with incremental indexing, change data capture, and live query serving over continuously updating data sources",
+    "when_to_use": "Documents change frequently (knowledge bases, wikis, shared drives, CMS) and queries must reflect the latest version within seconds or minutes - Multiple heterogeneous sources feed the same index (filesystem + S3 + Kafka + webhooks) - You need to avoid full-reindex downtime windows for large corpora",
+    "related_references": [
+      "references/rag-pipelines/streaming-indexing-patterns.md",
+      "references/rag-pipelines/streaming-rag-template.py"
+    ],
+    "file_path": ".claude/commands/rag-pipelines(llamaindex-ragflow-raganything-ragtechniques-pathway)/streaming-rag-pipeline.md"
+  },
+  {
+    "slug": "design-rag-platform-architecture",
+    "category": "systems-thinking",
+    "description": "Design production RAG platform architecture — service decomposition, multi-layer caching, async indexing, database scaling, load balancing, and capacity planning",
+    "when_to_use": "Designing a RAG system that must handle production traffic (not just a prototype) - Scaling an existing RAG pipeline beyond a single server - Adding caching, queuing, or load balancing to improve performance - Choosing between monolithic and microservice architectures for RAG - Planning capacity for",
+    "related_references": [
+      "references/systems-thinking/scaling-patterns.md",
+      "references/systems-thinking/platform-architecture-template.py"
+    ],
+    "file_path": ".claude/commands/systems-thinking(system-design-primer)/design-rag-platform-architecture.md"
+  },
+  {
+    "slug": "event-driven-learning-analytics-system",
+    "category": "systems-thinking",
+    "description": "Design event-driven architecture for learning analytics — event sourcing, stream processing, batch aggregation, CQRS read models, and real-time dashboards",
+    "when_to_use": "Building analytics for a learning management system or educational platform - Tracking learner progress, engagement, and outcomes at scale - Designing dashboards that need both real-time and historical views - Processing high-volume learning events (page views, completions, quiz attempts) - Building",
+    "related_references": [
+      "references/systems-thinking/event-driven-architecture.md",
+      "references/systems-thinking/event-pipeline-template.py"
+    ],
+    "file_path": ".claude/commands/systems-thinking(system-design-primer)/event-driven-learning-analytics-system.md"
+  },
+  {
+    "slug": "scaling-llm-microservices",
+    "category": "systems-thinking",
+    "description": "Scale LLM microservices — GPU autoscaling, inference queues, response caching, connection pooling, load balancing for variable-latency requests, and progressive scaling stages",
+    "when_to_use": "Scaling an LLM service beyond a single GPU instance - Reducing latency or cost for LLM inference in production - Implementing autoscaling for GPU-based services - Adding caching to reduce redundant LLM calls - Handling traffic spikes without over-provisioning GPUs",
+    "related_references": [
+      "references/systems-thinking/scaling-patterns.md",
+      "references/systems-thinking/platform-architecture-template.py"
+    ],
+    "file_path": ".claude/commands/systems-thinking(system-design-primer)/scaling-llm-microservices.md"
+  }
+]

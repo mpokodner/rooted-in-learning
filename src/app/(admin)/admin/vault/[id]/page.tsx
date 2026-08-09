@@ -141,12 +141,27 @@ export default async function VaultDetailPage({
         <h1 style={{ fontSize: "20px", fontWeight: 700, color: "var(--text-dark)", marginBottom: "8px" }}>
           {idea.title || "Untitled Idea"}
         </h1>
-        <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
+        <div style={{ display: "flex", gap: "8px", alignItems: "center", flexWrap: "wrap" }}>
           <Pill label={idea.status} bg={stStyle.bg} color={stStyle.color} />
           {chStyle && <Pill label={channelLabels[idea.channel!] || idea.channel!} bg={chStyle.bg} color={chStyle.color} />}
           <span style={{ fontSize: "12px", color: "var(--text-muted)" }}>
             {new Date(idea.created_at).toLocaleDateString()}
           </span>
+          <Link
+            href={`/admin/architect?idea_id=${idea.id}&prefill=${encodeURIComponent(idea.original_idea)}`}
+            style={{
+              fontSize: "11px",
+              fontWeight: 600,
+              padding: "3px 10px",
+              borderRadius: "99px",
+              background: "var(--earth)",
+              color: "#fff",
+              textDecoration: "none",
+              marginLeft: "4px",
+            }}
+          >
+            Plan Architecture &rarr;
+          </Link>
         </div>
       </div>
 

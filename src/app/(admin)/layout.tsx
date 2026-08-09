@@ -16,48 +16,47 @@ export default function AdminLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const linkStyle: React.CSSProperties = {
+    display: "block",
+    padding: "8px 12px",
+    borderRadius: "8px",
+    fontSize: "14px",
+    color: "rgba(255,255,255,0.85)",
+    textDecoration: "none",
+  };
+
   return (
-    <div className="min-h-screen bg-[var(--neutral-bg)] flex">
-      <aside className="hidden lg:flex w-56 bg-[var(--earth)] text-white flex-col shrink-0">
-        <div className="p-5">
-          <h2 className="text-base font-bold font-[var(--font-heading)]">
+    <div style={{ minHeight: "100vh", display: "flex", background: "var(--neutral-bg)" }}>
+      <aside style={{
+        width: "220px",
+        background: "#3d4a2f",
+        display: "flex",
+        flexDirection: "column",
+        flexShrink: 0,
+      }}>
+        <div style={{ padding: "20px" }}>
+          <h2 style={{ fontSize: "16px", fontWeight: 700, color: "#fff", margin: 0 }}>
             RIL Admin
           </h2>
         </div>
-        <nav className="flex-1 px-3 space-y-0.5">
-          <a href="/admin" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Dashboard
-          </a>
-          <a href="/admin/products" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Products
-          </a>
-          <a href="/admin/orders" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Orders
-          </a>
-          <a href="/admin/subscribers" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Subscribers
-          </a>
-          <a href="/admin/leads" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Leads
-          </a>
-          <a href="/admin/waitlist" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Waitlist
-          </a>
-          <a href="/admin/analytics" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Analytics
-          </a>
-          <a href="/admin/vault" className="block px-3 py-2 rounded-lg text-sm text-white/80 hover:text-white hover:bg-white/10 transition-colors">
-            Vault
-          </a>
+        <nav style={{ flex: 1, padding: "0 12px", display: "flex", flexDirection: "column", gap: "2px" }}>
+          <a href="/admin" style={linkStyle}>Dashboard</a>
+          <a href="/admin/products" style={linkStyle}>Products</a>
+          <a href="/admin/orders" style={linkStyle}>Orders</a>
+          <a href="/admin/subscribers" style={linkStyle}>Subscribers</a>
+          <a href="/admin/leads" style={linkStyle}>Leads</a>
+          <a href="/admin/waitlist" style={linkStyle}>Waitlist</a>
+          <a href="/admin/analytics" style={linkStyle}>Analytics</a>
+          <a href="/admin/vault" style={linkStyle}>Idea Vault</a>
         </nav>
-        <div className="p-3 border-t border-white/10">
-          <a href="/" className="block px-3 py-2 rounded-lg text-sm text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+        <div style={{ padding: "12px", borderTop: "1px solid rgba(255,255,255,0.1)" }}>
+          <a href="/" style={{ ...linkStyle, color: "rgba(255,255,255,0.6)" }}>
             &larr; Back to Site
           </a>
         </div>
       </aside>
 
-      <main className="flex-1 min-w-0 overflow-auto">
+      <main style={{ flex: 1, minWidth: 0, overflow: "auto" }}>
         {children}
       </main>
     </div>

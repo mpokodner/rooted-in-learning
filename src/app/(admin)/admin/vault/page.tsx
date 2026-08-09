@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import type { Idea, IdeaChannel, IdeaStatus } from "@/types";
+import IdeaEvaluator from "./idea-evaluator";
 
 export const metadata: Metadata = {
   title: "Idea Vault | Admin | The Rooted Learner",
@@ -69,6 +70,8 @@ export default async function VaultPage({
         </div>
         <Link href="/admin" style={{ fontSize: "13px", color: "var(--earth)", textDecoration: "none" }}>&larr; Dashboard</Link>
       </div>
+
+      <IdeaEvaluator />
 
       {/* Filters */}
       <div style={{ display: "flex", gap: "8px", flexWrap: "wrap", marginBottom: "16px" }}>

@@ -66,7 +66,7 @@ Evaluate the idea and return a JSON object with EXACTLY this structure (no markd
 
   try {
     const message = await anthropic.messages.create({
-      model: "claude-sonnet-4-20250514",
+      model: "claude-sonnet-5",
       max_tokens: 1024,
       system: systemPrompt,
       messages: [{ role: "user", content: `Evaluate this product idea:\n\n${idea}` }],

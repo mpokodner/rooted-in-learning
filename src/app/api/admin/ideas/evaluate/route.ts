@@ -68,11 +68,13 @@ Evaluate the idea and return a JSON object with EXACTLY this structure (no markd
     const message = await anthropic.messages.create({
       model: "claude-sonnet-5",
       max_tokens: 4096,
+      thinking: { type: "disabled" },
       system: systemPrompt,
       messages: [{ role: "user", content: `Evaluate this product idea:\n\n${idea}` }],
     });
 
-    let text = message.content[0].type === "text" ? message.content[0].text : "";
+    const textBlock = message.content.find((b) => b.type === "text");
+    let text = textBlock?.type === "text" ? textBlock.text : "";
     if (!text.trim()) {
       return NextResponse.json({ error: "AI returned an empty response. Please try again." }, { status: 502 });
     }

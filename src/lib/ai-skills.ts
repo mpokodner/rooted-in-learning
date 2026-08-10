@@ -18,9 +18,6 @@ export function getSkillContent(slugs: string[]): Record<string, string> {
   const filePaths = new Set<string>();
   for (const skill of selected) {
     filePaths.add(skill.file_path);
-    for (const ref of skill.related_references) {
-      filePaths.add(ref);
-    }
   }
 
   const result: Record<string, string> = {};

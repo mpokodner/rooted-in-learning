@@ -154,33 +154,43 @@ Generate the full architecture plan and implementation prompt.`;
 
   const anthropic = new Anthropic({ apiKey });
 
-  try {
-    const message = await anthropic.messages.create({
-      model: "claude-sonnet-5",
-      max_tokens: 12000,
-      thinking: { type: "disabled" },
-      system: systemPrompt,
-      messages: [{ role: "user", content: userMessage }],
-    });
+  const encoder = new TextEncoder();
 
-    const textBlock = message.content.find((b) => b.type === "text");
-    let text = textBlock?.type === "text" ? textBlock.text : "";
-    if (!text.trim()) {
-      return NextResponse.json({ error: "AI returned an empty response. Please try again." }, { status: 502 });
-    }
+  const readable = new ReadableStream({
+    async start(controller) {
+      try {
+        const stream = anthropic.messages.stream({
+          model: "claude-sonnet-5",
+          max_tokens: 12000,
+          thinking: { type: "disabled" },
+          system: systemPrompt,
+          messages: [{ role: "user", content: userMessage }],
+        });
 
-    text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "");
+        stream.on("text", (textDelta) => {
+          controller.enqueue(
+            encoder.encode(`data: ${JSON.stringify({ type: "delta", text: textDelta })}\n\n`)
+          );
+        });
 
-    let result;
-    try {
-      result = JSON.parse(text);
-    } catch {
-      return NextResponse.json({ error: "AI returned an invalid response. Please try again." }, { status: 502 });
-    }
+        await stream.finalMessage();
 
-    return NextResponse.json(result);
-  } catch (err) {
-    const msg = err instanceof Error ? err.message : "Architecture generation failed";
-    return NextResponse.json({ error: msg }, { status: 500 });
-  }
+        controller.enqueue(encoder.encode(`data: ${JSON.stringify({ type: "done" })}\n\n`));
+        controller.close();
+      } catch (err) {
+        controller.enqueue(
+          encoder.encode(`data: ${JSON.stringify({ type: "error", message: err instanceof Error ? err.message : "Architecture generation failed" })}\n\n`)
+        );
+        controller.close();
+      }
+    },
+  });
+
+  return new Response(readable, {
+    headers: {
+      "Content-Type": "text/event-stream",
+      "Cache-Control": "no-cache",
+      "Connection": "keep-alive",
+    },
+  });
 }

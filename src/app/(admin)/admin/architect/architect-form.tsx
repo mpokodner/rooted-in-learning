@@ -43,6 +43,7 @@ export default function ArchitectForm() {
   const [implementationPrompt, setImplementationPrompt] = useState("");
 
   const [loading, setLoading] = useState(false);
+  const [streamingPhase, setStreamingPhase] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
   const [saved, setSaved] = useState(false);
@@ -98,6 +99,7 @@ export default function ArchitectForm() {
     if (activeSlugs.length === 0 || loading) return;
     setLoading(true);
     setError(null);
+    setStreamingPhase("Starting generation...");
 
     try {
       const res = await fetch("/api/admin/architect/generate", {
@@ -109,15 +111,72 @@ export default function ArchitectForm() {
           selected_skills: activeSlugs,
         }),
       });
-      const data = await res.json();
-      if (!res.ok) throw new Error(data.error || "Generation failed");
-      setArchitecture(data.architecture || null);
-      setImplementationPrompt(data.implementation_prompt || "");
+
+      if (!res.ok) {
+        const data = await res.json();
+        throw new Error(data.error || "Generation failed");
+      }
+
+      const reader = res.body!.getReader();
+      const decoder = new TextDecoder();
+      let accumulated = "";
+      let buffer = "";
+
+      while (true) {
+        const { done, value } = await reader.read();
+        if (done) break;
+
+        buffer += decoder.decode(value, { stream: true });
+        const parts = buffer.split("\n\n");
+        buffer = parts.pop() || "";
+
+        for (const part of parts) {
+          if (!part.startsWith("data: ")) continue;
+          let payload;
+          try { payload = JSON.parse(part.slice(6)); } catch { continue; }
+
+          if (payload.type === "delta") {
+            accumulated += payload.text;
+            if (accumulated.includes('"implementation_prompt"')) {
+              setStreamingPhase("Writing implementation prompt...");
+            } else if (accumulated.includes('"implementation_phases"')) {
+              setStreamingPhase("Planning implementation phases...");
+            } else if (accumulated.includes('"key_decisions"')) {
+              setStreamingPhase("Evaluating key decisions...");
+            } else if (accumulated.includes('"folder_structure"')) {
+              setStreamingPhase("Building folder structure...");
+            } else if (accumulated.includes('"systems_design"')) {
+              setStreamingPhase("Writing systems design...");
+            } else if (accumulated.includes('"title"')) {
+              setStreamingPhase("Generating architecture...");
+            }
+          } else if (payload.type === "error") {
+            throw new Error(payload.message);
+          }
+        }
+      }
+
+      if (!accumulated.trim()) {
+        throw new Error("AI returned an empty response. Please try again.");
+      }
+
+      let text = accumulated;
+      text = text.replace(/^```(?:json)?\s*\n?/i, "").replace(/\n?```\s*$/i, "");
+      const firstBrace = text.indexOf("{");
+      const lastBrace = text.lastIndexOf("}");
+      if (firstBrace !== -1 && lastBrace > firstBrace) {
+        text = text.slice(firstBrace, lastBrace + 1);
+      }
+
+      const result = JSON.parse(text);
+      setArchitecture(result.architecture || null);
+      setImplementationPrompt(result.implementation_prompt || "");
       setStep("results");
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
       setLoading(false);
+      setStreamingPhase(null);
     }
   }
 
@@ -399,7 +458,7 @@ export default function ArchitectForm() {
             margin: "0 auto 12px",
           }} />
           <p style={{ fontSize: "13px", color: "var(--text-muted)", margin: 0 }}>
-            {step === "input" ? "Selecting relevant skills..." : "Generating architecture plan..."}
+            {step === "input" ? "Selecting relevant skills..." : (streamingPhase || "Generating architecture plan...")}
           </p>
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>

@@ -38,7 +38,6 @@ export async function POST(request: NextRequest) {
     slug: s.slug,
     category: s.category,
     description: s.description,
-    when_to_use: s.when_to_use,
   }));
 
   const systemPrompt = `You are a technical architecture advisor for an EdTech platform (Rooted-in-Learning). You have access to a skills library containing reusable patterns for AI/LLM systems.

@@ -3,6 +3,8 @@ import Anthropic from "@anthropic-ai/sdk";
 import { createClient } from "@/lib/supabase-server";
 import { getSkillContent, getSkillsManifest } from "@/lib/ai-skills";
 
+export const maxDuration = 60;
+
 export async function POST(request: NextRequest) {
   const supabase = await createClient();
   if (!supabase) {

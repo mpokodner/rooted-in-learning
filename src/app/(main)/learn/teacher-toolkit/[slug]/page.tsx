@@ -5,7 +5,6 @@ import { notFound } from 'next/navigation'
 import { client } from '@/sanity/lib/client'
 import {
   toolkitResourceBySlugQuery,
-  toolkitResourcesQuery,
 } from '@/sanity/lib/queries'
 import { urlFor } from '@/sanity/lib/image'
 import type { ToolkitResource } from '@/sanity/lib/types'

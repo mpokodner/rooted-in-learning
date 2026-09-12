@@ -4,66 +4,17 @@
  */
 
 :root {
-  /* Brand colors */
-  --earth: #5c6b4a;
-  --earth-dark: #4a5638;
+  /* Greenhouse-only tokens (not duplicated in globals.css) */
   --earth-deep: #3a4330;
-  --earth-light: #8b9b7a;
-  --earth-mist: #a8b89a;
-  --terracotta: #b05931;
-  --terracotta-dark: #923c29;
-  --terracotta-light: #d5a372;
-
-  /* Neutrals */
-  --white: #ffffff;
-  --neutral-bg: #faf7f2;
-  --beige-bg: #f0ede7;
   --beige-deep: #e7e0d4;
-  --border-beige: #e8ded0;
-  --border-greige: #d9d5ce;
-  --text-black: #1a1a1a;
-  --text-dark: #2d2d2d;
-  --text-muted: #6b6b6b;
-  --text-light: #8a8a8a;
-  --text-on-dark: #faf7f2;
 
-  /* Type */
   --font-display: "Cal Sans", system-ui, sans-serif;
-  --font-body: "Inter", system-ui, -apple-system, sans-serif;
   --font-serif: "Newsreader", Georgia, serif;
   --font-mono: "SFMono-Regular", ui-monospace, "JetBrains Mono", Menlo, monospace;
 
-  --text-xs: clamp(0.75rem, 0.7rem + 0.25vw, 0.8125rem);
-  --text-sm: clamp(0.8125rem, 0.78rem + 0.2vw, 0.875rem);
-  --text-base: clamp(0.9375rem, 0.9rem + 0.2vw, 1rem);
-  --text-lg: clamp(1.0625rem, 1rem + 0.3vw, 1.1875rem);
-  --text-xl: clamp(1.2rem, 1.1rem + 0.5vw, 1.4rem);
-  --text-2xl: clamp(1.45rem, 1.25rem + 0.9vw, 1.85rem);
-  --text-3xl: clamp(1.8rem, 1.45rem + 1.5vw, 2.6rem);
-  --text-4xl: clamp(2.25rem, 1.7rem + 2.6vw, 3.6rem);
-  --text-5xl: clamp(2.8rem, 2rem + 3.8vw, 5rem);
-
-  --tracking-tight: -0.02em;
-  --tracking-widest: 0.16em;
-
-  /* Layout */
   --max-w: 76rem;
   --max-w-narrow: 46rem;
   --container-pad: clamp(1.25rem, 4vw, 2.5rem);
-  --space-section: clamp(3.5rem, 7vw, 6.5rem);
-
-  /* Radii */
-  --radius-sm: 0.375rem;
-  --radius-md: 0.625rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
-  --radius-full: 9999px;
-
-  /* Shadows */
-  --shadow-sm: 0 1px 2px 0 rgba(40, 36, 28, 0.05);
-  --shadow-md: 0 4px 14px -4px rgba(40, 36, 28, 0.12);
-  --shadow-lg: 0 18px 40px -12px rgba(40, 36, 28, 0.18);
-  --shadow-xl: 0 30px 60px -18px rgba(40, 36, 28, 0.22);
 
   --ease: cubic-bezier(0.4, 0, 0.2, 1);
   --dur: 240ms;

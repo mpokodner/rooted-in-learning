@@ -1,6 +1,6 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
-import { resend, FROM_EMAIL } from "@/lib/resend";
+import { getResend, FROM_EMAIL } from "@/lib/resend";
 import { getRatelimit } from "@/lib/ratelimit";
 
 function sanitize(str: string): string {
@@ -109,7 +109,7 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: "admin@therootedlearner.com",
       subject: `[Contact Form] ${safeSubject} from ${safeName}`,
@@ -128,7 +128,7 @@ export async function POST(request: NextRequest) {
       replyTo: email,
     });
 
-    await resend.emails.send({
+    await getResend().emails.send({
       from: FROM_EMAIL,
       to: email,
       subject: "Thanks for reaching out!",

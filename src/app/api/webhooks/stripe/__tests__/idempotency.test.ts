@@ -39,13 +39,13 @@ function createMockSupabase(ordersStore: Array<Record<string, unknown>>) {
   let insertedRow: Record<string, unknown> | null = null;
   let filterCol = "";
   let filterVal: unknown = null;
-  let selectCols = "";
+  let _selectCols = "";
 
   const chain: ChainResult = {
     data: null,
     error: null,
     select(cols: string) {
-      selectCols = cols;
+      _selectCols = cols;
       return chain;
     },
     eq(col: string, val: unknown) {
@@ -101,7 +101,7 @@ function createMockSupabase(ordersStore: Array<Record<string, unknown>>) {
       insertedRow = null;
       filterCol = "";
       filterVal = null;
-      selectCols = "";
+      _selectCols = "";
       return chain;
     },
   };

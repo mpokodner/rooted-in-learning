@@ -40,13 +40,13 @@ export function formatPrice(
 
 // Helper function to create a checkout session
 export async function createCheckoutSession({
-  priceId,
+  lineItems,
   successUrl,
   cancelUrl,
   customerId,
   metadata,
 }: {
-  priceId: string;
+  lineItems: Array<{ priceId: string; quantity: number }>;
   successUrl: string;
   cancelUrl: string;
   customerId?: string;
@@ -56,7 +56,10 @@ export async function createCheckoutSession({
   const session = await s.checkout.sessions.create({
     mode: "payment",
     payment_method_types: ["card"],
-    line_items: [{ price: priceId, quantity: 1 }],
+    line_items: lineItems.map((item) => ({
+      price: item.priceId,
+      quantity: item.quantity,
+    })),
     success_url: successUrl,
     cancel_url: cancelUrl,
     customer: customerId,

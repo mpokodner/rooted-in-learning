@@ -120,13 +120,13 @@ export default function SiteHeader() {
         </div>
       </header>
 
+      {mobileOpen ? (
       <div
         ref={panelRef}
-        className={`mobile-menu${mobileOpen ? " open" : ""}`}
+        className="mobile-menu open"
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        aria-hidden={!mobileOpen}
       >
         <div className="mobile-menu-head">
           <Link href="/" className="brand" onClick={closeMobile}>
@@ -158,6 +158,7 @@ export default function SiteHeader() {
           </Link>
         </nav>
       </div>
+      ) : null}
       <style>{`
         .phase1-header-cta { display: none; }
         @media (min-width: 900px) {

@@ -126,7 +126,7 @@ export default function SiteHeader() {
         role="dialog"
         aria-modal="true"
         aria-label="Navigation menu"
-        hidden={!mobileOpen}
+        aria-hidden={!mobileOpen}
       >
         <div className="mobile-menu-head">
           <Link href="/" className="brand" onClick={closeMobile}>

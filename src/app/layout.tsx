@@ -100,6 +100,9 @@ export const metadata: Metadata = {
     apple: "/apple-touch-icon.png",
   },
   manifest: "/site.webmanifest",
+  verification: process.env.NEXT_PUBLIC_GSC_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GSC_VERIFICATION }
+    : undefined,
 };
 
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
@@ -113,6 +116,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* TODO(phase1-decision): should page-view gtag wait on consent too? Default: no, not in this phase. */}
         {GA_ID && (
           <>
             <script

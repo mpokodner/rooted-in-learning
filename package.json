@@ -12,7 +12,8 @@
     "add-product": "tsx scripts/add-product.ts",
     "verify-chain": "tsx scripts/verify-purchase-chain.ts",
     "save-idea": "tsx scripts/save-idea.ts",
-    "build-skills": "tsx scripts/build-skills-manifest.ts"
+    "build-skills": "tsx scripts/build-skills-manifest.ts",
+    "visual-baseline": "tsx scripts/visual-baseline.ts"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.116.0",
@@ -37,6 +38,7 @@
     "stripe": "^20.2.0"
   },
   "devDependencies": {
+    "@playwright/test": "^1.63.0",
     "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
@@ -44,6 +46,7 @@
     "dotenv": "^17.4.2",
     "eslint": "^9",
     "eslint-config-next": "16.1.1",
+    "playwright": "^1.63.0",
     "tailwindcss": "^4",
     "tsx": "^4.23.1",
     "typescript": "^5",

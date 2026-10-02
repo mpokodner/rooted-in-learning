@@ -1,0 +1,81 @@
+/*
+ * Phase 1 semantic tokens — additive aliases only.
+ * Maps onto existing greenhouse/globals tokens. Does not replace
+ * --font-display (Cal Sans), .eyebrow, or .reveal globally.
+ *
+ * Contrast notes (WCAG 2.2 AA, 4.5:1 body / 3:1 large):
+ * --color-ink on --color-page: #2d2d2d on #faf7f2 ≈ 11.5:1
+ * --color-ink-muted on --color-page: #6b6b6b on #faf7f2 ≈ 5.1:1
+ * --color-on-primary on --color-primary: #faf7f2 on #5c6b4a ≈ 5.3:1
+ * --color-primary on --color-page: #5c6b4a on #faf7f2 ≈ 5.3:1
+ * Terracotta fill on cream is NOT used as a Phase 1 button fill.
+ */
+
+:root {
+  --color-page: var(--neutral-bg);
+  --color-surface: var(--white);
+  --color-surface-alt: var(--beige-bg);
+  --color-ink: var(--text-dark);
+  --color-ink-muted: var(--text-muted);
+  --color-ink-heading: var(--text-black);
+  --color-primary: var(--earth);
+  --color-primary-hover: var(--earth-dark);
+  --color-on-primary: var(--text-on-dark);
+  --color-accent: var(--terracotta);
+  --color-border: var(--border-beige);
+  --color-focus: var(--earth);
+
+  --font-heading-new: var(--font-serif);
+  --font-body-new: var(--font-body);
+
+  --space-1: var(--space-xs);
+  --space-2: var(--space-sm);
+  --space-3: var(--space-md);
+  --space-4: var(--space-lg);
+  --space-5: var(--space-xl);
+  --space-6: var(--space-section);
+  --space-7: var(--space-section-lg);
+
+  --radius-control: var(--radius-md);
+  --radius-card: var(--radius-lg);
+  --radius-pill: var(--radius-full);
+
+  --motion-fast: var(--duration-fast);
+  --motion-base: var(--duration-base);
+  --motion-slow: var(--duration-slow);
+  --motion-ease: var(--ease-default);
+
+  --focus-ring-new: var(--focus-ring);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  :root {
+    --motion-fast: 0ms;
+    --motion-base: 0ms;
+    --motion-slow: 0ms;
+  }
+}
+
+.phase1 {
+  color: var(--color-ink);
+  background: var(--color-page);
+}
+
+.phase1 h1,
+.phase1 h2,
+.phase1 h3,
+.phase1 h4 {
+  font-family: var(--font-heading-new);
+  font-weight: 500;
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-ink-heading);
+}
+
+.phase1 a:focus-visible,
+.phase1 button:focus-visible,
+.phase1 input:focus-visible,
+.phase1 select:focus-visible,
+.phase1 textarea:focus-visible {
+  outline: none;
+  box-shadow: var(--focus-ring-new);
+}

@@ -4,6 +4,7 @@ import Script from "next/script";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { AuthProvider } from "@/components/AuthProvider";
 import "./globals.css";
+import "../styles/tokens.css";
 
 const inter = Inter({
   variable: "--font-body",

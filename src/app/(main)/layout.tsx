@@ -1,6 +1,7 @@
-import Header from "@/components/Header";
-import Footer from "@/components/Footer";
+import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/SiteFooter";
 import SiteAnimations from "@/components/SiteAnimations";
+import SkipLink from "@/components/ui/SkipLink";
 
 export default function MainLayout({
   children,
@@ -9,9 +10,10 @@ export default function MainLayout({
 }) {
   return (
     <>
-      <Header />
-      <main>{children}</main>
-      <Footer />
+      <SkipLink />
+      <SiteHeader />
+      <main id="main-content">{children}</main>
+      <SiteFooter />
       <SiteAnimations />
     </>
   );

@@ -4,19 +4,18 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
 import type { BlogPostCard } from '@/sanity/lib/types'
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'short',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
+import { formatDisplayDate } from '@/lib/format-date'
 
 function formatPostMeta(post: BlogPostCard) {
   const parts: string[] = []
   if (post.author?.name) parts.push(post.author.name)
-  parts.push(formatDate(post.publishedAt))
+  parts.push(
+    formatDisplayDate(post.publishedAt, {
+      month: 'short',
+      day: 'numeric',
+      year: 'numeric',
+    }),
+  )
   if (post.readingTime) parts.push(`${post.readingTime} min read`)
   return parts.join(' · ')
 }

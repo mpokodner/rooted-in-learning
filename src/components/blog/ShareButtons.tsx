@@ -10,9 +10,8 @@ interface ShareButtonsProps {
 export default function ShareButtons({ url, title }: ShareButtonsProps) {
   const [copied, setCopied] = useState(false)
 
-  const fullUrl = typeof window !== 'undefined'
-    ? `${window.location.origin}${url}`
-    : url
+  const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://www.therootedlearner.com").replace(/\/$/, "")
+  const fullUrl = url.startsWith("http") ? url : `${siteUrl}${url}`
 
   function handleCopy() {
     navigator.clipboard.writeText(fullUrl)

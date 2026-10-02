@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { urlFor } from "@/sanity/lib/image";
 import type { ToolkitResourceCard } from "@/sanity/lib/types";
+import { formatDisplayDate } from "@/lib/format-date";
 
 const typeLabels: Record<string, { emoji: string; label: string }> = {
   video: { emoji: "🎬", label: "Video Tutorial" },
@@ -20,14 +21,6 @@ const difficultyStyles: Record<string, { bg: string; color: string }> = {
   },
   advanced: { bg: "rgba(176, 89, 49, 0.2)", color: "var(--terracotta-dark)" },
 };
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString("en-US", {
-    month: "short",
-    day: "numeric",
-    year: "numeric",
-  });
-}
 
 function formatGrade(g: string) {
   if (g === "all") return "All Grades";
@@ -252,7 +245,11 @@ export default function ToolkitCard({
           </span>
         )}
         <span style={{ fontSize: "0.75rem", color: "var(--text-light)" }}>
-          {formatDate(resource.publishedAt)}
+          {formatDisplayDate(resource.publishedAt, {
+            month: "short",
+            day: "numeric",
+            year: "numeric",
+          })}
         </span>
       </div>
     </Link>

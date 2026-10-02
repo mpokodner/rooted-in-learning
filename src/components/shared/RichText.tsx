@@ -8,6 +8,7 @@ import type { PortableTextBlock } from '@portabletext/types'
 import Image from 'next/image'
 import { urlFor } from '@/sanity/lib/image'
 import { slugify } from '@/lib/slugify'
+import YouTubeEmbed from '@/components/YouTubeEmbed'
 
 function extractYouTubeId(url: string): string | null {
   const match = url.match(
@@ -145,30 +146,7 @@ export const portableTextComponents: PortableTextComponents = {
 
       return (
         <figure style={{ margin: '2rem 0' }}>
-          <div
-            style={{
-              position: 'relative',
-              paddingBottom: '56.25%',
-              height: 0,
-              overflow: 'hidden',
-              borderRadius: '0.5rem',
-            }}
-          >
-            <iframe
-              src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-              title={value.caption || 'YouTube video'}
-              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-              allowFullScreen
-              style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                width: '100%',
-                height: '100%',
-                border: 'none',
-              }}
-            />
-          </div>
+          <YouTubeEmbed videoId={videoId} title={value.caption || 'YouTube video'} />
           {value.caption && (
             <figcaption
               style={{

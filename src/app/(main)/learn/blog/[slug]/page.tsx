@@ -9,6 +9,7 @@ import type { BlogPost } from '@/sanity/lib/types'
 import type { PortableTextBlock } from '@portabletext/types'
 import RichText from '@/components/shared/RichText'
 import { slugify } from '@/lib/slugify'
+import { formatDisplayDate } from '@/lib/format-date'
 import BlogCard from '@/components/blog/BlogCard'
 import ReadingProgress from '@/components/blog/ReadingProgress'
 import BackToTop from '@/components/blog/BackToTop'
@@ -63,14 +64,6 @@ export async function generateMetadata({
       ...(ogImage && { images: [ogImage] }),
     },
   }
-}
-
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
 }
 
 function extractHeadings(body: PortableTextBlock[]) {
@@ -165,7 +158,7 @@ export default async function BlogPostPage({
                     {post.contentPillar.title}
                   </span>
                 )}
-                <span>{formatDate(post.publishedAt)}</span>
+                <span>{formatDisplayDate(post.publishedAt)}</span>
                 {post.readingTime && <span>{post.readingTime} min read</span>}
               </div>
 

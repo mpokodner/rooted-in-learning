@@ -74,6 +74,8 @@ export default function NewsletterForm({
     <form className={formClassName} onSubmit={handleSubmit}>
       <input
         type="email"
+        name="email"
+        autoComplete="email"
         placeholder="your@email.com"
         className={inputClassName}
         value={email}
@@ -81,6 +83,7 @@ export default function NewsletterForm({
         required
         disabled={status === "loading"}
         aria-label="Email address"
+        suppressHydrationWarning
       />
       <button
         type="submit"

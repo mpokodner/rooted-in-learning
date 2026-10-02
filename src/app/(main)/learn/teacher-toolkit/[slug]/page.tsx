@@ -11,6 +11,8 @@ import type { ToolkitResource } from '@/sanity/lib/types'
 import RichText from '@/components/shared/RichText'
 import ToolkitCard from '@/components/learn/ToolkitCard'
 import GatedDownload from '@/components/learn/GatedDownload'
+import YouTubeEmbed from '@/components/YouTubeEmbed'
+import { formatDisplayDate } from '@/lib/format-date'
 
 export const revalidate = 60
 
@@ -37,13 +39,7 @@ function extractYouTubeId(url: string): string | null {
   return match?.[1] ?? null
 }
 
-function formatDate(dateString: string) {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    month: 'long',
-    day: 'numeric',
-    year: 'numeric',
-  })
-}
+import { formatDisplayDate } from "@/lib/format-date"
 
 function formatFileSize(bytes: number) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
@@ -254,7 +250,7 @@ export default async function ToolkitResourcePage({
               margin: 0,
             }}
           >
-            {formatDate(resource.publishedAt)}
+            {formatDisplayDate(resource.publishedAt)}
           </p>
         </div>
       </div>
@@ -265,30 +261,7 @@ export default async function ToolkitResourcePage({
         if (!videoId) return null
         return (
           <div style={{ marginBottom: '2rem' }}>
-            <div
-              style={{
-                position: 'relative',
-                paddingBottom: '56.25%',
-                height: 0,
-                overflow: 'hidden',
-                borderRadius: '0.75rem',
-              }}
-            >
-              <iframe
-                src={`https://www.youtube-nocookie.com/embed/${videoId}`}
-                title={resource.title}
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                style={{
-                  position: 'absolute',
-                  top: 0,
-                  left: 0,
-                  width: '100%',
-                  height: '100%',
-                  border: 'none',
-                }}
-              />
-            </div>
+            <YouTubeEmbed videoId={videoId} title={resource.title} />
             {resource.videoDuration && (
               <p
                 style={{

@@ -146,7 +146,9 @@ export default function Footer() {
 
       <div className="footer-bottom">
         <div className="container">
-          <p>&copy; {new Date().getFullYear()} The Rooted Learner &middot; Built with intention in Baltimore, MD</p>
+          <p suppressHydrationWarning>
+            &copy; {new Date().getFullYear()} The Rooted Learner &middot; Built with intention in Baltimore, MD
+          </p>
           <div className="footer-legal">
             <Link href="/privacy">Privacy</Link>
             <Link href="/terms">Terms</Link>

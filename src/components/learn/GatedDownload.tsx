@@ -129,12 +129,15 @@ export default function GatedDownload({
       >
         <input
           type="email"
+          name="email"
+          autoComplete="email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           required
           placeholder="you@school.edu"
           aria-label="Email address"
           disabled={status === "loading"}
+          suppressHydrationWarning
           style={{
             flex: "1 1 12rem",
             padding: "0.75rem 1rem",

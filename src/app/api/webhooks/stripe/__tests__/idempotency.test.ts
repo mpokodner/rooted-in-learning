@@ -161,16 +161,36 @@ describe("Stripe webhook idempotency", () => {
     expect(mockResendSend).toHaveBeenCalledTimes(1);
   });
 
-  it("returns 200 for both the original and the duplicate", async () => {
+  it("returns 500 when order insert fails so Stripe retries", async () => {
+    const failing = {
+      from() {
+        return {
+          select() {
+            return this;
+          },
+          eq() {
+            return this;
+          },
+          async maybeSingle() {
+            return { data: null, error: null };
+          },
+          insert() {
+            return this;
+          },
+          async single() {
+            return {
+              data: null,
+              error: { message: "insert failed", code: "XX000" },
+            };
+          },
+        };
+      },
+    };
+    vi.mocked(createServerSupabaseClient).mockReturnValue(failing as never);
+
     const { POST } = await import("../route");
-
-    const r1 = await POST(makeRequest());
-    const r2 = await POST(makeRequest());
-
-    const body1 = await r1.json();
-    const body2 = await r2.json();
-
-    expect(body1).toEqual({ received: true });
-    expect(body2).toEqual({ received: true });
+    const response = await POST(makeRequest());
+    expect(response.status).toBe(500);
+    expect(mockResendSend).not.toHaveBeenCalled();
   });
 });

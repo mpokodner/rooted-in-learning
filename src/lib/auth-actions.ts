@@ -2,6 +2,7 @@
 
 import { createClient } from "@/lib/supabase-server";
 import { redirect } from "next/navigation";
+import { safeInternalPath } from "@/lib/safe-url";
 
 export type AuthResult = {
   error?: string;
@@ -14,7 +15,10 @@ export async function signIn(
 ): Promise<AuthResult> {
   const email = formData.get("email") as string;
   const password = formData.get("password") as string;
-  const redirectTo = (formData.get("redirect") as string) || "/admin";
+  const redirectTo = safeInternalPath(
+    formData.get("redirect") as string,
+    "/admin"
+  );
 
   if (!email || !password) {
     return { error: "Email and password are required." };

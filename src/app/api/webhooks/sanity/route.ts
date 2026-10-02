@@ -1,21 +1,44 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { createHmac } from "crypto";
+import { createHmac, timingSafeEqual } from "crypto";
 import { createServerSupabaseClient } from "@/lib/supabase-server";
 import { getResend, FROM_EMAIL } from "@/lib/resend";
 import { getUnsubscribeUrl } from "@/lib/unsubscribe";
+
+function signaturesMatch(received: string, expectedHex: string): boolean {
+  try {
+    const a = Buffer.from(received, "utf8");
+    const b = Buffer.from(expectedHex, "utf8");
+    if (a.length !== b.length) return false;
+    return timingSafeEqual(a, b);
+  } catch {
+    return false;
+  }
+}
 
 export async function POST(request: NextRequest) {
   const body = await request.text();
   const signature = request.headers.get("sanity-webhook-signature");
 
   const secret = process.env.SANITY_WEBHOOK_SECRET;
-  if (secret && signature) {
-    const expected = createHmac("sha256", secret).update(body).digest("hex");
-    if (signature !== expected) {
-      return NextResponse.json({ error: "Invalid signature" }, { status: 401 });
-    }
-  } else if (secret) {
-    return NextResponse.json({ error: "Missing signature" }, { status: 401 });
+  if (!secret) {
+    console.error("sanity webhook", { error: "SANITY_WEBHOOK_SECRET is not set" });
+    return NextResponse.json(
+      { error: "Webhook is not configured", code: "WEBHOOK_NOT_CONFIGURED" },
+      { status: 500 }
+    );
+  }
+  if (!signature) {
+    return NextResponse.json(
+      { error: "Missing signature", code: "MISSING_SIGNATURE" },
+      { status: 401 }
+    );
+  }
+  const expected = createHmac("sha256", secret).update(body).digest("hex");
+  if (!signaturesMatch(signature, expected)) {
+    return NextResponse.json(
+      { error: "Invalid signature", code: "INVALID_SIGNATURE" },
+      { status: 401 }
+    );
   }
 
   let payload: {

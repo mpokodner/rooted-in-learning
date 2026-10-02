@@ -101,8 +101,8 @@ export const metadata: Metadata = {
   manifest: "/site.webmanifest",
 };
 
-const GA_ID = process.env.NEXT_PUBLIC_GA_ID || "G-TMNVGYGYXP";
-const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || "GTM-PPZDDJNC";
+const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function RootLayout({
   children,
@@ -112,21 +112,24 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Google tag (gtag.js) — loads on every page via root layout */}
-        <script
-          async
-          src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
+        {GA_ID && (
+          <>
+            <script
+              async
+              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
+            />
+            <script
+              dangerouslySetInnerHTML={{
+                __html: `
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
               gtag('config', '${GA_ID}');
             `,
-          }}
-        />
+              }}
+            />
+          </>
+        )}
 
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link

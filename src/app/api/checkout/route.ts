@@ -1,6 +1,8 @@
 import { NextResponse, type NextRequest } from "next/server";
 import { createCheckoutSession } from "@/lib/stripe";
 import { createClient, createServerSupabaseClient } from "@/lib/supabase-server";
+import { isOnSiteCheckoutEnabled } from "@/lib/commerce";
+import { isAllowedCheckoutUrl } from "@/lib/safe-url";
 
 /**
  * POST /api/checkout
@@ -8,12 +10,22 @@ import { createClient, createServerSupabaseClient } from "@/lib/supabase-server"
  */
 export async function POST(request: NextRequest) {
   try {
+    if (!isOnSiteCheckoutEnabled()) {
+      return NextResponse.json(
+        {
+          error: "On-site checkout is not available.",
+          code: "COMMERCE_DISABLED",
+        },
+        { status: 503 }
+      );
+    }
+
     const body = await request.json();
     const { items, successUrl, cancelUrl } = body;
 
     if (!items || !Array.isArray(items) || items.length === 0) {
       return NextResponse.json(
-        { success: false, error: "Cart is empty." },
+        { success: false, error: "Cart is empty.", code: "CART_EMPTY" },
         { status: 400 }
       );
     }
@@ -66,6 +78,18 @@ export async function POST(request: NextRequest) {
       quantity: item.quantity || 1,
     }));
 
+    const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://www.therootedlearner.com";
+    const defaultSuccess = `${siteUrl}/confirmation?session_id={CHECKOUT_SESSION_ID}`;
+    const defaultCancel = `${siteUrl}/cart`;
+    const resolvedSuccess =
+      typeof successUrl === "string" && isAllowedCheckoutUrl(successUrl, siteUrl)
+        ? successUrl
+        : defaultSuccess;
+    const resolvedCancel =
+      typeof cancelUrl === "string" && isAllowedCheckoutUrl(cancelUrl, siteUrl)
+        ? cancelUrl
+        : defaultCancel;
+
     const authClient = await createClient();
     const user = authClient
       ? (await authClient.auth.getUser()).data.user
@@ -73,8 +97,8 @@ export async function POST(request: NextRequest) {
 
     const session = await createCheckoutSession({
       lineItems,
-      successUrl: successUrl || `${process.env.NEXT_PUBLIC_SITE_URL}/confirmation?session_id={CHECKOUT_SESSION_ID}`,
-      cancelUrl: cancelUrl || `${process.env.NEXT_PUBLIC_SITE_URL}/cart`,
+      successUrl: resolvedSuccess,
+      cancelUrl: resolvedCancel,
       metadata: {
         user_id: user?.id || "",
       },
@@ -87,7 +111,11 @@ export async function POST(request: NextRequest) {
   } catch (error) {
     console.error("Checkout error:", error);
     return NextResponse.json(
-      { success: false, error: "Failed to create checkout session." },
+      {
+        success: false,
+        error: "Failed to create checkout session.",
+        code: "CHECKOUT_FAILED",
+      },
       { status: 500 }
     );
   }

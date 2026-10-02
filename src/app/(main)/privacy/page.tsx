@@ -109,7 +109,7 @@ export default function PrivacyPolicyPage() {
               <li><strong>Functional cookies:</strong> Remember your settings and personalization choices</li>
             </ul>
             <p className="legal-text">
-              We do not use advertising or behavioral tracking cookies. You can control cookie preferences through your browser settings. Disabling certain cookies may affect site functionality.
+              Analytics scripts (Google Analytics 4 or Google Tag Manager) load only when those tools are configured for the site. They may set analytics cookies. We do not load advertising pixels in our application code, and we do not use session replay. You can control cookies through your browser settings. Disabling certain cookies may affect site functionality.
             </p>
           </div>
 

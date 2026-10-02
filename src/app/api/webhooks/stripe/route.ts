@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
       if (existingOrder) {
         console.log(`Order already exists for session ${session.id}, skipping`);
-        break;
+        return NextResponse.json({ received: true });
       }
 
       const orderNumber = `RIL-${nanoid(8).toUpperCase()}`;
@@ -64,8 +64,25 @@ export async function POST(request: NextRequest) {
         .single();
 
       if (orderError) {
-        console.error("Order creation error:", orderError);
-        break;
+        const isDuplicateSession =
+          orderError.code === "23505" &&
+          (orderError.message?.includes("stripe_checkout_session_id") ||
+            orderError.details?.includes("stripe_checkout_session_id"));
+        if (isDuplicateSession) {
+          console.log(
+            `Order already exists for session ${session.id} (unique constraint), skipping`
+          );
+          return NextResponse.json({ received: true });
+        }
+        console.error("Order creation error:", {
+          sessionId: session.id,
+          error: orderError.message,
+          code: orderError.code,
+        });
+        return NextResponse.json(
+          { error: "Order fulfillment failed", code: "ORDER_INSERT_FAILED" },
+          { status: 500 }
+        );
       }
 
       // Clear user's cart if authenticated
@@ -108,10 +125,23 @@ export async function POST(request: NextRequest) {
           const { error: itemsError } = await supabase
             .from("order_items")
             .insert(orderItems);
-          if (itemsError) console.error("Order items insert error:", itemsError);
+          if (itemsError) {
+            console.error("Order items insert error:", {
+              sessionId: session.id,
+              error: itemsError.message,
+            });
+            return NextResponse.json(
+              { error: "Order items fulfillment failed", code: "ORDER_ITEMS_FAILED" },
+              { status: 500 }
+            );
+          }
         }
       } catch (lineItemsError) {
         console.error("Failed to retrieve line items:", lineItemsError);
+        return NextResponse.json(
+          { error: "Line item retrieval failed", code: "LINE_ITEMS_FAILED" },
+          { status: 500 }
+        );
       }
 
       // Generate download tokens for digital products
@@ -127,7 +157,7 @@ export async function POST(request: NextRequest) {
           if (prod?.file_url) {
             const token = nanoid(32);
             const expiresAt = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days
-            await supabase.from("download_tokens").insert({
+            const { error: tokenError } = await supabase.from("download_tokens").insert({
               token,
               order_id: orderData.id,
               product_id: prod.id,
@@ -135,6 +165,17 @@ export async function POST(request: NextRequest) {
               max_downloads: 5,
               expires_at: expiresAt.toISOString(),
             });
+            if (tokenError) {
+              console.error("Download token insert error:", {
+                sessionId: session.id,
+                productId: prod.id,
+                error: tokenError.message,
+              });
+              return NextResponse.json(
+                { error: "Download token creation failed", code: "TOKEN_INSERT_FAILED" },
+                { status: 500 }
+              );
+            }
             downloadLinks.push({
               name: item.product_name,
               url: `${siteUrl}/api/download/t/${token}`,

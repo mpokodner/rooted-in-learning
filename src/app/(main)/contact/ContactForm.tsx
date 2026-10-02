@@ -1,8 +1,6 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import Field from "@/components/ui/Field";
-import Button from "@/components/ui/Button";
 import { copy } from "@/content/site-copy";
 
 const routes = [
@@ -55,40 +53,62 @@ export default function ContactForm() {
   };
 
   if (status === "success") {
-    return <p role="status">Thanks — we received your note and will respond.</p>;
+    return (
+      <div className="ct-success" role="status">
+        <h3 className="ct-success-title">Thanks — we received your note.</h3>
+        <p className="ct-success-desc">We will respond as soon as we can.</p>
+      </div>
+    );
   }
 
   return (
-    <form onSubmit={handleSubmit} style={{ display: "grid", gap: "1rem", maxWidth: "32rem" }}>
+    <form className="ct-form" onSubmit={handleSubmit}>
       <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
       </div>
-      <Field id="name" label="Name">
-        <input id="name" name="name" required maxLength={200} />
-      </Field>
-      <Field id="email" label="Email">
-        <input id="email" name="email" type="email" required maxLength={320} />
-      </Field>
-      <Field id="organization" label="Organization" hint="School, district, or independent">
-        <input id="organization" name="organization" maxLength={200} />
-      </Field>
-      <Field id="audience" label="I am reaching out as">
-        <select id="audience" name="audience" required defaultValue="district">
+      <div className="ct-form-row">
+        <div className="ct-field">
+          <label className="ct-label" htmlFor="name">
+            Name <span className="ct-required">*</span>
+          </label>
+          <input className="ct-input" id="name" name="name" required maxLength={200} />
+        </div>
+        <div className="ct-field">
+          <label className="ct-label" htmlFor="email">
+            Email <span className="ct-required">*</span>
+          </label>
+          <input className="ct-input" id="email" name="email" type="email" required maxLength={320} />
+        </div>
+      </div>
+      <div className="ct-field">
+        <label className="ct-label" htmlFor="organization">
+          Organization
+        </label>
+        <input className="ct-input" id="organization" name="organization" maxLength={200} />
+      </div>
+      <div className="ct-field">
+        <label className="ct-label" htmlFor="audience">
+          I am reaching out as <span className="ct-required">*</span>
+        </label>
+        <select className="ct-select" id="audience" name="audience" required defaultValue="district">
           {routes.map((route) => (
             <option key={route.value} value={route.value}>
               {route.label}
             </option>
           ))}
         </select>
-      </Field>
-      <Field id="message" label="What are you trying to solve?">
-        <textarea id="message" name="message" required maxLength={5000} rows={6} />
-      </Field>
+      </div>
+      <div className="ct-field">
+        <label className="ct-label" htmlFor="message">
+          What are you trying to solve? <span className="ct-required">*</span>
+        </label>
+        <textarea className="ct-textarea" id="message" name="message" required maxLength={5000} rows={6} />
+      </div>
       {status === "error" ? <p role="alert">{error}</p> : null}
-      <Button type="submit" disabled={status === "sending"}>
+      <button className="ct-submit" type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Send"}
-      </Button>
+      </button>
     </form>
   );
 }

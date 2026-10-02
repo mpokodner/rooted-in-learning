@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { copy } from "@/content/site-copy";
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import { client } from "@/sanity/lib/client";
 import { blogPostsQuery } from "@/sanity/lib/queries";
 import type { BlogPostCard } from "@/sanity/lib/types";
+import BlogCard, { BlogFeaturedCard } from "@/components/blog/BlogCard";
 
 export const metadata: Metadata = {
   title: copy.insights.title,
@@ -26,35 +23,46 @@ export default async function InsightsPage() {
     console.error("InsightsPage", { error });
   }
 
+  const featured = posts[0];
+  const rest = posts.slice(1);
+
   return (
-    <div className="phase1">
+    <>
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
           { name: copy.insights.title, path: "/insights" },
         ]}
       />
-      <Section labelledBy="insights-title">
-        <Container>
+      <section className="section hero" aria-labelledby="insights-title">
+        <div className="container">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: copy.insights.title }]} />
-          <h1 id="insights-title" style={{ marginTop: "1rem" }}>
-            {copy.insights.title}
-          </h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
-            {copy.insights.lead}
-          </p>
-          <div style={{ display: "grid", gap: "1rem", marginTop: "2rem" }}>
-            {posts.map((post) => (
-              <Card key={post._id}>
-                <h2>
-                  <Link href={`/insights/${post.slug.current}`}>{post.title}</Link>
-                </h2>
-                <p>{post.excerpt}</p>
-              </Card>
-            ))}
+          <div className="section-head reveal mt-3" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">Field notes</span>
+            <h1 id="insights-title" className="display mt-3">
+              {copy.insights.title}
+            </h1>
+            <p className="lead mt-3">{copy.insights.lead}</p>
           </div>
-        </Container>
-      </Section>
-    </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          {featured ? (
+            <div className="mt-2">
+              <BlogFeaturedCard post={featured} hrefPrefix="/insights" />
+            </div>
+          ) : null}
+          {rest.length > 0 ? (
+            <div className="grid grid-3 mt-4">
+              {rest.map((post) => (
+                <BlogCard key={post._id} post={post} hrefPrefix="/insights" />
+              ))}
+            </div>
+          ) : null}
+        </div>
+      </section>
+    </>
   );
 }

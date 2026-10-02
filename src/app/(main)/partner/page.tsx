@@ -1,9 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { copy } from "@/content/site-copy";
-import Button from "@/components/ui/Button";
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Card from "@/components/ui/Card";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 
@@ -15,50 +12,52 @@ export const metadata: Metadata = {
 
 export default function PartnerPage() {
   return (
-    <div className="phase1">
+    <>
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
           { name: copy.partner.title, path: "/partner" },
         ]}
       />
-      <Section labelledBy="partner-title">
-        <Container>
+      <section className="section hero" aria-labelledby="partner-title">
+        <div className="container">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: copy.partner.title }]} />
-          <h1 id="partner-title" style={{ marginTop: "1rem" }}>
-            {copy.partner.title}
-          </h1>
-          <p className="lead" style={{ marginTop: "1rem", maxWidth: "54ch" }}>
-            {copy.partner.lead}
-          </p>
-        </Container>
-      </Section>
-      <Section alt>
-        <Container>
-          <div style={{ display: "grid", gap: "1rem" }} className="partner-grid">
-            <Card>
-              <h2>Fit</h2>
-              <p>We start with your assessment stack, your grouping practice, and whether a teacher-facing companion belongs beside them.</p>
-            </Card>
-            <Card>
-              <h2>Agreements</h2>
-              <p>{copy.partner.dpa}</p>
-            </Card>
-            <Card>
-              <h2>Next step</h2>
-              <p>No public price list. If we are a fit, we will talk through scope together.</p>
-              <p style={{ marginTop: "1rem" }}>
-                <Button href="/contact">Request a conversation</Button>
-              </p>
-            </Card>
+          <div className="section-head reveal mt-3" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">Partnership</span>
+            <h1 id="partner-title" className="display mt-3">
+              {copy.partner.title}
+            </h1>
+            <p className="lead mt-3">{copy.partner.lead}</p>
+            <div className="btn-row mt-4">
+              <Link href="/contact" className="btn btn-terra btn-lg">
+                Request a conversation
+              </Link>
+            </div>
           </div>
-        </Container>
-      </Section>
-      <style>{`
-        @media (min-width: 900px) {
-          .partner-grid { grid-template-columns: repeat(3, 1fr); }
-        }
-      `}</style>
-    </div>
+        </div>
+      </section>
+
+      <section className="section section--beige">
+        <div className="container">
+          <div className="grid grid-3">
+            <article className="card card--hover reveal">
+              <h3>Fit</h3>
+              <p>We start with your assessment stack, your grouping practice, and whether a teacher-facing companion belongs beside them.</p>
+            </article>
+            <article className="card card--hover reveal">
+              <h3>Agreements</h3>
+              <p>{copy.partner.dpa}</p>
+            </article>
+            <article className="card card--hover reveal">
+              <h3>Next step</h3>
+              <p>No public price list. If we are a fit, we will talk through scope together.</p>
+              <Link href="/contact" className="link-arrow mt-3">
+                Request a conversation
+              </Link>
+            </article>
+          </div>
+        </div>
+      </section>
+    </>
   );
 }

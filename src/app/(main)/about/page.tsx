@@ -1,11 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { copy } from "@/content/site-copy";
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
-import BotanicalPortrait from "@/components/aligned/BotanicalPortrait";
-import Button from "@/components/ui/Button";
+import "./about.css";
 
 export const metadata: Metadata = {
   title: copy.about.title,
@@ -15,36 +13,42 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="phase1">
+    <div className="about-page">
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
           { name: copy.about.title, path: "/about" },
         ]}
       />
-      <Section labelledBy="about-title">
-        <Container>
+      <section className="about-hero">
+        <div className="about-hero-bg" aria-hidden="true">
+          <div className="about-hero-circle about-hero-circle--1" />
+          <div className="about-hero-circle about-hero-circle--2" />
+        </div>
+        <div className="about-hero-container">
+          <p className="about-hero-badge">The Rooted Learner</p>
+          <h1 className="about-hero-title">
+            {copy.about.title}
+          </h1>
+          <p className="about-hero-desc">{copy.about.lead}</p>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: copy.about.title }]} />
-          <div style={{ display: "grid", gap: "2rem", marginTop: "1rem" }} className="about-grid">
-            <div>
-              <h1 id="about-title">{copy.about.title}</h1>
-              <p className="lead" style={{ marginTop: "1rem" }}>
-                {copy.about.lead}
-              </p>
-              <p style={{ marginTop: "1rem", maxWidth: "60ch" }}>{copy.about.story}</p>
-              <p style={{ marginTop: "1.5rem" }}>
-                <Button href="/contact">Request a conversation</Button>
-              </p>
+          <div className="section-head mt-4" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">The work</span>
+            <h2 className="h-lg mt-3">{copy.about.lead}</h2>
+            <p className="lead mt-3">{copy.about.story}</p>
+            <div className="btn-row mt-4">
+              <Link href="/contact" className="btn btn-terra btn-lg">
+                Request a conversation
+              </Link>
             </div>
-            <BotanicalPortrait />
           </div>
-        </Container>
-      </Section>
-      <style>{`
-        @media (min-width: 800px) {
-          .about-grid { grid-template-columns: 1.2fr 0.8fr; align-items: center; }
-        }
-      `}</style>
+        </div>
+      </section>
     </div>
   );
 }

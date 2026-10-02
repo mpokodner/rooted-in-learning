@@ -1,11 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
+import { PRODUCT_NAME } from "@/config/site";
 
 export default function BentoHero() {
   return (
     <section className="bento-hero">
-      {/* Hero tile — "I Teach" funnel */}
-      <Link href="/for-teachers" className="bento-tile bento-tile--hero">
+      <Link href="/aligned" className="bento-tile bento-tile--hero">
         <Image
           src="/images/teachers-hero.png"
           alt="Tree ring cross-section illustration with equity, wholeness, innovation"
@@ -16,22 +16,23 @@ export default function BentoHero() {
         <div className="bento-hero-overlay">
           <span className="bento-pill">Built by Educators</span>
           <h1>The Rooted Learner</h1>
-          <p>Curriculum, tools, and honest insight for educators who grow their own way.</p>
+          <p>
+            {PRODUCT_NAME} helps teachers regroup students from what they can actually do — not from a single score.
+          </p>
         </div>
         <div className="bento-hover-overlay bento-hover-overlay--hero">
-          <span className="bento-hover-eyebrow">For Teachers</span>
-          <h2>I teach</h2>
+          <span className="bento-hover-eyebrow">{PRODUCT_NAME}</span>
+          <h2>See the standard. Form the group.</h2>
           <ul>
-            <li>ELD lessons</li>
-            <li>MCAP units</li>
-            <li>Standards-based Microlearning</li>
+            <li>Item-level grouping</li>
+            <li>Maryland CCR codes</li>
+            <li>Teacher-facing, not student login</li>
           </ul>
-          <span className="bento-hover-cta-btn">Explore resources &rarr;</span>
+          <span className="bento-hover-cta-btn">See {PRODUCT_NAME} &rarr;</span>
         </div>
       </Link>
 
-      {/* Districts tile — "I Lead" funnel */}
-      <Link href="/for-districts" className="bento-tile bento-tile--combined">
+      <Link href="/partner" className="bento-tile bento-tile--combined">
         <Image
           src="/images/districts-hero.png"
           alt="Watercolor illustration of a school building"
@@ -39,45 +40,43 @@ export default function BentoHero() {
           style={{ objectFit: "cover" }}
         />
         <div className="bento-districts-overlay">
-          <h2>For Districts</h2>
-          <p>Software and support for the schools we serve</p>
+          <h2>For schools and districts</h2>
+          <p>A conversation about your data, your agreement, and whether {PRODUCT_NAME} belongs in the stack</p>
         </div>
         <div className="bento-hover-overlay bento-hover-overlay--districts">
-          <span className="bento-hover-eyebrow">For District Leaders</span>
+          <span className="bento-hover-eyebrow">For school and district leaders</span>
           <h2>I lead a school or district</h2>
           <ul>
-            <li>Hall Pass &mdash; student movement management your district owns</li>
+            <li>Fit, agreements, and next steps — no public price list</li>
           </ul>
-          <span className="bento-hover-cta-btn">Free 60-day pilot &rarr;</span>
+          <span className="bento-hover-cta-btn">Request a conversation &rarr;</span>
         </div>
       </Link>
 
-      {/* Shop tile — bottom left */}
-      <Link href="/shop" className="bento-tile bento-tile--shop">
+      <Link href="/educators" className="bento-tile bento-tile--shop">
         <div className="bento-tile-content">
           <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M6 2 3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z" />
             <path d="M3 6h18" />
             <path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
-          <h2>Shop</h2>
-          <p>Books, guides &amp; printables</p>
+          <h2>For educators</h2>
+          <p>Toolkit, grouping kit, and classroom resources</p>
         </div>
         <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7" />
           <polyline points="7 7 17 7 17 17" />
         </svg>
         <div className="bento-hover-overlay">
-          <span className="bento-hover-eyebrow">In the Shop</span>
+          <span className="bento-hover-eyebrow">Classroom-ready</span>
           <ul>
-            <li>MCAP-aligned units</li>
-            <li>Differentiated resources</li>
-            <li>Microlearning lessons</li>
+            <li>Teacher toolkit</li>
+            <li>Grouping kit</li>
+            <li>Field notes</li>
           </ul>
         </div>
       </Link>
 
-      {/* Guide tile — bottom center */}
       <Link href="/learn/teacher-toolkit/getting-started-with-claude-ai-for-educators" className="bento-tile bento-tile--guide">
         <div className="bento-tile-content">
           <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
@@ -105,24 +104,23 @@ export default function BentoHero() {
         </div>
       </Link>
 
-      {/* Learn tile — bottom right */}
-      <Link href="/learn" className="bento-tile bento-tile--learn">
+      <Link href="/insights" className="bento-tile bento-tile--learn">
         <div className="bento-tile-content">
           <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
           </svg>
-          <h2>Learn</h2>
-          <p>Courses, the Learn Hub &amp; teacher toolkit</p>
+          <h2>Insights</h2>
+          <p>Field notes from inside the work</p>
         </div>
         <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7" />
           <polyline points="7 7 17 7 17 17" />
         </svg>
         <div className="bento-hover-overlay">
-          <span className="bento-hover-eyebrow">What You&apos;ll Learn</span>
+          <span className="bento-hover-eyebrow">From the field</span>
           <ul>
-            <li>AI Educator Course</li>
-            <li>Free teaching tips</li>
+            <li>Diagnosis and grouping</li>
+            <li>What holds up in a classroom</li>
           </ul>
         </div>
       </Link>

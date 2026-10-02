@@ -1,10 +1,7 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { copy } from "@/content/site-copy";
 import { flags, PRODUCT_NAME } from "@/config/site";
-import Button from "@/components/ui/Button";
-import Container from "@/components/ui/Container";
-import Section from "@/components/ui/Section";
-import Notice from "@/components/ui/Notice";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FakeDataPanels from "@/components/aligned/FakeDataPanels";
@@ -18,48 +15,72 @@ export const metadata: Metadata = {
 
 export default function AlignedPage() {
   return (
-    <div className="phase1">
+    <>
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
           { name: PRODUCT_NAME, path: "/aligned" },
         ]}
       />
-      <Section labelledBy="aligned-title">
-        <Container>
+      <section className="section hero" aria-labelledby="aligned-title">
+        <div className="container">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: PRODUCT_NAME }]} />
-          {flags.alignedRedirects ? <Notice>{copy.aligned.notice}</Notice> : null}
-          <h1 id="aligned-title" style={{ marginTop: "1rem" }}>
-            {copy.aligned.title}
-          </h1>
-          <p className="lead" style={{ marginTop: "1rem" }}>
-            {copy.aligned.lead}
-          </p>
-          <p style={{ marginTop: "1.5rem" }}>
-            <Button href="/contact" track="cta_aligned_page">
-              Request a conversation
-            </Button>
-          </p>
-        </Container>
-      </Section>
-      <Section alt labelledBy="aligned-what">
-        <Container>
-          <h2 id="aligned-what">{copy.aligned.whatTitle}</h2>
-          <p style={{ marginTop: "1rem", maxWidth: "60ch" }}>{copy.aligned.whatBody}</p>
-          <div style={{ marginTop: "2rem" }}>
-            <FakeDataPanels />
+          {flags.alignedRedirects ? (
+            <p className="chip mt-3" role="note">
+              {copy.aligned.notice}
+            </p>
+          ) : null}
+          <div className="section-head reveal mt-3" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">{PRODUCT_NAME}</span>
+            <h1 id="aligned-title" className="display mt-3">
+              {PRODUCT_NAME}
+            </h1>
+            <p className="lead mt-3">{copy.aligned.lead}</p>
+            <div className="btn-row mt-4">
+              <Link href="/contact" className="btn btn-terra btn-lg" data-track="cta_aligned_page">
+                Request a conversation
+              </Link>
+              <Link href="/partner" className="btn btn-outline btn-lg">
+                For schools and districts
+              </Link>
+            </div>
           </div>
-        </Container>
-      </Section>
-      <Section labelledBy="aligned-not">
-        <Container>
-          <h2 id="aligned-not">{copy.aligned.notTitle}</h2>
-          <p style={{ marginTop: "1rem", maxWidth: "60ch" }}>{copy.aligned.notBody}</p>
-          <div style={{ marginTop: "2rem" }}>
+        </div>
+      </section>
+
+      <section className="section section--beige" aria-labelledby="aligned-what">
+        <div className="container">
+          <div className="hero-grid">
+            <div className="reveal">
+              <span className="eyebrow">What it is</span>
+              <h2 id="aligned-what" className="h-lg mt-3">
+                {copy.aligned.whatTitle}
+              </h2>
+              <p className="mt-3" style={{ maxWidth: "54ch", color: "var(--text-muted)" }}>
+                {copy.aligned.whatBody}
+              </p>
+            </div>
+            <div className="card reveal">
+              <FakeDataPanels />
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="aligned-not">
+        <div className="container">
+          <div className="section-head reveal">
+            <span className="eyebrow">Boundaries</span>
+            <h2 id="aligned-not" className="h-lg mt-3">
+              {copy.aligned.notTitle}
+            </h2>
+            <p className="lead mt-3">{copy.aligned.notBody}</p>
+          </div>
+          <div className="mt-4 reveal">
             <RegroupDiagram />
           </div>
-        </Container>
-      </Section>
-    </div>
+        </div>
+      </section>
+    </>
   );
 }

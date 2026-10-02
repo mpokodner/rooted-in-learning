@@ -11,7 +11,7 @@ async function getLeads() {
   const supabase = createServerSupabaseClient();
   const { data } = await supabase
     .from("leads")
-    .select("id, email, name, subject, message, organization, source, status, created_at")
+    .select("id, email, name, subject, message, organization, source, status, audience, utm_source, created_at")
     .order("created_at", { ascending: false })
     .limit(100);
   return data ?? [];
@@ -48,6 +48,7 @@ export default async function AdminLeadsPage() {
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Name</th>
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Email</th>
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Subject</th>
+                  <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Audience</th>
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Organization</th>
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Status</th>
                   <th style={{ textAlign: "left", padding: "10px 14px", fontWeight: 500, color: "var(--text-muted)", fontSize: "12px" }}>Date</th>
@@ -61,6 +62,7 @@ export default async function AdminLeadsPage() {
                       <td style={{ padding: "10px 14px", color: "var(--text-dark)", whiteSpace: "nowrap" }}>{lead.name}</td>
                       <td style={{ padding: "10px 14px", color: "var(--text-muted)", maxWidth: "200px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{lead.email}</td>
                       <td style={{ padding: "10px 14px", color: "var(--text-muted)", maxWidth: "180px", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{lead.subject || "—"}</td>
+                      <td style={{ padding: "10px 14px", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{lead.audience || "—"}</td>
                       <td style={{ padding: "10px 14px", color: "var(--text-muted)", whiteSpace: "nowrap" }}>{lead.organization || "—"}</td>
                       <td style={{ padding: "10px 14px" }}>
                         <span style={{

@@ -1,76 +1,93 @@
-import Link from "next/link";
 import type { Metadata } from "next";
-import "./home.css";
-import { client } from "@/sanity/lib/client";
-import { blogPostsQuery } from "@/sanity/lib/queries";
-import type { BlogPostCard } from "@/sanity/lib/types";
-import BlogCard from "@/components/blog/BlogCard";
-import BentoHero from "@/components/BentoHero";
-import BentoNewsletter from "@/components/BentoNewsletter";
+import { copy } from "@/content/site-copy";
+import { PRODUCT_NAME } from "@/config/site";
+import Button from "@/components/ui/Button";
+import Container from "@/components/ui/Container";
+import Section from "@/components/ui/Section";
+import Card from "@/components/ui/Card";
+import BotanicalPortrait from "@/components/aligned/BotanicalPortrait";
+import RegroupDiagram from "@/components/aligned/RegroupDiagram";
+import TrackPage from "@/components/TrackPage";
 
 export const metadata: Metadata = {
-  title: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
+  title: `${PRODUCT_NAME} — grouping from what students can do`,
+  description: copy.home.heroLead,
   alternates: { canonical: "/" },
 };
 
-export const revalidate = 60;
-
-export default async function Home() {
-  let latestPosts: BlogPostCard[] = [];
-  try {
-    const allPosts = await client.fetch<BlogPostCard[]>(blogPostsQuery);
-    latestPosts = allPosts.slice(0, 3);
-  } catch {
-    // Sanity fetch failed — show fallback
-  }
-
+export default function Home() {
   return (
-    <>
-      <BentoHero />
-      <BentoNewsletter />
-
-      <section className="home-software section">
-        <div className="container">
-          <div className="home-software-inner">
+    <div className="phase1">
+      <TrackPage event="home_view" />
+      <Section labelledBy="home-hero">
+        <Container>
+          <div style={{ display: "grid", gap: "2rem", alignItems: "center" }} className="home-hero-grid">
             <div>
-              <span className="home-eyebrow">Software</span>
-              <h2>Tools we build for the districts we serve</h2>
-              <p>
-                We don&apos;t just consult — we build. Our software comes from
-                real audit findings and real classroom problems.
+              <h1 id="home-hero">{copy.home.heroTitle}</h1>
+              <p className="lead" style={{ marginTop: "1rem", maxWidth: "46ch" }}>
+                {copy.home.heroLead}
+              </p>
+              <p style={{ marginTop: "1.5rem", display: "flex", gap: "0.75rem", flexWrap: "wrap" }}>
+                <Button href="/aligned" track="cta_aligned">
+                  See {PRODUCT_NAME}
+                </Button>
+                <Button href="/contact" variant="secondary" track="cta_conversation">
+                  Request a conversation
+                </Button>
               </p>
             </div>
-            <Link href="/for-districts" className="btn btn-outline">
-              See our software
-            </Link>
+            <BotanicalPortrait />
           </div>
-        </div>
-      </section>
+        </Container>
+      </Section>
 
-      {latestPosts.length > 0 && (
-        <section className="home-blog section">
-          <div className="container">
-            <div className="home-blog-header">
-              <span className="home-eyebrow">From the field</span>
-              <h2>Latest from the blog</h2>
-            </div>
-            <div className="home-blog-grid">
-              {latestPosts.map((post) => (
-                <BlogCard key={post._id} post={post} />
-              ))}
-            </div>
-            <div className="home-blog-more">
-              <Link href="/learn/blog" className="home-link-arrow">
-                View all insights
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                  <path d="M5 12h14" />
-                  <path d="m13 6 6 6-6 6" />
-                </svg>
-              </Link>
-            </div>
+      <Section alt labelledBy="home-problem">
+        <Container>
+          <h2 id="home-problem">{copy.home.problemTitle}</h2>
+          <p style={{ marginTop: "1rem", maxWidth: "60ch" }}>{copy.home.problemBody}</p>
+          <div style={{ marginTop: "2rem" }}>
+            <RegroupDiagram />
           </div>
-        </section>
-      )}
-    </>
+        </Container>
+      </Section>
+
+      <Section labelledBy="home-how">
+        <Container>
+          <h2 id="home-how">{copy.home.howTitle}</h2>
+          <div style={{ display: "grid", gap: "1rem", marginTop: "1.5rem" }} className="home-steps">
+            <Card>
+              <h3>See the standard</h3>
+              <p>Item-level evidence mapped to the Maryland College and Career Ready codes you already teach.</p>
+            </Card>
+            <Card>
+              <h3>Form the group</h3>
+              <p>Students with the same next instructional move sit together — not everyone with the same composite band.</p>
+            </Card>
+            <Card>
+              <h3>Teach the next step</h3>
+              <p>Teachers stay in charge of the lesson. The software does not score children or replace professional judgment.</p>
+            </Card>
+          </div>
+        </Container>
+      </Section>
+
+      <Section ink labelledBy="home-close">
+        <Container narrow>
+          <div style={{ textAlign: "center" }}>
+            <h2 id="home-close">{copy.home.closeTitle}</h2>
+            <p style={{ margin: "1rem auto 1.5rem", maxWidth: "46ch" }}>{copy.home.closeBody}</p>
+            <Button href="/contact" track="cta_close">
+              Request a conversation
+            </Button>
+          </div>
+        </Container>
+      </Section>
+      <style>{`
+        @media (min-width: 900px) {
+          .home-hero-grid { grid-template-columns: 1.2fr 0.8fr; }
+          .home-steps { grid-template-columns: repeat(3, 1fr); }
+        }
+      `}</style>
+    </div>
   );
 }

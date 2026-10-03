@@ -16,7 +16,6 @@ const nextConfig: NextConfig = {
         ? [
             { source: "/learn", destination: "/educators", permanent: true },
             { source: "/shop", destination: "/educators", permanent: true },
-            { source: "/for-districts", destination: "/partner", permanent: true },
             { source: "/for-teachers", destination: "/educators", permanent: true },
             { source: "/work-with-me", destination: "/partner", permanent: true },
             { source: "/learn/blog", destination: "/insights", permanent: true },
@@ -24,16 +23,13 @@ const nextConfig: NextConfig = {
             { source: "/learn/teacher-toolkit/:slug", destination: "/educators/toolkit/:slug", permanent: true },
           ]
         : [];
-    const aligned =
-      process.env.NEXT_PUBLIC_ALIGNED_REDIRECTS === "true"
-        ? [{ source: "/for-districts/assessalign", destination: "/aligned", permanent: true }]
-        : [];
-
     return [
+      { source: "/for-districts/assessalign", destination: "/aligned", permanent: true },
+      { source: "/for-districts", destination: "/partner", permanent: true },
       { source: "/products", destination: "/shop", permanent: true },
       { source: "/products/lessons", destination: "/shop", permanent: true },
       { source: "/products/teacher-tools", destination: "/shop", permanent: true },
-      { source: "/products/assessalign", destination: "/for-districts/assessalign", permanent: true },
+      { source: "/products/assessalign", destination: "/aligned", permanent: true },
       { source: "/parents", destination: "/", permanent: true },
       { source: "/family-hub", destination: "/", permanent: true },
       { source: "/parent-resources", destination: "/", permanent: true },
@@ -49,14 +45,13 @@ const nextConfig: NextConfig = {
       { source: "/teacher-shop", destination: "/shop", permanent: true },
       { source: "/edtech-tools", destination: "/for-districts", permanent: true },
       { source: "/consulting", destination: "/work-with-me", permanent: true },
-      { source: "/consulting/assessalign", destination: "/for-districts/assessalign", permanent: true },
+      { source: "/consulting/assessalign", destination: "/aligned", permanent: true },
       { source: "/tools", destination: "/for-districts", permanent: true },
       { source: "/tools/:path*", destination: "/for-districts/:path*", permanent: true },
       { source: "/about/projects", destination: "/about#projects", permanent: true },
       { source: "/learn/toolkit", destination: "/learn/teacher-toolkit", permanent: true },
       { source: "/learn/toolkit/:slug", destination: "/learn/teacher-toolkit/:slug", permanent: true },
       ...ia,
-      ...aligned,
     ];
   },
 };

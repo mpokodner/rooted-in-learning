@@ -176,19 +176,18 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">12. FERPA Compliance (Educational Records)</h2>
+            <h2 className="legal-section-title">12. Student education records</h2>
             <p className="legal-text">
-              The Rooted Learner is committed to supporting schools in maintaining FERPA (Family Educational Rights and Privacy Act) compliance. When our products or services are used in school settings:
+              The Rooted Learner does not ask website visitors to upload student records. Website forms collect adult professional contact information. Please do not submit student information through those forms.
             </p>
             <ul className="legal-list">
-              <li>We do not collect, store, or process personally identifiable student education records unless explicitly authorized by the school or district under a signed agreement.</li>
-              <li>Any student data processed through AssessAlign or our consulting services is handled in accordance with the school&apos;s or district&apos;s FERPA obligations.</li>
-              <li>We act as a &ldquo;school official&rdquo; under FERPA only when a formal agreement (such as a Data Processing Agreement) is in place with the educational institution.</li>
-              <li>Schools and districts retain full ownership of their student data at all times.</li>
-              <li>Upon termination of services, all student data is deleted within 30 days unless otherwise agreed.</li>
+              <li>This website does not collect student education records.</li>
+              <li>Before any district shares student information with AlignED, The Rooted Learner and the district will agree on the purpose, data scope, access, and applicable privacy terms.</li>
+              <li>Schools and districts retain ownership of their student data.</li>
+              <li>Retention and deletion practices will be documented before any student-data use begins.</li>
             </ul>
             <p className="legal-text">
-              If your school or district requires a Data Processing Agreement (DPA), please contact us.
+              If your school or district requires a data-privacy agreement, please contact us. This page does not say that AlignED is certified, validated, or already approved by a district.
             </p>
           </div>
 
@@ -212,20 +211,17 @@ export default function PrivacyPolicyPage() {
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">14. AI Data Processing &amp; Student Data</h2>
+            <h2 className="legal-section-title">14. AI and student data</h2>
             <p className="legal-text">
-              Some of our products, including AssessAlign, use artificial intelligence (AI) to generate educational content such as assessment questions, feedback, and instructional suggestions. Here is how we handle data in AI-powered features:
+              AlignED is being designed with student-data protection and educator oversight in mind. Early conversations and demonstrations use sample or adult-provided information.
             </p>
             <ul className="legal-list">
-              <li><strong>AI Processing:</strong> When AI features are used, relevant educational content (such as standards, learning objectives, or anonymized student response patterns) may be sent to our AI provider for processing.</li>
-              <li><strong>Student Data Protection:</strong> We never send personally identifiable student information (names, IDs, grades, or demographic data) to AI providers. All data sent for AI processing is anonymized and aggregated.</li>
-              <li><strong>AI Provider:</strong> We currently use Anthropic&apos;s Claude as our primary AI provider. Anthropic does not use data sent through their API to train their models.</li>
-              <li><strong>Data Retention:</strong> AI-processed data is not stored by our AI providers beyond the immediate request-response cycle.</li>
-              <li><strong>Human Review:</strong> AI-generated content (such as assessment questions) is designed to be reviewed by educators before use with students.</li>
-              <li><strong>Opt-Out:</strong> Schools and educators can opt out of AI-powered features at any time without losing access to core functionality.</li>
+              <li>Please do not submit student information through website forms.</li>
+              <li>We will document what any AI tool does and does not process before student information is used.</li>
+              <li>Any future use of student information will be scoped with the district before implementation.</li>
             </ul>
             <p className="legal-text">
-              We are committed to transparency about our AI practices. For detailed technical information about our AI data handling, please see our AI Ethics page.
+              For how AI shows up in educator-facing work, see the AI Ethics page.
             </p>
           </div>
 

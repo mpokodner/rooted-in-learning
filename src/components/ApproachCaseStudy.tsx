@@ -177,8 +177,8 @@ const tabs = [
     num: "05",
     label: "The audit is the product",
     eyebrow: "The result",
-    heading: "AssessAlign exists because the audit prescribed it",
-    body: "The audit didn’t end with a report. It ended with working software, scoped to one district’s framework, built from the exact gaps the diagnostic engine surfaced. That’s what we mean by proof over proposals.",
+    heading: "AssessAlign is now AlignED",
+    body: "The audit didn’t end with a report. It pointed toward a grouping tool teachers could use with the standards they already teach. AssessAlign is now AlignED.",
     cards: [
       {
         text: (
@@ -191,8 +191,8 @@ const tabs = [
       {
         text: (
           <>
-            Every item <strong>mapped to a standard</strong> — grounded by RAG +
-            psychometric architecture.
+            Every item <strong>mapped to a standard</strong> the class is already
+            teaching.
           </>
         ),
       },
@@ -207,8 +207,7 @@ const tabs = [
       {
         text: (
           <>
-            Framework-agnostic — point it at{" "}
-            <strong>any standard set</strong> in the world.
+            Built around the <strong>standards a district already uses</strong>.
           </>
         ),
       },
@@ -225,7 +224,7 @@ export default function ApproachCaseStudy() {
       <div className="container">
         <span className="ap-case-eyebrow">The Audit, in One Real Case</span>
         <h2 className="ap-case-heading">
-          How a WIN block became AssessAlign
+          How a WIN block became AlignED
         </h2>
         <p className="ap-case-sub">
           <em>

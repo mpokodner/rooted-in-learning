@@ -16,10 +16,20 @@ export default function SiteFooter() {
     if (!email.trim()) return;
     setStatus("loading");
     try {
+      const form = e.currentTarget;
+      if (!(form instanceof HTMLFormElement)) {
+        setStatus("error");
+        return;
+      }
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ email, source: "footer-kit", tag: "newsletter" }),
+        body: JSON.stringify({
+          email,
+          source: "footer-kit",
+          tag: "newsletter",
+          website: new FormData(form).get("website"),
+        }),
       });
       if (res.ok) {
         setStatus("success");
@@ -42,6 +52,10 @@ export default function SiteFooter() {
             <p>{copy.footer.blurb}</p>
           </div>
           <form className="footer-form" onSubmit={handleSubscribe}>
+            <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+              <label htmlFor="footer-website">Website</label>
+              <input id="footer-website" name="website" tabIndex={-1} autoComplete="off" />
+            </div>
             <input
               type="email"
               placeholder="you@email.com"
@@ -55,6 +69,8 @@ export default function SiteFooter() {
             <button className="btn" type="submit" disabled={status === "loading" || status === "success"}>
               {status === "loading" ? "Sending…" : status === "success" ? "Subscribed!" : "Subscribe"}
             </button>
+            <p className="footer-form-note">{copy.forms.studentNotice}</p>
+            {status === "error" ? <p role="alert">Something went wrong. Please try again.</p> : null}
           </form>
         </div>
       </div>
@@ -106,7 +122,7 @@ export default function SiteFooter() {
               ) : null}
               {links.linkedin ? (
                 <li>
-                  <a href={links.linkedin} rel="noopener noreferrer" target="_blank">
+                  <a href={links.linkedin} rel="noopener noreferrer" target="_blank" data-track="linkedin_click" data-track-location="footer" data-track-category="linkedin">
                     LinkedIn
                   </a>
                 </li>
@@ -124,6 +140,9 @@ export default function SiteFooter() {
           <div className="footer-col">
             <h4>Legal</h4>
             <ul>
+              <li>
+                <Link href="/trust">Data & trust</Link>
+              </li>
               <li>
                 <Link href="/privacy">Privacy</Link>
               </li>

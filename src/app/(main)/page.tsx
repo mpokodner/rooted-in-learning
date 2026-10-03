@@ -7,7 +7,6 @@ import type { BlogPostCard } from "@/sanity/lib/types";
 import BlogCard from "@/components/blog/BlogCard";
 import BentoNewsletter from "@/components/BentoNewsletter";
 import AlignedSamplePanel from "@/components/aligned/AlignedSamplePanel";
-import TrackPage from "@/components/TrackPage";
 import { copy } from "@/content/site-copy";
 import { PRODUCT_NAME } from "@/config/site";
 
@@ -57,11 +56,9 @@ export default async function Home() {
 
   return (
     <>
-      <TrackPage event="home_view" />
-
       <section className="home-hero" aria-labelledby="home-hero-title">
         <div className="container home-hero-copy">
-          <p className="home-eyebrow">Teacher-facing grouping for elementary ELA</p>
+          <p className="home-eyebrow">Teacher-facing grouping for grades 3–8 ELA</p>
           <h1 id="home-hero-title">
             See where every student stands,{" "}
             <em>standard by standard.</em>
@@ -71,7 +68,7 @@ export default async function Home() {
             <Link href="/contact" className="btn btn-terra btn-lg" data-track="cta_conversation">
               Request a conversation
             </Link>
-            <Link href="/aligned" className="btn btn-outline btn-lg" data-track="cta_aligned">
+            <Link href="/aligned" className="btn btn-outline btn-lg" data-track="pilot_cta_click" data-track-location="hero" data-track-category="aligned">
               See {PRODUCT_NAME}
             </Link>
           </div>

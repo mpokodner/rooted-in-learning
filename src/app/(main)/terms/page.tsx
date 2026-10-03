@@ -132,7 +132,7 @@ export default function TermsOfUsePage() {
           <div className="legal-section">
             <h2 className="legal-section-title">7. Consulting Services</h2>
             <p className="legal-text">
-              Consulting engagements (including AssessAlign and other services) are subject to separate agreements between The Rooted Learner and the contracting school, district, or organization. General terms include:
+              Consulting engagements (including AlignED and other services) are subject to separate agreements between The Rooted Learner and the contracting school, district, or organization. General terms include:
             </p>
             <ul className="legal-list">
               <li>Consulting services are provided on an as-agreed basis with specific deliverables outlined in a proposal or contract</li>
@@ -186,29 +186,26 @@ export default function TermsOfUsePage() {
           <div className="legal-section">
             <h2 className="legal-section-title">12. AI-Generated Content</h2>
             <p className="legal-text">
-              Some content and features on The Rooted Learner, including within AssessAlign, may be generated or assisted by artificial intelligence (AI). Regarding AI-generated content:
+              Some educator-facing materials on The Rooted Learner may be drafted with AI assistance. Regarding that content:
             </p>
             <ul className="legal-list">
-              <li>AI-assisted content (such as assessment questions, lesson suggestions, and instructional feedback) is provided as a starting point and should be reviewed by qualified educators before classroom use.</li>
+              <li>AI-assisted content is a starting point and should be reviewed by an educator before classroom use.</li>
               <li>We do not guarantee the accuracy, completeness, or appropriateness of AI-generated content for every educational context.</li>
               <li>The Rooted Learner retains intellectual property rights over AI-generated content created through our platform.</li>
               <li>Users are responsible for reviewing and adapting AI-generated materials to meet their specific curriculum requirements, state standards, and student needs.</li>
-              <li>We continuously monitor and improve our AI systems to ensure quality and alignment with educational best practices.</li>
+              <li>Educators remain responsible for what they use with students.</li>
             </ul>
           </div>
 
           <div className="legal-section">
-            <h2 className="legal-section-title">13. AssessAlign Platform Terms</h2>
+            <h2 className="legal-section-title">13. AlignED</h2>
             <p className="legal-text">
-              If you use AssessAlign (our assessment orchestration platform), the following additional terms apply:
+              AssessAlign is now AlignED. AlignED is a standards-aligned grouping companion for grades 3–8 ELA. Students do not log in through this website.
             </p>
             <ul className="legal-list">
-              <li><strong>Data Handling:</strong> Student assessment data entered into AssessAlign is stored securely and encrypted at rest and in transit. See our Privacy Policy for details on AI data processing.</li>
-              <li><strong>Availability:</strong> While we strive for high availability, AssessAlign is currently in beta and we do not guarantee a specific uptime SLA. We will notify users of planned maintenance windows.</li>
-              <li><strong>Account Management:</strong> School and district accounts may designate administrators who can manage user access, data visibility, and platform settings.</li>
-              <li><strong>Data Export:</strong> You may export your data from AssessAlign at any time in standard formats (CSV, PDF).</li>
-              <li><strong>Beta Terms:</strong> During the beta period, features may change, and we welcome feedback to improve the platform. Beta users receive priority access to new features and introductory pricing.</li>
-              <li><strong>Termination:</strong> Upon account termination, your data will be available for export for 30 days, after which it will be permanently deleted.</li>
+              <li>Do not submit student information through website forms.</li>
+              <li>Any use of student information would be scoped with the district, in a separate agreement, before it begins.</li>
+              <li>These terms do not promise a specific uptime, export format, encryption practice, or deletion window for AlignED.</li>
             </ul>
           </div>
 

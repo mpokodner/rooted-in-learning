@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, type FormEvent } from "react";
+import { useEffect, useRef, useState, type FormEvent } from "react";
 import { copy } from "@/content/site-copy";
+import { track } from "@/lib/analytics";
 
 const routes = [
   { value: "district", label: copy.contact.routes.district },
@@ -12,6 +13,29 @@ const routes = [
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [error, setError] = useState("");
+  const [intent, setIntent] = useState("");
+  const started = useRef(false);
+
+  useEffect(() => {
+    try {
+      setIntent(new URLSearchParams(window.location.search).get("intent") || "");
+    } catch (err) {
+      console.error("ContactForm.intent", { error: err });
+    }
+  }, []);
+
+  const markStart = () => {
+    try {
+      if (started.current) return;
+      started.current = true;
+      track(intent === "audit" ? "audit_form_start" : "contact_form_start", {
+        location: "contact_form",
+        content_category: intent === "audit" ? "rooted_audit" : "contact",
+      });
+    } catch (err) {
+      console.error("ContactForm.markStart", { error: err });
+    }
+  };
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -44,6 +68,10 @@ export default function ContactForm() {
         return;
       }
       setStatus("success");
+      track(intent === "audit" ? "audit_request_submit" : "contact_submit", {
+        location: "contact_form",
+        content_category: intent === "audit" ? "rooted_audit" : "contact",
+      });
       form.reset();
     } catch (err) {
       console.error("ContactForm.submit", { error: err });
@@ -62,7 +90,7 @@ export default function ContactForm() {
   }
 
   return (
-    <form className="ct-form" onSubmit={handleSubmit}>
+    <form className="ct-form" onSubmit={handleSubmit} onFocus={markStart}>
       <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
         <label htmlFor="website">Website</label>
         <input id="website" name="website" tabIndex={-1} autoComplete="off" />
@@ -105,6 +133,10 @@ export default function ContactForm() {
         </label>
         <textarea className="ct-textarea" id="message" name="message" required maxLength={5000} rows={6} />
       </div>
+      {intent === "audit" ? (
+        <p className="ct-form-desc">This note is about a Rooted Audit.</p>
+      ) : null}
+      <p className="ct-form-desc">{copy.forms.studentNotice}</p>
       {status === "error" ? <p role="alert">{error}</p> : null}
       <button className="ct-submit" type="submit" disabled={status === "sending"}>
         {status === "sending" ? "Sending…" : "Send"}

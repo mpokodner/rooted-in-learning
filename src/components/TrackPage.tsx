@@ -6,13 +6,20 @@ import { track } from "@/lib/analytics";
 export default function TrackPage({ event }: { event: string }) {
   useEffect(() => {
     try {
-      const nodes = document.querySelectorAll<HTMLElement>("[data-track]");
-      const onClick = (ev: Event) => {
-        const el = ev.currentTarget as HTMLElement;
-        track(el.getAttribute("data-track") || event);
+      const onClick = (ev: MouseEvent) => {
+        const target = ev.target;
+        if (!(target instanceof Element)) return;
+        const el = target.closest<HTMLElement>("[data-track]");
+        if (!el) return;
+        const label = (el.getAttribute("data-track-label") || el.textContent || "").trim();
+        track(el.getAttribute("data-track") || event, {
+          cta_label: label,
+          location: el.getAttribute("data-track-location") || "",
+          content_category: el.getAttribute("data-track-category") || "",
+        });
       };
-      nodes.forEach((node) => node.addEventListener("click", onClick));
-      return () => nodes.forEach((node) => node.removeEventListener("click", onClick));
+      document.addEventListener("click", onClick);
+      return () => document.removeEventListener("click", onClick);
     } catch (error) {
       console.error("TrackPage", { event, error });
     }

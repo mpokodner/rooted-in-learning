@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { copy } from "@/content/site-copy";
-import { flags, PRODUCT_NAME } from "@/config/site";
+import { PRODUCT_NAME } from "@/config/site";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 import FakeDataPanels from "@/components/aligned/FakeDataPanels";
@@ -25,11 +25,9 @@ export default function AlignedPage() {
       <section className="section hero" aria-labelledby="aligned-title">
         <div className="container">
           <Breadcrumbs items={[{ href: "/", label: "Home" }, { label: PRODUCT_NAME }]} />
-          {flags.alignedRedirects ? (
-            <p className="chip mt-3" role="note">
-              {copy.aligned.notice}
-            </p>
-          ) : null}
+          <p className="chip mt-3" role="note">
+            {copy.aligned.notice}
+          </p>
           <div className="section-head reveal mt-3" style={{ maxWidth: "60ch" }}>
             <span className="eyebrow">{PRODUCT_NAME}</span>
             <h1 id="aligned-title" className="display mt-3">
@@ -42,6 +40,9 @@ export default function AlignedPage() {
               </Link>
               <Link href="/partner" className="btn btn-outline btn-lg">
                 For schools and districts
+              </Link>
+              <Link href="/aligned/pilot" className="btn btn-outline btn-lg" data-track="pilot_cta_click" data-track-location="aligned_page" data-track-category="aligned">
+                Join the pilot interest list
               </Link>
             </div>
           </div>

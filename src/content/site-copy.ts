@@ -9,7 +9,7 @@ export const copy = {
   home: {
     heroTitle: "See where every student stands, standard by standard.",
     heroLead:
-      "A standards-aligned grouping companion for elementary ELA. Built with teachers, for the classroom they already have.",
+      "A standards-aligned grouping companion for grades 3–8 ELA. Built with teachers, for the classroom they already have.",
     problemTitle: "A composite score is not a grouping plan.",
     problemBody:
       "When every student in a band gets the same passage, small groups stay too large and instruction stays too general. Teachers already know this. The missing piece is a way to see the next instructional move without extra meetings.",
@@ -22,7 +22,7 @@ export const copy = {
     lead: "Turn assessment evidence into instructional groups teachers can use this week.",
     notice: "AssessAlign is now AlignED.",
     whatTitle: "What it is",
-    whatBody: `${PRODUCT_NAME} is teacher-facing software that helps elementary ELA teams form small groups from item-level evidence, using the standards they already teach.`,
+    whatBody: `${PRODUCT_NAME} is teacher-facing software that helps grades 3–8 ELA teams form small groups from item-level evidence, using the standards they already teach.`,
     notTitle: "What it is not",
     notBody:
       "It is not a screener, not a replacement for your assessment vendor, and not a student-facing product. Students do not log in.",
@@ -48,6 +48,9 @@ export const copy = {
     lead: `${COMPANY_NAME} is built by a classroom educator. The work starts with diagnosis, not a pitch.`,
     story:
       "Michelle Pokodner has spent three decades in 1–8 classrooms and leadership. This company exists because grouping from a single score kept failing the students in front of her.",
+  },
+  forms: {
+    studentNotice: "Please do not submit student information through this form.",
   },
   contact: {
     title: "Request a conversation",

@@ -29,8 +29,8 @@ export default function PartnerPage() {
             </h1>
             <p className="lead mt-3">{copy.partner.lead}</p>
             <div className="btn-row mt-4">
-              <Link href="/contact" className="btn btn-terra btn-lg">
-                Request a conversation
+              <Link href="/contact?intent=audit" className="btn btn-terra btn-lg" data-track="audit_cta_click" data-track-location="partner_hero" data-track-category="rooted_audit">
+                Request a Rooted Audit conversation
               </Link>
             </div>
           </div>
@@ -51,10 +51,25 @@ export default function PartnerPage() {
             <article className="card card--hover reveal">
               <h3>Next step</h3>
               <p>No public price list. If we are a fit, we will talk through scope together.</p>
-              <Link href="/contact" className="link-arrow mt-3">
-                Request a conversation
+              <Link href="/contact?intent=audit" className="link-arrow mt-3" data-track="audit_cta_click" data-track-location="partner_next" data-track-category="rooted_audit">
+                Request a Rooted Audit conversation
               </Link>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section" aria-labelledby="audit-title">
+        <div className="container">
+          <div className="section-head" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">Rooted Audit</span>
+            <h2 id="audit-title" className="h-lg mt-3">A conversation about the system you already have</h2>
+            <p className="lead mt-3">
+              A Rooted Audit looks at your screener, diagnostics, adopted curriculum, and how evidence moves between benchmark windows — and where AlignED could sit beside them. It does not replace those tools.
+            </p>
+            <Link href="/contact?intent=audit" className="btn btn-terra mt-4" data-track="audit_cta_click" data-track-location="partner_audit" data-track-category="rooted_audit">
+              Request a Rooted Audit conversation
+            </Link>
           </div>
         </div>
       </section>

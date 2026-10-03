@@ -42,10 +42,6 @@ export default function AIEthicsPage() {
             </p>
             <ul className="legal-list">
               <li>
-                <strong>AssessAlign</strong>, for question generation, standards
-                alignment, and feedback suggestions
-              </li>
-              <li>
                 <strong>Content creation assistance</strong>, for lesson plans
                 (always human-reviewed)
               </li>
@@ -58,22 +54,16 @@ export default function AIEthicsPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">AI Provider</h2>
             <p className="legal-text">
-              I use Anthropic&apos;s Claude as the primary AI engine. I chose
-              Claude specifically because:
+              I use Claude as a writing and planning assistant for educator-facing work. I chose it because:
             </p>
             <ul className="legal-list">
               <li>
                 Anthropic&apos;s mission centers on AI safety and responsible
                 development
               </li>
-              <li>Claude does not use API data to train its models</li>
               <li>
-                Anthropic&apos;s education-safety positioning aligns with school
-                district requirements
-              </li>
-              <li>
-                Claude&apos;s Constitutional AI approach prioritizes helpful,
-                harmless, and honest responses
+                Educator-facing drafts stay in a person&apos;s hands before they
+                are published
               </li>
             </ul>
             <p className="legal-text">
@@ -86,21 +76,18 @@ export default function AIEthicsPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">Student Data Protection</h2>
             <ul className="legal-list">
+              <li>Please do not submit student information through website forms.</li>
               <li>
-                I never send personally identifiable student information to AI
-                providers
+                Early conversations and demonstrations use sample or adult-provided
+                information.
               </li>
               <li>
-                All data sent for AI processing is anonymized and aggregated
+                Any future use of student information will be scoped with the
+                district before implementation.
               </li>
               <li>
-                Student names, IDs, grades, and demographic data are stripped
-                before any AI processing
-              </li>
-              <li>Schools retain full ownership of their student data at all times</li>
-              <li>
-                AI-processed data is not stored by providers beyond the
-                immediate request
+                We will document what an AI tool does and does not process before
+                student information is used.
               </li>
             </ul>
           </div>
@@ -115,15 +102,12 @@ export default function AIEthicsPage() {
                 All AI-generated content is presented as suggestions, not mandates
               </li>
               <li>
-                Educators review and approve AI-generated assessment questions
-                before student use
+                Educators review AI-assisted materials before they use them with
+                students
               </li>
               <li>
-                AI features can be disabled at any time without losing core
-                functionality
-              </li>
-              <li>
-                Full transparency is provided into how AI suggestions are generated
+                Educator-facing drafts should be identifiable as drafts, not as
+                finished student decisions
               </li>
             </ul>
           </div>
@@ -133,7 +117,8 @@ export default function AIEthicsPage() {
             <ul className="legal-list">
               <li>I don&apos;t use AI to make decisions about individual students</li>
               <li>
-                I don&apos;t share student data with AI providers for model training
+                Student information is not collected by the website forms, and this
+                site does not send it to an AI provider
               </li>
               <li>
                 I don&apos;t use AI for student surveillance or behavioral monitoring
@@ -150,7 +135,7 @@ export default function AIEthicsPage() {
           <div className="legal-section">
             <h2 className="legal-section-title">Compliance &amp; Frameworks</h2>
             <p className="legal-text">
-              These AI practices are designed to align with:
+              I keep these frameworks in view while designing educator-facing AI workflows. This list is not a certification:
             </p>
             <ul className="legal-list">
               <li>FERPA (Family Educational Rights and Privacy Act)</li>

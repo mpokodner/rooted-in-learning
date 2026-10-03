@@ -37,17 +37,14 @@ export default function AccessibilityPage() {
 
           <div className="legal-callout">
             <p>
-              <strong>My commitment:</strong> The Rooted Learner is built with accessibility as a core principle, not an afterthought. I continuously work to ensure this website and its resources meet or exceed accessibility standards so that every educator can benefit from the content.
+              <strong>My commitment:</strong> I am working to make this website and its resources usable for every educator. Accessibility is part of the build, and some gaps are still open.
             </p>
           </div>
 
           <div className="legal-section">
             <h2 className="legal-section-title">Standards</h2>
             <p className="legal-text">
-              I strive to conform to the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> standards. These internationally recognized guidelines ensure that web content is perceivable, operable, understandable, and robust for all users, including those with disabilities.
-            </p>
-            <p className="legal-text">
-              Accessibility is an ongoing effort, and I regularly review and improve the site to maintain and enhance compliance.
+              I use the <strong>Web Content Accessibility Guidelines (WCAG) 2.1 Level AA</strong> as the target. This site is not claiming completed conformance.
             </p>
           </div>
 
@@ -68,7 +65,7 @@ export default function AccessibilityPage() {
 
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", marginTop: "1rem", color: "#2D2D2D" }}>Visual Design</h3>
             <ul className="legal-list">
-              <li>Sufficient color contrast ratios that meet or exceed WCAG AA requirements</li>
+              <li>Color pairings are chosen for readability. A full contrast audit is still ahead</li>
               <li>Information is never conveyed by color alone. Text labels and icons are used alongside color cues</li>
               <li>Responsive design that adapts to different screen sizes, zoom levels, and orientations</li>
               <li>Legible font sizes with scalable typography using relative units</li>
@@ -77,7 +74,7 @@ export default function AccessibilityPage() {
 
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", marginTop: "1rem", color: "#2D2D2D" }}>Content &amp; Media</h3>
             <ul className="legal-list">
-              <li>Descriptive alt text on all meaningful images</li>
+              <li>Meaningful images should have descriptive alt text. Some older images still need that pass</li>
               <li>Decorative images are hidden from screen readers using appropriate ARIA attributes</li>
               <li>Link text that is descriptive and makes sense out of context</li>
               <li>Form fields with associated labels and clear error messaging</li>
@@ -86,10 +83,9 @@ export default function AccessibilityPage() {
 
             <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: "0.5rem", marginTop: "1rem", color: "#2D2D2D" }}>Keyboard &amp; Assistive Technology</h3>
             <ul className="legal-list">
-              <li>Full keyboard navigation support across all interactive elements</li>
-              <li>Dropdown menus and mobile navigation are operable via keyboard</li>
-              <li>Tested with common screen readers (VoiceOver, NVDA)</li>
-              <li>No keyboard traps. Users can navigate freely through all content</li>
+              <li>Keyboard access is the goal for interactive controls. Some patterns, including the homepage sample tabs, still need a fuller keyboard pass</li>
+              <li>The mobile menu can be opened, closed, and moved through with the keyboard</li>
+              <li>A full screen-reader test is still ahead</li>
             </ul>
           </div>
 

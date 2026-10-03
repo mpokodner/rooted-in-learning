@@ -1,6 +1,7 @@
 "use client";
 
 import NewsletterForm from "./NewsletterForm";
+import { copy } from "@/content/site-copy";
 
 export default function BentoNewsletter() {
   return (
@@ -21,7 +22,11 @@ export default function BentoNewsletter() {
           formClassName="bento-newsletter-form"
           inputClassName="bento-newsletter-input"
           buttonClassName="btn btn-terra"
+          trackStart="guide_cta_click"
+          trackSubmit="guide_signup"
+          trackLocation="homepage_guide"
         />
+        <p className="bento-newsletter-note">{copy.forms.studentNotice}</p>
       </div>
     </section>
   );

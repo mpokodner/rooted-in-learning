@@ -31,7 +31,15 @@ export async function POST(request: NextRequest) {
       sendFreebie = false,
       tag,
       referrer,
+      website,
     } = body;
+
+    if (typeof website === "string" && website.trim()) {
+      return NextResponse.json({
+        success: true,
+        message: "You're subscribed! Welcome to the community.",
+      });
+    }
 
     if (!email || !email.includes("@")) {
       return NextResponse.json(

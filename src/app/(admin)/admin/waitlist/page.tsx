@@ -19,6 +19,7 @@ async function getWaitlistEntries() {
 
 const productLabels: Record<string, string> = {
   assessalign: "AssessAlign",
+  aligned: "AlignED",
   hallpass: "Hall Pass",
 };
 

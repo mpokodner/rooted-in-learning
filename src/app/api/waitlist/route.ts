@@ -122,8 +122,6 @@ export async function POST(request: NextRequest) {
           <p><strong>District Size:</strong> ${districtSize || "Not provided"}</p>
           <p><strong>Newsletter opt-in:</strong> ${subscribeNewsletter ? "Yes" : "No"}</p>
           <p><strong>Source:</strong> ${source}</p>
-          <hr />
-          <p style="color: #999; font-size: 12px;">IP: ${ip}</p>
         `,
         replyTo: email,
       });

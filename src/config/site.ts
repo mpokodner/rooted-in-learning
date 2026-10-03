@@ -2,8 +2,8 @@ function envFlag(name: string): boolean {
   return process.env[name] === "true";
 }
 
-function envLink(name: string): string {
-  return process.env[name]?.trim() ?? "";
+function envLink(name: string, fallback = ""): string {
+  return process.env[name]?.trim() || fallback;
 }
 
 export const PRODUCT_NAME = "AlignED";
@@ -16,9 +16,18 @@ export const flags = {
 };
 
 export const links = {
-  tpt: envLink("NEXT_PUBLIC_TPT_URL"),
-  youtube: envLink("NEXT_PUBLIC_YOUTUBE_URL"),
-  linkedin: envLink("NEXT_PUBLIC_LINKEDIN_URL"),
+  tpt: envLink(
+    "NEXT_PUBLIC_TPT_URL",
+    "https://www.teacherspayteachers.com/store/rootedinlearninged",
+  ),
+  youtube: envLink(
+    "NEXT_PUBLIC_YOUTUBE_URL",
+    "https://www.youtube.com/@TheRootedLearner",
+  ),
+  linkedin: envLink(
+    "NEXT_PUBLIC_LINKEDIN_URL",
+    "https://www.linkedin.com/in/michelle-pokodner-edtech/",
+  ),
   booking: envLink("NEXT_PUBLIC_BOOKING_URL"),
   groupingKit: envLink("NEXT_PUBLIC_GROUPING_KIT_URL"),
   gscVerification: envLink("NEXT_PUBLIC_GSC_VERIFICATION"),

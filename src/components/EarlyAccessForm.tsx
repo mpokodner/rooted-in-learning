@@ -26,7 +26,7 @@ export interface EarlyAccessFormProps {
 export function EarlyAccessForm({
   className = "",
   heading = "Get Early Access",
-  description = "Be the first to try AssessAlign...",
+  description = "Ask to hear when AlignED pilot conversations open.",
 }: EarlyAccessFormProps) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -49,7 +49,7 @@ export function EarlyAccessForm({
         body: JSON.stringify({
           email,
           name,
-          product: "assessalign",
+          product: "aligned",
           source: "assessalign-page",
           role: role || undefined,
           organization: organization || undefined,

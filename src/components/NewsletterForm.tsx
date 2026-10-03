@@ -1,6 +1,7 @@
 "use client";
 
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { track } from "@/lib/analytics";
 
 interface NewsletterFormProps {
   source?: string;
@@ -11,6 +12,9 @@ interface NewsletterFormProps {
   errorClassName?: string;
   sendFreebie?: boolean;
   tag?: string;
+  trackStart?: string;
+  trackSubmit?: string;
+  trackLocation?: string;
 }
 
 export default function NewsletterForm({
@@ -22,11 +26,15 @@ export default function NewsletterForm({
   errorClassName = "newsletter-error",
   sendFreebie: sendFreebieOverride,
   tag,
+  trackStart,
+  trackSubmit,
+  trackLocation,
 }: NewsletterFormProps) {
   const sendFreebie = sendFreebieOverride ?? true;
   const [email, setEmail] = useState("");
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
+  const started = useRef(false);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -35,6 +43,12 @@ export default function NewsletterForm({
     setStatus("loading");
 
     try {
+      const form = e.currentTarget;
+      if (!(form instanceof HTMLFormElement)) {
+        setStatus("error");
+        setMessage("Something went wrong. Please try again.");
+        return;
+      }
       const res = await fetch("/api/newsletter", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
@@ -42,6 +56,7 @@ export default function NewsletterForm({
           email,
           source,
           sendFreebie,
+          website: new FormData(form).get("website"),
           ...(tag && { tag }),
         }),
       });
@@ -51,6 +66,9 @@ export default function NewsletterForm({
       if (data.success) {
         setStatus("success");
         setMessage(data.message);
+        if (trackSubmit) {
+          track(trackSubmit, { location: trackLocation || "", content_category: "guide" });
+        }
         setEmail("");
       } else {
         setStatus("error");
@@ -64,14 +82,30 @@ export default function NewsletterForm({
 
   if (status === "success") {
     return (
-      <div className="newsletter-success">
+      <div className="newsletter-success" role="status">
         <p>🌱 {message}</p>
       </div>
     );
   }
 
   return (
-    <form className={formClassName} onSubmit={handleSubmit}>
+    <form
+      className={formClassName}
+      onSubmit={handleSubmit}
+      onFocus={() => {
+        try {
+          if (!trackStart || started.current) return;
+          started.current = true;
+          track(trackStart, { location: trackLocation || "", content_category: "guide" });
+        } catch (error) {
+          console.error("NewsletterForm.focus", { error });
+        }
+      }}
+    >
+      <div style={{ position: "absolute", left: "-9999px" }} aria-hidden="true">
+        <label htmlFor={`${source}-website`}>Website</label>
+        <input id={`${source}-website`} name="website" tabIndex={-1} autoComplete="off" />
+      </div>
       <input
         type="email"
         name="email"
@@ -108,7 +142,7 @@ export default function NewsletterForm({
         )}
       </button>
       {status === "error" && (
-        <p className={errorClassName}>{message}</p>
+        <p className={errorClassName} role="alert">{message}</p>
       )}
     </form>
   );

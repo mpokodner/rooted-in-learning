@@ -290,6 +290,7 @@ a { color: var(--earth-dark); text-underline-offset: 0.18em; transition: color v
 .footer-form input { padding: 0.85rem 1.1rem; border-radius: var(--radius-full); border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: var(--white); min-width: 15rem; flex: 1; }
 .footer-form input::placeholder { color: rgba(255,255,255,0.45); }
 .footer-form input:focus { outline: none; border-color: var(--terracotta-light); }
+.footer-form-note { margin: 0.6rem 0 0; font-size: 0.8rem; color: var(--text-light); }
 .footer-main { padding-block: clamp(3rem, 5vw, 4.5rem); }
 .footer-grid { display: grid; grid-template-columns: 1fr; gap: 2.5rem; }
 @media (min-width: 720px) { .footer-grid { grid-template-columns: 1.6fr 1fr 1fr; } }

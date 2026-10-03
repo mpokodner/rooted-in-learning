@@ -31,11 +31,11 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL("https://www.therootedlearner.com"),
   title: {
-    default: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
+    default: "The Rooted Learner — standards-aligned grouping for grades 3–8 ELA",
     template: "%s — The Rooted Learner",
   },
   description:
-    "We help educators integrate AI thoughtfully and build the classroom tools we wished existed. Practical training, standards-aligned resources, and district software from educators who still teach.",
+    "A standards-aligned grouping companion for grades 3–8 ELA, plus educator resources from a classroom educator who also writes the code.",
   keywords: [
     "AI for educators",
     "education technology",
@@ -72,9 +72,9 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://www.therootedlearner.com",
     siteName: "The Rooted Learner",
-    title: "The Rooted Learner — Practical AI training & classroom tools for teachers of multilingual learners",
+    title: "The Rooted Learner — standards-aligned grouping for grades 3–8 ELA",
     description:
-      "We help educators integrate AI thoughtfully and build the classroom tools we wished existed. Practical training, standards-aligned resources, and district software.",
+      "A standards-aligned grouping companion for grades 3–8 ELA, plus educator resources from a classroom educator who also writes the code.",
     images: [
       {
         url: "/og-image.png",
@@ -86,9 +86,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "The Rooted Learner — AI training & classroom tools for educators",
+    title: "The Rooted Learner — standards-aligned grouping for grades 3–8 ELA",
     description:
-      "Practical AI training, standards-aligned resources, and district software from educators who still teach.",
+      "A standards-aligned grouping companion for grades 3–8 ELA, plus educator resources from a classroom educator who also writes the code.",
     images: ["/og-image.png"],
   },
   icons: {
@@ -153,7 +153,7 @@ export default function RootLayout({
               url: "https://www.therootedlearner.com",
               logo: "https://www.therootedlearner.com/logo.png",
               description:
-                "Practical AI training, standards-aligned classroom tools, and district software from educators who still teach.",
+                "Standards-aligned grouping for grades 3–8 ELA, and educator resources from a classroom educator who also writes the code.",
               founder: [
                 {
                   "@type": "Person",
@@ -163,7 +163,7 @@ export default function RootLayout({
                 },
                 {
                   "@type": "Person",
-                  name: "Chris Pokodner",
+                  name: "Chris Carlozzi",
                   jobTitle: "Co-Founder & AI Solutions Architect",
                   url: "https://www.therootedlearner.com/about",
                 },

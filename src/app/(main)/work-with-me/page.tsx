@@ -11,7 +11,7 @@ const engagements: { title: string; desc: React.ReactNode }[] = [
   },
   {
     title: "Custom software builds",
-    desc: (<>District-specific tools like <Link href="/for-districts/hallpass">Hall Pass</Link> and <Link href="/for-districts/assessalign">AssessAlign</Link> — built from audit findings, not vendor catalogs.</>),
+    desc: (<>District-specific tools like <Link href="/for-districts/hallpass">Hall Pass</Link> and <Link href="/aligned">AlignED</Link>. AssessAlign is now AlignED.</>),
   },
   {
     title: "AI integration strategy",

@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     });
 
     if (insertError) {
-      console.error("POST /api/contact insert", { insertError, email: email.toLowerCase() });
+      console.error("POST /api/contact insert", { insertError });
       return fail("Failed to save your message. Please try again.", "INSERT_FAILED", 500);
     }
 
@@ -133,7 +133,7 @@ export async function POST(request: NextRequest) {
         <p><strong>Message:</strong></p>
         <p>${safeMessage}</p>
         <hr />
-        <p style="color: #999; font-size: 12px;">Source: ${source} | IP: ${ip}</p>
+        <p style="color: #999; font-size: 12px;">Source: ${source}</p>
       `,
       replyTo: email,
     });

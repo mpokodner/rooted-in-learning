@@ -3,6 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { EarlyAccessForm } from "@/components/EarlyAccessForm";
 import assessAlignImg from "../../about/projects/images/assessalignpng.png";
+import { PRODUCT_NAME } from "@/config/site";
+import Notice from "@/components/ui/Notice";
 
 export const metadata: Metadata = {
   title: "AssessAlign",
@@ -103,33 +105,17 @@ const steps = [
   },
 ];
 
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "SoftwareApplication",
-  name: "AssessAlign",
-  applicationCategory: "EducationalApplication",
-  operatingSystem: "Web",
-  description:
-    "Standards-aligned reading assessment platform for grades 3–8 with real-time analytics, auto-generated skill groups, and teacher-driven assessment creation.",
-  creator: {
-    "@type": "Organization",
-    name: "The Rooted Learner",
-  },
-  offers: {
-    "@type": "Offer",
-    price: "0",
-    priceCurrency: "USD",
-    description: "Beta access, currently free for early adopters",
-  },
-};
-
 export default function AssessAlignPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
+      <section className="section" style={{ paddingBottom: 0 }}>
+        <div className="container">
+          <Notice>
+            This page remains available while we introduce {PRODUCT_NAME}.{" "}
+            <Link href="/aligned">Read about {PRODUCT_NAME}</Link>.
+          </Notice>
+        </div>
+      </section>
 
       <section className="section hero" aria-labelledby="aa-heading">
         <div className="container hero-grid">

@@ -11,6 +11,24 @@ const nextConfig: NextConfig = {
     ],
   },
   async redirects() {
+    const ia =
+      process.env.NEXT_PUBLIC_IA_REDIRECTS === "true"
+        ? [
+            { source: "/learn", destination: "/educators", permanent: true },
+            { source: "/shop", destination: "/educators", permanent: true },
+            { source: "/for-districts", destination: "/partner", permanent: true },
+            { source: "/for-teachers", destination: "/educators", permanent: true },
+            { source: "/work-with-me", destination: "/partner", permanent: true },
+            { source: "/learn/blog", destination: "/insights", permanent: true },
+            { source: "/learn/blog/:slug", destination: "/insights/:slug", permanent: true },
+            { source: "/learn/teacher-toolkit/:slug", destination: "/educators/toolkit/:slug", permanent: true },
+          ]
+        : [];
+    const aligned =
+      process.env.NEXT_PUBLIC_ALIGNED_REDIRECTS === "true"
+        ? [{ source: "/for-districts/assessalign", destination: "/aligned", permanent: true }]
+        : [];
+
     return [
       { source: "/products", destination: "/shop", permanent: true },
       { source: "/products/lessons", destination: "/shop", permanent: true },
@@ -37,6 +55,8 @@ const nextConfig: NextConfig = {
       { source: "/about/projects", destination: "/about#projects", permanent: true },
       { source: "/learn/toolkit", destination: "/learn/teacher-toolkit", permanent: true },
       { source: "/learn/toolkit/:slug", destination: "/learn/teacher-toolkit/:slug", permanent: true },
+      ...ia,
+      ...aligned,
     ];
   },
 };

@@ -20,14 +20,20 @@ function formatPostMeta(post: BlogPostCard) {
   return parts.join(' · ')
 }
 
-export function BlogFeaturedCard({ post }: { post: BlogPostCard }) {
+export function BlogFeaturedCard({
+  post,
+  hrefPrefix = "/learn/blog",
+}: {
+  post: BlogPostCard;
+  hrefPrefix?: string;
+}) {
   const pillarLabel = post.contentPillar?.title
     ? `${post.contentPillar.title} · Featured`
     : 'Featured'
 
   return (
     <Link
-      href={`/learn/blog/${post.slug.current}`}
+      href={`${hrefPrefix}/${post.slug.current}`}
       className="post-card reveal"
       style={{ flexDirection: 'row', alignItems: 'stretch' }}
     >
@@ -89,10 +95,16 @@ export function BlogFeaturedCard({ post }: { post: BlogPostCard }) {
   )
 }
 
-export default function BlogCard({ post }: { post: BlogPostCard }) {
+export default function BlogCard({
+  post,
+  hrefPrefix = "/learn/blog",
+}: {
+  post: BlogPostCard;
+  hrefPrefix?: string;
+}) {
   return (
     <Link
-      href={`/learn/blog/${post.slug.current}`}
+      href={`${hrefPrefix}/${post.slug.current}`}
       className="post-card reveal"
     >
       {post.featuredImage?.asset ? (

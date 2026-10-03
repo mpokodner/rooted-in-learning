@@ -44,14 +44,16 @@ function StarRating({ rating }: { rating: number }) {
 
 export default function ToolkitCard({
   resource,
+  hrefPrefix = "/learn/teacher-toolkit",
 }: {
   resource: ToolkitResourceCard;
+  hrefPrefix?: string;
 }) {
   const typeInfo = typeLabels[resource.resourceType] ?? typeLabels.howto;
 
   return (
     <Link
-      href={`/learn/teacher-toolkit/${resource.slug.current}`}
+      href={`${hrefPrefix}/${resource.slug.current}`}
       className="group"
       style={{
         display: "block",

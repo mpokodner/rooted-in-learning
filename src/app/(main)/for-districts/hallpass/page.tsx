@@ -1,26 +1,14 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { flags } from "@/config/site";
 import "./hallpass.css";
 
 export const metadata: Metadata = {
-  title: "Hall Pass",
+  title: "HallPass",
   description:
-    "A district-owned student movement management platform built around security, SIS alignment, campus-level boundaries, and local customization.",
-  keywords: [
-    "student movement management",
-    "hall pass system",
-    "school safety",
-    "campus security",
-    "SIS integration",
-    "district software",
-  ],
+    "A student movement management platform. This page stays up while HallPass is not in the public navigation.",
+  robots: flags.hallpassPublic ? { index: true, follow: true } : { index: false, follow: false },
   alternates: { canonical: "/for-districts/hallpass" },
-  openGraph: {
-    title: "Hall Pass — The Rooted Learner",
-    description:
-      "District-owned student movement management built around security, SIS alignment, and local customization.",
-    type: "website",
-  },
 };
 
 const problems = [
@@ -75,7 +63,7 @@ const features = [
 ];
 
 const rollout = [
-  { stage: "Pre-pilot", desc: "Infrastructure review, SIS mapping, role and boundary configuration" },
+  { stage: "Discovery", desc: "Infrastructure review, SIS mapping, role and boundary configuration" },
   { stage: "Pilot", desc: "Single campus deployment with teacher training and feedback loops" },
   { stage: "Limited rollout", desc: "Multi-campus expansion with campus admin onboarding" },
   { stage: "District-wide", desc: "Full deployment with district oversight dashboards and reporting" },
@@ -93,7 +81,7 @@ export default function HallPassPage() {
             with district operations in mind. Ours is — from SIS-aligned rosters
             to campus-scoped data boundaries.
           </p>
-          <Link href="/work-with-me" className="btn btn-terra">
+          <Link href="/contact" className="btn btn-terra">
             Schedule a conversation about district fit
           </Link>
         </div>
@@ -197,7 +185,7 @@ export default function HallPassPage() {
             We start every conversation by understanding your campus structure,
             SIS environment, and operational priorities — not with a demo deck.
           </p>
-          <Link href="/work-with-me" className="btn btn-terra">
+          <Link href="/contact" className="btn btn-terra">
             Schedule a conversation about district fit
           </Link>
         </div>

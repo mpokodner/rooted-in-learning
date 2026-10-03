@@ -12,6 +12,10 @@ function sanitize(str: string): string {
     .replace(/'/g, "&#x27;");
 }
 
+function fail(error: string, code: string, status: number) {
+  return NextResponse.json({ error, code }, { status });
+}
+
 export async function POST(request: NextRequest) {
   try {
     const ip =
@@ -24,12 +28,12 @@ export async function POST(request: NextRequest) {
       const { success, remaining } = await limiter.limit(`contact:${ip}`);
       if (!success) {
         return NextResponse.json(
-          { success: false, error: "Too many requests. Please try again in a minute." },
+          { error: "Too many requests. Please try again in a minute.", code: "RATE_LIMIT" },
           { status: 429, headers: { "X-RateLimit-Remaining": String(remaining) } }
         );
       }
-    } catch {
-      // Rate limiting unavailable — continue without it
+    } catch (error) {
+      console.error("POST /api/contact ratelimit", { error });
     }
 
     const body = await request.json();
@@ -39,35 +43,36 @@ export async function POST(request: NextRequest) {
       subject,
       message,
       organization,
+      audience,
+      website,
       source = "contact-page",
       subscribeNewsletter = false,
+      utm_source,
+      utm_medium,
+      utm_campaign,
     } = body;
 
+    if (typeof website === "string" && website.trim()) {
+      return NextResponse.json({ ok: true });
+    }
+
     if (!name || !email || !message) {
-      return NextResponse.json(
-        { success: false, error: "Name, email, and message are required." },
-        { status: 400 }
-      );
+      return fail("Name, email, and message are required.", "VALIDATION", 400);
     }
 
     if (name.length > 200 || email.length > 320 || message.length > 5000) {
-      return NextResponse.json(
-        { success: false, error: "Input exceeds maximum length." },
-        { status: 400 }
-      );
+      return fail("Input exceeds maximum length.", "VALIDATION", 400);
     }
 
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(email)) {
-      return NextResponse.json(
-        { success: false, error: "Please provide a valid email address." },
-        { status: 400 }
-      );
+      return fail("Please provide a valid email address.", "VALIDATION", 400);
     }
 
     const safeName = sanitize(name);
     const safeEmail = sanitize(email);
-    const safeSubject = sanitize(subject || "Not specified");
+    const routedSubject = subject || audience || "Not specified";
+    const safeSubject = sanitize(routedSubject);
     const safeMessage = sanitize(message);
 
     const supabase = createServerSupabaseClient();
@@ -75,16 +80,21 @@ export async function POST(request: NextRequest) {
     const { error: insertError } = await supabase.from("leads").insert({
       email: email.toLowerCase(),
       name,
-      subject: subject || null,
+      subject: routedSubject,
       message,
       organization: organization || null,
       source,
       status: "new",
       subscribe_newsletter: subscribeNewsletter,
+      audience: audience || null,
+      utm_source: utm_source || null,
+      utm_medium: utm_medium || null,
+      utm_campaign: utm_campaign || null,
     });
 
     if (insertError) {
-      console.error("Lead insert error:", insertError);
+      console.error("POST /api/contact insert", { insertError, email: email.toLowerCase() });
+      return fail("Failed to save your message. Please try again.", "INSERT_FAILED", 500);
     }
 
     if (subscribeNewsletter) {
@@ -104,8 +114,8 @@ export async function POST(request: NextRequest) {
             subscribed: true,
           });
         }
-      } catch {
-        // Newsletter opt-in is secondary — don't fail the main request
+      } catch (error) {
+        console.error("POST /api/contact newsletter", { error });
       }
     }
 
@@ -117,11 +127,11 @@ export async function POST(request: NextRequest) {
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${safeName}</p>
         <p><strong>Email:</strong> ${safeEmail}</p>
+        <p><strong>Audience:</strong> ${sanitize(audience || "not specified")}</p>
         <p><strong>Subject:</strong> ${safeSubject}</p>
         <p><strong>Organization:</strong> ${sanitize(organization || "Not provided")}</p>
         <p><strong>Message:</strong></p>
         <p>${safeMessage}</p>
-        <p><strong>Newsletter opt-in:</strong> ${subscribeNewsletter ? "Yes" : "No"}</p>
         <hr />
         <p style="color: #999; font-size: 12px;">Source: ${source} | IP: ${ip}</p>
       `,
@@ -135,20 +145,13 @@ export async function POST(request: NextRequest) {
       html: `
         <h1>Thanks for reaching out, ${safeName}!</h1>
         <p>I received your message and will get back to you within 48 hours.</p>
-        <p>In the meantime, check out the latest resources at <a href="https://www.therootedlearner.com">therootedlearner.com</a>.</p>
         <p>— Michelle</p>
       `,
     });
 
-    return NextResponse.json({
-      success: true,
-      message: "Message sent successfully! I'll get back to you soon.",
-    });
+    return NextResponse.json({ ok: true });
   } catch (error) {
-    console.error("Contact form error:", error);
-    return NextResponse.json(
-      { success: false, error: "Failed to send message. Please try again." },
-      { status: 500 }
-    );
+    console.error("POST /api/contact", { error });
+    return fail("Failed to send message. Please try again.", "SERVER_ERROR", 500);
   }
 }

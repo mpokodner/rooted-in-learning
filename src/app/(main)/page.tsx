@@ -165,6 +165,7 @@ export default async function Home() {
           </Link>
         </div>
       </section>
+      <div className="home-founder-buffer" aria-hidden="true" />
     </>
   );
 }

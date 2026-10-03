@@ -351,6 +351,12 @@
   color: var(--terracotta-dark);
 }
 
+.home-founder-buffer {
+  background: var(--neutral-bg);
+  border-top: 3px solid var(--terracotta);
+  min-height: clamp(4rem, 8vw, 6.5rem);
+}
+
 /* ─── Bento Hero Grid (kept for unused BentoHero) ─── */
 
 .bento-hero {

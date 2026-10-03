@@ -5,7 +5,6 @@ import Link from "next/link";
 import Image from "next/image";
 import { usePathname } from "next/navigation";
 import { flags, nav } from "@/config/site";
-import Button from "@/components/ui/Button";
 
 const MenuIcon = () => (
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" aria-hidden="true">
@@ -90,7 +89,7 @@ export default function SiteHeader() {
             </span>
           </Link>
 
-          <nav className="main-nav" aria-label="Primary">
+          <nav className="main-nav main-nav--pills" aria-label="Primary">
             {items.map((item) => (
               <div key={item.href} className="nav-item">
                 <Link
@@ -104,8 +103,10 @@ export default function SiteHeader() {
           </nav>
 
           <div className="header-actions">
-            <span className="phase1-header-cta">
-              <Button href={nav.cta.href}>{nav.cta.label}</Button>
+            <span className="header-cta">
+              <Link href={nav.cta.href} className="btn btn-primary">
+                {nav.cta.label}
+              </Link>
             </span>
             <button
               type="button"
@@ -159,12 +160,6 @@ export default function SiteHeader() {
         </nav>
       </div>
       ) : null}
-      <style>{`
-        .phase1-header-cta { display: none; }
-        @media (min-width: 900px) {
-          .phase1-header-cta { display: inline-flex; }
-        }
-      `}</style>
     </>
   );
 }

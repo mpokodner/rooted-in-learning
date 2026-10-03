@@ -26,10 +26,9 @@ export const links = {
 
 export const nav = {
   primary: [
-    { href: "/aligned", label: PRODUCT_NAME },
-    { href: "/partner", label: "For schools and districts" },
-    { href: "/educators", label: "For educators" },
-    { href: "/insights", label: "Insights" },
+    { href: "/partner", label: "For Districts" },
+    { href: "/educators", label: "For Educators" },
+    { href: "/insights", label: "Blog" },
     { href: "/about", label: "About" },
   ],
   cta: { href: "/contact", label: "Request a conversation" },

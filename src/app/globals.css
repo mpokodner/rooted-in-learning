@@ -380,10 +380,7 @@ a:hover {
   overflow: visible;
 }
 
-/* Prevent old header rules from overriding greenhouse header layout */
-.site-header .header-inner {
-  justify-content: space-between;
-}
+/* Header layout lives in greenhouse.css (logo | pill nav | CTA). */
 
 /* ─── Footer legacy capture styles (still used by some forms) ─── */
 

@@ -7,7 +7,7 @@ import { COMPANY_NAME, PRODUCT_NAME } from "@/config/site";
 
 export const copy = {
   home: {
-    heroTitle: `${PRODUCT_NAME} helps teachers regroup students from what they can actually do — not from a single score.`,
+    heroTitle: "See where every student stands, standard by standard.",
     heroLead:
       "A standards-aligned grouping companion for elementary ELA. Built with teachers, for the classroom they already have.",
     problemTitle: "A composite score is not a grouping plan.",
@@ -47,7 +47,7 @@ export const copy = {
     title: "About",
     lead: `${COMPANY_NAME} is built by a classroom educator. The work starts with diagnosis, not a pitch.`,
     story:
-      "Michelle Van Slyke has spent three decades in K–8 classrooms and leadership. This company exists because grouping from a single score kept failing the students in front of her.",
+      "Michelle Pokodner has spent three decades in 1–8 classrooms and leadership. This company exists because grouping from a single score kept failing the students in front of her.",
   },
   contact: {
     title: "Request a conversation",

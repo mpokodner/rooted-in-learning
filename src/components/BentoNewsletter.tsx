@@ -5,7 +5,7 @@ import NewsletterForm from "./NewsletterForm";
 export default function BentoNewsletter() {
   return (
     <section className="bento-newsletter" id="download">
-      <div className="bento-newsletter-inner">
+      <div className="container bento-newsletter-inner">
         <div className="bento-newsletter-text">
           <h2>Claude for Educators</h2>
           <p>

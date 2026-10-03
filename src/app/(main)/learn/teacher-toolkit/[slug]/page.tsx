@@ -39,8 +39,6 @@ function extractYouTubeId(url: string): string | null {
   return match?.[1] ?? null
 }
 
-import { formatDisplayDate } from "@/lib/format-date"
-
 function formatFileSize(bytes: number) {
   return `${(bytes / (1024 * 1024)).toFixed(1)} MB`
 }

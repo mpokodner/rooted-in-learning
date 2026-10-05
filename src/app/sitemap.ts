@@ -12,10 +12,10 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: `${SITE_URL}/aligned`, lastModified: now, changeFrequency: "monthly", priority: 0.95 },
     { url: `${SITE_URL}/aligned/pilot`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/trust`, lastModified: now, changeFrequency: "yearly", priority: 0.4 },
-    { url: `${SITE_URL}/partner`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
+    { url: `${SITE_URL}/districts`, lastModified: now, changeFrequency: "monthly", priority: 0.9 },
     { url: `${SITE_URL}/contact`, lastModified: now, changeFrequency: "monthly", priority: 0.85 },
     { url: `${SITE_URL}/educators`, lastModified: now, changeFrequency: "weekly", priority: 0.8 },
-    { url: `${SITE_URL}/insights`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
+    { url: `${SITE_URL}/blog`, lastModified: now, changeFrequency: "daily", priority: 0.8 },
     { url: `${SITE_URL}/about`, lastModified: now, changeFrequency: "monthly", priority: 0.7 },
     { url: `${SITE_URL}/ai-ethics`, lastModified: now, changeFrequency: "yearly", priority: 0.3 },
     { url: `${SITE_URL}/privacy`, lastModified: now, changeFrequency: "yearly", priority: 0.2 },
@@ -41,7 +41,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     );
 
     blogPages = blogPosts.map((post) => ({
-      url: `${SITE_URL}/insights/${post.slug}`,
+      url: `${SITE_URL}/blog/${post.slug}`,
       lastModified: new Date(post.publishedAt),
       changeFrequency: "monthly" as const,
       priority: 0.65,

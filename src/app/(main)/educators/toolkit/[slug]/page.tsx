@@ -69,8 +69,10 @@ export default async function EducatorsToolkitSlugPage({
                 <RichText content={resource.body} />
               </div>
             ) : null}
-            <p style={{ marginTop: "1.5rem" }}>
-              <Link href={`/learn/teacher-toolkit/${slug}`}>View original toolkit page</Link>
+            <p style={{ marginTop: "2rem" }}>
+              <Link href="/educators#start" className="btn btn-terra">
+                Get the Claude AI and Cowork guide
+              </Link>
             </p>
           </Container>
         </Section>

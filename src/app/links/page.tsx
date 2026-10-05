@@ -100,7 +100,7 @@ export default function LinksPage() {
 
         {/* Secondary links */}
         <div className="links-secondary">
-          <Link href="/learn/blog" className="links-secondary-card">
+          <Link href="/blog" className="links-secondary-card">
             <span className="links-secondary-icon">
               <svg
                 fill="none"

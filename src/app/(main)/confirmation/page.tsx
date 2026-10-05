@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { links } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Order Confirmed | The Rooted Learner",
@@ -109,12 +110,17 @@ export default function ConfirmationPage() {
               >
                 View My Orders
               </Link>
-              <Link
-                href="/shop"
+              <a
+                href={links.tpt}
                 className="btn btn-md btn-primary rounded-lg"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="tpt_outbound_click"
+                data-track-location="confirmation"
+                data-track-category="tpt"
               >
-                Continue Shopping
-              </Link>
+                Browse Free + Paid Resources on TpT
+              </a>
             </div>
           </div>
         </div>

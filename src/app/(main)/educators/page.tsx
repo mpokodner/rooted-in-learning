@@ -1,13 +1,14 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import { copy } from "@/content/site-copy";
 import { links } from "@/config/site";
 import Breadcrumbs from "@/components/ui/Breadcrumbs";
 import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
+import NewsletterForm from "@/components/NewsletterForm";
 import { client } from "@/sanity/lib/client";
 import { toolkitResourcesQuery } from "@/sanity/lib/queries";
 import type { ToolkitResourceCard } from "@/sanity/lib/types";
 import ToolkitCard from "@/components/learn/ToolkitCard";
+import "./educators.css";
 
 export const metadata: Metadata = {
   title: copy.educators.title,
@@ -47,32 +48,62 @@ export default async function EducatorsPage() {
         </div>
       </section>
 
-      <section className="section section--beige" id="grouping" aria-labelledby="grouping-title">
+      <section className="section section--beige" id="start" aria-labelledby="guide-title">
         <div className="container">
-          <div className="hero-grid">
-            <div>
-              <span className="eyebrow">Coming next</span>
-              <h2 id="grouping-title" className="h-lg mt-3">
-                Grouping kit
+          <div className="grid grid-2">
+            <article className="card reveal">
+              <span className="eyebrow">Download</span>
+              <h2 id="guide-title" className="h-lg mt-3">
+                {copy.educators.guideTitle}
               </h2>
-              <p className="lead mt-3">{links.groupingKit ? copy.educators.lead : copy.educators.groupingSoon}</p>
-            </div>
-            <div className="btn-row" style={{ alignItems: "center" }}>
-              {links.groupingKit ? (
-                <a href={links.groupingKit} className="btn btn-primary">
-                  Download the grouping kit
-                </a>
-              ) : (
-                <Link href="/contact" className="btn btn-outline">
-                  Request a conversation
-                </Link>
-              )}
-            </div>
+              <p className="lead mt-3">{copy.educators.guideBody}</p>
+              <NewsletterForm
+                source="educators-guide"
+                buttonText="Get the Claude AI and Cowork guide"
+                sendFreebie
+                formClassName="educators-guide-form"
+                inputClassName="educators-guide-input"
+                buttonClassName="btn btn-terra btn-lg"
+                trackStart="guide_cta_click"
+                trackSubmit="guide_signup"
+                trackLocation="educators_guide"
+              />
+              <p className="muted mt-3">{copy.forms.studentNotice}</p>
+            </article>
+
+            <article className="card reveal" id="tpt">
+              <span className="eyebrow">Shop</span>
+              <h2 className="h-lg mt-3">{copy.educators.tptTitle}</h2>
+              <p className="lead mt-3">{copy.educators.tpt}</p>
+              <a
+                href={links.tpt}
+                className="btn btn-outline btn-lg mt-4"
+                target="_blank"
+                rel="noopener noreferrer"
+                data-track="tpt_outbound_click"
+                data-track-location="educators"
+                data-track-category="tpt"
+              >
+                Browse Free + Paid Resources on TpT
+              </a>
+            </article>
           </div>
         </div>
       </section>
 
-      <section className="section" aria-labelledby="toolkit-title">
+      <section className="section" aria-labelledby="coming-soon-title">
+        <div className="container">
+          <div className="section-head" style={{ maxWidth: "60ch" }}>
+            <span className="eyebrow">{copy.educators.comingSoonTitle}</span>
+            <h2 id="coming-soon-title" className="h-lg mt-3">
+              Instructional videos and paid products
+            </h2>
+            <p className="muted mt-3">{copy.educators.comingSoonBody}</p>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--beige" aria-labelledby="toolkit-title">
         <div className="container">
           <div className="section-head reveal">
             <span className="eyebrow">Toolkit</span>
@@ -91,19 +122,6 @@ export default async function EducatorsPage() {
           </div>
         </div>
       </section>
-
-      {links.tpt ? (
-        <section className="section section--beige" id="tpt">
-          <div className="container">
-            <span className="eyebrow">Shop</span>
-            <h2 className="h-lg mt-3">Teachers Pay Teachers</h2>
-            <p className="lead mt-3">{copy.educators.tpt}</p>
-            <a href={links.tpt} className="btn btn-outline mt-4" rel="noopener noreferrer">
-              Visit the store
-            </a>
-          </div>
-        </section>
-      ) : null}
     </>
   );
 }

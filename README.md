@@ -59,6 +59,16 @@ npm run verify-chain   # Verify purchase chain for a product
 npm run save-idea      # Save an idea to the Idea Vault
 ```
 
+## Off-site links
+
+UTM parameters are lowercase `source`, `medium`, `campaign`, and `content`. Use them only on links that leave the site. Do not add them to internal links.
+
+Share `/educators` with these links so a later TpT click can be tied back to the channel:
+
+- https://www.therootedlearner.com/educators?utm_source=linkedin&utm_medium=social&utm_campaign=educators
+- https://www.therootedlearner.com/educators?utm_source=youtube&utm_medium=social&utm_campaign=educators
+- https://www.therootedlearner.com/educators?utm_source=email&utm_medium=email&utm_campaign=educators
+
 ## Deployment
 
 Deployed on [Vercel](https://vercel.com). Push to `main` triggers automatic deployment.

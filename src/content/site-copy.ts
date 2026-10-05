@@ -35,12 +35,17 @@ export const copy = {
   },
   educators: {
     title: "For educators",
-    lead: "Classroom-ready thinking, a teacher toolkit, and — when it is ready — a grouping kit you can download.",
-    groupingSoon: "The grouping kit is coming soon.",
-    tpt: "Shop classroom resources on Teachers Pay Teachers.",
+    lead: "Start with the Claude AI and Cowork guide, or the classroom resources already in the Teachers Pay Teachers shop. Instructional videos and paid products are on the way.",
+    guideTitle: "Claude AI and Cowork",
+    guideBody:
+      "For classroom teachers planning with Claude. Prompt templates and classroom workflows. It is free, and it arrives by email.",
+    tptTitle: "Teachers Pay Teachers",
+    tpt: "Classroom resources you can use this week, from a teacher who is still in the work.",
+    comingSoonTitle: "Coming soon",
+    comingSoonBody: "Instructional videos and paid products are in progress. The teacher toolkit below is ready now.",
   },
   insights: {
-    title: "Insights",
+    title: "Blog",
     lead: "Field notes from inside the work — diagnosis, grouping, and what actually holds up in a classroom.",
   },
   about: {

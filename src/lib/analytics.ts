@@ -1,3 +1,8 @@
+/**
+ * UTM names stay lowercase and are read from the landing URL only.
+ * Do not add utm_* to links inside this site. Allowed keys: source, medium, campaign, content.
+ * Do not send email, school, message, or order details.
+ */
 export const CONSENT_KEY = "ril_analytics_consent";
 
 export function getAnalyticsConsent(): boolean {

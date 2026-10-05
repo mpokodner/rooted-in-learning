@@ -115,20 +115,19 @@ export default function Footer() {
           <div className="footer-col">
             <h4>For Districts</h4>
             <ul>
-              <li><Link href="/for-districts">For Districts</Link></li>
+              <li><Link href="/districts">For Districts</Link></li>
               <li><Link href="/for-districts/hallpass">Hall Pass</Link></li>
               <li><Link href="/about/approach">Our Approach</Link></li>
-              <li><Link href="/work-with-me">Work With Us</Link></li>
+              <li><Link href="/contact">Request a conversation</Link></li>
             </ul>
           </div>
 
           <div className="footer-col">
             <h4>Learn</h4>
             <ul>
-              <li><Link href="/learn">Learn Hub</Link></li>
-              <li><Link href="/learn/blog">Insights &amp; Blog</Link></li>
-              <li><Link href="/learn/teacher-toolkit">Teacher Toolkit</Link></li>
-              <li><Link href="/shop">Shop</Link></li>
+              <li><Link href="/educators">For Educators</Link></li>
+              <li><Link href="/blog">Blog</Link></li>
+              <li><Link href="/educators#toolkit-title">Teacher Toolkit</Link></li>
             </ul>
           </div>
 
@@ -138,7 +137,7 @@ export default function Footer() {
               <li><Link href="/about">Our Story</Link></li>
               <li><Link href="/contact">Contact</Link></li>
               <li><a href="mailto:admin@therootedlearner.com">admin@therootedlearner.com</a></li>
-              <li><Link href="/work-with-me">Work With Us</Link></li>
+              <li><Link href="/districts">For Districts</Link></li>
             </ul>
           </div>
         </div>

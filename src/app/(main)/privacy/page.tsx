@@ -96,6 +96,16 @@ export default function PrivacyPolicyPage() {
               <li><strong>Payment processors</strong> to complete transactions securely. We do not store your full credit card details on our servers.</li>
               <li><strong>Legal authorities</strong> when required by law, court order, or to protect the rights, property, or safety of our users or the public.</li>
             </ul>
+            <p className="legal-text">
+              The tools that process visitor data on this website are:
+            </p>
+            <ul className="legal-list">
+              <li><strong>Supabase</strong> stores newsletter signups, contact and pilot notes, account profiles, and order records.</li>
+              <li><strong>Resend</strong> sends the guide you request and other email from this site.</li>
+              <li><strong>Stripe</strong> processes checkout when a purchase runs through this website.</li>
+              <li><strong>Sanity</strong> hosts blog posts and toolkit resources.</li>
+              <li><strong>Google Analytics 4 and Google Tag Manager</strong> load only when those IDs are configured. Custom events wait until you allow them in cookie settings. We do not send your email, school name, form message, or order details to analytics.</li>
+            </ul>
           </div>
 
           <div className="legal-section">

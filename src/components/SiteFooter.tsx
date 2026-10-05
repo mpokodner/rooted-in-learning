@@ -115,8 +115,8 @@ export default function SiteFooter() {
               </li>
               {links.tpt ? (
                 <li>
-                  <a href={links.tpt} rel="noopener noreferrer" target="_blank">
-                    Teachers Pay Teachers
+                  <a href={links.tpt} rel="noopener noreferrer" target="_blank" data-track="tpt_outbound_click" data-track-location="footer" data-track-category="tpt">
+                    Visit the TpT shop
                   </a>
                 </li>
               ) : null}
@@ -129,7 +129,7 @@ export default function SiteFooter() {
               ) : null}
               {links.youtube ? (
                 <li>
-                  <a href={links.youtube} rel="noopener noreferrer" target="_blank">
+                  <a href={links.youtube} rel="noopener noreferrer" target="_blank" data-track="youtube_outbound_click" data-track-location="footer" data-track-category="youtube">
                     YouTube
                   </a>
                 </li>

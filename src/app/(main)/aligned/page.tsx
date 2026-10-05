@@ -35,14 +35,14 @@ export default function AlignedPage() {
             </h1>
             <p className="lead mt-3">{copy.aligned.lead}</p>
             <div className="btn-row mt-4">
-              <Link href="/contact" className="btn btn-terra btn-lg" data-track="cta_aligned_page">
+              <Link href="/aligned/pilot" className="btn btn-terra btn-lg" data-track="pilot_cta_click" data-track-location="aligned_page" data-track-category="aligned">
+                Join the pilot interest list
+              </Link>
+              <Link href="/contact" className="btn btn-outline btn-lg" data-track="cta_aligned_page">
                 Request a conversation
               </Link>
-              <Link href="/partner" className="btn btn-outline btn-lg">
+              <Link href="/districts" className="btn btn-outline btn-lg">
                 For schools and districts
-              </Link>
-              <Link href="/aligned/pilot" className="btn btn-outline btn-lg" data-track="pilot_cta_click" data-track-location="aligned_page" data-track-category="aligned">
-                Join the pilot interest list
               </Link>
             </div>
           </div>

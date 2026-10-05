@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState, type FormEvent } from "react";
+import Link from "next/link";
 import { copy } from "@/content/site-copy";
 import { track } from "@/lib/analytics";
 
@@ -83,8 +84,17 @@ export default function ContactForm() {
   if (status === "success") {
     return (
       <div className="ct-success" role="status">
-        <h3 className="ct-success-title">Thanks — we received your note.</h3>
-        <p className="ct-success-desc">We will respond as soon as we can.</p>
+        <h3 className="ct-success-title">Thanks. We received your note.</h3>
+        <p className="ct-success-desc">
+          We will read it. Field notes are on the{" "}
+          <Link href="/blog">blog</Link>
+          {intent === "audit" ? "." : (
+            <>
+              . If this is about AlignED, the{" "}
+              <Link href="/aligned/pilot">pilot interest list</Link> is the shorter path.
+            </>
+          )}
+        </p>
       </div>
     );
   }

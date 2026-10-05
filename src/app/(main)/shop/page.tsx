@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { links } from "@/config/site";
 
 const categories = [
   { id: "all", label: "All" },
@@ -17,8 +18,6 @@ const sortOptions = [
   { value: "price-desc", label: "Price: High to Low" },
   { value: "name", label: "Name A–Z" },
 ];
-
-const TPT_URL = "https://www.teacherspayteachers.com/store/rootedinlearninged";
 
 export default function ShopPage() {
   const [activeCategory, setActiveCategory] = useState("all");
@@ -133,19 +132,22 @@ export default function ShopPage() {
               New roots are taking hold. Standards-aligned resources, WIDA overlays,
               assessment kits, and AI prompt libraries for educators are on the way.
               Check back soon or browse what&apos;s available now on{" "}
-              <a href={TPT_URL} target="_blank" rel="noopener noreferrer">
+              <a href={links.tpt} target="_blank" rel="noopener noreferrer" data-track="tpt_outbound_click" data-track-location="shop" data-track-category="tpt">
                 Teachers Pay Teachers
               </a>
               .
             </p>
             <div className="btn-row mt-4" style={{ justifyContent: "center" }}>
               <a
-                href={TPT_URL}
+                href={links.tpt}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="btn btn-terra"
+                className="btn btn-outline"
+                data-track="tpt_outbound_click"
+                data-track-location="shop"
+                data-track-category="tpt"
               >
-                Browse on TPT
+                Browse Free + Paid Resources on TpT
                 <svg
                   viewBox="0 0 24 24"
                   fill="none"

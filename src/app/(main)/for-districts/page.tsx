@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     "custom edtech",
   ],
   alternates: {
-    canonical: "/for-districts",
+    canonical: "/districts",
   },
   openGraph: {
     title: "What We Build — The Rooted Learner",

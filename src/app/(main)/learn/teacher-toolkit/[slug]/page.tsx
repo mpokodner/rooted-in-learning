@@ -85,7 +85,7 @@ export async function generateMetadata({
     title:
       resource.seo?.metaTitle || `${resource.title} | The Rooted Learner`,
     description: resource.seo?.metaDescription || resource.excerpt,
-    alternates: { canonical: `/learn/teacher-toolkit/${slug}` },
+    alternates: { canonical: `/educators/toolkit/${slug}` },
     openGraph: {
       title: resource.seo?.metaTitle || resource.title,
       description: resource.seo?.metaDescription || resource.excerpt || '',

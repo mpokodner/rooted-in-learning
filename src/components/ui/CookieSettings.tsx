@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { CONSENT_KEY, getAnalyticsConsent, setAnalyticsConsent } from "@/lib/analytics";
+import { getAnalyticsConsent, setAnalyticsConsent } from "@/lib/analytics";
 
 export default function CookieSettings() {
   const [granted, setGranted] = useState(false);
@@ -22,7 +22,8 @@ export default function CookieSettings() {
       </button>
       {open ? (
         <p>
-          Custom analytics events use local flag `{CONSENT_KEY}`.{" "}
+          Google Analytics and Tag Manager load only when those IDs are configured.
+          This control decides whether custom events are sent.{" "}
           <button
             type="button"
             onClick={() => {

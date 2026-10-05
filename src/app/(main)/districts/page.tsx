@@ -7,7 +7,7 @@ import BreadcrumbJsonLd from "@/components/seo/BreadcrumbJsonLd";
 export const metadata: Metadata = {
   title: copy.partner.title,
   description: copy.partner.lead,
-  alternates: { canonical: "/partner" },
+  alternates: { canonical: "/districts" },
 };
 
 export default function PartnerPage() {
@@ -16,7 +16,7 @@ export default function PartnerPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
-          { name: copy.partner.title, path: "/partner" },
+          { name: copy.partner.title, path: "/districts" },
         ]}
       />
       <section className="section hero" aria-labelledby="partner-title">
@@ -29,6 +29,9 @@ export default function PartnerPage() {
             </h1>
             <p className="lead mt-3">{copy.partner.lead}</p>
             <div className="btn-row mt-4">
+              <Link href="/aligned/pilot" className="btn btn-outline btn-lg" data-track="pilot_cta_click" data-track-location="districts_hero" data-track-category="aligned">
+                Join the pilot interest list
+              </Link>
               <Link href="/contact?intent=audit" className="btn btn-terra btn-lg" data-track="audit_cta_click" data-track-location="partner_hero" data-track-category="rooted_audit">
                 Request a Rooted Audit conversation
               </Link>
@@ -67,10 +70,25 @@ export default function PartnerPage() {
             <p className="lead mt-3">
               A Rooted Audit looks at your screener, diagnostics, adopted curriculum, and how evidence moves between benchmark windows — and where AlignED could sit beside them. It does not replace those tools.
             </p>
-            <Link href="/contact?intent=audit" className="btn btn-terra mt-4" data-track="audit_cta_click" data-track-location="partner_audit" data-track-category="rooted_audit">
-              Request a Rooted Audit conversation
-            </Link>
           </div>
+          <div className="grid grid-2 mt-4">
+            <article className="card">
+              <h3>The first conversation</h3>
+              <p>It is a working meeting, not a demo script. Bring the person who owns assessment, ELA, or multilingual learning.</p>
+              <p className="mt-3">We look at the tools you already run and where a teacher-facing companion would help or get in the way. You leave with a clearer yes, no, or not yet — and what to look at next.</p>
+            </article>
+            <article className="card" id="fit">
+              <h3>Is this a fit?</h3>
+              <p>It is a fit when a school or district already has a curriculum and an assessment stack, and grouping from a single score is the problem in front of teachers.</p>
+              <p className="mt-3">If you already know you want to talk about AlignED itself, the pilot interest list is the shorter path.</p>
+              <Link href="/aligned/pilot" className="link-arrow mt-3" data-track="pilot_cta_click" data-track-location="districts_fit" data-track-category="aligned">
+                Join the pilot interest list
+              </Link>
+            </article>
+          </div>
+          <Link href="/contact?intent=audit" className="btn btn-terra mt-4" data-track="audit_cta_click" data-track-location="partner_audit" data-track-category="rooted_audit">
+            Request a Rooted Audit conversation
+          </Link>
         </div>
       </section>
     </>

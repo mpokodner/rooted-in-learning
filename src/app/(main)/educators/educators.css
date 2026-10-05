@@ -1,0 +1,34 @@
+.educators-guide-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  align-items: stretch;
+  margin-top: 1.25rem;
+}
+
+.educators-guide-input {
+  width: 100%;
+  padding: 0.85rem 1rem;
+  border: 1px solid var(--border-beige);
+  border-radius: var(--radius-md, 0.5rem);
+  background: var(--white);
+  color: var(--text-dark);
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.educators-guide-input:focus {
+  outline: 2px solid var(--earth);
+  outline-offset: 1px;
+}
+
+@media (min-width: 640px) {
+  .educators-guide-form {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .educators-guide-input {
+    flex: 1;
+  }
+}

@@ -8,15 +8,12 @@ export default function BentoNewsletter() {
     <section className="bento-newsletter" id="download">
       <div className="container bento-newsletter-inner">
         <div className="bento-newsletter-text">
-          <h2>Claude for Educators</h2>
-          <p>
-            18 pages of prompt templates and classroom workflows — free when you
-            subscribe. No spam, unsubscribe anytime.
-          </p>
+          <h2>Claude AI and Cowork</h2>
+          <p>{copy.educators.guideBody}</p>
         </div>
         <NewsletterForm
           source="homepage-bento-bottom"
-          buttonText="Subscribe & get the guide"
+          buttonText="Get the Claude AI and Cowork guide"
           sendFreebie={true}
           tag="newsletter"
           formClassName="bento-newsletter-form"

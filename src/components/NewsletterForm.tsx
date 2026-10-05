@@ -1,6 +1,7 @@
 "use client";
 
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import Link from "next/link";
 import { track } from "@/lib/analytics";
 
 interface NewsletterFormProps {
@@ -35,6 +36,35 @@ export default function NewsletterForm({
   const [status, setStatus] = useState<"idle" | "loading" | "success" | "error">("idle");
   const [message, setMessage] = useState("");
   const started = useRef(false);
+  const formRef = useRef<HTMLFormElement>(null);
+  const viewed = useRef(false);
+
+  useEffect(() => {
+    try {
+      if (trackSubmit !== "guide_signup" || !formRef.current) return;
+      const node = formRef.current;
+      const observer = new IntersectionObserver(
+        (entries) => {
+          try {
+            if (viewed.current || !entries.some((entry) => entry.isIntersecting)) return;
+            viewed.current = true;
+            track("guide_form_view", {
+              location: trackLocation || "",
+              content_category: "guide",
+            });
+            observer.disconnect();
+          } catch (error) {
+            console.error("NewsletterForm.view", { error });
+          }
+        },
+        { threshold: 0.4 },
+      );
+      observer.observe(node);
+      return () => observer.disconnect();
+    } catch (error) {
+      console.error("NewsletterForm.observe", { error });
+    }
+  }, [trackLocation, trackSubmit]);
 
   async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
@@ -83,13 +113,19 @@ export default function NewsletterForm({
   if (status === "success") {
     return (
       <div className="newsletter-success" role="status">
-        <p>🌱 {message}</p>
+        <p>{message}</p>
+        {sendFreebie ? (
+          <p>
+            <Link href="/blog">Read the blog while you wait.</Link>
+          </p>
+        ) : null}
       </div>
     );
   }
 
   return (
     <form
+      ref={formRef}
       className={formClassName}
       onSubmit={handleSubmit}
       onFocus={() => {

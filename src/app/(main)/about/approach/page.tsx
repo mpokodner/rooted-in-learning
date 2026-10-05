@@ -99,7 +99,7 @@ export default function ApproachPage() {
             learners, and what &ldquo;working&rdquo; actually looks like for your
             team.
           </p>
-          <Link href="/work-with-me" className="btn btn-outline-light">
+          <Link href="/districts" className="btn btn-outline-light">
             Start a conversation &rarr;
           </Link>
         </div>

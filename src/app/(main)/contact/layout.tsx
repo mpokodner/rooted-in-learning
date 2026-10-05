@@ -12,9 +12,6 @@ export const metadata: Metadata = {
     "collaboration",
     "curriculum inquiry",
   ],
-  alternates: {
-    canonical: "/contact",
-  },
   openGraph: {
     title: "Contact | The Rooted Learner",
     description: "Questions, consulting inquiries, or collaborations? Reach out and I'll respond within 48 hours.",

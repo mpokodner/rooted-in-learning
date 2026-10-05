@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     "school consulting",
   ],
   alternates: {
-    canonical: "/services",
+    canonical: "/work-with-me",
   },
   openGraph: {
     title: "Greenhouse Schools | The Rooted Learner",

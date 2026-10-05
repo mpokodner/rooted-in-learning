@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Link from "next/link";
+import { links } from "@/config/site";
 
 export const metadata: Metadata = {
   title: "Cart | The Rooted Learner",
@@ -26,9 +26,9 @@ export default function CartPage() {
               <p className="text-(--text-muted) mb-6">
                 Looks like you haven&apos;t added any resources yet. Start browsing to find what you need!
               </p>
-              <Link href="/shop" className="btn btn-md btn-primary rounded-lg">
-                Start Shopping
-              </Link>
+              <a href={links.tpt} className="btn btn-md btn-primary rounded-lg" target="_blank" rel="noopener noreferrer" data-track="tpt_outbound_click" data-track-location="cart" data-track-category="tpt">
+                Browse Free + Paid Resources on TpT
+              </a>
             </div>
           </div>
         </div>

@@ -14,6 +14,22 @@ export const metadata: Metadata = {
   title: `${PRODUCT_NAME} — grouping from what students can do`,
   description: copy.home.heroLead,
   alternates: { canonical: "/" },
+  openGraph: {
+    type: "website",
+    locale: "en_US",
+    url: "/",
+    siteName: "The Rooted Learner",
+    title: `${PRODUCT_NAME} — grouping from what students can do`,
+    description: copy.home.heroLead,
+    images: [
+      {
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "The Rooted Learner - EdTech Solutions",
+      },
+    ],
+  },
 };
 
 export const revalidate = 60;
@@ -29,7 +45,7 @@ const offerings = [
     audience: "Districts",
     title: "English Language Development overlays",
     body: "ELD overlays for any text, custom-made upon request for your district’s HQIM.",
-    href: "/partner",
+    href: "/districts",
   },
   {
     audience: "Districts",
@@ -135,11 +151,11 @@ export default async function Home() {
             </div>
             <div className="home-blog-grid">
               {latestPosts.map((post) => (
-                <BlogCard key={post._id} post={post} hrefPrefix="/insights" />
+                <BlogCard key={post._id} post={post} hrefPrefix="/blog" />
               ))}
             </div>
             <div className="home-blog-more">
-              <Link href="/insights" className="home-link-arrow">
+              <Link href="/blog" className="home-link-arrow">
                 View all posts
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                   <path d="M5 12h14" />

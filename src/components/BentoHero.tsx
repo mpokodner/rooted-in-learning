@@ -32,7 +32,7 @@ export default function BentoHero() {
         </div>
       </Link>
 
-      <Link href="/partner" className="bento-tile bento-tile--combined">
+      <Link href="/districts" className="bento-tile bento-tile--combined">
         <Image
           src="/images/districts-hero.png"
           alt="Watercolor illustration of a school building"
@@ -61,7 +61,7 @@ export default function BentoHero() {
             <path d="M16 10a4 4 0 0 1-8 0" />
           </svg>
           <h2>For educators</h2>
-          <p>Toolkit, grouping kit, and classroom resources</p>
+          <p>Claude guide, the TPT shop, and the teacher toolkit</p>
         </div>
         <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
           <line x1="7" y1="17" x2="17" y2="7" />
@@ -70,14 +70,14 @@ export default function BentoHero() {
         <div className="bento-hover-overlay">
           <span className="bento-hover-eyebrow">Classroom-ready</span>
           <ul>
+            <li>Claude AI and Cowork guide</li>
+            <li>Teachers Pay Teachers shop</li>
             <li>Teacher toolkit</li>
-            <li>Grouping kit</li>
-            <li>Field notes</li>
           </ul>
         </div>
       </Link>
 
-      <Link href="/learn/teacher-toolkit/getting-started-with-claude-ai-for-educators" className="bento-tile bento-tile--guide">
+      <Link href="/educators#start" className="bento-tile bento-tile--guide">
         <div className="bento-tile-content">
           <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8Z" />
@@ -104,12 +104,12 @@ export default function BentoHero() {
         </div>
       </Link>
 
-      <Link href="/insights" className="bento-tile bento-tile--learn">
+      <Link href="/blog" className="bento-tile bento-tile--learn">
         <div className="bento-tile-content">
           <svg className="bento-tile-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20" />
           </svg>
-          <h2>Insights</h2>
+          <h2>Blog</h2>
           <p>Field notes from inside the work</p>
         </div>
         <svg className="bento-tile-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">

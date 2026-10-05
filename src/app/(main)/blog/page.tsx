@@ -10,7 +10,7 @@ import BlogCard, { BlogFeaturedCard } from "@/components/blog/BlogCard";
 export const metadata: Metadata = {
   title: copy.insights.title,
   description: copy.insights.lead,
-  alternates: { canonical: "/insights" },
+  alternates: { canonical: "/blog" },
 };
 
 export const revalidate = 60;
@@ -31,7 +31,7 @@ export default async function InsightsPage() {
       <BreadcrumbJsonLd
         items={[
           { name: "Home", path: "/" },
-          { name: copy.insights.title, path: "/insights" },
+          { name: copy.insights.title, path: "/blog" },
         ]}
       />
       <section className="section hero" aria-labelledby="insights-title">
@@ -51,13 +51,13 @@ export default async function InsightsPage() {
         <div className="container">
           {featured ? (
             <div className="mt-2">
-              <BlogFeaturedCard post={featured} hrefPrefix="/insights" />
+              <BlogFeaturedCard post={featured} hrefPrefix="/blog" />
             </div>
           ) : null}
           {rest.length > 0 ? (
             <div className="grid grid-3 mt-4">
               {rest.map((post) => (
-                <BlogCard key={post._id} post={post} hrefPrefix="/insights" />
+                <BlogCard key={post._id} post={post} hrefPrefix="/blog" />
               ))}
             </div>
           ) : null}

@@ -18,14 +18,6 @@ export default function robots(): MetadataRoute.Robots {
     "/links",
     "/links/",
     "/_next/",
-    "/learn",
-    "/learn/",
-    "/shop",
-    "/shop/",
-    "/for-teachers",
-    "/for-teachers/",
-    "/work-with-me",
-    "/for-districts/assessalign",
   ];
 
   if (!flags.hallpassPublic) {

@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { client } from "@/sanity/lib/client";
 import { blogPostBySlugQuery } from "@/sanity/lib/queries";
@@ -19,15 +20,15 @@ export async function generateMetadata({
   try {
     const { slug } = await params;
     const post = await client.fetch<BlogPost | null>(blogPostBySlugQuery, { slug });
-    if (!post) return { title: "Insights" };
+    if (!post) return { title: "Blog" };
     return {
       title: post.title,
       description: post.excerpt,
-      alternates: { canonical: `/insights/${slug}` },
+      alternates: { canonical: `/blog/${slug}` },
     };
   } catch (error) {
     console.error("insights metadata", { error });
-    return { title: "Insights" };
+    return { title: "Blog" };
   }
 }
 
@@ -46,8 +47,8 @@ export default async function InsightsSlugPage({
         <BreadcrumbJsonLd
           items={[
             { name: "Home", path: "/" },
-            { name: "Insights", path: "/insights" },
-            { name: post.title, path: `/insights/${slug}` },
+            { name: "Blog", path: "/blog" },
+            { name: post.title, path: `/blog/${slug}` },
           ]}
         />
         <Section>
@@ -55,7 +56,7 @@ export default async function InsightsSlugPage({
             <Breadcrumbs
               items={[
                 { href: "/", label: "Home" },
-                { href: "/insights", label: "Insights" },
+                { href: "/blog", label: "Blog" },
                 { label: post.title },
               ]}
             />
@@ -66,6 +67,11 @@ export default async function InsightsSlugPage({
                 <RichText content={post.body} />
               </div>
             ) : null}
+            <p style={{ marginTop: "2rem" }}>
+              <Link href="/educators#start" className="btn btn-terra">
+                Get the Claude AI and Cowork guide
+              </Link>
+            </p>
           </Container>
         </Section>
       </div>

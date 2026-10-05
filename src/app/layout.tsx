@@ -64,13 +64,9 @@ export const metadata: Metadata = {
       "max-snippet": -1,
     },
   },
-  alternates: {
-    canonical: "https://www.therootedlearner.com",
-  },
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://www.therootedlearner.com",
     siteName: "The Rooted Learner",
     title: "The Rooted Learner — standards-aligned grouping for grades 3–8 ELA",
     description:

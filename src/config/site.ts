@@ -18,7 +18,7 @@ export const flags = {
 export const links = {
   tpt: envLink(
     "NEXT_PUBLIC_TPT_URL",
-    "https://www.teacherspayteachers.com/store/rootedinlearninged",
+    "https://www.teacherspayteachers.com/store/the-rooted-learner-classroom",
   ),
   youtube: envLink(
     "NEXT_PUBLIC_YOUTUBE_URL",
@@ -35,9 +35,9 @@ export const links = {
 
 export const nav = {
   primary: [
-    { href: "/partner", label: "For Districts" },
+    { href: "/districts", label: "For Districts" },
     { href: "/educators", label: "For Educators" },
-    { href: "/insights", label: "Blog" },
+    { href: "/blog", label: "Blog" },
     { href: "/about", label: "About" },
   ],
   cta: { href: "/contact", label: "Request a conversation" },

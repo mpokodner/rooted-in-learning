@@ -22,7 +22,7 @@ export const metadata: Metadata = {
     'edtech insights',
     'multilingual learner strategies',
   ],
-  alternates: { canonical: '/learn/blog' },
+  alternates: { canonical: '/blog' },
   openGraph: {
     title: 'Insights',
     description:

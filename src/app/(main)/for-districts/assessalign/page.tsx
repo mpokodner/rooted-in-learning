@@ -288,7 +288,7 @@ export default function AssessAlignPage() {
             >
               Chris Carlozzi
             </a>
-            , combining 30+ years of classroom expertise with full-stack engineering.
+            . Michelle brings 12+ years in grades 1–8 classrooms. Chris brings 30+ years in education and full-stack engineering.
           </p>
         </div>
       </section>

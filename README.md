@@ -1,6 +1,6 @@
 # The Rooted Learner
 
-Practical tools and strategies built by a 30+ year educator for classrooms that thrive.
+Practical tools and strategies from a grades 1–8 educator and a partner with 30+ years in education.
 
 **Live:** [therootedlearner.com](https://www.therootedlearner.com)
 

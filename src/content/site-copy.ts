@@ -52,7 +52,7 @@ export const copy = {
     title: "About",
     lead: `${COMPANY_NAME} is built by a classroom educator. The work starts with diagnosis, not a pitch.`,
     story:
-      "Michelle Pokodner has spent three decades in 1–8 classrooms and leadership. This company exists because grouping from a single score kept failing the students in front of her.",
+      "Michelle Pokodner brings 12+ years in grades 1–8 classrooms, with a focus in the science of reading. This company exists because grouping from a single score kept failing the students in front of her.",
   },
   forms: {
     studentNotice: "Please do not submit student information through this form.",
